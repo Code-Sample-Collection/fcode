@@ -20,7 +20,7 @@ module GAME
   real, save :: fTickTime
   integer, save :: HitTime = 0  
 contains
-  ! ³õÆô×ÊÁÏ
+  ! åˆå¯èµ„æ–™
   subroutine InitGame()   
 	LastTime = sglGetInfo(SGL_TIME)
 	PrevPlayerPos = PlayerPos
@@ -29,7 +29,7 @@ contains
     call random_seed()
 	call NewBall()
   end subroutine
-  ! ·¢³öÒ»¸öĞÂµÄÇò
+  ! å‘å‡ºä¸€ä¸ªæ–°çš„çƒ
   subroutine NewBall()
     real distance
 
@@ -46,7 +46,7 @@ contains
 	if ( abs(BallDir%y)<0.1 ) BallDir%y=0.1
 	distance = normalize(BallDir)
   end subroutine
-  ! ÏÔÊ¾µÄº¯Êı
+  ! æ˜¾ç¤ºçš„å‡½æ•°
   subroutine display()
     call sglClearColor3i(0,200,0)
 	call sglClearBuffer()
@@ -55,7 +55,7 @@ contains
 	call DrawPlayer()
 	call sglUpdateBuffer()    
   end subroutine
-  ! »­³öÇò×À
+  ! ç”»å‡ºçƒæ¡Œ
   subroutine DrawBoard()
     character(len=20) :: string
     call sglColor3i(255,255,255)
@@ -70,7 +70,7 @@ contains
 	write(string,"('You:'I2)") PlayerScore
 	call sglTextOut(1,SY-BoundY+1,string)
   end subroutine
-  ! »­³öÇò
+  ! ç”»å‡ºçƒ
   subroutine DrawBall()
     call sglColor3i(255,0,0)
 	call sglFilledCircle( int(BallPos%x), int(BallPos%y), BallRadius)
@@ -79,7 +79,7 @@ contains
     call sglColor3i(255,0,0)
 	call sglFilledCircle( int(BallPos%x), int(BallPos%y), BallRadius/3)
   end subroutine
-  ! »­³öÅÄ×Ó
+  ! ç”»å‡ºæ‹å­
   subroutine DrawPlayer()
     call sglColor3i(0,50,50)
     call sglFilledCircle( int(PlayerPos%x), int(PlayerPos%y), BatRadius)
@@ -88,7 +88,7 @@ contains
     call sglFilledCircle( int(PlayerPos%x), int(PlayerPos%y), BatRadius/4)
     call sglFilledCircle( int(ComputerPos%x), int(ComputerPos%y), BatRadius/4)
   end subroutine
-  ! ÒÆ¶¯Êó±êµÄĞÅÏ¢º¯Êı
+  ! ç§»åŠ¨é¼ æ ‡çš„ä¿¡æ¯å‡½æ•°
   subroutine MouseMove(x,y)
     integer x,y
 	PlayerPos = vector2f( real(x), real(y) )
@@ -97,7 +97,7 @@ contains
 	if ( PlayerPos%x < BoundX+BallRadius ) PlayerPos%x = BoundX+BallRadius
 	if ( PlayerPos%x > SX-BoundX-BallRadius ) PlayerPos%x = SX-BoundX-BallRadius
   end subroutine
-  ! µçÄÔµÄAI
+  ! ç”µè„‘çš„AI
   subroutine ComputerMove()
     real, parameter :: movespeed = 200, hitspeed = 300
 	real speed, length, speedup
@@ -151,7 +151,7 @@ contains
 	if ( ComputerPos%y > SY-by ) ComputerPos%y=SY-by
 
   end subroutine
-  ! ¼ÆËãÇòµÄÒÆ¶¯
+  ! è®¡ç®—çƒçš„ç§»åŠ¨
   subroutine BallMove()
     real vx, vy
 	type(vector2f) :: newpos
@@ -202,7 +202,7 @@ contains
 	end if
 	
   end subroutine
-  ! ¼ì²éÊÇ·ñÓĞ´òµ½Çò
+  ! æ£€æŸ¥æ˜¯å¦æœ‰æ‰“åˆ°çƒ
   logical function Hit(Speed, PlayerMove, BallMove)
     real speed
     type(line) :: PlayerMove, BallMove
@@ -253,7 +253,7 @@ contains
 	  Hit = .true.
 	end if
   end function
-  ! ¼ì²éÍæ¼Ò»òÊÇµçÄÔÓĞÃ»ÓĞ´òµ½Çò
+  ! æ£€æŸ¥ç©å®¶æˆ–æ˜¯ç”µè„‘æœ‰æ²¡æœ‰æ‰“åˆ°çƒ
   subroutine CheckHit(who, newpos)
     integer who
 	type(vector2f) :: newpos, vec
@@ -280,7 +280,7 @@ contains
 	end if
 
   end subroutine
-  ! Ã»ÓĞÈÎºÎĞÅÏ¢Ê±Ò»Ö±»á±»µ÷ÓÃµÄº¯Êı
+  ! æ²¡æœ‰ä»»ä½•ä¿¡æ¯æ—¶ä¸€ç›´ä¼šè¢«è°ƒç”¨çš„å‡½æ•°
   subroutine OnIdle()
     real move
     integer t

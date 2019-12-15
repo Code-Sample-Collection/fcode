@@ -11,7 +11,7 @@ module INTERPOLATE_UTILITY
   type(point), save :: interpolate(NP)
   real, save :: table(N,N), width
 contains
-! ²úÉúÊıÁĞ
+! äº§ç”Ÿæ•°åˆ—
   subroutine GenerateData(func)
 	real, external :: func
 	real r
@@ -24,7 +24,7 @@ contains
 	  r = r+width
 	end do
   end subroutine
-! ½¨Á¢difference table
+! å»ºç«‹difference table
   subroutine BuildTable()
     integer row,col,i
 	!real table(N,N)
@@ -45,7 +45,7 @@ contains
 	integer f,i,j
     
 	if ( th+num-1 > N ) then
-	  write(*,*) "Êı¾İµã²»×ã"
+	  write(*,*) "æ•°æ®ç‚¹ä¸è¶³"
 	  return
 	end if
 
@@ -59,19 +59,19 @@ contains
 	  newton = newton + coeff*table(th,i+1)/real(f)
 	end do
   end function
-! »æÍ¼º¯Êı
+! ç»˜å›¾å‡½æ•°
   subroutine display()
     real, parameter :: size = 0.1
     integer i
     call sglClearBuffer()
 	call sglColor3i(255,255,255)
-	! °ÑËùÓĞ²åÖµ³öÀ´µÄµãÓÃÏß¶ÎÁ¬½ÓÆğÀ´
+	! æŠŠæ‰€æœ‰æ’å€¼å‡ºæ¥çš„ç‚¹ç”¨çº¿æ®µè¿æ¥èµ·æ¥
     do i=1,NP-1
 	  call sglLineV( interpolate(i)%x, interpolate(i)%y,&
 	                 interpolate(i+1)%x, interpolate(i+1)%y)
 	end do
 	call sglColor3i(255,0,0)
-	! »­³ön¸öÊı¾İµãµÄÎ»ÖÃ
+	! ç”»å‡ºnä¸ªæ•°æ®ç‚¹çš„ä½ç½®
 	do i=1,N
       call sglLineV( datas(i)%x-size, datas(i)%y-size,&
 	                 datas(i)%x+size, datas(i)%y+size)
@@ -89,13 +89,13 @@ program main
   real xinc,x
   integer i
 
-  call GenerateData(sin) ! ²úÉúÊı¾İµã
+  call GenerateData(sin) ! äº§ç”Ÿæ•°æ®ç‚¹
   call BuildTable()
   x=0
   xinc = (xmax-xmin)/(NP-1)
   do i=1,NP
     interpolate(i)%x = x
-    interpolate(i)%y = newton(x,1,N) ! ²åÖµ³öf(x)µÄÖµ
+    interpolate(i)%y = newton(x,1,N) ! æ’å€¼å‡ºf(x)çš„å€¼
 	x = x+xinc
   end do
   

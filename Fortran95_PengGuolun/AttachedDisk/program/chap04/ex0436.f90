@@ -2,8 +2,8 @@ program ex0436
 implicit none
 real(kind=4) :: a
 real(kind=8) :: b
-a=1.0_4 ! 确定1.0这个数字是使用单精度
-b=1.0_8 ! 确定1.0这个数字是使用双精度
+a=1.0_4 ! 纭畾1.0杩欎釜鏁板瓧鏄娇鐢ㄥ崟绮惧害
+b=1.0_8 ! 纭畾1.0杩欎釜鏁板瓧鏄娇鐢ㄥ弻绮惧害
 write(*,*) a,b
 stop
 end

@@ -6,20 +6,20 @@ module STACK_UTILITY
   integer, save :: stack(TOP)
   public push, pop
 contains
-  ! 把数据放入堆栈中  
+  ! 鎶婃暟鎹斁鍏ュ爢鏍堜腑  
   subroutine push(value)
     integer value
-	if ( current>TOP ) then ! 超过容量
+	if ( current>TOP ) then ! 瓒呰繃瀹归噺
 	  write(*,*) "Stack full."
 	  return
 	end if
 	current = current+1
 	stack(current)=value
   end subroutine
-  ! 从堆栈中取出数据
+  ! 浠庡爢鏍堜腑鍙栧嚭鏁版嵁
   integer function pop(value)
     integer value
-    if ( current<=0 ) then ! 已经没有东西可以拿了
+    if ( current<=0 ) then ! 宸茬粡娌℃湁涓滆タ鍙互鎷夸簡
 	  pop=1
 	  return
 	end if

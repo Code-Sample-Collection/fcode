@@ -8,51 +8,51 @@ implicit none
             output
 
   type :: rational
-    integer :: num    ! ·Ö×Ó
-    integer :: denom  ! ·ÖÄ¸
+    integer :: num    ! åˆ†å­
+    integer :: denom  ! åˆ†æ¯
   end type rational
-  ! ¼Ó·¨
+  ! åŠ æ³•
   interface operator(+)
     module procedure rat_plus_rat
   end interface
-  ! ¼õ·¨
+  ! å‡æ³•
   interface operator(-)
     module procedure rat_minus_rat
   end interface
-  ! ³Ë·¨
+  ! ä¹˜æ³•
   interface operator(*)
     module procedure rat_times_rat
   end interface
-  ! ³ı·¨
+  ! é™¤æ³•
   interface operator(/)
     module procedure rat_div_rat
   end interface
-  ! µÈºÅ
+  ! ç­‰å·
   interface assignment(=)
     module procedure int_eq_rat
     module procedure real_eq_rat
   end interface
 
 contains
-  ! ÕûÊı=·ÖÊı
+  ! æ•´æ•°=åˆ†æ•°
   subroutine int_eq_rat( int, rat )
     implicit none
     integer, intent(out):: int
     type(rational), intent(in) :: rat
-    ! ·Ö×Ó³ıÒÔ·ÖÄ¸À´×ª»»³ÉÕûÊı
+    ! åˆ†å­é™¤ä»¥åˆ†æ¯æ¥è½¬æ¢æˆæ•´æ•°
     int = rat%num / rat%denom
     return
   end subroutine int_eq_rat
-  ! ¸¡µãÊı=·ÖÊı
+  ! æµ®ç‚¹æ•°=åˆ†æ•°
   subroutine real_eq_rat( float, rat )
     implicit none
     real, intent(out) :: float
     type(rational), intent(in) :: rat
-    ! ·Ö×Ó³ıÒÔ·ÖÄ¸
+    ! åˆ†å­é™¤ä»¥åˆ†æ¯
     float = real(rat%num) / real(rat%denom)
     return
   end subroutine real_eq_rat
-  ! »¯¼ò·ÖÊı
+  ! åŒ–ç®€åˆ†æ•°
   function reduse( a )
     implicit none
     type(rational), intent(in) :: a
@@ -68,13 +68,13 @@ contains
     end if
     temp%num=abs(a%num)
     temp%denom=abs(a%denom)
-    b=gcv(temp%num,temp%denom)  ! ÕÒ·Ö×ÓÓë·ÖÄ¸µÄ×î´ó¹«ÒòÊı
-    ! °Ñ·Ö×Ó,·ÖÄ¸Í¬³ıÒÔ×î´ó¹«ÒòÊı
+    b=gcv(temp%num,temp%denom)  ! æ‰¾åˆ†å­ä¸åˆ†æ¯çš„æœ€å¤§å…¬å› æ•°
+    ! æŠŠåˆ†å­,åˆ†æ¯åŒé™¤ä»¥æœ€å¤§å…¬å› æ•°
     reduse%num = temp%num/b*sign
     reduse%denom = temp%denom/b
     return
   end function reduse
-  ! ÓÃÕ·×ªÏà³ı·¨ÕÒ×î´ó¹«ÒòÊı
+  ! ç”¨è¾—è½¬ç›¸é™¤æ³•æ‰¾æœ€å¤§å…¬å› æ•°
   function gcv(a,b)
     implicit none
     integer, intent(in) :: a,b
@@ -93,7 +93,7 @@ contains
     gcv=small
     return
   end function gcv
-  ! ·ÖÊıÏà¼Ó
+  ! åˆ†æ•°ç›¸åŠ 
   function rat_plus_rat( rat1, rat2 )
     implicit none
     type(rational) :: rat_plus_rat
@@ -102,11 +102,11 @@ contains
     ! b/a+d/c = ( b*c+d*a )/(a*c)
     act%denom= rat1%denom * rat2%denom  ! a*c
     act%num  = rat1%num*rat2%denom + rat2%num*rat1%denom ! (b*c+d*a)
-    rat_plus_rat = reduse(act) ! Ô¼·Ö
+    rat_plus_rat = reduse(act) ! çº¦åˆ†
 
     return
   end function rat_plus_rat
-  ! ·ÖÊıÏà¼õ
+  ! åˆ†æ•°ç›¸å‡
   function rat_minus_rat( rat1, rat2 )
     implicit none
     type(rational) :: rat_minus_rat
@@ -115,10 +115,10 @@ contains
     ! b/a-d/c=(b*c-d*a)/(a*c)
     temp%denom = rat1%denom*rat2%denom ! a*c
     temp%num = rat1%num*rat2%denom - rat2%num*rat1%denom ! (b*c-d*a)
-    rat_minus_rat = reduse( temp ) ! Ô¼·Ö
+    rat_minus_rat = reduse( temp ) ! çº¦åˆ†
   return
   end function rat_minus_rat
-  ! ·ÖÊıÏà³Ë
+  ! åˆ†æ•°ç›¸ä¹˜
   function rat_times_rat( rat1, rat2 )
     implicit none
     type(rational) :: rat_times_rat
@@ -127,10 +127,10 @@ contains
     ! (b/a)*(d/c)=(b*d)/(a*c)
     temp%denom = rat1%denom* rat2%denom ! (a*c)
     temp%num   = rat1%num  * rat2%num   ! (b*d)
-    rat_times_rat = reduse(temp)   ! Ô¼·Ö
+    rat_times_rat = reduse(temp)   ! çº¦åˆ†
     return
   end function rat_times_rat
-  ! ·ÖÊıÏà³ı
+  ! åˆ†æ•°ç›¸é™¤
   function rat_div_rat( rat1, rat2 )
     implicit none
     type(rational) :: rat_div_rat
@@ -139,10 +139,10 @@ contains
     ! (b/a)/(d/c)=(b*c)/(a*d)
     temp%denom = rat1%denom* rat2%num   ! (a*d)
     temp%num   = rat1%num  * rat2%denom ! (b*c)
-    rat_div_rat = reduse(temp)     ! Ô¼·Ö
+    rat_div_rat = reduse(temp)     ! çº¦åˆ†
     return
   end function rat_div_rat
-  ! Êä³ö
+  ! è¾“å‡º
   subroutine output(a)
     implicit none
     type(rational), intent(in) :: a
@@ -155,7 +155,7 @@ contains
     return
   end subroutine output
 end module
-! Ö÷³ÌĞò
+! ä¸»ç¨‹åº
 program main
   use rational_util
   implicit none

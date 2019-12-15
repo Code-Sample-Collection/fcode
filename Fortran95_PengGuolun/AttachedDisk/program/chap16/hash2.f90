@@ -1,16 +1,16 @@
-! É¢ÁÐ²éÕÒ·¨·¶Àý
+! æ•£åˆ—æŸ¥æ‰¾æ³•èŒƒä¾‹
 ! by perng 1997/8/31
 program hashing_search_demo
   implicit none
-  integer, parameter :: n=10 ! ÀàÐÍµÄ´óÐ¡
-  integer source(n) ! ´æ·ÅÊý¾Ý×éµÄÀàÐÍ
-  integer a(n)      ! ´æ·Åhashing ºóµÄÀàÐÍ
-  integer key               ! ¼ÇÂ¼ËùÒªÕÒµÄÖµ
-  integer i                 ! Ñ­»·¼ÇÊýÆ÷
+  integer, parameter :: n=10 ! ç±»åž‹çš„å¤§å°
+  integer source(n) ! å­˜æ”¾æ•°æ®ç»„çš„ç±»åž‹
+  integer a(n)      ! å­˜æ”¾hashing åŽçš„ç±»åž‹
+  integer key               ! è®°å½•æ‰€è¦æ‰¾çš„å€¼
+  integer i                 ! å¾ªçŽ¯è®°æ•°å™¨
   integer loc
   data source /21,53,71,19,61,81,3,17,44,93/
   integer hash
-  hash(key) = key/10+1 ! ¶¨Òåhashº¯Êý
+  hash(key) = key/10+1 ! å®šä¹‰hashå‡½æ•°
 
   write(*,"('source=>',10I3)") source
   

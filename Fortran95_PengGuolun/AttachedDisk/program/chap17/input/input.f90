@@ -1,4 +1,4 @@
-! InteractiveµÄ»æÍ¼·¶Àı
+! Interactiveçš„ç»˜å›¾èŒƒä¾‹
 ! By Perng 1997/9/20
 program Plot_Sine
 use DFLIB
@@ -6,38 +6,38 @@ implicit none
   logical :: result
   integer :: input		
   type(WindowConfig) :: wc
-  real(kind=8), external :: f1,f2,f3	! ËùÒª»æµÄº¯Êı
-  ! ´ò¿ªÊäÈëÓÃµÄ´°¿Ú
+  real(kind=8), external :: f1,f2,f3	! æ‰€è¦ç»˜çš„å‡½æ•°
+  ! æ‰“å¼€è¾“å…¥ç”¨çš„çª—å£
   open(unit=5,file='user',iofocus=.true.)
-  ! -1 ´ú±íÓÉ³ÌĞò×ÔĞĞÈ¥×ö¾ö¶¨
-  wc.numxpixels=300 ! ´°¿ÚµÄ¿í
-  wc.numypixels=300 ! ´°¿ÚµÄ¸ß
-  wc.numtextcols=-1 ! Ã¿ĞĞ¿ÉÈİÄÉµÄÎÄ×Ö
-  wc.numtextrows=-1 ! ¿ÉÒÔÓĞ¼¸ÁĞÎÄ×Ö
-  wc.numcolors=-1	! ¿ÉÒÔÊ¹ÓÃµÄÑÕÉ«
-  wc.title="Input Area"C ! ´°¿ÚµÄ±êÌâÎÄ×Ö
-  wc.fontsize=-1	! ËùÊ¹ÓÃµÄÎÄ×Ö´óĞ¡
-  ! ¸ù¾İwcÖĞËù¶¨ÒåµÄÊı¾İÀ´ÖØĞÂÉè¶¨´°¿Ú´óĞ¡
+  ! -1 ä»£è¡¨ç”±ç¨‹åºè‡ªè¡Œå»åšå†³å®š
+  wc.numxpixels=300 ! çª—å£çš„å®½
+  wc.numypixels=300 ! çª—å£çš„é«˜
+  wc.numtextcols=-1 ! æ¯è¡Œå¯å®¹çº³çš„æ–‡å­—
+  wc.numtextrows=-1 ! å¯ä»¥æœ‰å‡ åˆ—æ–‡å­—
+  wc.numcolors=-1	! å¯ä»¥ä½¿ç”¨çš„é¢œè‰²
+  wc.title="Input Area"C ! çª—å£çš„æ ‡é¢˜æ–‡å­—
+  wc.fontsize=-1	! æ‰€ä½¿ç”¨çš„æ–‡å­—å¤§å°
+  ! æ ¹æ®wcä¸­æ‰€å®šä¹‰çš„æ•°æ®æ¥é‡æ–°è®¾å®šçª—å£å¤§å°
   result=SetWindowConfig(wc) 
-  result=DisplayCursor($GCURSORON) ! ÏÔÏÖ³öÓÎ±ê
-  ! ´ò¿ª»æÍ¼ËùÒªÊ¹ÓÃµÄ´°¿Ú
+  result=DisplayCursor($GCURSORON) ! æ˜¾ç°å‡ºæ¸¸æ ‡
+  ! æ‰“å¼€ç»˜å›¾æ‰€è¦ä½¿ç”¨çš„çª—å£
   open(unit=10,file='user',iofocus=.true.)
-  wc.numxpixels=300 ! ´°¿ÚµÄ¿í
-  wc.numypixels=300 ! ´°¿ÚµÄ¸ß
-  ! -1´ú±íÈÃ³ÌĞò×ÔĞĞÈ¥×ö¾ö¶¨
-  wc.numtextcols=-1	! Ã¿ĞĞÈİÁ¿µÄÎÄ×Ö
-  wc.numtextrows=-1	! ¿ÉÒÔÓĞ¼¸ÁĞÎÄ×Ö
-  wc.numcolors=-1	! Ê¹ÓÃ¶àÉÙÑÕÉ«
-  wc.title="Plot Area"C ! ´°¿ÚµÄ±êÌâ
+  wc.numxpixels=300 ! çª—å£çš„å®½
+  wc.numypixels=300 ! çª—å£çš„é«˜
+  ! -1ä»£è¡¨è®©ç¨‹åºè‡ªè¡Œå»åšå†³å®š
+  wc.numtextcols=-1	! æ¯è¡Œå®¹é‡çš„æ–‡å­—
+  wc.numtextrows=-1	! å¯ä»¥æœ‰å‡ åˆ—æ–‡å­—
+  wc.numcolors=-1	! ä½¿ç”¨å¤šå°‘é¢œè‰²
+  wc.title="Plot Area"C ! çª—å£çš„æ ‡é¢˜
   wc.fontsize=-1
-  ! ¸ù¾İwcÖĞËù¶¨ÒåµÄÊı¾İÀ´ÖØĞÂÉè¶¨´°¿Ú´óĞ¡
+  ! æ ¹æ®wcä¸­æ‰€å®šä¹‰çš„æ•°æ®æ¥é‡æ–°è®¾å®šçª—å£å¤§å°
   result=SetWindowConfig(wc)
-  ! ³ÌĞò×ÔÎÒ°´ÏÂ²Ëµ¥ÖĞWindowsµÄTileÃüÁî, Ê¹Á½¸ö´°¿ÚÖ®¼ä
-  ! ²»»á»¥ÏàÖØµş
+  ! ç¨‹åºè‡ªæˆ‘æŒ‰ä¸‹èœå•ä¸­Windowsçš„Tileå‘½ä»¤, ä½¿ä¸¤ä¸ªçª—å£ä¹‹é—´
+  ! ä¸ä¼šäº’ç›¸é‡å 
   result=ClickMenuQQ(QWIN$TILE) 
-  input=1 ! Ëæ±ã¸øÒ»¸öºÏÀíµÄÖµ, ²»È»²»ÄÜ½øÈëÏÂÃæµÄÑ­»·
-  ! °ÑÊäÈëÊ¹ÓÃµÄ´°¿ÚÉèÎª¿ÉÒÔ±»ÊäÈëµÄ×´Ì¬, 5¾ÍÊÇµÚÒ»´Î´ò¿ª
-  ! userÊ±ËùÓÃµÄunitÖµ
+  input=1 ! éšä¾¿ç»™ä¸€ä¸ªåˆç†çš„å€¼, ä¸ç„¶ä¸èƒ½è¿›å…¥ä¸‹é¢çš„å¾ªç¯
+  ! æŠŠè¾“å…¥ä½¿ç”¨çš„çª—å£è®¾ä¸ºå¯ä»¥è¢«è¾“å…¥çš„çŠ¶æ€, 5å°±æ˜¯ç¬¬ä¸€æ¬¡æ‰“å¼€
+  ! useræ—¶æ‰€ç”¨çš„unitå€¼
   result=FocusQQ(5) 
   do while( input>0 .and. input<4 )
     write(5,*) '(1) Plot f(x)=sin(x)'
@@ -45,8 +45,8 @@ implicit none
 	write(5,*) '(3) Plot f(x)=(x+2)*(x-2)'
 	write(5,*) 'Other to EXIT'
 	read(5,*) input
-	result=SetActiveQQ(10) ! °Ñ»æÍ¼ÃüÁîÖ¸¶¨µ½»æÍ¼´°¿ÚµÄ´úÂëÉÏ
-	! ¸ù¾İinputÀ´¾ö¶¨Òª»­³öÄÇÒ»¸öº¯Êı
+	result=SetActiveQQ(10) ! æŠŠç»˜å›¾å‘½ä»¤æŒ‡å®šåˆ°ç»˜å›¾çª—å£çš„ä»£ç ä¸Š
+	! æ ¹æ®inputæ¥å†³å®šè¦ç”»å‡ºé‚£ä¸€ä¸ªå‡½æ•°
 	select case(input)
 	case (1)
 	  call Draw_Func(f1)
@@ -56,57 +56,57 @@ implicit none
 	  call Draw_Func(f3)
 	end select
   end do
-  ! Éè¶¨Ö÷³ÌĞò´úÂë½áÊøºó,´°¿Ú»á×Ô¶¯¹Ø±Õ
+  ! è®¾å®šä¸»ç¨‹åºä»£ç ç»“æŸå,çª—å£ä¼šè‡ªåŠ¨å…³é—­
   result=SetExitQQ(QWIN$EXITNOPERSIST)
 end program Plot_Sine
 
 subroutine Draw_Func(func)
 use DFLIB
 implicit none
-  integer, parameter :: lines=500	! ÓÃ¶àÉÙÏß¶ÎÀ´»­º¯ÊıÇúÏß
-  real(kind=8), parameter :: X_Start=-5.0	! xÖá×îĞ¡·¶Î§
-  real(kind=8), parameter :: X_End=5.0		! xÖá×î´ó·¶Î§	
-  real(kind=8), parameter :: Y_Top=5.0		! yÖá×î´ó·¶Î§ 
-  real(kind=8), parameter :: Y_Bottom=-5.0	! yÖá×îĞ¡·¶Î§
-  integer :: result			! È¡»Ø»æÍ¼º¯ÊıÔËĞĞ×´Ì¬
-  integer(kind=2) :: color	! Éè¶¨ÑÕÉ«ÓÃ
-  real(kind=8) :: step		! Ñ­»·µÄÔöÁ¿
-  real(kind=8) :: x,y		! »æÍ¼Ê±Ê¹ÓÃ,Ã¿ÌõĞ¡Ïß¶Î¶¼Á¬½Ó
-  real(kind=8) :: NewX,NewY	! (x,y)¼°(NewX,NewY)
-  real(kind=8), external :: func ! ´ı»æÍ¼µÄº¯Êı
-  type(wxycoord) :: wt		! ·µ»ØÉÏÒ»´ÎµÄÂß¼­×ø±êÎ»ÖÃ
-  type(xycoord)  :: t		! ·µ»ØÉÏÒ»´ÎµÄÊµ¼Ê×ø±êÎ»ÖÃ
+  integer, parameter :: lines=500	! ç”¨å¤šå°‘çº¿æ®µæ¥ç”»å‡½æ•°æ›²çº¿
+  real(kind=8), parameter :: X_Start=-5.0	! xè½´æœ€å°èŒƒå›´
+  real(kind=8), parameter :: X_End=5.0		! xè½´æœ€å¤§èŒƒå›´	
+  real(kind=8), parameter :: Y_Top=5.0		! yè½´æœ€å¤§èŒƒå›´ 
+  real(kind=8), parameter :: Y_Bottom=-5.0	! yè½´æœ€å°èŒƒå›´
+  integer :: result			! å–å›ç»˜å›¾å‡½æ•°è¿è¡ŒçŠ¶æ€
+  integer(kind=2) :: color	! è®¾å®šé¢œè‰²ç”¨
+  real(kind=8) :: step		! å¾ªç¯çš„å¢é‡
+  real(kind=8) :: x,y		! ç»˜å›¾æ—¶ä½¿ç”¨,æ¯æ¡å°çº¿æ®µéƒ½è¿æ¥
+  real(kind=8) :: NewX,NewY	! (x,y)åŠ(NewX,NewY)
+  real(kind=8), external :: func ! å¾…ç»˜å›¾çš„å‡½æ•°
+  type(wxycoord) :: wt		! è¿”å›ä¸Šä¸€æ¬¡çš„é€»è¾‘åæ ‡ä½ç½®
+  type(xycoord)  :: t		! è¿”å›ä¸Šä¸€æ¬¡çš„å®é™…åæ ‡ä½ç½®
 
-  call ClearScreen($GCLEARSCREEN) ! Çå³ıÓ©Ä»
-  ! Éè¶¨Âß¼­×ø±ê·¶Î§´óĞ¡	
+  call ClearScreen($GCLEARSCREEN) ! æ¸…é™¤è¤å¹•
+  ! è®¾å®šé€»è¾‘åæ ‡èŒƒå›´å¤§å°	
   result=SetWindow( .true. , X_Start, Y_Top, X_End, Y_Bottom )
-  ! ÓÃË÷ÒıÖµµÄ·½·¨À´Éè¶¨ÑÕÉ«
-  result=SetColor(2)   ! Ä¬ÈÏµÄ2ºÅÊÇÓ¦¸ÃÊÇÂÌÉ«
-  call MoveTo(10,20,t) ! ÒÆ¶¯»­±Êµ½´°¿ÚµÄ(10,20)
+  ! ç”¨ç´¢å¼•å€¼çš„æ–¹æ³•æ¥è®¾å®šé¢œè‰²
+  result=SetColor(2)   ! é»˜è®¤çš„2å·æ˜¯åº”è¯¥æ˜¯ç»¿è‰²
+  call MoveTo(10,20,t) ! ç§»åŠ¨ç”»ç¬”åˆ°çª—å£çš„(10,20)
   
-  ! Ê¹ÓÃÈ«²ÊRGB 0-255µÄ256ÖÖÉ«½×À´Éè¶¨ÑÕÉ«
-  color=RGBToInteger(255,0,0)		! °Ñ¿ØÖÆRGBµÄÈı¸öÖµ×ª»»µ½colorÖĞ
-  result=SetColorRGB(color)			! ÀûÓÃcolorÀ´Éè¶¨ÑÕÉ«
+  ! ä½¿ç”¨å…¨å½©RGB 0-255çš„256ç§è‰²é˜¶æ¥è®¾å®šé¢œè‰²
+  color=RGBToInteger(255,0,0)		! æŠŠæ§åˆ¶RGBçš„ä¸‰ä¸ªå€¼è½¬æ¢åˆ°colorä¸­
+  result=SetColorRGB(color)			! åˆ©ç”¨coloræ¥è®¾å®šé¢œè‰²
 
-  call MoveTo_W(X_Start,0.0_8,wt)	! »­XÖá
+  call MoveTo_W(X_Start,0.0_8,wt)	! ç”»Xè½´
   result=LineTo_W(X_End,0.0_8)		! 
-  call MoveTo_W(0.0_8,Y_Top,wt)		! »­YÖá
+  call MoveTo_W(0.0_8,Y_Top,wt)		! ç”»Yè½´
   result=LineTo_W(0.0_8,Y_Bottom)	! 	
-  step=(X_End-X_Start)/lines		! ¼ÆËãĞ¡Ïß¶Î¼äµÄX¼ä¾à
-  ! ²ÎÊı#FF0000ÊÇÊ¹ÓÃ16½øÖÆµÄ·½·¨À´±íÊ¾Ò»¸öÕûÊı
+  step=(X_End-X_Start)/lines		! è®¡ç®—å°çº¿æ®µé—´çš„Xé—´è·
+  ! å‚æ•°#FF0000æ˜¯ä½¿ç”¨16è¿›åˆ¶çš„æ–¹æ³•æ¥è¡¨ç¤ºä¸€ä¸ªæ•´æ•°
   result=SetColorRGB(#FF0000)		 
-  ! ¿ªÊ¼»æÖÆĞ¡Ïß¶ÎÃÇ
+  ! å¼€å§‹ç»˜åˆ¶å°çº¿æ®µä»¬
   do x=X_Start,X_End-step,step
-    y=func(x)		! Ïß¶ÎµÄ×ó¶Ëµã
+    y=func(x)		! çº¿æ®µçš„å·¦ç«¯ç‚¹
 	NewX=x+step		
-	NewY=func(NewX)	! Ïß¶ÎµÄÓÒ¶Ëµã
+	NewY=func(NewX)	! çº¿æ®µçš„å³ç«¯ç‚¹
 	call MoveTo_W(x,y,wt)
 	result=LineTo_W(NewX,NewY)
   end do
-  ! Éè¶¨³ÌĞò½áÊøºó,´°¿Ú»á¼ÌĞø±£Áô
+  ! è®¾å®šç¨‹åºç»“æŸå,çª—å£ä¼šç»§ç»­ä¿ç•™
   result=SetExitQQ(QWIN$EXITPERSIST)
 end subroutine Draw_Func
-! ËùÒª»æÍ¼µÄº¯Êı
+! æ‰€è¦ç»˜å›¾çš„å‡½æ•°
 real(kind=8) function f1(x)
 implicit none
   real(kind=8) :: x

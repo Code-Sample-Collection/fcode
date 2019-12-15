@@ -1,10 +1,10 @@
-! IMSL BVPMS·¶Àı
-! Çó½ây'''-y''+y'-y=0
-! ¾­¹ıy'=y, y2=y', y3=y''´ú»»ºó»á±ä³ÉFirst order ODE
+! IMSL BVPMSèŒƒä¾‹
+! æ±‚è§£y'''-y''+y'-y=0
+! ç»è¿‡y'=y, y2=y', y3=y''ä»£æ¢åä¼šå˜æˆFirst order ODE
 ! y1'=y2
 ! y2'=y3
 ! y3'=y3-y2+y1
-! ´ğ°¸Îªy1=cos(t), y2=-sin(t), y3=-cos(t)
+! ç­”æ¡ˆä¸ºy1=cos(t), y2=-sin(t), y3=-cos(t)
 program main
   use IMSL
   implicit none
@@ -15,7 +15,7 @@ program main
   real, parameter :: TOL=1E-4, XLEFT=0.0, XRIGHT=2*PI
   real X(NMAX), Y(LDY,NMAX)
   external FCNEQN, FCNJAC, FCNBC
-  ! ²ÂÖµ
+  ! çŒœå€¼
   Y = 0.0
   ! shooting points
   do I=1, NINIT
@@ -32,7 +32,7 @@ program main
   stop
 end program
 !
-! ¼ÆËãÆ«Î¢·Ö·½³Ì
+! è®¡ç®—åå¾®åˆ†æ–¹ç¨‹
 !
 subroutine FCNEQN(NEQNS, T, Y, P, DYDX)
   implicit none
@@ -67,8 +67,8 @@ subroutine FCNJAC(NEQNS, T, Y, P, DYPDY)
   DYPDY(3,3) = 1.0
   return
 end subroutine
-! ¶¨Òå±ß½çÌõ¼ş
-! F(1), F(2)....F(n)µÄÖµ¶¼Ó¦¸ÃµÈÓÚ0
+! å®šä¹‰è¾¹ç•Œæ¡ä»¶
+! F(1), F(2)....F(n)çš„å€¼éƒ½åº”è¯¥ç­‰äº0
 ! 
 subroutine FCNBC(NEQNS, YLEFT, YRIGHT, P, F)
   implicit none

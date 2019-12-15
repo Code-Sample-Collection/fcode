@@ -3,9 +3,9 @@ implicit none
   integer, parameter :: size = 5
   integer :: s = size
   integer :: a(size) = (/ 1,2,3,4,5 /)
-  call UseArray1(a,size) ! °Ñ³£Êısize´«Èë×öÊı×é´óĞ¡
-  call UseArray1(a,s)    ! °ÑÒ»°ã±äÊıs ´«Èë×öÊı×é´óĞ¡
-  call UseArray2(a)      ! ²»´«ÈëÊı×é´óĞ¡
+  call UseArray1(a,size) ! æŠŠå¸¸æ•°sizeä¼ å…¥åšæ•°ç»„å¤§å°
+  call UseArray1(a,s)    ! æŠŠä¸€èˆ¬å˜æ•°s ä¼ å…¥åšæ•°ç»„å¤§å°
+  call UseArray2(a)      ! ä¸ä¼ å…¥æ•°ç»„å¤§å°
   call UseArray3(a)
   stop
 end
@@ -13,23 +13,23 @@ end
 subroutine UseArray1(num, size)
 implicit none
   integer :: size 
-  integer :: num(size) ! ´«ÈëµÄÊı×é´óĞ¡¿ÉÓÃ±äÁ¿À´Ö¸¶¨
+  integer :: num(size) ! ä¼ å…¥çš„æ•°ç»„å¤§å°å¯ç”¨å˜é‡æ¥æŒ‡å®š
   write(*,*) num
   return
 end
 
 subroutine UseArray2(num)
 implicit none
-  integer :: num(*) ! ²»Ö¸¶¨Êı×é´óĞ¡
+  integer :: num(*) ! ä¸æŒ‡å®šæ•°ç»„å¤§å°
   integer :: i
   write(*,*) (num(i), i=1,5) 
-  ! Èç¹û´«ÈëµÄÊı×é´óĞ¡ÉÙÓÚ5, writeÔÚÖ´ĞĞÊ±»á³öÏÖ´íÎó
+  ! å¦‚æœä¼ å…¥çš„æ•°ç»„å¤§å°å°‘äº5, writeåœ¨æ‰§è¡Œæ—¶ä¼šå‡ºç°é”™è¯¯
   return
 end
 
 subroutine UseArray3(num)
 implicit none
-  integer :: num(-2:2) ! ¿ÉÒÔÖØĞÂ¶¨ÒåÊı×é×ø±ê·¶Î§
+  integer :: num(-2:2) ! å¯ä»¥é‡æ–°å®šä¹‰æ•°ç»„åæ ‡èŒƒå›´
   write(*,*) num(0)
   return
 end

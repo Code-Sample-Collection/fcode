@@ -17,11 +17,11 @@ program ex0913
        access="direct", recl=4, status="old")
 
   do while(.true.)
-    write(*,"('µÚ¼¸°ô?')")
+    write(*,"('ç¬¬å‡ æ£’?')")
 	read (*,*) player
 	read(fileid, rec=player, iostat=error) hit
     if ( error/=0 ) exit
-	write(*,"('´ò»÷ÂÊ:',F5.2)") hit
+	write(*,"('æ‰“å‡»çŽ‡:',F5.2)") hit
   end do
 
   close(fileid)

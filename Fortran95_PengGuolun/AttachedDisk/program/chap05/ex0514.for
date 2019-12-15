@@ -1,17 +1,17 @@
 	PROGRAM ex0514
 	IMPLICIT NONE
-	REAL height ! ¼ÇÂ¼Éí¸ß
-	REAL weight ! ¼ÇÂ¼ÌåÖØ
+	REAL height ! è®°å½•èº«é«˜
+	REAL weight ! è®°å½•ä½“é‡
 
 	WRITE(*,*) "height:"
-	READ(*,*)   height     ! ¶ÁÈëÉí¸ß
+	READ(*,*)   height     ! è¯»å…¥èº«é«˜
 	WRITE(*,*) "weight:"
-	READ(*,*)   weight     ! ¶ÁÈëÌåÖØ
+	READ(*,*)   weight     ! è¯»å…¥ä½“é‡
 	
 	IF ( weight > height-100 ) GOTO 200
-	! ÉÏÃæ²»³ÉÁ¢, Ã»ÓÐÌøµ½200²Å»áÖ´ÐÐÕâÀï
+	! ä¸Šé¢ä¸æˆç«‹, æ²¡æœ‰è·³åˆ°200æ‰ä¼šæ‰§è¡Œè¿™é‡Œ
 100	WRITE(*,*) "Under control." 
-	GOTO 300  ! ÏÂÒ»ÐÐ²»ÄÜÖ´ÐÐËùÒÔÒªÌøµ½300.
+	GOTO 300  ! ä¸‹ä¸€è¡Œä¸èƒ½æ‰§è¡Œæ‰€ä»¥è¦è·³åˆ°300.
 200   WRITE(*,*) "Too fat!"
 	
 300	STOP

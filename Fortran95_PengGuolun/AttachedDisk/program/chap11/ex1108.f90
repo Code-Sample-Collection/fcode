@@ -4,17 +4,17 @@ module time_util
     integer :: hour,minute
   end type time
 
-  interface operator(+) ! ÈÃtype(time)ÀàĞÍ±äÁ¿ÄÜ¹»Ïà¼Ó
+  interface operator(+) ! è®©type(time)ç±»å‹å˜é‡èƒ½å¤Ÿç›¸åŠ 
     module procedure add_time_time ! time+time
 	module procedure add_time_real ! time+real
 	module procedure add_real_time ! real+time
   end interface
 
-  interface operator(<) ! ÈÃtype(time)ÀàĞÍ±äÁ¿ÄÜ¹»±È´óĞ¡
-    module procedure time_lt_time  ! ÅĞ¶Ïtime<time
+  interface operator(<) ! è®©type(time)ç±»å‹å˜é‡èƒ½å¤Ÿæ¯”å¤§å°
+    module procedure time_lt_time  ! åˆ¤æ–­time<time
   end interface
 
-  interface assignment(=) ! ÈÃtype(time)ÀàĞÍ¸ú¸¡µãÊıÄÜ¹»×ª»»
+  interface assignment(=) ! è®©type(time)ç±»å‹è·Ÿæµ®ç‚¹æ•°èƒ½å¤Ÿè½¬æ¢
     module procedure time_assign_real ! time = real
 	module procedure real_assign_time ! real = time
   end interface
@@ -28,7 +28,7 @@ contains
     integer :: minutes,carry
     minutes=a%minute+b%minute
     carry=minutes/60
-    add%minute=mod(minutes,60)   ! È¡ÓàÊı
+    add%minute=mod(minutes,60)   ! å–ä½™æ•°
     add%hour=a%hour+b%hour+carry 
     return
   end function

@@ -18,7 +18,7 @@ program main
   stop
 end
 
-real function F(N, X) ! ¼ÆËãf(X1,X2,...Xn)
+real function F(N, X) ! è®¡ç®—f(X1,X2,...Xn)
   implicit none
   integer N
   real X(N)

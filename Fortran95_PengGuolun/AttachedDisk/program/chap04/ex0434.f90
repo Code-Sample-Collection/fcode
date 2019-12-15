@@ -1,15 +1,15 @@
 program  ex0434
 implicit none
-! ¿ªÊ¼½¨Á¢personÕâ¸öÀàĞÍ
+! å¼€å§‹å»ºç«‹personè¿™ä¸ªç±»å‹
 type :: person 
-  character(len=30) :: name ! ÈËÃû
-  integer  ::  age          ! ÄêÁä
-  integer  ::  height       ! Éí¸ß			
-  integer  ::  weight       ! ÌåÖØ
-  character(len=80) :: address ! µØÖ·
+  character(len=30) :: name ! äººå
+  integer  ::  age          ! å¹´é¾„
+  integer  ::  height       ! èº«é«˜			
+  integer  ::  weight       ! ä½“é‡
+  character(len=80) :: address ! åœ°å€
 end type person
 
-type(person) :: a ! ÉùÃ÷Ò»¸öpersonÀàĞÍµÄ±äÁ¿
+type(person) :: a ! å£°æ˜ä¸€ä¸ªpersonç±»å‹çš„å˜é‡
 
 write(*,*) "NAME:"
 read(*,*)  a%name 

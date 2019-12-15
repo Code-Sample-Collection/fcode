@@ -37,7 +37,7 @@ program ex1012
     p=>p%next
   end do
   
-  ! ÊÍ·ÅÁ´±íµÄ´æ´¢¿Õ¼ä
+  ! é‡Šæ”¾é“¾è¡¨çš„å­˜å‚¨ç©ºé—´
   p=>head
   do while(associated(p))
     next => p%next

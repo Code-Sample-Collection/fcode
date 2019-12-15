@@ -1,12 +1,12 @@
 program ex0435
 implicit none
-! ÅĞ¶Ï¿ÉÒÔ¼ÇÂ¼9¸öÎ»ÊıµÄÕûÊıkindÖµ
+! åˆ¤æ–­å¯ä»¥è®°å½•9ä¸ªä½æ•°çš„æ•´æ•°kindå€¼
 integer, parameter :: long_int  = selected_int_kind( 9 )  
-! ÅĞ¶Ï¿ÉÒÔ¼ÇÂ¼3¸öÎ»ÊıµÄÕûÊıkindÖµ
+! åˆ¤æ–­å¯ä»¥è®°å½•3ä¸ªä½æ•°çš„æ•´æ•°kindå€¼
 integer, parameter :: short_int = selected_int_kind( 3 ) 
-! ÅĞ¶Ï¿ÉÒÔÓĞ10¸öÓĞĞ§Î»Êı, Ö¸Êı¿ÉÒÔ¼ÇÂ¼µ½50µÄ¸¡µãÊıkindÖµ
+! åˆ¤æ–­å¯ä»¥æœ‰10ä¸ªæœ‰æ•ˆä½æ•°, æŒ‡æ•°å¯ä»¥è®°å½•åˆ°50çš„æµ®ç‚¹æ•°kindå€¼
 integer, parameter :: long_real = selected_real_kind( 10, 50 )
-! ÅĞ¶Ï¿ÉÒÔÓĞ3¸öÓĞĞ§Î»Êı, Ö¸Êı¿ÉÒÔ¼ÇÂ¼µ½3µÄ¸¡µãÊıkindÖµ
+! åˆ¤æ–­å¯ä»¥æœ‰3ä¸ªæœ‰æ•ˆä½æ•°, æŒ‡æ•°å¯ä»¥è®°å½•åˆ°3çš„æµ®ç‚¹æ•°kindå€¼
 integer, parameter :: short_real= selected_real_kind( 3, 3 )
 
 integer(kind=long_int)  :: a = 12345678

@@ -1,10 +1,10 @@
-! IMSL BVPFDʾ��
-! ���y'''-y''+y'-y=0
-! ����y'=y, y2=y', y3=y''���������First order ODE
+! IMSL BVPFD示范
+! 求解y'''-y''+y'-y=0
+! 经过y'=y, y2=y', y3=y''代换后会变成First order ODE
 ! y1'=y2
 ! y2'=y3
 ! y3'=y3-y2+y1
-! ��Ϊy1=cos(t), y2=-sin(t), y3=-cos(t)
+! 答案为y1=cos(t), y2=-sin(t), y3=-cos(t)
 program main
   use IMSL
   implicit none
@@ -19,24 +19,24 @@ program main
   logical, parameter :: LINEAR=.true., PRINT=.false.
   external FCNBC, FCNEQN, FCNJAC
 
-  ! ������Ҫ�����Tֵλ��
+  ! 定义所要计算的T值位置
   DO I=1, NINIT
     TINIT(I) = TLEFT + (I-1)*(TRIGHT-TLEFT)/FLOAT(NINIT-1)
   end do
   YINIT = 0
-  ! ���
+  ! 求解
   call BVPFD (FCNEQN, FCNJAC, FCNBC, FCNEQN, FCNBC, NEQNS, NLEFT,& 
               NCUPBC, TLEFT, TRIGHT, PISTEP, TOL, NINIT, TINIT,& 
               YINIT, LDYINI, LINEAR, PRINT, MXGRID, NFINAL,& 
               TFINAL, YFINAL, LDYFIN, ERREST)
-  ! ������
+  ! 输出结果
   write(*,"(14X,'T', 6X,'Y1=COS(t)', 5X,'Y2=-SIN(t)', 5X,'Y3=-COS(t)')")
   write(*,"(4F15.6)") (TFINAL(I),(YFINAL(J,I),J=1,NEQNS),I=1, NFINAL)
 
   stop
 end program
 !
-! ����ƫ΢�ַ���
+! 计算偏微分方程
 !
 subroutine FCNEQN(NEQNS, T, Y, P, DYDX)
   implicit none
@@ -71,16 +71,16 @@ subroutine FCNJAC(NEQNS, T, Y, P, DYPDY)
   DYPDY(3,3) = 1.0
   return
 end subroutine
-! ����߽�����
-! F(1), F(2)....F(n)��ֵ��Ӧ�õ���0
+! 定义边界条件
+! F(1), F(2)....F(n)的值都应该等于0
 ! 
 subroutine FCNBC(NEQNS, YLEFT, YRIGHT, P, F)
   implicit none
   integer NEQNS
   real P, YLEFT(NEQNS), YRIGHT(NEQNS), F(NEQNS)
   ! Define boundary conditions
-  F(1) = YLEFT(1) - 1.0 ! Ҫ��ʹ����ߵı߽�ֵ
-  F(2) = YLEFT(2) - YRIGHT(2) ! ����Ҫʹ���������ߵı߽�ֵ
-  F(3) = YRIGHT(2)      ! ����ʹ���ұߵı߽�ֵ
+  F(1) = YLEFT(1) - 1.0 ! 要先使用左边的边界值
+  F(2) = YLEFT(2) - YRIGHT(2) ! 再来要使用左右两边的边界值
+  F(3) = YRIGHT(2)      ! 最后才使用右边的边界值
   return
 end subroutine

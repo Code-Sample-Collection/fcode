@@ -16,7 +16,7 @@ program main
 	     access="sequential", status="old")
     do while(.true.)
       read(unit=fileid, fmt="(A79)", iostat=status ) buffer
-      if ( status/=0 ) exit  ! Ã»ÓĞ×ÊÁÏ¾ÍÌø³öÑ­»·
+      if ( status/=0 ) exit  ! æ²¡æœ‰èµ„æ–™å°±è·³å‡ºå¾ªç¯
 	  do i=1, len_trim(buffer)
 	    buffer(i:i) = char( ichar(buffer(i:i))-3 )
 	  end do

@@ -1,15 +1,15 @@
 program  ex0826
   implicit none
   interface
-    subroutine sub(a,b) ! ¶¨Òå×Ó³ÌÊ½subµÄ½Ó¿Ú
+    subroutine sub(a,b) ! å®šä¹‰å­ç¨‹å¼subçš„æ¥å£
     implicit none
     integer :: a
     integer, optional :: b
     end subroutine sub
   end interface
 
-  call sub(1)   ! Ê¹ÓÃ1¸ö²ÎÊı
-  call sub(2,3) ! Ê¹ÓÃ2¸ö²ÎÊı
+  call sub(1)   ! ä½¿ç”¨1ä¸ªå‚æ•°
+  call sub(2,3) ! ä½¿ç”¨2ä¸ªå‚æ•°
   stop
 end program ex0817
 
@@ -18,9 +18,9 @@ subroutine sub(a,b)
   integer :: a
   integer, optional :: b
   write(*,*) present(a)
-  if ( present(b) ) then ! ÓĞ´«ÈëbÊ±
+  if ( present(b) ) then ! æœ‰ä¼ å…¥bæ—¶
     write(*,"('a=',I3,' b=',I3)") a,b ! 
-  else                   ! Ã»ÓĞ´«ÈëbÊ±
+  else                   ! æ²¡æœ‰ä¼ å…¥bæ—¶
     write(*,"('a=',I3,' b=unknown')") a
   end if
   return

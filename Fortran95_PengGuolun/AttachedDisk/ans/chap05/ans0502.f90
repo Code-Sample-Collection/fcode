@@ -3,20 +3,20 @@ program main
   integer day
   character(len=20) :: tv
 
-  write(*,*) "ÇëÊäÈëĞÇÆÚ¼¸"
+  write(*,*) "è¯·è¾“å…¥æ˜ŸæœŸå‡ "
   read(*,*) day
 
   select case(day)
   case(1,4)
-    tv = "ĞÂÎÅ"
+    tv = "æ–°é—»"
   case(2,5)
-    tv = "µçÊÓ¾ç"
+    tv = "ç”µè§†å‰§"
   case(3,6)
-    tv = "¿¨Í¨"
+    tv = "å¡é€š"
   case(7)
-    tv = "µçÓ°"
+    tv = "ç”µå½±"
   case default
-    write(*,*) "´íÎóµÄÊäÈë"
+    write(*,*) "é”™è¯¯çš„è¾“å…¥"
 	stop
   end select 
   write(*,*) tv

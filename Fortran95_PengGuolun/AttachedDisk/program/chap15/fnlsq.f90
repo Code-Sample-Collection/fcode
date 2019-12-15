@@ -18,7 +18,7 @@ program main
   end do
   
   call FNLSQ(F, INTCEP, NBASIS, NDATA, XDATA, FDATA, IWT, WEIGHT, A, SSE)
-  ! Ó¦¸Ã»á¼ÆËã³öf(X)=2*sin(X)+3*cos(X)
+  ! åº”è¯¥ä¼šè®¡ç®—å‡ºf(X)=2*sin(X)+3*cos(X)
   write(*,"('F(X)='F5.2'+'F5.2'SIN(X)+'F5.2'COS(X)')") A
 
   stop
@@ -29,11 +29,11 @@ real function F(K, X)
   integer K
   real X
   select case(K)
-  case(1) ! µÚ1ÖÖ»ù±¾º¯Êı
+  case(1) ! ç¬¬1ç§åŸºæœ¬å‡½æ•°
     F = SIN(X) 
-  case(2) ! µÚ2ÖÖ»ù±¾º¯Êı
+  case(2) ! ç¬¬2ç§åŸºæœ¬å‡½æ•°
     F = COS(X) 
-  case default ! ´íÎóµÄÖµ
+  case default ! é”™è¯¯çš„å€¼
     write(*,*) "unknown"
   end select
   return

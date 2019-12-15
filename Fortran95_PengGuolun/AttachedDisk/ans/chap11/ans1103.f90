@@ -258,9 +258,9 @@ contains
     implicit none
     type(rational), intent(out) :: a
 
-    write(*,*) "·Ö×Ó:"
+    write(*,*) "åˆ†å­:"
     read(*,*)  a%num
-    write(*,*) "·ÖÄ¸:"
+    write(*,*) "åˆ†æ¯:"
     read(*,*)  a%denom
 
     return

@@ -2,9 +2,9 @@ program ex1004
   implicit none
   integer, pointer :: a(:)
   integer, target  :: b(5)=(/ 1,2,3,4,5 /)
-  ! °ÑÖ¸ÕëÊý×éaÖ¸ÏòÊý×éb
+  ! æŠŠæŒ‡é’ˆæ•°ç»„aæŒ‡å‘æ•°ç»„b
   a=>b  
-  ! a(1¡«5)=>b(1¡«5)
+  ! a(1ï½ž5)=>b(1ï½ž5)
   write(*,*) a
   a=>b(1:3)
   ! a(1)=>b(1), a(2)=>b(2), a(3)=>b(3)

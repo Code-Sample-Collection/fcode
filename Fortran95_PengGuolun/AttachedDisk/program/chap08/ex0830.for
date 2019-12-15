@@ -24,7 +24,7 @@
 	IMPLICIT NONE
 	INTEGER  n
 	INTEGER  count
-	INTEGER  localcount, temp  ! ¾Ö²¿±äÁ¿
+	INTEGER  localcount, temp  ! å±€éƒ¨å˜é‡
 	INTEGER  ifact
 	EXTERNAL ifact
 	SAVE     count
@@ -34,18 +34,18 @@
 	count = count+1
 	WRITE(6, 100) localcount, n
 100   FORMAT(I2,'th enter, n=',I2)
-	IF ( n < 0 ) THEN ! ²»ºÏÀíµÄÊäÈë
-	  fact = -1       ! Ëæ±ãÉè¶¨Ò»¸öÖµ
+	IF ( n < 0 ) THEN ! ä¸åˆç†çš„è¾“å…¥
+	  fact = -1       ! éšä¾¿è®¾å®šä¸€ä¸ªå€¼
 	  WRITE(6, 200) localcount, n, fact
-	  RETURN          ! n²»ºÏÀí, Ö±½Óreturn 
+	  RETURN          ! nä¸åˆç†, ç›´æ¥return 
 	ELSE IF ( n <= 1 ) THEN
         fact = 1          
         WRITE(6, 200) localcount, n, fact
-        RETURN          ! ²»ÓÃÔÙÏòÏÂµİ¹éÁË, return 
+        RETURN          ! ä¸ç”¨å†å‘ä¸‹é€’å½’äº†, return 
       END IF
-      ! »áÖ´ĞĞµ½Õâ, ´ú±ín>1, ´Ón*(n-1)!À´¼ÆËãn!
+      ! ä¼šæ‰§è¡Œåˆ°è¿™, ä»£è¡¨n>1, ä»n*(n-1)!æ¥è®¡ç®—n!
       temp = n-1
-      fact = n * ifact(temp) ! µ÷ÓÃifact, ifact»áÖ±½ÓÔÙµ÷ÓÃfact
+      fact = n * ifact(temp) ! è°ƒç”¨ifact, ifactä¼šç›´æ¥å†è°ƒç”¨fact
       WRITE(6, 200) localcount, n, fact
 200   FORMAT(I2,'th exit, n=',I2, ' ans=',I8)
       RETURN

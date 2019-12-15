@@ -16,11 +16,11 @@ program ex0910
   open(unit=fileid, file=filename, access="direct",&
        form="formatted", recl=6, status="old")
   do while(.true.)
-    write(*,"('²éÑ°µÚ¼¸°ô?')")
+    write(*,"('æŸ¥å¯»ç¬¬å‡ æ£’?')")
 	read (*,*) player
 	read(fileid, fmt="(F4.2)", rec=player, IOSTAT=error) hit
 	if ( error/=0 ) exit
-	write(*,"('´ò»÷ÂÊ:'F4.2)") hit
+	write(*,"('æ‰“å‡»çŽ‡:'F4.2)") hit
   end do
   close(fileid)
 

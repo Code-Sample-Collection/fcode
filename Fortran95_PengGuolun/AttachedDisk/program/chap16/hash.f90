@@ -1,12 +1,12 @@
-! É¢ÁĞ²éÕÒ·¨·¶Àı
+! æ•£åˆ—æŸ¥æ‰¾æ³•èŒƒä¾‹
 ! By Perng 1997/8/31
 program HASH_SEARCH_DEMO
   implicit none
-  integer, parameter :: N=10 ! ÀàĞÍµÄ´óĞ¡
-  integer Source(N) ! ´æ·ÅÊı¾İ×éµÄÀàĞÍ
-  integer A(100)    ! ´æ·ÅHashing ºóµÄÀàĞÍ
-  integer KEY       ! ¼ÇÂ¼ËùÒªÕÒµÄÖµ
-  integer I         ! Ñ­»·¼ÇÊıÆ÷
+  integer, parameter :: N=10 ! ç±»å‹çš„å¤§å°
+  integer Source(N) ! å­˜æ”¾æ•°æ®ç»„çš„ç±»å‹
+  integer A(100)    ! å­˜æ”¾Hashing åçš„ç±»å‹
+  integer KEY       ! è®°å½•æ‰€è¦æ‰¾çš„å€¼
+  integer I         ! å¾ªç¯è®°æ•°å™¨
   data Source /21,53,71,19,61,81,3,17,44,93/
 
   write(*,"('Source=>',10I3)") Source
@@ -17,13 +17,13 @@ program HASH_SEARCH_DEMO
 	stop
   end if
 
-  ! ½¨Á¢Hash±í¸ñÖĞ, ±í¸ñÖĞ·ÅµÄÊÇÊıÖµÔÚÀàĞÍÖĞµÄÎ»ÖÃ
+  ! å»ºç«‹Hashè¡¨æ ¼ä¸­, è¡¨æ ¼ä¸­æ”¾çš„æ˜¯æ•°å€¼åœ¨ç±»å‹ä¸­çš„ä½ç½®
   A = 0
   do I=1,N
     A( Source(I) ) = I
   end do
 
-  ! ÔÚHash±í¸ñÖĞÑ°ÕÒÊı¾İ
+  ! åœ¨Hashè¡¨æ ¼ä¸­å¯»æ‰¾æ•°æ®
   if ( A(KEY)/=0 ) then
     write(*,"('Source(',I2,' )=',I3)") A(KEY), KEY
   else  

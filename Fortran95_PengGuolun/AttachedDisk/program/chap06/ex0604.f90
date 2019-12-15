@@ -1,13 +1,13 @@
 program ex0604
 implicit none
-  integer, parameter :: limit=10  ! ¼ÆÊıÆ÷µÄÉÏÏŞ
-  integer counter      ! ¼ÆÊıÆ÷
-  integer :: ans = 0   ! ÄÃÀ´ÀÛ¼ÓÊ¹ÓÃ
+  integer, parameter :: limit=10  ! è®¡æ•°å™¨çš„ä¸Šé™
+  integer counter      ! è®¡æ•°å™¨
+  integer :: ans = 0   ! æ‹¿æ¥ç´¯åŠ ä½¿ç”¨
 
-  counter = 2  ! Éè¶¨¼ÆÊıÆ÷³õÖµ
+  counter = 2  ! è®¾å®šè®¡æ•°å™¨åˆå€¼
   do while( counter <= limit )
     ans = ans + counter
-    counter = counter + 2  ! ¼ÆÊıÆ÷ÀÛ¼Ó
+    counter = counter + 2  ! è®¡æ•°å™¨ç´¯åŠ 
   end do
 
   write(*,*) ans

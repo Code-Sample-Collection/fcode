@@ -32,7 +32,7 @@ contains
   subroutine setpalette()
     integer i
     do i=0,255
-      call sglSetPalette(i, i,i,i) ! Éè¶¨»Ò½×ÑÕÉ«
+      call sglSetPalette(i, i,i,i) ! è®¾å®šç°é˜¶é¢œè‰²
     end do
     call sglUpdatePalette()
   end subroutine

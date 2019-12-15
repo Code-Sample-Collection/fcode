@@ -3,14 +3,14 @@ module sgl_util
   implicit none
 contains
   subroutine Display()
-    call sglClearBuffer() ! Çå³ı»­Ãæ
-	call sglColor3f(1.0,0,0) ! Ê¹ÓÃºìÉ«
-	call sglRectV(0.2, 0.2, 0.8, 0.8) ! ÒÔ(0.2,0.2)ºÍ(0.8,0.8)Îª¶Ë»­¾ØĞÎ
-    call sglColor3i(0,255,0) ! Ê¹ÓÃÂÌÉ«
-    call sglCircleV(0.5,0.5,0.5) ! ÒÔ(0.5,0.5)ÎªÔ²ĞÄ, »­°ë¾¶Îª0.5µÄÔ²
-	call sglColor3i(0,0,255) ! Ê¹ÓÃÀ¶É«
-	call sglLineV(0.5,0, 0.5, 1.0) ! ÔÚ(250,0)µ½(250,500)Á½µã¼ä»­Ïß
-	call sglLineV(0.0,0.5, 1.0,0.5) ! ÔÚ(0,250)µ½(500,250)Á½µã¼ä»­Ïß
+    call sglClearBuffer() ! æ¸…é™¤ç”»é¢
+	call sglColor3f(1.0,0,0) ! ä½¿ç”¨çº¢è‰²
+	call sglRectV(0.2, 0.2, 0.8, 0.8) ! ä»¥(0.2,0.2)å’Œ(0.8,0.8)ä¸ºç«¯ç”»çŸ©å½¢
+    call sglColor3i(0,255,0) ! ä½¿ç”¨ç»¿è‰²
+    call sglCircleV(0.5,0.5,0.5) ! ä»¥(0.5,0.5)ä¸ºåœ†å¿ƒ, ç”»åŠå¾„ä¸º0.5çš„åœ†
+	call sglColor3i(0,0,255) ! ä½¿ç”¨è“è‰²
+	call sglLineV(0.5,0, 0.5, 1.0) ! åœ¨(250,0)åˆ°(250,500)ä¸¤ç‚¹é—´ç”»çº¿
+	call sglLineV(0.0,0.5, 1.0,0.5) ! åœ¨(0,250)åˆ°(500,250)ä¸¤ç‚¹é—´ç”»çº¿
 	call sglUpdateBuffer();
   end subroutine
 end module
@@ -19,7 +19,7 @@ program main
   use sgl_util
   implicit none
   call sglDisplaySub(Display)
-  ! Éè¶¨´°¿Ú×óÉÏ½ÇµÄĞéÄâ×ù±êÎª(0,0)ÓÒÏÂ½ÇÎª(1.0,1.0)
+  ! è®¾å®šçª—å£å·¦ä¸Šè§’çš„è™šæ‹Ÿåº§æ ‡ä¸º(0,0)å³ä¸‹è§’ä¸º(1.0,1.0)
   call sglSetVirtual(0.0, 0.0, 1.0, 1.0)
   call sglCreateWindow(100,100,500,500,1)
   call sglMainLoop()

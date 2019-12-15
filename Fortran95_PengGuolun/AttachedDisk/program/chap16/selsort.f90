@@ -1,31 +1,31 @@
-! Ñ¡ÔñÅÅÐò·¨·¶Àý
+! é€‰æ‹©æŽ’åºæ³•èŒƒä¾‹
 ! By Perng 1997/8/29
 program SELECTION_SORT_DEMO
   implicit none
   integer, parameter :: N=10
-  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! ÅÅÐòµÄÊý¾Ý
+  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! æŽ’åºçš„æ•°æ®
 
   write(*,"('Source=>',10I3)") A
-  call SELECTION_SORT(A,N)      ! µ÷ÓÃÅÅÐòµÄ×Ó³ÌÐò
+  call SELECTION_SORT(A,N)      ! è°ƒç”¨æŽ’åºçš„å­ç¨‹åº
   write(*,"('Sort=>',10I3)") A
   
   stop
 end program
 !
-! Ñ¡ÔñÅÅÐò·¨µÄ×Ó³ÌÐò
+! é€‰æ‹©æŽ’åºæ³•çš„å­ç¨‹åº
 !
 subroutine SELECTION_SORT(A,N)
   implicit none
   integer :: N,A(N)
-  integer I,J  ! Ñ­»·¼ÆÊýÆ÷
-  integer MIN  ! ÕÒ³öÃ¿Ò»ÂÖÖÐµÄ×îÐ¡Öµ
-  integer TEMP ! ½»»»Êý¾ÝÊ±Ê¹ÓÃ
+  integer I,J  ! å¾ªçŽ¯è®¡æ•°å™¨
+  integer MIN  ! æ‰¾å‡ºæ¯ä¸€è½®ä¸­çš„æœ€å°å€¼
+  integer TEMP ! äº¤æ¢æ•°æ®æ—¶ä½¿ç”¨
 
   do I=1,N
-    MIN=A(I)     ! ÔÝÊ±ÁîA(I)ÊÇ×îÐ¡Öµ
+    MIN=A(I)     ! æš‚æ—¶ä»¤A(I)æ˜¯æœ€å°å€¼
     do J=I+1,N
-      if ( MIN > A(J) ) then   ! ·¢ÏÖA(I)²»ÊÇ×îÐ¡
-        TEMP=A(J)        ! °ÑA(I)¡¢A(J)½»»»
+      if ( MIN > A(J) ) then   ! å‘çŽ°A(I)ä¸æ˜¯æœ€å°
+        TEMP=A(J)        ! æŠŠA(I)ã€A(J)äº¤æ¢
         A(J)=A(I)
         A(I)=TEMP
         MIN=A(I)

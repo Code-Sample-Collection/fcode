@@ -1,7 +1,7 @@
 module UTILITY
   implicit none
 contains
-  ! 把value限制到min到max之间
+  ! 鎶妚alue闄愬埗鍒癿in鍒癿ax涔嬮棿
   subroutine Bound(min,max,value)
     integer min,max,value
 	if ( value<min ) value=min

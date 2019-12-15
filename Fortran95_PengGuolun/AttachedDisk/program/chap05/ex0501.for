@@ -5,7 +5,7 @@
 	WRITE(*,*) "speed:"
 	READ (*,*) speed
 	
-	IF ( speed .GT. 100 ) then ! FORTRAN 77要用缩写.GT.代表大于">"
+	IF ( speed .GT. 100 ) then ! FORTRAN 77瑕佺敤缂╁啓.GT.浠ｈ〃澶т簬">"
 	  write(*,*) "Slow down."
 	END IF
 

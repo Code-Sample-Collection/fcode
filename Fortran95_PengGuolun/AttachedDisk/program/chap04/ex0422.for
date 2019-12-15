@@ -9,11 +9,11 @@
 	C=(1,2)
 	D=.true.
 	E="FORTRAN"
-	WRITE(*,100) A ! ÓÃIÀ´¸ñÊ½»¯ÕûÊý
-	WRITE(*,200) B ! ÓÃFÀ´¸ñÊ½»¯¸¡µãÊý
-	WRITE(*,300) C ! complexÒ²ÊÇ¸¡µãÊý
-	WRITE(*,400) D ! ÓÃLÀ´Êä³ölogical
-	WRITE(*,500) E ! ÓÃAÀ´Êä³ö×Ö·û´®
+	WRITE(*,100) A ! ç”¨Iæ¥æ ¼å¼åŒ–æ•´æ•°
+	WRITE(*,200) B ! ç”¨Fæ¥æ ¼å¼åŒ–æµ®ç‚¹æ•°
+	WRITE(*,300) C ! complexä¹Ÿæ˜¯æµ®ç‚¹æ•°
+	WRITE(*,400) D ! ç”¨Læ¥è¾“å‡ºlogical
+	WRITE(*,500) E ! ç”¨Aæ¥è¾“å‡ºå­—ç¬¦ä¸²
 100	FORMAT(1X,I5)
 200	FORMAT(1X,F5.2)
 300	FORMAT(1X,F4.1,F4.1)

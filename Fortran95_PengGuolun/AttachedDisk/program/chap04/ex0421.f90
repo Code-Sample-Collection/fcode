@@ -9,9 +9,9 @@ program ex0421
   c=(1,2)
   d=.true.
   e="FORTRAN"
-  write(*,"(1X,I5)")    a  ! ÓÃIÀ´¸ñÊ½»¯ÕûÊı
-  write(*,"(1X,F5.2)" ) b  ! ÓÃFÀ´¸ñÊ½»¯¸¡µãÊı
-  write(*,"(1X,F4.1,F4.1)" ) c ! complexÒ²ÊÇ¸¡µãÊı
-  write(*,"(1X,L3)") d  ! ÓÃLÀ´Êä³ölogical
-  write(*,"(1X,A10)") e ! ÓÃAÀ´Êä³ö×Ö·û´®
+  write(*,"(1X,I5)")    a  ! ç”¨Iæ¥æ ¼å¼åŒ–æ•´æ•°
+  write(*,"(1X,F5.2)" ) b  ! ç”¨Fæ¥æ ¼å¼åŒ–æµ®ç‚¹æ•°
+  write(*,"(1X,F4.1,F4.1)" ) c ! complexä¹Ÿæ˜¯æµ®ç‚¹æ•°
+  write(*,"(1X,L3)") d  ! ç”¨Læ¥è¾“å‡ºlogical
+  write(*,"(1X,A10)") e ! ç”¨Aæ¥è¾“å‡ºå­—ç¬¦ä¸²
 end

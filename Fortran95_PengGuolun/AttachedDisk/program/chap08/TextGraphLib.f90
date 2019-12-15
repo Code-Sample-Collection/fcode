@@ -1,15 +1,15 @@
 module TextGraphLib
   implicit none
-  integer, save   :: ScreenWidth        ! ¶¨Òå¿ÉÒÔ»­Í¼µÄ»­Ãæ¿í¶È
-  integer, save   :: ScreenHeight       ! ¶¨Òå¿ÉÒÔ»­Í¼µÄ»­Ãæ¸ß¶È
-  character, save :: background  = ' '  ! ¶¨ÒåÔ¤ÉèÓÃÀ´Çå³ı»­ÃæµÄ×ÖÔª
-  character, save :: CurrentChar = '*'  ! ¶¨ÒåÔ¤ÉèÓÃÀ´»­Í¼µÄ×ÖÔª 
-  character, save, allocatable :: screen(:,:)  ! ÓÃÀ´Êµ¼Ê»­Í¼µÄÄÚ´æ
+  integer, save   :: ScreenWidth        ! å®šä¹‰å¯ä»¥ç”»å›¾çš„ç”»é¢å®½åº¦
+  integer, save   :: ScreenHeight       ! å®šä¹‰å¯ä»¥ç”»å›¾çš„ç”»é¢é«˜åº¦
+  character, save :: background  = ' '  ! å®šä¹‰é¢„è®¾ç”¨æ¥æ¸…é™¤ç”»é¢çš„å­—å…ƒ
+  character, save :: CurrentChar = '*'  ! å®šä¹‰é¢„è®¾ç”¨æ¥ç”»å›¾çš„å­—å…ƒ 
+  character, save, allocatable :: screen(:,:)  ! ç”¨æ¥å®é™…ç”»å›¾çš„å†…å­˜
   integer, parameter :: segments = 100
   real, parameter    :: PI = 3.14159
 
 contains 
-! ¶¨Òå»­Ãæ´óĞ¡
+! å®šä¹‰ç”»é¢å¤§å°
 subroutine SetScreen( width, height )
   implicit none
   integer, intent(in) :: width, height
@@ -24,14 +24,14 @@ subroutine SetScreen( width, height )
   screen  = ' '
   return
 end subroutine
-! ¹é»¹ÄÚ´æÊ¹ÓÃ¿Õ¼ä
+! å½’è¿˜å†…å­˜ä½¿ç”¨ç©ºé—´
 subroutine DestroyScreen()
   implicit none
   if( allocated(screen) ) deallocate(screen)
   return
 end subroutine
 
-! Çå³ı»­Ãæ
+! æ¸…é™¤ç”»é¢
 subroutine ClearScreen( c )
   implicit none
   character, optional :: c
@@ -43,21 +43,21 @@ subroutine ClearScreen( c )
   end if
   return
 end subroutine
-! ¶¨ÒåÔ¤ÉèÓÃÀ´Çå³ı»­ÃæµÄ×Ö·û
+! å®šä¹‰é¢„è®¾ç”¨æ¥æ¸…é™¤ç”»é¢çš„å­—ç¬¦
 subroutine SetBackground( c )
   implicit none
   character :: c
   background = c
   return
 end subroutine
-! ¶¨ÒåÔ¤ÉèÓÃÀ´»­Í¼µÄ×Ö·û
+! å®šä¹‰é¢„è®¾ç”¨æ¥ç”»å›¾çš„å­—ç¬¦
 subroutine SetCurrentChar( char )
   implicit none
   character :: char
   CurrentChar = char
   return
 end subroutine
-! °Ñ»­ºÃµÄ½á¹ûÏÔÊ¾ÔÚÆÁÄ»ÉÏ
+! æŠŠç”»å¥½çš„ç»“æœæ˜¾ç¤ºåœ¨å±å¹•ä¸Š
 subroutine UpdateScreen()
   implicit none
   integer i
@@ -69,7 +69,7 @@ subroutine UpdateScreen()
   end do
   return
 end subroutine
-! ÔÚÖ¸¶¨µÄ(x,y)Î»ÖÃ»­ÉÏÒ»¸ö×Ö·û
+! åœ¨æŒ‡å®šçš„(x,y)ä½ç½®ç”»ä¸Šä¸€ä¸ªå­—ç¬¦
 subroutine PutChar( x, y, char )
   implicit none
   integer, intent(in) :: x,y
@@ -86,7 +86,7 @@ subroutine PutChar( x, y, char )
 
   return
 end subroutine PutChar
-! ÔÚ(x0,y0)µ½(x1,y1)Ö®¼ä»­Ò»ÌõÖ±Ïß
+! åœ¨(x0,y0)åˆ°(x1,y1)ä¹‹é—´ç”»ä¸€æ¡ç›´çº¿
 subroutine DrawLine(x0,y0, x1,y1)
   implicit none
   integer, intent(in) :: x0,y0
@@ -152,7 +152,7 @@ subroutine DrawLine(x0,y0, x1,y1)
 
   return
 end subroutine
-! ÒÔ(cx,cy)ÎªÔ²ĞÄ, Ë®Æ½Öá°ë¾¶ÎªradiusA, ´¹Ö±Öá°ë¾¶ÎªradiusBµÄÍÖÍ¼
+! ä»¥(cx,cy)ä¸ºåœ†å¿ƒ, æ°´å¹³è½´åŠå¾„ä¸ºradiusA, å‚ç›´è½´åŠå¾„ä¸ºradiusBçš„æ¤­å›¾
 subroutine DrawCircle( cx, cy, radiusA, radiusB )
   implicit none
   integer, intent(in) :: cx, cy, radiusA
@@ -185,9 +185,9 @@ subroutine DrawCircle( cx, cy, radiusA, radiusB )
   end do
 
 end subroutine
-! Èç¹û1<=num<=max, ·µ»ØnumÖµ.
-! num<1 ¸³Öµ1
-! num>max ¸³Öµmax
+! å¦‚æœ1<=num<=max, è¿”å›numå€¼.
+! num<1 èµ‹å€¼1
+! num>max èµ‹å€¼max
 integer function Bound(num, max)
   implicit none
   integer, intent(in) :: num, max
@@ -196,7 +196,7 @@ integer function Bound(num, max)
   if ( num>max ) Bound = max
   return
 end function
-! ÒÔ(x0,y0)Îª×óÉÏ½Ç, (x1,y1)ÎªÓÒÏÂ½Ç»­Ò»¸ö¿ÕĞÄµÄ¾ØĞÎ
+! ä»¥(x0,y0)ä¸ºå·¦ä¸Šè§’, (x1,y1)ä¸ºå³ä¸‹è§’ç”»ä¸€ä¸ªç©ºå¿ƒçš„çŸ©å½¢
 subroutine DrawRect( x0, y0, x1, y1 )
   implicit none
   integer, intent(in) :: x0, y0, x1, y1
@@ -217,7 +217,7 @@ subroutine DrawRect( x0, y0, x1, y1 )
 
   return
 end subroutine
-! ÒÔ(x0,y0)Îª×óÉÏ½Ç, (x1,y1)ÎªÓÒÏÂ½Ç»­Ò»¸öÊµĞÄµÄ¾ØĞÎ
+! ä»¥(x0,y0)ä¸ºå·¦ä¸Šè§’, (x1,y1)ä¸ºå³ä¸‹è§’ç”»ä¸€ä¸ªå®å¿ƒçš„çŸ©å½¢
 subroutine DrawFilledRect( x0, y0, x1, y1 )
   implicit none
   integer, intent(in) :: x0, y0, x1,y1

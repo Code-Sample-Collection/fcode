@@ -23,12 +23,12 @@ program ex0909
   open(unit=outputfileid, file=outputfile, status="replace")
   count = 1
   do while(.true.)
-    ! ¶ÁÈëÒ»ÕûĞĞµÄÊı¾İ
+    ! è¯»å…¥ä¸€æ•´è¡Œçš„æ•°æ®
     read(inputfileid,"(A200)",iostat=error) buffer
-	if ( error/=0 ) exit ! Ã»ÓĞÊı¾İÁË,Àë¿ªÑ­»·
-	! ÔÙ×îÇ°Ãæ¼ÓÉÏĞĞºÅÔÙÊä³öµ½ÁíÒ»¸öÎÄ¼şÖĞ
+	if ( error/=0 ) exit ! æ²¡æœ‰æ•°æ®äº†,ç¦»å¼€å¾ªç¯
+	! å†æœ€å‰é¢åŠ ä¸Šè¡Œå·å†è¾“å‡ºåˆ°å¦ä¸€ä¸ªæ–‡ä»¶ä¸­
     write(outputfileid, "(I3,'.',A)") count,trim(buffer)
-	count=count+1        ! ¼ÆËãĞĞÊı
+	count=count+1        ! è®¡ç®—è¡Œæ•°
   end do
   close(inputfileid)
   close(outputfileid)

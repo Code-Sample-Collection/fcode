@@ -1,7 +1,7 @@
 program ex0810
 implicit none
   integer :: a,b
-  common a,b ! ¶¨Òåa,bÊÇÈ«¾Ö±äÁ¿ÖĞµÄµÚ1¼°µÚ2¸ö±äÁ¿
+  common a,b ! å®šä¹‰a,bæ˜¯å…¨å±€å˜é‡ä¸­çš„ç¬¬1åŠç¬¬2ä¸ªå˜é‡
   a=1
   b=2
   call ShowCommon()
@@ -11,7 +11,7 @@ end
 subroutine ShowCommon()
 implicit none
   integer :: num1, num2
-  common num1, num2 ! ¶¨Òåa,bÊÇÈ«¾Ö±äÁ¿ÖĞµÄµÚ1¼°µÚ2¸ö±äÁ¿
+  common num1, num2 ! å®šä¹‰a,bæ˜¯å…¨å±€å˜é‡ä¸­çš„ç¬¬1åŠç¬¬2ä¸ªå˜é‡
   write(*,*) num1, num2
   return
 end

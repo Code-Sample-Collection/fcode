@@ -1,11 +1,11 @@
 program ex0812
 implicit none
   integer :: a,b
-  common a,b          ! a,b·ÅÔÚ²»¾ßÃûµÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
+  common a,b          ! a,bæ”¾åœ¨ä¸å…·åçš„å…¨å±€å˜é‡ç©ºé—´ä¸­
   integer :: c,d
-  common /group1/ c,d ! c,d·ÅÔÚgroup1µÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
+  common /group1/ c,d ! c,dæ”¾åœ¨group1çš„å…¨å±€å˜é‡ç©ºé—´ä¸­
   integer :: e,f
-  common /group2/ e,f ! e,f·ÅÔÚgroup2µÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
+  common /group2/ e,f ! e,fæ”¾åœ¨group2çš„å…¨å±€å˜é‡ç©ºé—´ä¸­
 
   write(*,"(6I4)") a,b,c,d,e,f
 
@@ -15,12 +15,12 @@ end
 block data
 implicit none
   integer a,b
-  common  a,b          ! a,b·ÅÔÚ²»¾ßÃûµÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
-  data    a,b /1,2/    ! Éè¶¨a,bµÄ³õÖµ
+  common  a,b          ! a,bæ”¾åœ¨ä¸å…·åçš„å…¨å±€å˜é‡ç©ºé—´ä¸­
+  data    a,b /1,2/    ! è®¾å®ša,bçš„åˆå€¼
   integer c,d
-  common  /group1/ c,d ! c,d·ÅÔÚgroup1µÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
-  data    c,d /3,4/    ! Éè¶¨c,dµÄ³õÖµ
+  common  /group1/ c,d ! c,dæ”¾åœ¨group1çš„å…¨å±€å˜é‡ç©ºé—´ä¸­
+  data    c,d /3,4/    ! è®¾å®šc,dçš„åˆå€¼
   integer e,f
-  common  /group2/ e,f ! e,f·ÅÔÚgroup2µÄÈ«¾Ö±äÁ¿¿Õ¼äÖĞ
-  data    e,f /5,6/    ! Éè¶¨e,fµÄ³õÖµ
+  common  /group2/ e,f ! e,fæ”¾åœ¨group2çš„å…¨å±€å˜é‡ç©ºé—´ä¸­
+  data    e,f /5,6/    ! è®¾å®še,fçš„åˆå€¼
 end block data

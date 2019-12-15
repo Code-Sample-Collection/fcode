@@ -6,7 +6,7 @@ contains
     call sglClearColor3i(255,255,255)
     call sglClearBuffer()
 	call sglColor3i(0,0,0)
-	call sglTextOut(50,50,"´ó¼ÒºÃ")
+	call sglTextOut(50,50,"å¤§å®¶å¥½")
 	call sglUpdateBuffer()
   end subroutine
 end module SGL_UTIL
@@ -17,7 +17,7 @@ program main
 
   call sglDisplaySub(display)
   call sglCreateWindow(100,100,400,200,1)
-  call sglUseFont("±ê¿¬Ìå",50,100)
+  call sglUseFont("æ ‡æ¥·ä½“",50,100)
   !call sglUseFont("Time New Roman",50,100)
   call sglMainLoop()
 

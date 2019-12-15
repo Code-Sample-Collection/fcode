@@ -25,7 +25,7 @@ module GAME
   use GAME_DATA
   use UTILITY
 contains
-  ! ³õÊ¼»¯
+  ! åˆå§‹åŒ–
   subroutine Init()
     call sglUseFont("Arial", 8, 16)
     LastTime = sglGetInfo(SGL_TIME)
@@ -38,7 +38,7 @@ contains
     call InitBlock()
     call NewBlock()	
   end subroutine
-  ! ²úÉúĞÂµÄ·½¿é
+  ! äº§ç”Ÿæ–°çš„æ–¹å—
   subroutine NewBlock()
     integer, parameter :: StartX = BlocksX/2-2
 	integer, parameter :: StartY = -3
@@ -57,7 +57,7 @@ contains
 	CurrentBlock%backup_x = -1
     if ( NextPosition(StartX,StartY)==Block_HitBlock ) GameMode = Mode_End
   end subroutine
-  ! ¼ì²é·½¿éÄÜ²»ÄÜ·Åµ½(x,y)µÄÎ»ÖÃÉÏ
+  ! æ£€æŸ¥æ–¹å—èƒ½ä¸èƒ½æ”¾åˆ°(x,y)çš„ä½ç½®ä¸Š
   integer function NextPosition(x,y)
     integer x,y
 	integer i,j,bx,by
@@ -89,7 +89,7 @@ contains
 	end do 
 
   end function
-  ! °Ñ·½¿éÒÆ³ö°æÃæ
+  ! æŠŠæ–¹å—ç§»å‡ºç‰ˆé¢
   subroutine ClearBlock()
     integer i,j, bx,by
 	do i=1,4
@@ -104,7 +104,7 @@ contains
 	  end do
 	end do
   end subroutine
-  ! °Ñ·½¿é·ÅÈë°æÃæ
+  ! æŠŠæ–¹å—æ”¾å…¥ç‰ˆé¢
   subroutine PutBlock()
     integer i,j, bx,by
 	do i=1,4
@@ -119,7 +119,7 @@ contains
 	  end do
 	end do
   end subroutine
-  ! Ä³Ò»ĞĞÒÑ¾­ÌîÂú, °ÑËüÒÆ³ı
+  ! æŸä¸€è¡Œå·²ç»å¡«æ»¡, æŠŠå®ƒç§»é™¤
   subroutine DeleteLevel(l)
     integer l
 	integer i
@@ -130,7 +130,7 @@ contains
 	Speed = Speed - SpeedInc
 	if ( Speed<SpeedLimit ) Speed = SpeedLimit
   end subroutine 
-  ! ¼ì²éÓĞÄÄ¼¸ĞĞ±»ÌîÂú
+  ! æ£€æŸ¥æœ‰å“ªå‡ è¡Œè¢«å¡«æ»¡
   subroutine Check()
     integer c
 	integer i
@@ -141,7 +141,7 @@ contains
 	  end if
 	end do
   end subroutine
-  ! Ã»ÓĞĞÅÏ¢Ê±»áÒ»Ö±µ÷ÓÃOnIdleº¯Êı
+  ! æ²¡æœ‰ä¿¡æ¯æ—¶ä¼šä¸€ç›´è°ƒç”¨OnIdleå‡½æ•°
   subroutine OnIdle()
     ThisTime = sglGetInfo(SGL_TIME)
 	TickTime = ThisTime - LastTime
@@ -158,13 +158,13 @@ contains
 
 	LastTime = ThisTime
   end subroutine
-  ! ÓÎÏ·½áÊøµÄ»­Ãæ
+  ! æ¸¸æˆç»“æŸçš„ç”»é¢
   subroutine ShowMessage()
 	call sglClearBuffer()
 	call sglTextOut(10,SY/2,"Game Over, play again?(Y/N)")
 	call sglUpdateBuffer()    
   end subroutine
-  ! ÓÎÏ·½áÊøºó¶ÁÈ¡¼üÅÌµÄ³ÌĞò
+  ! æ¸¸æˆç»“æŸåè¯»å–é”®ç›˜çš„ç¨‹åº
   subroutine KeyDown2(key)
     integer key
 	character ckey
@@ -177,14 +177,14 @@ contains
 	  call sglEnd()
 	end select 
   end subroutine
-  ! ÏÔÊ¾µÄº¯Êı
+  ! æ˜¾ç¤ºçš„å‡½æ•°
   subroutine display()
     call sglClearColor3i(0,100,100)
     call sglClearBuffer()
     call DrawBoard()
 	call sglUpdateBuffer()
   end subroutine
-  ! ÓÎÏ·½øĞĞÖĞ¶ÁÈ¡¼üÅÌµÄº¯Êı
+  ! æ¸¸æˆè¿›è¡Œä¸­è¯»å–é”®ç›˜çš„å‡½æ•°
   subroutine KeyDown(key)
     integer key
 	integer, parameter :: MOVE_LEFT = 37,&
@@ -234,7 +234,7 @@ contains
 	
 	call PutBlock()
   end subroutine
-  ! ÈÃ·½¿é×ÔÈ»ÏòÏÂÂäµÄº¯Êı
+  ! è®©æ–¹å—è‡ªç„¶å‘ä¸‹è½çš„å‡½æ•°
   subroutine GameMove()
     if ( ThisTime-LastFallTime > Speed ) then
 	  LastFallTime = ThisTime
@@ -249,7 +249,7 @@ contains
 	  end if
 	end if
   end subroutine
-  ! »­³öËùÓĞµÄ°æÃæ
+  ! ç”»å‡ºæ‰€æœ‰çš„ç‰ˆé¢
   subroutine DrawBoard()
     integer x,y
 	character(len=20) :: string
@@ -267,7 +267,7 @@ contains
 	call sglTextOut(1,1,string)
 
   end subroutine
-  ! »­³öÃ¿Ò»¸öĞ¡·½¿éµÄº¯Êı
+  ! ç”»å‡ºæ¯ä¸€ä¸ªå°æ–¹å—çš„å‡½æ•°
   subroutine DrawBlock(x,y,c)
     integer, intent(in) :: x,y,c
     integer, parameter :: w = BX-GridSize*2

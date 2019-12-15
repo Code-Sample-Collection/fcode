@@ -4,6 +4,6 @@ program ex0414
   character(len=20) add
   first="Happy "
   second="Birthday"
-  add = first//second ! 经由两个连续的除号可以连接两个字符串
+  add = first//second ! 缁忕敱涓や釜杩炵画鐨勯櫎鍙峰彲浠ヨ繛鎺ヤ袱涓瓧绗︿覆
   write(*,*) add
 end

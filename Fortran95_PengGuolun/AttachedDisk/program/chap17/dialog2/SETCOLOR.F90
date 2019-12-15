@@ -1,5 +1,5 @@
 !
-! ¶Ô»°´°µÄÊ¾·¶Ö®¶ş
+! å¯¹è¯çª—çš„ç¤ºèŒƒä¹‹äºŒ
 ! By Perng 1997/09/26
 program main
 use DFLIB
@@ -12,7 +12,7 @@ implicit none
   end do
 end program
 !
-! ¼ÇÂ¼È«¾Ö±äÁ¿
+! è®°å½•å…¨å±€å˜é‡
 !
 module Global
 implicit none
@@ -21,7 +21,7 @@ implicit none
   integer, save :: blue=0
 end module
 !
-! ×Ô¶¨Òå²Ëµ¥
+! è‡ªå®šä¹‰èœå•
 !
 logical(kind=4) function InitialSettings()
 use DFLIB
@@ -41,14 +41,14 @@ implicit none
   return
 end function
 !
-! ´¦ÀíOpen
+! å¤„ç†Open
 !
 subroutine FileOpen(check)
 use Global
 implicit none
   logical :: check
   check=.true.
-  ! ´ò¿ªÒ»¸ö¿Õ°××Ö·ûµÄÎÄ¼ş, »á³öÏÖÒ»¸öÎÄ¼şÑ¡ÔñµÄ¶Ô»°´°À´¸øÊ¹ÓÃÕßÑ¡ÔñÎÄ¼ş
+  ! æ‰“å¼€ä¸€ä¸ªç©ºç™½å­—ç¬¦çš„æ–‡ä»¶, ä¼šå‡ºç°ä¸€ä¸ªæ–‡ä»¶é€‰æ‹©çš„å¯¹è¯çª—æ¥ç»™ä½¿ç”¨è€…é€‰æ‹©æ–‡ä»¶
   open(unit=10, file=' ')
   read(10,*) red
   read(10,*) green
@@ -58,14 +58,14 @@ implicit none
   return
 end subroutine
 !
-! ´¦ÀíSave
+! å¤„ç†Save
 !
 subroutine FileSave(check)
 use Global
 implicit none
   logical :: check
   check=.true.
-  ! Ê¹ÓÃÎÄ¼şÑ¡ÔñµÄ¶Ô»°´°
+  ! ä½¿ç”¨æ–‡ä»¶é€‰æ‹©çš„å¯¹è¯çª—
   open(unit=20, file=' ')
   write(20,*) red
   write(20,*) green
@@ -74,7 +74,7 @@ implicit none
   return
 end subroutine
 !
-! °´ÏÂSetColorÊ±»áÖ´ĞĞÕâ¸öº¯Êı
+! æŒ‰ä¸‹SetColoræ—¶ä¼šæ‰§è¡Œè¿™ä¸ªå‡½æ•°
 !
 subroutine SetColorDialog(check)
 use Global
@@ -89,38 +89,38 @@ implicit none
   character(len=10) output
 
   check=.true.
-  result=DlgInit(IDD_SETCOLOR, dlg) ! ³õÊ¼¶Ô»°´°
-  ! Éè¶¨¹ö¶¯Ìõ¿ÉÒÔ¹ö¶¯µÄ·¶Î§
+  result=DlgInit(IDD_SETCOLOR, dlg) ! åˆå§‹å¯¹è¯çª—
+  ! è®¾å®šæ»šåŠ¨æ¡å¯ä»¥æ»šåŠ¨çš„èŒƒå›´
   result=DlgSet( dlg, IDC_SCROLLBAR1, 256, dlg_range ) 
   result=DlgSet( dlg, IDC_SCROLLBAR2, 256, dlg_range )
   result=DlgSet( dlg, IDC_SCROLLBAR3, 256, dlg_range )
-  ! Éè¶¨¹ö¶¯ÌõÄ¿Ç°µÄÎ»ÖÃ
+  ! è®¾å®šæ»šåŠ¨æ¡ç›®å‰çš„ä½ç½®
   result=DlgSet( dlg, IDC_SCROLLBAR1, red, dlg_position )
   result=DlgSet( dlg, IDC_SCROLLBAR2, green, dlg_position )
   result=DlgSet( dlg, IDC_SCROLLBAR3, blue, dlg_position )
-! ÉÏÃæÓĞ±È½ÏÆæ¹ÖµÄÓÃ·¨, dlg_range´ú±íÏÖÔÚÊÇÒªÉè¶¨¹ö¶¯Ìõ¿Ø¼şµÄ·¶Î§Öµ
-! dlg_position´ú±íÊÇÒªÉè¶¨¹ö¶¯Ìõ¿Ø¼şµÄÎ»ÖÃ. ¶ÁÕß¿ÉÒÔÏëÏñµ±ÀàĞÍÎªdialog
-! µÄdlg±»ÉùÃ÷Ê±, ±àÒëÆ÷»á×Ô¶¯°ïÎÒÃÇÉùÃ÷³ödlg_range, dlg_positionµÈµÈ
-! µÄ±äÁ¿²¢Éè¶¨ºÃËüÃÇµÄÊıÖµ.
+! ä¸Šé¢æœ‰æ¯”è¾ƒå¥‡æ€ªçš„ç”¨æ³•, dlg_rangeä»£è¡¨ç°åœ¨æ˜¯è¦è®¾å®šæ»šåŠ¨æ¡æ§ä»¶çš„èŒƒå›´å€¼
+! dlg_positionä»£è¡¨æ˜¯è¦è®¾å®šæ»šåŠ¨æ¡æ§ä»¶çš„ä½ç½®. è¯»è€…å¯ä»¥æƒ³åƒå½“ç±»å‹ä¸ºdialog
+! çš„dlgè¢«å£°æ˜æ—¶, ç¼–è¯‘å™¨ä¼šè‡ªåŠ¨å¸®æˆ‘ä»¬å£°æ˜å‡ºdlg_range, dlg_positionç­‰ç­‰
+! çš„å˜é‡å¹¶è®¾å®šå¥½å®ƒä»¬çš„æ•°å€¼.
 
-  ! Ğ´³öºì,ÂÌ,À¶ÈıÉ«¹âµÄÇ¿¶ÈÊıÖµ
+  ! å†™å‡ºçº¢,ç»¿,è“ä¸‰è‰²å…‰çš„å¼ºåº¦æ•°å€¼
   write(output,"(I3)") red
   result=DlgSet( dlg, IDC_VALUE_RED, output )
   write(output,"(I3)") green
   result=DlgSet( dlg, IDC_VALUE_GREEN, output )
   write(output,"(I3)") blue
   result=DlgSet( dlg, IDC_VALUE_BLUE, output )
-  ! Éè¶¨À­¶¯¹ö¶¯ÌõÊ±»áÖ´ĞĞµÄº¯Êı
+  ! è®¾å®šæ‹‰åŠ¨æ»šåŠ¨æ¡æ—¶ä¼šæ‰§è¡Œçš„å‡½æ•°
   result=DlgSetSub( dlg, IDC_SCROLLBAR1, ShowColor )
   result=DlgSetSub( dlg, IDC_SCROLLBAR2, ShowColor )
   result=DlgSetSub( dlg, IDC_SCROLLBAR3, ShowColor )
-  ! µ¯³ö¶Ô»°´°
+  ! å¼¹å‡ºå¯¹è¯çª—
   result=DlgModal(dlg)
 
   return
 end subroutine
 !
-! È¡³öÈıÉ«¹âµÄÉè¶¨²¢»æ³öÒ»¸öÊµĞÄ·½ĞÎ
+! å–å‡ºä¸‰è‰²å…‰çš„è®¾å®šå¹¶ç»˜å‡ºä¸€ä¸ªå®å¿ƒæ–¹å½¢
 !
 subroutine ShowColor(dlg,id,callbacktype)
 use Global
@@ -132,23 +132,23 @@ implicit none
   integer :: result
   character(len=10) :: output
   include 'resource.fd'
-  ! È¡³ö¹ö¶¯ÌõµÄÎ»ÖÃ
+  ! å–å‡ºæ»šåŠ¨æ¡çš„ä½ç½®
   result=DlgGet( dlg, IDC_SCROLLBAR1, red, dlg_position )
   result=DlgGet( dlg, IDC_SCROLLBAR2, green, dlg_position )
   result=DlgGet( dlg, IDC_SCROLLBAR3, blue, dlg_position )
-  ! ÒòÎªÑÕÉ«µÄ±ä»¯·¶Î§ÊÇ0-255, ¶ø¹ö¶¯ÌõµÄ·¶Î§ÊÇ1-256, ËùÒÔÒª¼õ1
+  ! å› ä¸ºé¢œè‰²çš„å˜åŒ–èŒƒå›´æ˜¯0-255, è€Œæ»šåŠ¨æ¡çš„èŒƒå›´æ˜¯1-256, æ‰€ä»¥è¦å‡1
   red=red-1
   green=green-1
   blue=blue-1
 
   select case(id)
-  case(IDC_SCROLLBAR1)	! µÚÒ»¸ö¹ö¶¯ÌõÉè¶¨ºìÉ«¹âÇ¿¶È
+  case(IDC_SCROLLBAR1)	! ç¬¬ä¸€ä¸ªæ»šåŠ¨æ¡è®¾å®šçº¢è‰²å…‰å¼ºåº¦
     write(output,"(I3)") red
     result=DlgSet( dlg, IDC_VALUE_RED, output )
-  case(IDC_SCROLLBAR2)  ! µÚ¶ş¸ö¹ö¶¯ÌõÉè¶¨ÂÌÉ«¹âÇ¿¶È
+  case(IDC_SCROLLBAR2)  ! ç¬¬äºŒä¸ªæ»šåŠ¨æ¡è®¾å®šç»¿è‰²å…‰å¼ºåº¦
     write(output,"(I3)") green
     result=DlgSet( dlg, IDC_VALUE_GREEN, output )
-  case(IDC_SCROLLBAR3)  ! µÚÈı¸ö¹ö¶¯ÌõÉè¶¨À¶É«¹âÇ¿¶È
+  case(IDC_SCROLLBAR3)  ! ç¬¬ä¸‰ä¸ªæ»šåŠ¨æ¡è®¾å®šè“è‰²å…‰å¼ºåº¦
     write(output,"(I3)") blue
     result=DlgSet( dlg, IDC_VALUE_BLUE, output )
   end select
@@ -158,7 +158,7 @@ implicit none
   return
 end subroutine
 !
-! ÒÔÉè¶¨µÄÑÕÉ«»­³öÊµĞÄ·½ĞÎ
+! ä»¥è®¾å®šçš„é¢œè‰²ç”»å‡ºå®å¿ƒæ–¹å½¢
 !
 subroutine DrawObject()
 use Global

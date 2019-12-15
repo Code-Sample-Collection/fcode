@@ -32,7 +32,7 @@ subroutine getchar(key)
   if ( x>400 ) x=400
   if ( y<0 )   y=0
   if ( y>400 ) y=400
-  call display() ! µ÷ÓÃdisplay¿ÉÒÔÇ¿ÆÈ¸üĞÂ»­Ãæ
+  call display() ! è°ƒç”¨displayå¯ä»¥å¼ºè¿«æ›´æ–°ç”»é¢
 end subroutine
 end module
 
@@ -40,8 +40,8 @@ program main
   use sgl_util
   implicit none
   call sglDisplaySub(display)
-  call sglGetCharSub(getchar) ! Éè¶¨ÊäÈëÒ»¸ö×Ö·ûÊ±»áµ÷ÓÃµÄº¯Êı
-  call sglEnableReshape(0) ! ²»»´Ğí´°¿Ú´óĞ¡¸Ä±ä
+  call sglGetCharSub(getchar) ! è®¾å®šè¾“å…¥ä¸€ä¸ªå­—ç¬¦æ—¶ä¼šè°ƒç”¨çš„å‡½æ•°
+  call sglEnableReshape(0) ! ä¸æ·®è®¸çª—å£å¤§å°æ”¹å˜
   call sglCreateWindow(100,100,400,400,1)
   call sglMainLoop()
   stop

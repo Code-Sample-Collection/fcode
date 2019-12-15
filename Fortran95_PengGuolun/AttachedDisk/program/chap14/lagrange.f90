@@ -10,7 +10,7 @@ module INTERPOLATE_UTILITY
   type(point) :: datas(N)
   type(point) :: interpolate(NP)
 contains
-! ²úÉúÊıÁĞ
+! äº§ç”Ÿæ•°åˆ—
   subroutine GenerateData(func)
 	real, external :: func
 	real r, width
@@ -36,19 +36,19 @@ contains
       lagrange = lagrange + coeff*datas(i)%y
 	end do
   end function
-! »æÍ¼º¯Êı
+! ç»˜å›¾å‡½æ•°
   subroutine display()
     real, parameter :: size = 0.1
     integer i
     call sglClearBuffer()
 	call sglColor3i(255,255,255)
-	! °ÑËùÓĞ²åÖµ³öÀ´µÄµãÓÃÏß¶ÎÁ¬½ÓÆğÀ´
+	! æŠŠæ‰€æœ‰æ’å€¼å‡ºæ¥çš„ç‚¹ç”¨çº¿æ®µè¿æ¥èµ·æ¥
     do i=1,NP-1
 	  call sglLineV( interpolate(i)%x, interpolate(i)%y,&
 	                 interpolate(i+1)%x, interpolate(i+1)%y)
 	end do
 	call sglColor3i(255,0,0)
-	! »­³ön¸öÊı¾İµãµÄÎ»ÖÃ
+	! ç”»å‡ºnä¸ªæ•°æ®ç‚¹çš„ä½ç½®
 	do i=1,N
       call sglLineV( datas(i)%x-size, datas(i)%y-size,&
 	                 datas(i)%x+size, datas(i)%y+size)
@@ -66,15 +66,15 @@ program main
   real xinc,x
   integer i
 
-  call GenerateData(sin) ! ²úÉúÊı¾İµã
+  call GenerateData(sin) ! äº§ç”Ÿæ•°æ®ç‚¹
   x=0
   xinc = (xmax-xmin)/(NP-1)
   do i=1,NP
     interpolate(i)%x = x
-    interpolate(i)%y = lagrange(x) ! ²åÖµ³öf(x)µÄÖµ
+    interpolate(i)%y = lagrange(x) ! æ’å€¼å‡ºf(x)çš„å€¼
 	x = x+xinc
   end do
-  ! »­³ö²åÖµµÃµ½µÄ½á¹û
+  ! ç”»å‡ºæ’å€¼å¾—åˆ°çš„ç»“æœ
   call sglDisplaySub(display)
   call sglSetVirtual(xmin, 2.0, xmax, -2.0)
   call sglCreateWindow(100,100,400,400,1)

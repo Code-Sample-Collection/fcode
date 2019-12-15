@@ -1,46 +1,46 @@
-! ´¦ÀíÊó±êÊÂ¼şµÄº¯Êı
+! å¤„ç†é¼ æ ‡äº‹ä»¶çš„å‡½æ•°
 module MouseEvent
 use DFLIB
 implicit none
 Contains
-  ! Êó±êÔÚ´°¿ÚÖĞÃ¿ÒÆ¶¯Ò»´Î,¾Í»áµ÷ÓÃÕâ¸öº¯Êı
+  ! é¼ æ ‡åœ¨çª—å£ä¸­æ¯ç§»åŠ¨ä¸€æ¬¡,å°±ä¼šè°ƒç”¨è¿™ä¸ªå‡½æ•°
   subroutine ShowLocation(iunit, ievent, ikeystate, ixpos, iypos)
   implicit none
-    integer :: iunit		! Êó±êËùÔÚµÄ´°¿ÚµÄunitÖµ
-	integer :: ievent		! Êó±ê·¢ÉúµÄĞÅÏ¢Âë
-	integer :: ikeystate	! ½øÈëÕâ¸öº¯ÊıÊ±,ÆäËü¿ØÖÆ¼üµÄ×´Ì¬
-	integer :: ixpos,iypos	! Êó±êÔÚ´°¿ÚÖĞµÄÎ»ÖÃ
+    integer :: iunit		! é¼ æ ‡æ‰€åœ¨çš„çª—å£çš„unitå€¼
+	integer :: ievent		! é¼ æ ‡å‘ç”Ÿçš„ä¿¡æ¯ç 
+	integer :: ikeystate	! è¿›å…¥è¿™ä¸ªå‡½æ•°æ—¶,å…¶å®ƒæ§åˆ¶é”®çš„çŠ¶æ€
+	integer :: ixpos,iypos	! é¼ æ ‡åœ¨çª—å£ä¸­çš„ä½ç½®
     type(xycoord) :: t		 
 	integer :: result		 
-	character(len=15) :: output	! Éè¶¨Êä³öµÄ×Ö´®
+	character(len=15) :: output	! è®¾å®šè¾“å‡ºçš„å­—ä¸²
 
-	result=SetActiveQQ(iunit)		! °Ñ»æÍ¼¹¤×÷Ö¸ÏòÕâ¸ö´°¿Ú
-    write(output,100) ixpos,iypos	! °ÑÊó±êËùÔÚÎ»ÖÃµÄĞÅÏ¢Ğ´Èëoutput
+	result=SetActiveQQ(iunit)		! æŠŠç»˜å›¾å·¥ä½œæŒ‡å‘è¿™ä¸ªçª—å£
+    write(output,100) ixpos,iypos	! æŠŠé¼ æ ‡æ‰€åœ¨ä½ç½®çš„ä¿¡æ¯å†™å…¥output
 100 format("(X:",I4," Y:",I4,")")	!
     result=SetColorRGB(#1010FF)		 
-    result=Rectangle($GFILLINTERIOR,0,0,120,18) ! »­Ò»¸öÊµĞÄ·½ĞÎ
+    result=Rectangle($GFILLINTERIOR,0,0,120,18) ! ç”»ä¸€ä¸ªå®å¿ƒæ–¹å½¢
     result=SetColorRGB(#FFFFFF) 
 	call MoveTo( 4,2,t)	
-	call OutGText(output)	! ÏÔÊ¾ĞÅÏ¢
-	! Èç¹ûÊó±êÔÚÒÆ¶¯µ±ÖĞ, ×ó¼üÍ¬Ê±±»°´ÏÂ, »áË³±ã»­³öÒ»¸öµã.
+	call OutGText(output)	! æ˜¾ç¤ºä¿¡æ¯
+	! å¦‚æœé¼ æ ‡åœ¨ç§»åŠ¨å½“ä¸­, å·¦é”®åŒæ—¶è¢«æŒ‰ä¸‹, ä¼šé¡ºä¾¿ç”»å‡ºä¸€ä¸ªç‚¹.
 	if ( ikeystate==MOUSE$KS_LBUTTON ) then
 	  result=SetColorRGB(#0000FF)
 	  result=SetPixel(ixpos,iypos)
 	end if
 	return
   end subroutine
-  ! Êó±êÓÒ¼ü°´ÏÂÊ±, »áÖ´ĞĞÕâ¸öº¯Êı
+  ! é¼ æ ‡å³é”®æŒ‰ä¸‹æ—¶, ä¼šæ‰§è¡Œè¿™ä¸ªå‡½æ•°
   subroutine MouseClearScreen(iunit, ievent, ikeystate, ixpos, iypos )
   implicit none
-    integer :: iunit		! Êó±êËùÔÚµÄ´°¿ÚµÄunitÖµ
-	integer :: ievent		! Êó±ê·¢ÉúµÄĞÅÏ¢Âë
-	integer :: ikeystate	! ½øÈëÕâ¸öº¯ÊıÊ±,ÆäËü¿ØÖÆ¼üµÄ×´Ì¬
-	integer :: ixpos,iypos	! Êó±êÔÚ´°¿ÚÖĞµÄÎ»ÖÃ
+    integer :: iunit		! é¼ æ ‡æ‰€åœ¨çš„çª—å£çš„unitå€¼
+	integer :: ievent		! é¼ æ ‡å‘ç”Ÿçš„ä¿¡æ¯ç 
+	integer :: ikeystate	! è¿›å…¥è¿™ä¸ªå‡½æ•°æ—¶,å…¶å®ƒæ§åˆ¶é”®çš„çŠ¶æ€
+	integer :: ixpos,iypos	! é¼ æ ‡åœ¨çª—å£ä¸­çš„ä½ç½®
     type(xycoord) :: t		 
 	integer :: result		 
 
-	result=SetActiveQQ(iunit)		! °Ñ»æÍ¼¶¯×÷Éè¶¨ÔÚÊó±êËùÔÚ´°¿ÚÉÏ
-    call ClearScreen($GCLEARSCREEN)	! Çå³ıÕû¸öÆÁÄ»
+	result=SetActiveQQ(iunit)		! æŠŠç»˜å›¾åŠ¨ä½œè®¾å®šåœ¨é¼ æ ‡æ‰€åœ¨çª—å£ä¸Š
+    call ClearScreen($GCLEARSCREEN)	! æ¸…é™¤æ•´ä¸ªå±å¹•
     
 	return
   end subroutine    
@@ -55,20 +55,20 @@ implicit none
   integer :: state,x,y
 
   result=AboutBoxQQ("Mouse Draw Demo\r By Perng 1997/09"C)
-  ! ´ò¿ª´°¿Ú
+  ! æ‰“å¼€çª—å£
   open( unit=10, file='user', title='Mouse Demo', iofocus=.true. )
-  ! Ê¹ÓÃ×ÖĞÎÇ°, Ò»¶¨Òªµ÷ÓÃInitializeFonts
+  ! ä½¿ç”¨å­—å½¢å‰, ä¸€å®šè¦è°ƒç”¨InitializeFonts
   result=InitializeFonts()
-  ! Ñ¡ÓÃCourier NewµÄ×ÖĞÎÔÚ´°¿ÚÖĞÀ´Êä³ö			
+  ! é€‰ç”¨Courier Newçš„å­—å½¢åœ¨çª—å£ä¸­æ¥è¾“å‡º			
   result=setfont('t''Courier New''h14w8')
-  call ClearScreen($GCLEARSCREEN)	! ÏÈÇå³ıÒ»ÏÂÆÁÄ»
-  ! Éè¶¨Êó±êÒÆ¶¯»ò°´ÏÂ×ó¼üÊ±, »áµ÷ÓÃShowLocation
+  call ClearScreen($GCLEARSCREEN)	! å…ˆæ¸…é™¤ä¸€ä¸‹å±å¹•
+  ! è®¾å®šé¼ æ ‡ç§»åŠ¨æˆ–æŒ‰ä¸‹å·¦é”®æ—¶, ä¼šè°ƒç”¨ShowLocation
   event=ior(MOUSE$MOVE,MOUSE$LBUTTONDOWN)
   result=RegisterMouseEvent(10, event, ShowLocation)
-  ! Éè¶¨Êó±êÓÒ¼ü°´ÏÂÊ±, »áµ÷ÓÃMouseClearScreen
+  ! è®¾å®šé¼ æ ‡å³é”®æŒ‰ä¸‹æ—¶, ä¼šè°ƒç”¨MouseClearScreen
   event=MOUSE$RBUTTONDOWN
   result=RegisterMouseEvent(10, event, MouseClearScreen )
-  ! °Ñ³ÌĞò·ÅÈëµÈ´ıÊó±êÊäÈëµÄ×´Ì¬
+  ! æŠŠç¨‹åºæ”¾å…¥ç­‰å¾…é¼ æ ‡è¾“å…¥çš„çŠ¶æ€
   do while(.true.)
     result=WaitOnMouseEvent( MOUSE$MOVE .or. MOUSE$LBUTTONDOWN .or.&
   	MOUSE$RBUTTONDOWN, state, x, y )

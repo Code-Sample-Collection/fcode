@@ -3,9 +3,9 @@ program ex0415
   character(len=5) substring
   string = "Have a nice day."
   substring = "nice"
-  write(*,*) ichar('A') ! Êä³ö×Ö·ûAµÄASCIIÂë
-  write(*,*) char(65)   ! Êä³öASCIIÂë65Ëù´ú±íµÄ×Ö·û,Ò²¾ÍÊÇA
-  write(*,*) len(string) ! Êä³ö×Ö·û´®stringÉùÃ÷Ê±µÄ³¤¶È
-  write(*,*) len_trim(string) ! Êä³ö×Ö·û´®stringÄÚÈİµÄ³¤¶È
-  write(*,*) index(string, substring) ! niceÔÚHave a nice dayµÄµÚ8¸öÎ»ÖÃ
+  write(*,*) ichar('A') ! è¾“å‡ºå­—ç¬¦Açš„ASCIIç 
+  write(*,*) char(65)   ! è¾“å‡ºASCIIç 65æ‰€ä»£è¡¨çš„å­—ç¬¦,ä¹Ÿå°±æ˜¯A
+  write(*,*) len(string) ! è¾“å‡ºå­—ç¬¦ä¸²stringå£°æ˜æ—¶çš„é•¿åº¦
+  write(*,*) len_trim(string) ! è¾“å‡ºå­—ç¬¦ä¸²stringå†…å®¹çš„é•¿åº¦
+  write(*,*) index(string, substring) ! niceåœ¨Have a nice dayçš„ç¬¬8ä¸ªä½ç½®
 end

@@ -1,7 +1,7 @@
 program ex0614
 implicit none
   real a,b,ans
-  character :: key = 'y' ! ÎªÁËÖÁÉÙ½øÈëÑ­»·1´Î
+  character :: key = 'y' ! ä¸ºäº†è‡³å°‘è¿›å…¥å¾ªç¯1æ¬¡
 
   do while( key=='y' .or. key=='Y' )
     read(*,*) a

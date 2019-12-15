@@ -1,7 +1,7 @@
 program ex0813
 implicit none
   real a
-  common a ! °Ñ¸¡µãÊıa·ÅÔÚÈ«¾Ö±äÁ¿ÖĞ
+  common a ! æŠŠæµ®ç‚¹æ•°aæ”¾åœ¨å…¨å±€å˜é‡ä¸­
   a = 1.0
   call ShowCommon()
   stop
@@ -10,7 +10,7 @@ end
 subroutine ShowCommon()
 implicit none
   integer a
-  common a ! °ÑÕûÊıa·ÅÔÚÈ«¾Ö±äÁ¿ÖĞ
+  common a ! æŠŠæ•´æ•°aæ”¾åœ¨å…¨å±€å˜é‡ä¸­
   write(*,*) a
   return
 end

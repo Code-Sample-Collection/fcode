@@ -21,7 +21,7 @@ contains
 	  sqrt_d = sqrt(d)
 	  write(*,"('x=',F5.2,',',F5.2)") (-b+sqrt_d)/a2, (-b-sqrt_d)/a2
 	else
-	  write(*,*) "无实数解"
+	  write(*,*) "鏃犲疄鏁拌В"
 	end if
   end subroutine
 end module

@@ -11,7 +11,7 @@ program main
   integer I
 
   call random_seed()
-  ! ²úÉúÊı¾İµã  
+  ! äº§ç”Ÿæ•°æ®ç‚¹  
   do I=1, NOBS
     XDATA(I) = real(I)
 	call random_number(R)

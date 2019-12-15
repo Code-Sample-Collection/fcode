@@ -11,16 +11,16 @@ program ex0908
   implicit none
   character(len=20)  :: filename = "ex0908dat.txt"
   integer, parameter :: fileid = 20
-  logical :: alive   ! ¼ì²éÎÄ¼şÊÇ·ñ´æÔÚ
-  type(player) :: p  ! ¶ÁÈ¡Ñ¡ÊÖÊı¾İ
-  character(len=10)  :: title ! ¶ÁÈ¡Êı¾İÏîÄ¿
-  real tempnum       ! ¶ÁÈ¡Êı¾İ
-  logical, external :: GetNextPlayer ! ÕÒ³öÏÂÒ»Î»ÇòÔ±Êı¾İµÄº¯Êı
-  integer i          ! Ñ­»·¼ÇÊıÆ÷
-  integer error      ! ¼ì²éÎÄ¼ş¶ÁÈ¡ÊÇ·ñÕı³£
+  logical :: alive   ! æ£€æŸ¥æ–‡ä»¶æ˜¯å¦å­˜åœ¨
+  type(player) :: p  ! è¯»å–é€‰æ‰‹æ•°æ®
+  character(len=10)  :: title ! è¯»å–æ•°æ®é¡¹ç›®
+  real tempnum       ! è¯»å–æ•°æ®
+  logical, external :: GetNextPlayer ! æ‰¾å‡ºä¸‹ä¸€ä½çƒå‘˜æ•°æ®çš„å‡½æ•°
+  integer i          ! å¾ªç¯è®°æ•°å™¨
+  integer error      ! æ£€æŸ¥æ–‡ä»¶è¯»å–æ˜¯å¦æ­£å¸¸
 
   inquire(file=filename, exist=alive)
-  if ( .not. alive ) then ! ÎÄ¼ş²»´æÔÚ¾Í½áÊø³ÌĞò
+  if ( .not. alive ) then ! æ–‡ä»¶ä¸å­˜åœ¨å°±ç»“æŸç¨‹åº
     write(*,*) trim(filename)," doesn't exist."
 	stop
   end if
@@ -31,19 +31,19 @@ program ex0908
 	  do i=1,3
    	    read(fileid, "(A4,1X,F)", iostat=error ) title, tempnum
 		if ( error/=0 ) then
-		  write(*,*) "ÎÄ¼ş¶ÁÈ¡´íÎó"
+		  write(*,*) "æ–‡ä»¶è¯»å–é”™è¯¯"
 		  stop
 		end if
-	    ! Òª¾­ÓÉÃ¿Ò»ĞĞ×îÇ°ÃæÁ½¸öÖĞÎÄ×ÖÀ´ÅĞ¶Ï¶ÁÈëµÄÊÇÊ²Ã´Êı¾İ
+	    ! è¦ç»ç”±æ¯ä¸€è¡Œæœ€å‰é¢ä¸¤ä¸ªä¸­æ–‡å­—æ¥åˆ¤æ–­è¯»å…¥çš„æ˜¯ä»€ä¹ˆæ•°æ®
 	    select case(title)
-	    case("Éí¸ß")
+	    case("èº«é«˜")
 	      p%height = tempnum
-	    case("ÌåÖØ")
+	    case("ä½“é‡")
 	      p%weight = tempnum
-	    case("µÃ·Ö")
+	    case("å¾—åˆ†")
 	      p%score = tempnum
 		case default
-		  write(*,*) "³öÏÖ²»ÕıÈ·µÄÊı¾İ"
+		  write(*,*) "å‡ºç°ä¸æ­£ç¡®çš„æ•°æ®"
 		  stop
         end select
 	  end do
@@ -51,16 +51,16 @@ program ex0908
 	  exit  
 	end if
 
-	if ( p%score > 20.0 ) then ! Ó¡³öµÃ·Ö¸ßÓÚ20·ÖµÄÑ¡ÊÖÊı¾İ
-	  write(*,"('ĞÕÃû:',A8/,'Éí¸ß:',F5.1,' ÌåÖØ:',F5.1,' µÃ·Ö:',F4.1)") p
+	if ( p%score > 20.0 ) then ! å°å‡ºå¾—åˆ†é«˜äº20åˆ†çš„é€‰æ‰‹æ•°æ®
+	  write(*,"('å§“å:',A8/,'èº«é«˜:',F5.1,' ä½“é‡:',F5.1,' å¾—åˆ†:',F4.1)") p
 	end if
   end do
 
   stop
 end
-! GetNextPlayerº¯Êı»á´ÓÎÄ¼şÖĞÕÒ³öÏÂÒ»Î»ÇòÔ±µÄÊı¾İÎ»ÖÃ
-! Èç¹ûÎÄ¼şÖĞ»¹ÓĞÊı¾İĞèÒª¶ÁÈ¡, ´«»Ø.true.
-! Èç¹ûÎÄ¼şÖĞÃ»ÓĞÊı¾İĞèÒª¶ÁÈ¡, ´«»Ø.false.
+! GetNextPlayerå‡½æ•°ä¼šä»æ–‡ä»¶ä¸­æ‰¾å‡ºä¸‹ä¸€ä½çƒå‘˜çš„æ•°æ®ä½ç½®
+! å¦‚æœæ–‡ä»¶ä¸­è¿˜æœ‰æ•°æ®éœ€è¦è¯»å–, ä¼ å›.true.
+! å¦‚æœæ–‡ä»¶ä¸­æ²¡æœ‰æ•°æ®éœ€è¦è¯»å–, ä¼ å›.false.
 logical function GetNextPlayer(fileid, name)
   implicit none
   integer, intent(in) :: fileid
@@ -71,12 +71,12 @@ logical function GetNextPlayer(fileid, name)
   do while(.true.)
     read(fileid,"(A80)",iostat=error) title
 	
-	if ( error/=0 ) then ! ÎÄ¼şÖĞÒÑ¾­Ã»ÓĞÊı¾İÁË
+	if ( error/=0 ) then ! æ–‡ä»¶ä¸­å·²ç»æ²¡æœ‰æ•°æ®äº†
 	  GetNextPlayer = .false.
 	  return
 	end if
 
-	if ( title(1:4)=="ĞÕÃû" ) then
+	if ( title(1:4)=="å§“å" ) then
 	  name = title(6:)
 	  GetNextPlayer = .true.
 	  return

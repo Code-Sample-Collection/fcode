@@ -1,4 +1,4 @@
-! ¿ìËÙÅÅÐò·¨·¶Àý
+! å¿«é€ŸæŽ’åºæ³•èŒƒä¾‹
 ! By Perng 1997/8/30
 program QuickSort_Demo
 implicit none
@@ -6,63 +6,63 @@ implicit none
   real :: B(N)
   integer :: A(N)
   
-  ! ÓÃËæ»úÊýÀ´²úÉúÊýÁÐ
+  ! ç”¨éšæœºæ•°æ¥äº§ç”Ÿæ•°åˆ—
   call random_seed()
   call random_number(B)
   A = B*100
   write(*,"('Source=>',10I3)") A
 
-  ! µ÷ÓÃQuick_SortÊ±³ýÁËÒª´«ÈëÀàÐÍµÄÐÅÏ¢Íâ,»¹Òª¸ø¶¨ÒªÅÅÁÐÀàÐÍÔªËØ
-  ! µÄÉÏÏÂÏÞÎ»ÖÃ·¶Î§. ÔÚ´Ëµ±È»ÊÇÒª¸ø 1,N ,±íÊ¾Òª´ÓÍ·ÅÅµ½Î².
+  ! è°ƒç”¨Quick_Sortæ—¶é™¤äº†è¦ä¼ å…¥ç±»åž‹çš„ä¿¡æ¯å¤–,è¿˜è¦ç»™å®šè¦æŽ’åˆ—ç±»åž‹å…ƒç´ 
+  ! çš„ä¸Šä¸‹é™ä½ç½®èŒƒå›´. åœ¨æ­¤å½“ç„¶æ˜¯è¦ç»™ 1,N ,è¡¨ç¤ºè¦ä»Žå¤´æŽ’åˆ°å°¾.
   call Quick_Sort(A,N,1,N)
   write(*,"('Sort=>',10I3)") A
 
   stop
 end program QuickSort_Demo
 !
-! ¿ìËÙÅÅÐò·¨µÄ×Ó³ÌÐò
+! å¿«é€ŸæŽ’åºæ³•çš„å­ç¨‹åº
 !
 recursive subroutine Quick_Sort(A,N,S,E)
 implicit none
-  integer :: N    ! ±íÊ¾ÀàÐÍµÄ´óÐ¡
-  integer :: A(N) ! ´æ·ÅÊý¾ÝµÄÀàÐÍ
-  integer :: S    ! ´«ÈëµÄ²ÎÊý, ÕâÒ»×éµÄÀàÐÍÆðÊ¼Î»ÖÃ
-  integer :: E    ! ´«ÈëµÄ²ÎÊý, ÕâÒ»×éµÄÀàÐÍ½áÊøÎ»ÖÃ
-  integer :: L,R  ! ÓÃÀ´ÕÒA(L)>K¼°A(R)<KÊ±ÓÃµÄ
-  integer :: K    ! ¼ÇÂ¼¼üÖµA(S)
-  integer :: temp ! ½»»»Á½¸öÊýÖµÊ±ÓÃµÄ
-  ! Ê×ÏÈÒªÏÈ¸ø¶¨L,RµÄ³õÖµ. LÒª´ÓÍ·¿ªÊ¼,EÔòÒª´ÓÎ²¿ªÊ¼
+  integer :: N    ! è¡¨ç¤ºç±»åž‹çš„å¤§å°
+  integer :: A(N) ! å­˜æ”¾æ•°æ®çš„ç±»åž‹
+  integer :: S    ! ä¼ å…¥çš„å‚æ•°, è¿™ä¸€ç»„çš„ç±»åž‹èµ·å§‹ä½ç½®
+  integer :: E    ! ä¼ å…¥çš„å‚æ•°, è¿™ä¸€ç»„çš„ç±»åž‹ç»“æŸä½ç½®
+  integer :: L,R  ! ç”¨æ¥æ‰¾A(L)>KåŠA(R)<Kæ—¶ç”¨çš„
+  integer :: K    ! è®°å½•é”®å€¼A(S)
+  integer :: temp ! äº¤æ¢ä¸¤ä¸ªæ•°å€¼æ—¶ç”¨çš„
+  ! é¦–å…ˆè¦å…ˆç»™å®šL,Rçš„åˆå€¼. Lè¦ä»Žå¤´å¼€å§‹,Eåˆ™è¦ä»Žå°¾å¼€å§‹
   L=S  
   R=E+1
-  ! RightÖµ > LeftÖµ Ê±²ÅÓÐ±ØÒª½øÐÐÅÅÐò  
+  ! Rightå€¼ > Leftå€¼ æ—¶æ‰æœ‰å¿…è¦è¿›è¡ŒæŽ’åº  
   if ( R<=L ) return
 
-  K=A(S)  ! Éè¶¨¼üÖµ
+  K=A(S)  ! è®¾å®šé”®å€¼
   do while(.true.)
-    ! ÕÒ³öA(L)<KµÄËùÔÚ
+    ! æ‰¾å‡ºA(L)<Kçš„æ‰€åœ¨
     do while( .true. )
       L=L+1
       if ( (A(L) > K) .or. (L>=E) ) exit
     end do
-    ! ÕÒ³öA(R)>KµÄËùÔÚ
+    ! æ‰¾å‡ºA(R)>Kçš„æ‰€åœ¨
     do while( .true. )
       R=R-1
       if ( (A(R) < K) .or. (R<=S) ) exit
     end do
-    ! Èç¹ûRight ÅÜµ½ LeftµÄ×ó±ßÊ±, Ñ­»·¾Í¸Ã½áÊøÁË
+    ! å¦‚æžœRight è·‘åˆ° Leftçš„å·¦è¾¹æ—¶, å¾ªçŽ¯å°±è¯¥ç»“æŸäº†
     if ( R <= L ) exit
-    ! ½»»»A(L),A(R)µÄÊýÖµ
+    ! äº¤æ¢A(L),A(R)çš„æ•°å€¼
     temp=A(L)
     A(L)=A(R)
     A(R)=temp
   end do
-  ! ½»»»A(S),A(R)µÄÊýÖµ
+  ! äº¤æ¢A(S),A(R)çš„æ•°å€¼
   temp=A(S)
   A(S)=A(R)
   A(R)=temp
-  ! °ÑRÖ®Ç°µÄÊý¾ÝÖØÐÂ·Ö×é,ÔÙ×öÅÅÐò
+  ! æŠŠRä¹‹å‰çš„æ•°æ®é‡æ–°åˆ†ç»„,å†åšæŽ’åº
   call Quick_Sort(A,N,S,R-1)
-  ! °ÑRÖ®ºóµÄÊý¾ÝÖØÐÂ·Ö×é,ÔÙ×öÅÅÐò
+  ! æŠŠRä¹‹åŽçš„æ•°æ®é‡æ–°åˆ†ç»„,å†åšæŽ’åº
   call Quick_Sort(A,N,R+1,E)
   return
 end subroutine Quick_Sort

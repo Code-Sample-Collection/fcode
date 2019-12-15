@@ -24,7 +24,7 @@ program ex1011
   do while(.true.) 
     write(*,*) p%i
 	if ( .not. associated(p%next) ) exit
-	p=>p%next ! 把p向后移动, 从node(n)移到node(n+1)
+	p=>p%next ! 鎶妏鍚戝悗绉诲姩, 浠巒ode(n)绉诲埌node(n+1)
   end do
 
 stop

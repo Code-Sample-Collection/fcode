@@ -1,7 +1,7 @@
 module LinearAlgebra
   implicit none
 contains
-! Êä³ö¾ØÕóµÄ×Ó³ÌĞò
+! è¾“å‡ºçŸ©é˜µçš„å­ç¨‹åº
 subroutine output(matrix)
   implicit none
   integer :: m,n
@@ -10,14 +10,14 @@ subroutine output(matrix)
   character(len=20) :: for='(??(1x,f6.3))'
   m = size(matrix,1)
   n = size(matrix,2)
-  ! ÓÃ×Ö·û´®À´Éè¶¨Êä³ö¸ñÊ½
+  ! ç”¨å­—ç¬¦ä¸²æ¥è®¾å®šè¾“å‡ºæ ¼å¼
   write( FOR(2:3), '(I2)' ) N
   do i=1,N
 	write( *, FMT=FOR ) matrix(i,:)
   end do
   return
 end subroutine output
-! ÇóÉÏÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸Šä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Upper(matrix)
   implicit none
   real    :: matrix(:,:)
@@ -29,13 +29,13 @@ subroutine Upper(matrix)
   do I=1,N-1
 	do J=I+1,M		
 	  E=matrix(J,I)/matrix(I,I)
-      ! ÓÃ90µÄ¹¦ÄÜ¿ÉÒÔÉÙÒ»²ãÑ­»·
+      ! ç”¨90çš„åŠŸèƒ½å¯ä»¥å°‘ä¸€å±‚å¾ªç¯
 	  matrix(J,I:M)=matrix(J,I:M)-matrix(I,I:M)*E
 	end do
   end do
   return
 end subroutine Upper
-! ÇóÏÂÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸‹ä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Lower(matrix)
   implicit none
   real    :: matrix(:,:)
@@ -46,7 +46,7 @@ subroutine Lower(matrix)
   do I=N,2,-1
     do J=I-1,1,-1           
       E=matrix(J,I)/matrix(I,I)
-	  ! ÓÃ90µÄ¹¦ÄÜ¿ÉÒÔÉÙÒ»²ãÑ­»·
+	  ! ç”¨90çš„åŠŸèƒ½å¯ä»¥å°‘ä¸€å±‚å¾ªç¯
       matrix(J,1:I)=matrix(J,1:I)-matrix(I,1:I)*E 
     end do
   end do

@@ -8,9 +8,9 @@ implicit none
   read(*,*) windspeed
 
   if ( rain>=500 .or. windspeed >=10 ) then
-    write(*,*) "停止上班上课"
+    write(*,*) "鍋滄涓婄彮涓婅"
   else
-    write(*,*) "照常上班上课"
+    write(*,*) "鐓у父涓婄彮涓婅"
   end if
 
 stop

@@ -13,7 +13,7 @@ program ex0906
   integer, parameter :: fileid = 10
   integer :: i
 
-  write(*,*) "°àÉÏÓĞ¶àÉÙÑ§Éú?"
+  write(*,*) "ç­ä¸Šæœ‰å¤šå°‘å­¦ç”Ÿ?"
   read (*,*) students
   allocate( s(students), stat=i )
   if ( i/=0 ) then
@@ -23,9 +23,9 @@ program ex0906
   
   open(fileid, file=filename)
   do i=1,students
-    write(*,"('ÇëÊäÈë'I2'ºÅÍ¬Ñ§µÄÖĞÎÄ¡¢Ó¢ÎÄ¼°ÊıÑ§³É¼¨')") i
+    write(*,"('è¯·è¾“å…¥'I2'å·åŒå­¦çš„ä¸­æ–‡ã€è‹±æ–‡åŠæ•°å­¦æˆç»©')") i
     read(*,*) s(i)%Chinese, s(i)%English, s(i)%Math
-	write(fileid,"('×ùºÅ:'I2/'ÖĞÎÄ:'I3' Ó¢ÎÄ:'I3' ÊıÑ§:'I3)") i,s(i)
+	write(fileid,"('åº§å·:'I2/'ä¸­æ–‡:'I3' è‹±æ–‡:'I3' æ•°å­¦:'I3)") i,s(i)
   end do
   close(fileid)
 

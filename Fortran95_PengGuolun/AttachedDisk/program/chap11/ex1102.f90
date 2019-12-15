@@ -21,18 +21,18 @@ contains
 	integer :: num
 
 	if ( num<=0 ) then
-	  write(*,*) "²»ºÏÀíµÄ½ğ¶î"
+	  write(*,*) "ä¸åˆç†çš„é‡‘é¢"
 	  return
 	end if
 
     open(fileid, file="log.txt", position="append")
 	if ( money>=num ) then
 	  call TimeLog()
-	  write(fileid,"(A10,' ÁìÈ¡',I5,'Ôª')") name,num
+	  write(fileid,"(A10,' é¢†å–',I5,'å…ƒ')") name,num
 	  money=money-num
 	else
-	  write(fileid,*) "ÒøĞĞÄ¿Ç°ÏÖ½ğ²»×ã"
-	  write(*,*) "ÒøĞĞÄ¿Ç°ÏÖ½ğ²»×ã"
+	  write(fileid,*) "é“¶è¡Œç›®å‰ç°é‡‘ä¸è¶³"
+	  write(*,*) "é“¶è¡Œç›®å‰ç°é‡‘ä¸è¶³"
 	end if
     close(fileid)
 	return
@@ -43,12 +43,12 @@ contains
 	character(len=*) :: name
 	integer :: num
 	if ( num<=0 ) then
-	  write(*,*) "²»ºÏÀíµÄ½ğ¶î"
+	  write(*,*) "ä¸åˆç†çš„é‡‘é¢"
 	  return
 	end if
     open(fileid, file="log.txt", position="append")
 	call TimeLog()
-	write(fileid,"(A10,' ´æÈë',I5,'Ôª')") name,num
+	write(fileid,"(A10,' å­˜å…¥',I5,'å…ƒ')") name,num
 	close(fileid)
     money=money+num
     return
@@ -59,8 +59,8 @@ program ex1102
   use bank
   implicit none
 
-  call LoadMoney("ÅíÏÈÉú",100)
-  call SaveMoney("³ÂÏÈÉú",1000)
+  call LoadMoney("å½­å…ˆç”Ÿ",100)
+  call SaveMoney("é™ˆå…ˆç”Ÿ",1000)
 
   stop
 end

@@ -2,9 +2,9 @@ program gdemo1
   use TextGraphLib
   implicit none
   
-  call SetScreen( 10, 10 )      ! Éè¶¨·Ö±æÂÊÎª10x10
-  call DrawLine( 1, 1, 10, 10 ) ! ÔÚ(1,1)µ½(10,10)ÕâÁ½µã¼ä»­Ò»ÌõÏß
-  call UpdateScreen()           ! ÏÔÊ¾»æÍ¼µÄ½á¹û
+  call SetScreen( 10, 10 )      ! è®¾å®šåˆ†è¾¨ç‡ä¸º10x10
+  call DrawLine( 1, 1, 10, 10 ) ! åœ¨(1,1)åˆ°(10,10)è¿™ä¸¤ç‚¹é—´ç”»ä¸€æ¡çº¿
+  call UpdateScreen()           ! æ˜¾ç¤ºç»˜å›¾çš„ç»“æœ
 
   stop
 end

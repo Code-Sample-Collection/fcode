@@ -10,7 +10,7 @@ contains
 
 	if ( .not. allocated(screen) ) return
 	open(10,file=filename,status="replace")
-    write(fmt(2:4), "(I3.3)") ScreenWidth ! 设定输出格式
+    write(fmt(2:4), "(I3.3)") ScreenWidth ! 璁惧畾杈撳嚭鏍煎紡
     do i=1, ScreenHeight
 	  write(10, fmt) screen(i,:)
     end do

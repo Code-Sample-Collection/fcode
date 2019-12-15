@@ -3,10 +3,10 @@ program ex0902
   character(len=20) :: string
 
   open(unit=10, file="test.txt")
-  write(10,"(A20)") "Good morning." ! Ğ´µ½ÎÄ¼şÖĞ
+  write(10,"(A20)") "Good morning." ! å†™åˆ°æ–‡ä»¶ä¸­
   rewind(10)
-  read(10,"(A20)") string ! ´ÓÎÄ¼şÖĞ¶Á³öÀ´
-  write(*,"(A20)") string ! Ğ´µ½ÆÁÄ»ÉÏ
+  read(10,"(A20)") string ! ä»æ–‡ä»¶ä¸­è¯»å‡ºæ¥
+  write(*,"(A20)") string ! å†™åˆ°å±å¹•ä¸Š
 
   stop
 end 

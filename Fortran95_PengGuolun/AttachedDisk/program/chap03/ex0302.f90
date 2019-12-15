@@ -1,6 +1,6 @@
 ! Free Format
 program main
-write(*,*) "Hello" ! ÕâÒ²ÊÇ×¢½â
+write(*,*) "Hello" ! è¿™ä¹Ÿæ˜¯æ³¨è§£
 write(*,*) &
 "Hello"
 wr&

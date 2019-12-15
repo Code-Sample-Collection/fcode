@@ -2,8 +2,8 @@ module typedef
   implicit none
   type :: datalink
     integer :: i
-    type(datalink), pointer :: prev ! Ö¸ÏòÉÏÒ»ÌõÊý¾Ý
-    type(datalink), pointer :: next ! Ö¸ÏòÏÂÒ»ÌõÊý¾Ý
+    type(datalink), pointer :: prev ! æŒ‡å‘ä¸Šä¸€æ¡æ•°æ®
+    type(datalink), pointer :: next ! æŒ‡å‘ä¸‹ä¸€æ¡æ•°æ®
   end type datalink
 end module typedef
 
@@ -19,7 +19,7 @@ program ex1014
   node2 = datalink(2, node1, node3)
   node3 = datalink(3, node2, node1)
   
-  write(*,*) "´ÓÇ°ÏòºóÊä³ö"
+  write(*,*) "ä»Žå‰å‘åŽè¾“å‡º"
   p=>node1
   do i=1,s
     write(*,*) p%i
@@ -27,7 +27,7 @@ program ex1014
 	p=>p%next
   end do  
 
-  write(*,*) "´ÓºóÏòÇ°Êä³ö"
+  write(*,*) "ä»ŽåŽå‘å‰è¾“å‡º"
   p=>node3
   do i=1,s
     write(*,*) p%i

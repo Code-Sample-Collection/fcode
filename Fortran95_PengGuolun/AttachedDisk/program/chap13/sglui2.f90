@@ -33,15 +33,15 @@ end module
 program main
   use sgl_util
   implicit none
-  ! Éè¶¨Êó±êÔÚ´°¿ÚÖĞÒÆ¶¯Ê±, »áµ÷ÓÃMouseMove
+  ! è®¾å®šé¼ æ ‡åœ¨çª—å£ä¸­ç§»åŠ¨æ—¶, ä¼šè°ƒç”¨MouseMove
   call sglMouseMoveSub(MouseMove)
-  ! Éè¶¨Êó±êÔÚ´°¿Ú°´ÏÂ°´Å¥Ê±, »áµ÷ÓÃMouseDown
+  ! è®¾å®šé¼ æ ‡åœ¨çª—å£æŒ‰ä¸‹æŒ‰é’®æ—¶, ä¼šè°ƒç”¨MouseDown
   call sglMouseDownSub(MouseDown) !
-  ! Éè¶¨Êó±êÔÚ´°¿ÚËÉ¿ª°´Å¥Ê±, »áµ÷ÓÃMouseDown
+  ! è®¾å®šé¼ æ ‡åœ¨çª—å£æ¾å¼€æŒ‰é’®æ—¶, ä¼šè°ƒç”¨MouseDown
   call sglMouseUpSub(MouseUp)
   call sglDisplaySub(display)
   call sglCreateWindow(100,100,400,400,1)
-  call sglShowCursor(0) ! Òş²Ø²Ù×÷ÏµÍ³µÄÊó±ê¹â±ê
+  call sglShowCursor(0) ! éšè—æ“ä½œç³»ç»Ÿçš„é¼ æ ‡å…‰æ ‡
   call sglMainLoop()
   stop
 end program

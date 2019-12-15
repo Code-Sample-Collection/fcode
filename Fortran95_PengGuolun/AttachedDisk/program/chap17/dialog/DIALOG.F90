@@ -1,5 +1,5 @@
 !
-! Ê¹ÓÃ²Ëµ¥¼°¶Ô»°´°µÄ·¶Àı
+! ä½¿ç”¨èœå•åŠå¯¹è¯çª—çš„èŒƒä¾‹
 ! By Perng 1997/9/22
 program Menu_Demo
 use DFLIB
@@ -8,23 +8,23 @@ implicit none
   integer :: result  
   integer :: i,ix,iy
 
-  wc.numxpixels=200 ! ´°¿ÚµÄ¿í
-  wc.numypixels=200 ! ´°¿ÚµÄ¸ß
-  ! -1´ú±íÈÃ³ÌĞò×ÔĞĞÈ¥×ö¾ö¶¨
-  wc.numtextcols=-1	! Ã¿ĞĞÈİÁ¿µÄÎÄ×Ö
-  wc.numtextrows=-1	! ¿ÉÒÔÓĞ¼¸ÁĞÎÄ×Ö
-  wc.numcolors=-1	! Ê¹ÓÃ¶àÉÙÑÕÉ«
-  wc.title="Plot Area"C ! ´°¿ÚµÄ±êÌâ
+  wc.numxpixels=200 ! çª—å£çš„å®½
+  wc.numypixels=200 ! çª—å£çš„é«˜
+  ! -1ä»£è¡¨è®©ç¨‹åºè‡ªè¡Œå»åšå†³å®š
+  wc.numtextcols=-1	! æ¯è¡Œå®¹é‡çš„æ–‡å­—
+  wc.numtextrows=-1	! å¯ä»¥æœ‰å‡ åˆ—æ–‡å­—
+  wc.numcolors=-1	! ä½¿ç”¨å¤šå°‘é¢œè‰²
+  wc.title="Plot Area"C ! çª—å£çš„æ ‡é¢˜
   wc.fontsize=-1
-  ! ¸ù¾İwcÖĞËù¶¨ÒåµÄÊı¾İÀ´ÖØĞÂÉè¶¨´°¿Ú´óĞ¡
+  ! æ ¹æ®wcä¸­æ‰€å®šä¹‰çš„æ•°æ®æ¥é‡æ–°è®¾å®šçª—å£å¤§å°
   result=SetWindowConfig(wc)
-  ! °Ñ³ÌĞò·ÅÈëµÈ´ıÊó±êĞÅÏ¢µÄ×´Ì¬
+  ! æŠŠç¨‹åºæ”¾å…¥ç­‰å¾…é¼ æ ‡ä¿¡æ¯çš„çŠ¶æ€
   do while (.TRUE.)
     i = waitonmouseevent(MOUSE$RBUTTONDOWN, i, ix, iy)
   end do
 end program
 !
-! ³ÌĞò»á×Ô¶¯Ö´ĞĞÕâ¸öº¯Êı, Ëü»áÉè¶¨´°¿ÚµÄÄ£Ñù
+! ç¨‹åºä¼šè‡ªåŠ¨æ‰§è¡Œè¿™ä¸ªå‡½æ•°, å®ƒä¼šè®¾å®šçª—å£çš„æ¨¡æ ·
 !
 logical(kind=4) function InitialSettings()
 use DFLIB
@@ -34,7 +34,7 @@ implicit none
   external PlotSin,PlotCos  
   external SetRange
   
-  ! Éè¶¨Õû¸ö´°¿Ú³ÌĞòÒ»¿ªÊ¼³öÏÖµÄÎ»ÖÃ¼°´óĞ¡
+  ! è®¾å®šæ•´ä¸ªçª—å£ç¨‹åºä¸€å¼€å§‹å‡ºç°çš„ä½ç½®åŠå¤§å°
   qw.type=QWIN$SET
   qw.x=0
   qw.y=0
@@ -42,35 +42,35 @@ implicit none
   qw.w=400
   result=SetWSizeQQ(QWIN$FRAMEWINDOW,qw) 
   
-  ! ×éÖ¯µÚÒ»×é²Ëµ¥
+  ! ç»„ç»‡ç¬¬ä¸€ç»„èœå•
   result=AppendMenuQQ(1,$MENUENABLED,'&File'C,NUL)		 
   result=AppendMenuQQ(1,$MENUENABLED,'&Save'C,WINSAVE)   
   result=AppendMenuQQ(1,$MENUENABLED,'&Print'C,WINPRINT) 
   result=AppendMenuQQ(1,$MENUENABLED,'&Exit'C,WINEXIT)  
-  ! ×éÖ¯µÚ¶ş×é²Ëµ¥
+  ! ç»„ç»‡ç¬¬äºŒç»„èœå•
   result=AppendMenuQQ(2,$MENUENABLED,'&Plot'C,NUL)
   result=AppendMenuQQ(2,$MENUENABLED,'&sin(x)'C,PlotSin)
   result=AppendMenuQQ(2,$MENUENABLED,'&cos(x)'C,PlotCos)
-  ! ×éÖ¯µÚÈı×é²Ëµ¥
+  ! ç»„ç»‡ç¬¬ä¸‰ç»„èœå•
   result=AppendMenuQQ(3,$MENUENABLED,'&Range'C,SetRange)
 
   InitialSettings=.true.
   return
 end function InitialSettings
 !
-! ¼ÇÂ¼È«¾Ö±äÁ¿
+! è®°å½•å…¨å±€å˜é‡
 !
 module Global
 implicit none
-  real(kind=8) :: X_Start=-5.0  ! xÖá×îĞ¡·¶Î§
-  real(kind=8) :: X_End=5.0		! xÖá×î´ó·¶Î§	
-  real(kind=8) :: Y_Top=5.0		! yÖá×î´ó·¶Î§ 
-  real(kind=8) :: Y_Buttom=-5.0	! yÖá×îĞ¡·¶Î§
-  integer      :: lines=500     ! ÓÃ¶àÉÙÏß¶ÎÀ´»­º¯ÊıÇúÏß
-  integer	   :: Function_Num=0 ! Ê¹ÓÃµÚ¼¸ºÅº¯ÊıÀ´»­Í¼
+  real(kind=8) :: X_Start=-5.0  ! xè½´æœ€å°èŒƒå›´
+  real(kind=8) :: X_End=5.0		! xè½´æœ€å¤§èŒƒå›´	
+  real(kind=8) :: Y_Top=5.0		! yè½´æœ€å¤§èŒƒå›´ 
+  real(kind=8) :: Y_Buttom=-5.0	! yè½´æœ€å°èŒƒå›´
+  integer      :: lines=500     ! ç”¨å¤šå°‘çº¿æ®µæ¥ç”»å‡½æ•°æ›²çº¿
+  integer	   :: Function_Num=0 ! ä½¿ç”¨ç¬¬å‡ å·å‡½æ•°æ¥ç”»å›¾
 end module  
 !
-! »­sinµÄ×Ó³ÌĞò
+! ç”»sinçš„å­ç¨‹åº
 !
 subroutine PlotSin(check)
 use DFLIB
@@ -81,15 +81,15 @@ implicit none
   integer :: result
   check=.true.
   Function_Num=1
-  ! ÔÚµÚ¶ş×é²Ëµ¥µÄµÚÒ»¸öÑ¡Ïî,Ò²¾ÍÊÇsinµÄÇ°Ãæ´ò¸ö¹´
+  ! åœ¨ç¬¬äºŒç»„èœå•çš„ç¬¬ä¸€ä¸ªé€‰é¡¹,ä¹Ÿå°±æ˜¯sinçš„å‰é¢æ‰“ä¸ªå‹¾
   result=ModifyMenuFlagsQQ(2,1,$MENUCHECKED)
-  ! °ÑÑ¡ÏîcosÇ°µÄ¹´È¡Ïû
+  ! æŠŠé€‰é¡¹coså‰çš„å‹¾å–æ¶ˆ
   result=ModifyMenuFlagsQQ(2,2,$MENUUNCHECKED)
   call Draw_Func(f1)
   return
 end subroutine
 !
-! »­cosµÄ×Ó³ÌĞò
+! ç”»cosçš„å­ç¨‹åº
 !
 subroutine PlotCos(check)
 use DFLIB
@@ -100,15 +100,15 @@ implicit none
   integer :: result
   check=.true.
   Function_Num=2
-  ! °ÑÑ¡ÏîsinÇ°µÄ¹´È¡Ïû
+  ! æŠŠé€‰é¡¹sinå‰çš„å‹¾å–æ¶ˆ
   result=ModifyMenuFlagsQQ(2,1,$MENUUNCHECKED)
-  ! ÔÚÑ¡ÏîcosÇ°´ò¸ö¹´
+  ! åœ¨é€‰é¡¹coså‰æ‰“ä¸ªå‹¾
   result=ModifyMenuFlagsQQ(2,2,$MENUCHECKED)
   call Draw_Func(f2)
   return
 end subroutine
 !
-! °´ÏÂRangeÊ±,»áÖ´ĞĞÕâ¸ö×Ó³ÌĞò
+! æŒ‰ä¸‹Rangeæ—¶,ä¼šæ‰§è¡Œè¿™ä¸ªå­ç¨‹åº
 !
 subroutine SetRange(check)
 use Global
@@ -117,47 +117,47 @@ implicit none
   logical(kind=4) :: check
   real(kind=8), external :: f1,f2
   external ReSetRange
-  ! ÒòÎªÏëÔÚ¶Ô»°´°ÖĞ±£ÁôÉÏÒ»´ÎµÄÉè¶¨½á¹û,ËùÒÔ°²ÅÅÁËÏÂÁĞµÄ±äÁ¿
-  real(kind=8),save :: OX_Start=-5.0  ! xÖá×îĞ¡·¶Î§
-  real(kind=8),save :: OX_End=5.0	  ! xÖá×î´ó·¶Î§	
-  real(kind=8),save :: OY_Top=5.0	  ! yÖá×î´ó·¶Î§ 
-  real(kind=8),save :: OY_Buttom=-5.0 ! yÖá×îĞ¡·¶Î§
-  integer     ,save :: Olines=500     ! ÓÃ¶àÉÙÏß¶ÎÀ´»­º¯ÊıÇúÏß
-  include 'resource.fd'	! ¶Ô»°´°µÄĞÅÏ¢ 
+  ! å› ä¸ºæƒ³åœ¨å¯¹è¯çª—ä¸­ä¿ç•™ä¸Šä¸€æ¬¡çš„è®¾å®šç»“æœ,æ‰€ä»¥å®‰æ’äº†ä¸‹åˆ—çš„å˜é‡
+  real(kind=8),save :: OX_Start=-5.0  ! xè½´æœ€å°èŒƒå›´
+  real(kind=8),save :: OX_End=5.0	  ! xè½´æœ€å¤§èŒƒå›´	
+  real(kind=8),save :: OY_Top=5.0	  ! yè½´æœ€å¤§èŒƒå›´ 
+  real(kind=8),save :: OY_Buttom=-5.0 ! yè½´æœ€å°èŒƒå›´
+  integer     ,save :: Olines=500     ! ç”¨å¤šå°‘çº¿æ®µæ¥ç”»å‡½æ•°æ›²çº¿
+  include 'resource.fd'	! å¯¹è¯çª—çš„ä¿¡æ¯ 
   type(dialog) :: dl	
   integer :: result		!
   character(len=20) :: str	
 
   check=.true.
-  ! ÉùÃ÷ÒªÊ¹ÓÃ´úÂëÎªIDD_INPUTµÄ¶Ô»°´°, ²¢°ÑÏÔÊ¾Õâ¸ö¶Ô»°´°µÄĞÅÏ¢·Å
-  ! ÔÚdlÖĞ. ÒÔºóÖ»Òª¶ÔdlÀ´´¦Àí¾ÍµÈÓÚ¶ÔÕâ¸ö¶Ô»°´°À´¹¤×÷
+  ! å£°æ˜è¦ä½¿ç”¨ä»£ç ä¸ºIDD_INPUTçš„å¯¹è¯çª—, å¹¶æŠŠæ˜¾ç¤ºè¿™ä¸ªå¯¹è¯çª—çš„ä¿¡æ¯æ”¾
+  ! åœ¨dlä¸­. ä»¥ååªè¦å¯¹dlæ¥å¤„ç†å°±ç­‰äºå¯¹è¿™ä¸ªå¯¹è¯çª—æ¥å·¥ä½œ
   result=DlgInit(IDD_INPUT, dl)
     
-  ! ÏÂÃæÒª¶ÔdlËù´ú±íµÄ¶Ô»°´°ÖĞIDÖµÎªIDC_X_MINÀ´Éè¶¨³õÖµ
-  ! Ò²¾ÍÊÇÉè¶¨IDD_INPUTÖĞX minÀ¸µÄÄÚÈİ
+  ! ä¸‹é¢è¦å¯¹dlæ‰€ä»£è¡¨çš„å¯¹è¯çª—ä¸­IDå€¼ä¸ºIDC_X_MINæ¥è®¾å®šåˆå€¼
+  ! ä¹Ÿå°±æ˜¯è®¾å®šIDD_INPUTä¸­X minæ çš„å†…å®¹
   
-  ! ÒòÎªDlgSetÎŞ·¨Ê¹ÓÃreadÀàĞÍ±äÁ¿À´Éè¶¨,ËùÒÔÒªÏÈ°ÑËüÃÇ×ª»»³É×Ö·û´®
+  ! å› ä¸ºDlgSetæ— æ³•ä½¿ç”¨readç±»å‹å˜é‡æ¥è®¾å®š,æ‰€ä»¥è¦å…ˆæŠŠå®ƒä»¬è½¬æ¢æˆå­—ç¬¦ä¸²
   write(str,'(f6.2)') OX_Start
   result=DlgSet(dl,IDC_X_MIN,str)
-  ! Éè¶¨X maxÀ¸µÄÄÚÈİ
+  ! è®¾å®šX maxæ çš„å†…å®¹
   write(str,'(f6.2)') OX_End
   result=DlgSet(dl,IDC_X_MAX,str)
-  ! Éè¶¨Y minÀ¸µÄÄÚÈİ
+  ! è®¾å®šY minæ çš„å†…å®¹
   write(str,'(f6.2)') OY_Buttom
   result=DlgSet(dl,IDC_Y_MIN,str)
-  ! Éè¶¨Y maxÀ¸µÄÄÚÈİ
+  ! è®¾å®šY maxæ çš„å†…å®¹
   write(str,'(f6.2)') OY_Top
   result=DlgSet(dl,IDC_Y_MAX,str)
-  ! Éè¶¨LinesÀ¸µÄÄÚÈİ
+  ! è®¾å®šLinesæ çš„å†…å®¹
   write(str,'(I5)') OLines
   result=DlgSet(dl,IDC_LINES,str)
-  ! Éè¶¨°´ÏÂResetÊ±»áÖ´ĞĞµÄ×Ó³ÌĞò
+  ! è®¾å®šæŒ‰ä¸‹Resetæ—¶ä¼šæ‰§è¡Œçš„å­ç¨‹åº
   result=DlgSetSub(dl,IDC_RESET, ReSetRange)
-  ! µ½´Ë²ÅÕæÕıĞã³ö¶Ô»°´°
+  ! åˆ°æ­¤æ‰çœŸæ­£ç§€å‡ºå¯¹è¯çª—
   result=DlgModal(dl)
   
   if ( result==IDOK ) then
-  ! ÓÉ×Ö·û´®×ª³ÉÊıÖµ
+  ! ç”±å­—ç¬¦ä¸²è½¬æˆæ•°å€¼
     result=DlgGet(dl,IDC_X_MIN,str)
     read(str,*) OX_Start
     result=DlgGet(dl,IDC_X_MAX,str)
@@ -168,14 +168,14 @@ implicit none
     read(str,*) OY_Top
     result=DlgGet(dl,IDC_LINES,str)
 	read(str,*) OLines
-  ! Éè¶¨È«¾Ö±äÁ¿µÄÖµ, »æÍ¼Ê±»áÈ¡ÓÃÕâĞ©ÊıÖµ
+  ! è®¾å®šå…¨å±€å˜é‡çš„å€¼, ç»˜å›¾æ—¶ä¼šå–ç”¨è¿™äº›æ•°å€¼
     X_Start=OX_Start
 	X_End=OX_End
 	Y_Top=OY_Top
 	Y_Buttom=OY_Buttom
 	Lines=OLines
   end if
-  ! ÓÉFunction_NumµÄÖµÀ´¾ö¶¨Òª»­³öµÚ¼¸¸öº¯Êı
+  ! ç”±Function_Numçš„å€¼æ¥å†³å®šè¦ç”»å‡ºç¬¬å‡ ä¸ªå‡½æ•°
   select case(Function_Num)
   case(0)
     ! Do Nothing
@@ -188,8 +188,8 @@ implicit none
   return
 end subroutine
 !
-! °´ÏÂReset»áÖ´ĞĞÕâ¸ö×Ó³ÌĞò
-! dlg,id,callback»á×Ô¶¯´«Èë
+! æŒ‰ä¸‹Resetä¼šæ‰§è¡Œè¿™ä¸ªå­ç¨‹åº
+! dlg,id,callbackä¼šè‡ªåŠ¨ä¼ å…¥
 subroutine ReSetRange( dlg, id, callbacktype )
 use DialogM
 implicit none
@@ -198,10 +198,10 @@ implicit none
   integer :: t1,t2
   integer :: result
   include 'resource.fd'
-  ! ÏÂÃæÕâÁ½ĞĞÃ»Ê²Ã´ÓÃ,Ö»ÊÇÈç¹ûÃ»ÓĞÏÂÃæÁ½ĞĞ,CompileÊ±»áÓĞWarning.
+  ! ä¸‹é¢è¿™ä¸¤è¡Œæ²¡ä»€ä¹ˆç”¨,åªæ˜¯å¦‚æœæ²¡æœ‰ä¸‹é¢ä¸¤è¡Œ,Compileæ—¶ä¼šæœ‰Warning.
   t1=id
   t2=callbacktype
-  ! ÖØĞÂÉè¶¨¶Ô»°´°ÖĞÃ¿¸öÏîµÄÄÚÈİ
+  ! é‡æ–°è®¾å®šå¯¹è¯çª—ä¸­æ¯ä¸ªé¡¹çš„å†…å®¹
   result=DlgSet(dlg,IDC_X_MIN,'-5.00')
   result=DlgSet(dlg,IDC_X_MAX,' 5.00')
   result=DlgSet(dlg,IDC_Y_MIN,'-5.00')
@@ -211,51 +211,51 @@ implicit none
   return
 end subroutine  
 !
-! »­³öËù´«ÈëµÄº¯ÊıÍ¼ĞÎÀ´
+! ç”»å‡ºæ‰€ä¼ å…¥çš„å‡½æ•°å›¾å½¢æ¥
 !
 subroutine Draw_Func(func)
 use DFLIB
 use Global
 implicit none
-  integer :: result			! È¡»Ø»æÍ¼º¯ÊıÔËĞĞ×´Ì¬
-  integer(kind=2) :: color	! Éè¶¨ÑÕÉ«ÓÃ
-  real(kind=8) :: step		! Ñ­»·µÄÔöÁ¿
-  real(kind=8) :: x,y		! »æÍ¼Ê±Ê¹ÓÃ,Ã¿ÌõĞ¡Ïß¶Î¶¼Á¬½Ó
-  real(kind=8) :: NewX,NewY	! (x,y)¼°(NewX,NewY)
-  real(kind=8), external :: func ! ´ı»æÍ¼µÄº¯Êı
-  type(wxycoord) :: wt		! ´«»ØÉÏÒ»´ÎµÄÂß¼­×ø±êÎ»ÖÃ
+  integer :: result			! å–å›ç»˜å›¾å‡½æ•°è¿è¡ŒçŠ¶æ€
+  integer(kind=2) :: color	! è®¾å®šé¢œè‰²ç”¨
+  real(kind=8) :: step		! å¾ªç¯çš„å¢é‡
+  real(kind=8) :: x,y		! ç»˜å›¾æ—¶ä½¿ç”¨,æ¯æ¡å°çº¿æ®µéƒ½è¿æ¥
+  real(kind=8) :: NewX,NewY	! (x,y)åŠ(NewX,NewY)
+  real(kind=8), external :: func ! å¾…ç»˜å›¾çš„å‡½æ•°
+  type(wxycoord) :: wt		! ä¼ å›ä¸Šä¸€æ¬¡çš„é€»è¾‘åæ ‡ä½ç½®
 
-  call ClearScreen($GCLEARSCREEN) ! Çå³ıÆÁÄ»
-  ! Éè¶¨Âß¼­×ø±ê·¶Î§´óĞ¡	
+  call ClearScreen($GCLEARSCREEN) ! æ¸…é™¤å±å¹•
+  ! è®¾å®šé€»è¾‘åæ ‡èŒƒå›´å¤§å°	
   result=SetWindow( .true. , X_Start, Y_Top, X_End, Y_Buttom )
 
-  ! Ê¹ÓÃÈ«²ÊRGB 0-255µÄ256ÖÖÉ«½×À´Éè¶¨ÑÕÉ«
-  color=RGBToInteger(255,0,0)		! °Ñ¿ØÖÆRGBµÄÈı¸öÖµ×ª»»µ½colorÖĞ
-  result=SetColorRGB(color)			! ÀûÓÃcolorÀ´Éè¶¨ÑÕÉ«
+  ! ä½¿ç”¨å…¨å½©RGB 0-255çš„256ç§è‰²é˜¶æ¥è®¾å®šé¢œè‰²
+  color=RGBToInteger(255,0,0)		! æŠŠæ§åˆ¶RGBçš„ä¸‰ä¸ªå€¼è½¬æ¢åˆ°colorä¸­
+  result=SetColorRGB(color)			! åˆ©ç”¨coloræ¥è®¾å®šé¢œè‰²
 
-  call MoveTo_W(X_Start,0.0_8,wt)	! »­XÖá
+  call MoveTo_W(X_Start,0.0_8,wt)	! ç”»Xè½´
   result=LineTo_W(X_End,0.0_8)		! 
-  call MoveTo_W(0.0_8,Y_Top,wt)		! »­YÖá
+  call MoveTo_W(0.0_8,Y_Top,wt)		! ç”»Yè½´
   result=LineTo_W(0.0_8,Y_Buttom)	! 	
 
-  step=(X_End-X_Start)/lines		! ¼ÆËãĞ¡Ïß¶Î¼äµÄX¼ä¾à
-  ! ²ÎÊı#FF0000ÊÇÊ¹ÓÃ16½øÖÆµÄ·½·¨À´±íÊ¾Ò»¸öÕûÊı
+  step=(X_End-X_Start)/lines		! è®¡ç®—å°çº¿æ®µé—´çš„Xé—´è·
+  ! å‚æ•°#FF0000æ˜¯ä½¿ç”¨16è¿›åˆ¶çš„æ–¹æ³•æ¥è¡¨ç¤ºä¸€ä¸ªæ•´æ•°
   result=SetColorRGB(#FF0000)		 
   
-  ! ¿ªÊ¼»æÖÆĞ¡Ïß¶ÎÃÇ
+  ! å¼€å§‹ç»˜åˆ¶å°çº¿æ®µä»¬
   do x=X_Start,X_End-step,step
-    y=func(x)		! Ïß¶ÎµÄ×ó¶Ëµã
+    y=func(x)		! çº¿æ®µçš„å·¦ç«¯ç‚¹
 	NewX=x+step		
-	NewY=func(NewX)	! Ïß¶ÎµÄÓÒ¶Ëµã
+	NewY=func(NewX)	! çº¿æ®µçš„å³ç«¯ç‚¹
 	call MoveTo_W(x,y,wt)
 	result=LineTo_W(NewX,NewY)
   end do
   
-  ! Éè¶¨³ÌĞò½áÊøºó,´°¿Ú»á¼ÌĞø±£Áô
+  ! è®¾å®šç¨‹åºç»“æŸå,çª—å£ä¼šç»§ç»­ä¿ç•™
   result=SetExitQQ(QWIN$EXITPERSIST)
 end subroutine Draw_Func
 !
-! ËùÒª»æÍ¼µÄº¯Êı
+! æ‰€è¦ç»˜å›¾çš„å‡½æ•°
 !
 real(kind=8) function f1(x)
 implicit none

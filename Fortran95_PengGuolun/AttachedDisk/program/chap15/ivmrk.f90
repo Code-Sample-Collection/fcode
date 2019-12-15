@@ -1,5 +1,5 @@
-! IMSL IVMRK·¶Àı
-! Çó½âY1'(t)=-5*Y1(t) + 2*Y2(t)
+! IMSL IVMRKèŒƒä¾‹
+! æ±‚è§£Y1'(t)=-5*Y1(t) + 2*Y2(t)
 !     Y2'(t)=13*Y1(t) - 0.5*Y2(t)
 ! initial condition Y1(0)=1, Y2(0)=1
 program main
@@ -14,18 +14,18 @@ program main
 
   WRITE (*,"(' Time',4(9X,A3))") "Y1","Y2","Y1'","Y2'"
   Y = 1.0 ! Initial condition
-  T = 0.0 ! Y(T)=1.0ÖĞµÄÊ±¼äTÖµ
+  T = 0.0 ! Y(T)=1.0ä¸­çš„æ—¶é—´Tå€¼
   IDO = 1
   do ISTEP=1,10
     TEND = ISTEP/10.0
 	call IVMRK (IDO, N, FCN, T, TEND, Y, YPRIME)
     write (*,'(F5.1,4F12.4)') T, Y, YPRIME
   end do
-  call IVMRK (3, N, FCN, T, TEND, Y, YPRIME) ! ÊÍ·ÅÄÚ´æ
+  call IVMRK (3, N, FCN, T, TEND, Y, YPRIME) ! é‡Šæ”¾å†…å­˜
 
   stop
 end program
-! ¼ÆËãÎ¢·Ö·½³ÌÊ½
+! è®¡ç®—å¾®åˆ†æ–¹ç¨‹å¼
 ! Y1'(t)=-5*Y1(t) + 2*Y2(t)
 ! Y2'(t)=13*Y1(t) - 0.5*Y2(t) 
 subroutine FCN (N, T, Y, YPRIME)

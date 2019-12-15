@@ -1,10 +1,10 @@
 program  ex0801
 implicit none
-  call message() ! 调用子程序message
+  call message() ! 璋冪敤瀛愮▼搴弇essage
   call message()
   stop
 end 
-! 子程序message
+! 瀛愮▼搴弇essage
 subroutine message()
 implicit none
   write(*,*) "Hello."

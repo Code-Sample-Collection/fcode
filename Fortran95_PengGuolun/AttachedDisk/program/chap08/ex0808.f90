@@ -3,7 +3,7 @@ program ex0808
   real :: a = 1
   real :: b
   real add
-  add(a,b) = a+b  ! Ö±½Ó°Ñº¯ÊıĞ´ÔÚÀïÃæ
+  add(a,b) = a+b  ! ç›´æ¥æŠŠå‡½æ•°å†™åœ¨é‡Œé¢
   write(*,*) add(a,3.0)
   stop
 end

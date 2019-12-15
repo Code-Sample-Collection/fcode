@@ -1,6 +1,6 @@
 program ex0821
-  implicit noneÉùÃ÷funcÊÇ¸ö×Ô¶¨Òåº¯Êı
-  real, intrinsic :: sin  ! ÉùÃ÷sinÊÇ¿âº¯Êı
+  implicit noneå£°æ˜funcæ˜¯ä¸ªè‡ªå®šä¹‰å‡½æ•°
+  real, intrinsic :: sin  ! å£°æ˜sinæ˜¯åº“å‡½æ•°
 
   call ExecFunc(func)
   call ExecFunc(sin)
@@ -10,8 +10,8 @@ end program
 
 subroutine ExecFunc(f)
   implicit none
-  real, external :: f ! ÉùÃ÷²ÎÊıfÊÇ¸öº¯Êı
-  write(*,*) f(1.0)   ! Ö´ĞĞ´«ÈëµÄº¯Êıf
+  real, external :: f ! å£°æ˜å‚æ•°fæ˜¯ä¸ªå‡½æ•°
+  write(*,*) f(1.0)   ! æ‰§è¡Œä¼ å…¥çš„å‡½æ•°f
   return
 end 
 

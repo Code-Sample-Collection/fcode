@@ -9,7 +9,7 @@ end program
 subroutine sub()
   implicit none
   integer :: count = 1
-  save    count      ! 指定count变量会永远活着, 不会忘记它的内容
+  save    count      ! 鎸囧畾count鍙橀噺浼氭案杩滄椿鐫�, 涓嶄細蹇樿瀹冪殑鍐呭
   write(*,*) count
   count = count+1
   return

@@ -1,13 +1,13 @@
 !
-! ¶şÔªÊ÷ÅÅĞò·¶Àı
+! äºŒå…ƒæ ‘æ’åºèŒƒä¾‹
 !
 module typedef
   implicit none
   type :: data
-    integer :: n       ! ´æ·ÅµÄÊı¾İ	
-    integer :: repeat  ! Êı¾İÖØ¸²µÄ´ÎÊı
-    type(data), pointer :: left  ! ×óÖ¦
-    type(data), pointer :: right ! ÓÒÖ¦
+    integer :: n       ! å­˜æ”¾çš„æ•°æ®	
+    integer :: repeat  ! æ•°æ®é‡è¦†çš„æ¬¡æ•°
+    type(data), pointer :: left  ! å·¦æ
+    type(data), pointer :: right ! å³æ
   end type data
 end module typedef
 
@@ -20,7 +20,7 @@ module bin_tree
   public add, TraceTree
 contains
 !
-! ĞÂ¼ÓÈëÒ»ÌõÊı¾İ
+! æ–°åŠ å…¥ä¸€æ¡æ•°æ®
 !
 subroutine add( n )
   implicit none
@@ -31,7 +31,7 @@ subroutine add( n )
   level=1
   numbers=numbers+1
   write(*, '(1x,a5,i4,a8)' ) "Get :",numbers," numbers"
-  ! ÅäÖÃÒ»¿éĞÂµÄ¿Õ¼ä
+  ! é…ç½®ä¸€å—æ–°çš„ç©ºé—´
   allocate( new, stat=err )
   if ( err/=0 ) then
     write(*,*) "Out of memory!"
@@ -39,11 +39,11 @@ subroutine add( n )
   end if
 
   write(*,"('root ')", advance="NO")
-  ! Éè¶¨Êı¾İ
+  ! è®¾å®šæ•°æ®
   new%repeat=1
   new%n=n
   nullify( new%right, new%left )
-  ! Èç¹ûÊÇµÚÒ»ÌõÊı¾İ
+  ! å¦‚æœæ˜¯ç¬¬ä¸€æ¡æ•°æ®
   if ( numbers==1 ) then
     action=>new
     tree=>new
@@ -55,32 +55,32 @@ subroutine add( n )
 
   do while( .true. )
     level=level+1
-	! Êı¾İ´óÓÚÄ¿Ç°Ö¦¸ÉµÄÊıÖµÊ±
+	! æ•°æ®å¤§äºç›®å‰æå¹²çš„æ•°å€¼æ—¶
     if ( n>action%n ) then
       if ( associated( action%right ) ) then
-        action=>action%right  ! ÔÙÏòÓÒÈ¥Ñ°ÕÒÁ¢Éí´¦
+        action=>action%right  ! å†å‘å³å»å¯»æ‰¾ç«‹èº«å¤„
 		write(*, "('->R')", advance="NO")
       else
-        action%right=>new  ! ½¨Á¢ĞÂµÄÓÒÖ¦ 
+        action%right=>new  ! å»ºç«‹æ–°çš„å³æ 
         action=>new
 		write(*, "('->R: new')")
         exit
       end if
-    ! Êı¾İĞ¡ÓÚÄ¿Ç°Ö¦¸ÉµÄÊıÖµÊ±
+    ! æ•°æ®å°äºç›®å‰æå¹²çš„æ•°å€¼æ—¶
     else if ( n<action%n ) then
       if ( associated( action%left ) ) then
-        action=>action%left   ! ÔÙÏò×óÈ¥Ñ°ÕÒÁ¢Éí´¦
+        action=>action%left   ! å†å‘å·¦å»å¯»æ‰¾ç«‹èº«å¤„
 		write(*, "('->L')", advance="NO")
       else
-        action%left=>new  ! ½¨Á¢ĞÂµÄ×óÖ¦
+        action%left=>new  ! å»ºç«‹æ–°çš„å·¦æ
         action=>new
 		write(*, "('->L: new')")
         exit
       end if
-   ! Êı¾İµÈÓÚÄ¿Ç°Ö¦¸ÉµÄÊıÖµÊ±
+   ! æ•°æ®ç­‰äºç›®å‰æå¹²çš„æ•°å€¼æ—¶
     else if ( n==action%n ) then
-      action%repeat=action%repeat+1  ! °ÑÖØ¸²µÄÊıÄ¿¼Ó1
-      deallocate(new)  ! ¿ÉÒÔ²»ĞèÒªÕâ¸öĞÂµÄ¿Õ¼ä
+      action%repeat=action%repeat+1  ! æŠŠé‡è¦†çš„æ•°ç›®åŠ 1
+      deallocate(new)  ! å¯ä»¥ä¸éœ€è¦è¿™ä¸ªæ–°çš„ç©ºé—´
       write(*, "(': Repeat')")
       return
     end if
@@ -88,7 +88,7 @@ subroutine add( n )
   return
 end subroutine add
 !
-! ÏÔÊ¾ÅÅĞòµÄÊı¾İ
+! æ˜¾ç¤ºæ’åºçš„æ•°æ®
 !
 subroutine TraceTree()
   implicit none
@@ -96,22 +96,22 @@ subroutine TraceTree()
   return
 end subroutine TraceTree
 !
-! ÅÅĞòÊı¾İµÄ×Ó³ÌĞò
+! æ’åºæ•°æ®çš„å­ç¨‹åº
 !
 recursive subroutine show_tree( show )
   implicit none
   type(data), pointer :: show
 
   if ( associated( show ) ) then
-     call show_tree( show%left )   ! ÏÈÈ¡³ö×óÖ¦µÄÊı¾İ
-     call show_data( show )        ! ÔÙÈ¡³öÄ¿Ç°Î»ÖÃµÄÊı¾İ
-     call show_tree( show%right )  ! ×îºó²ÅÈ¡ÓÒÖ¦µÄÊı¾İ
+     call show_tree( show%left )   ! å…ˆå–å‡ºå·¦æçš„æ•°æ®
+     call show_data( show )        ! å†å–å‡ºç›®å‰ä½ç½®çš„æ•°æ®
+     call show_tree( show%right )  ! æœ€åæ‰å–å³æçš„æ•°æ®
   end if
 
   return
 end subroutine show_tree
 !
-! Ğ´³öÕâ¸öÖ¦¸ÉËù´¢´æµÄÊı¾İ
+! å†™å‡ºè¿™ä¸ªæå¹²æ‰€å‚¨å­˜çš„æ•°æ®
 !
 subroutine show_data( show )
   implicit none
@@ -127,7 +127,7 @@ end subroutine show_data
 
 end module bin_tree
 !
-! Ö÷³ÌĞò
+! ä¸»ç¨‹åº
 !
 program main
   use bin_tree
@@ -135,7 +135,7 @@ program main
   integer num
   
   do while(.true.)
-    write(*,*) "ÇëÊäÈëÕûÊı, ÊäÈë0´ú±í½áÊø"
+    write(*,*) "è¯·è¾“å…¥æ•´æ•°, è¾“å…¥0ä»£è¡¨ç»“æŸ"
     read(*,*) num
 	if ( num==0 ) exit
     call add(num)

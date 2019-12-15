@@ -3,13 +3,13 @@ implicit none
   integer, parameter :: classes  = 5
   integer, parameter :: students = 5
   integer :: student(students, classes)
-  integer s ! ÓÃÀ´Ö¸¶¨Ñ§ÉúºÅÂë
-  integer c ! ÓÃÀ´Ö¸¶¨°à¼¶ºÅÂë 
+  integer s ! ç”¨æ¥æŒ‡å®šå­¦ç”Ÿå·ç 
+  integer c ! ç”¨æ¥æŒ‡å®šç­çº§å·ç  
 
   do c=1, classes
     do s=1, students
       write(*,"('Number ',I2,' of class ',I2)") s,c
-      read(*,*) student(s,c) ! µÚc°àµÄµÚsÎ»Ñ§Éú
+      read(*,*) student(s,c) ! ç¬¬cç­çš„ç¬¬sä½å­¦ç”Ÿ
     end do
   end do
 
@@ -20,7 +20,7 @@ implicit none
 	write(*,*) "student:"
 	read(*,*) s
     if ( s<=0 .or. s>students ) exit 
-    write(*,"('score:',I3)") student(s,c) ! µÚc°àµÄµÚsÎ»Ñ§Éú
+    write(*,"('score:',I3)") student(s,c) ! ç¬¬cç­çš„ç¬¬sä½å­¦ç”Ÿ
   end do
 
   stop

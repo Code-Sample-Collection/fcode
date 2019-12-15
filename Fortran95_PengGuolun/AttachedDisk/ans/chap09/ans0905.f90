@@ -13,8 +13,8 @@ program main
   integer, parameter :: fileid=10
   integer, parameter :: students=20
   character(len=80)  :: tempstr
-  type(student) :: s(students) ! ´¢´æÑ§Éú³É¼¨
-  type(student) :: total       ! ¼ÆËãÆ½¾ù·ÖÊıÓÃ
+  type(student) :: s(students) ! å‚¨å­˜å­¦ç”Ÿæˆç»©
+  type(student) :: total       ! è®¡ç®—å¹³å‡åˆ†æ•°ç”¨
   integer i, num, error
 
   open(fileid, file="grades.txt",status="old", iostat=error)
@@ -23,16 +23,16 @@ program main
 	stop
   end if
 
-  read(fileid, "(A80)") tempstr ! ¶ÁÈëµÚÒ»ĞĞÎÄ×Ö
+  read(fileid, "(A80)") tempstr ! è¯»å…¥ç¬¬ä¸€è¡Œæ–‡å­—
   total=student(0,0,0,0,0,0,0,0)
-  ! ÓÃÑ­»·¶ÁÈëÃ¿Î»Ñ§ÉúµÄ³É¼¨
+  ! ç”¨å¾ªç¯è¯»å…¥æ¯ä½å­¦ç”Ÿçš„æˆç»©
   do i=1,students
     read(fileid,*) s(i)%num, s(i)%Chinese, s(i)%English, &
 	               s(i)%Math, s(i)%Natural, s(i)%Social      
-	! ¼ÆËã×Ü·Ö
+	! è®¡ç®—æ€»åˆ†
 	s(i)%Total = s(i)%Chinese + s(i)%English + &
 	             s(i)%Math + s(i)%Natural + s(i)%Social             
-	! ÀÛ¼ÓÉÏ¸÷¿ÆµÄ·ÖÊı, ¼ÆËã¸÷¿ÆÆ½¾ùÊ±Ê¹ÓÃ
+	! ç´¯åŠ ä¸Šå„ç§‘çš„åˆ†æ•°, è®¡ç®—å„ç§‘å¹³å‡æ—¶ä½¿ç”¨
 	total%Chinese = total%Chinese + s(i)%Chinese
 	total%English = total%English + s(i)%English
 	total%Math    = total%Math + s(i)%Math
@@ -41,13 +41,13 @@ program main
 	total%Total   = total%Total + s(i)%Total
   end do
   call sort(s,students)
-  ! ÖØĞÂÊä³öÃ¿Î»Ñ§Éú³É¼¨
-  write(*,"(8A7)") "×ùºÅ","ÖĞÎÄ","Ó¢ÎÄ","ÊıÑ§","×ÔÈ»","Éç»á","×Ü·Ö","Ãû´Î"
+  ! é‡æ–°è¾“å‡ºæ¯ä½å­¦ç”Ÿæˆç»©
+  write(*,"(8A7)") "åº§å·","ä¸­æ–‡","è‹±æ–‡","æ•°å­¦","è‡ªç„¶","ç¤¾ä¼š","æ€»åˆ†","åæ¬¡"
   do i=1,students
     write(*,"(8I7)") s(i)
   end do
-  ! ¼ÆËã²¢Êä³öÆ½ˆV·ÖÊı
-  write(*,"(A7,6F7.1)") "Æ½¾ù", &
+  ! è®¡ç®—å¹¶è¾“å‡ºå¹³åœ´åˆ†æ•°
+  write(*,"(A7,6F7.1)") "å¹³å‡", &
 	real(total%Chinese)/real(students),&
 	real(total%English)/real(students),&
 	real(total%Math)   /real(students),&

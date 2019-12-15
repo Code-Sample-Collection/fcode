@@ -1,6 +1,6 @@
 program ex0841
   implicit none
-  include 'ex0841.inc'  ! ²åÈëex0841.incµÄÄÚÈİ
+  include 'ex0841.inc'  ! æ’å…¥ex0841.incçš„å†…å®¹
   a=1
   b=2
   call sub()
@@ -9,7 +9,7 @@ end
 
 subroutine sub()
   implicit none
-  include 'ex0841.inc'  ! ²åÈëex0841.incµÄÄÚÈİ
+  include 'ex0841.inc'  ! æ’å…¥ex0841.incçš„å†…å®¹
   write(*,*) a,b
   return
 end

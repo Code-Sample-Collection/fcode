@@ -2,8 +2,8 @@ module linklist
   implicit none
   type :: datalink
     integer :: i
-    type(datalink), pointer :: prev ! Ö¸ÏòÉÏÒ»ÌõÊı¾İ
-    type(datalink), pointer :: next ! Ö¸ÏòÏÂÒ»ÌõÊı¾İ
+    type(datalink), pointer :: prev ! æŒ‡å‘ä¸Šä¸€æ¡æ•°æ®
+    type(datalink), pointer :: next ! æŒ‡å‘ä¸‹ä¸€æ¡æ•°æ®
   end type datalink
 
 contains
@@ -18,32 +18,32 @@ subroutine outputlist( list )
   end do
   return   
 end subroutine
-! °Ñ¹â±êËùÖ¸µ½µÄÁ´±íÎ»ÖÃÊÍ·Å
+! æŠŠå…‰æ ‡æ‰€æŒ‡åˆ°çš„é“¾è¡¨ä½ç½®é‡Šæ”¾
 subroutine delitem( item )
   implicit none
   type(datalink), pointer :: item
   type(datalink), pointer :: prev, next
 
-  prev=>item%prev  ! ¼ÇÂ¼ÏÂitemÉÏÒ»ÌõÊı¾İµÄÎ»ÖÃ
-  next=>item%next  ! ¼ÇÂ¼ÏÂitemÏÂÒ»ÌõÊı¾İµÄÎ»ÖÃ
-  deallocate(item) ! ÊÍ·ÅitemËùÕ¼ÓÃÄÚ´æ
-  ! ÖØĞÂÉè¶¨prev%next, Ô­±¾prev%next=>item, ²»¹ıitemÒÑ¾­É¾³ıÁË
+  prev=>item%prev  ! è®°å½•ä¸‹itemä¸Šä¸€æ¡æ•°æ®çš„ä½ç½®
+  next=>item%next  ! è®°å½•ä¸‹itemä¸‹ä¸€æ¡æ•°æ®çš„ä½ç½®
+  deallocate(item) ! é‡Šæ”¾itemæ‰€å ç”¨å†…å­˜
+  ! é‡æ–°è®¾å®šprev%next, åŸæœ¬prev%next=>item, ä¸è¿‡itemå·²ç»åˆ é™¤äº†
   if ( associated(prev) ) prev%next=>next
-  ! ÖØĞÂÉè¶¨next%prev, Ô­±¾next%prev=>item, ²»¹ıitemÒÑ¾­É¾³ıÁË
+  ! é‡æ–°è®¾å®šnext%prev, åŸæœ¬next%prev=>item, ä¸è¿‡itemå·²ç»åˆ é™¤äº†
   if ( associated(next) ) next%prev=>prev ! 
   item=>next
 
   return
 end subroutine
-! ÔÚposÖ¸ÕëËùÖ¸µ½µÄÁ´±íÎ»ÖÃÖĞ²åÈëitem
-! after=.true.Ê±, item²åÔÚposÖ®ºó
-! after=.false.Ê±, item²åÔÚposÖ®Ç°
+! åœ¨posæŒ‡é’ˆæ‰€æŒ‡åˆ°çš„é“¾è¡¨ä½ç½®ä¸­æ’å…¥item
+! after=.true.æ—¶, itemæ’åœ¨posä¹‹å
+! after=.false.æ—¶, itemæ’åœ¨posä¹‹å‰
 subroutine insitem( pos, item, after )
   implicit none
   type(datalink), pointer :: pos, item
   logical :: after
   if ( after ) then
-  ! item²åÔÚposµÄºóÃæ
+  ! itemæ’åœ¨posçš„åé¢
     item%next=>pos%next
 	item%prev=>pos
 	if ( associated(pos%next) ) then
@@ -51,7 +51,7 @@ subroutine insitem( pos, item, after )
     end if
     pos%next=>item
   else
-  ! item²åÔÚposµÄÇ°Ãæ
+  ! itemæ’åœ¨posçš„å‰é¢
     item%next=>pos
 	item%prev=>pos%prev
 	if ( associated(pos%prev) ) then
@@ -74,7 +74,7 @@ program ex1015
   
   allocate(head)
   head = datalink(1, null(), null() )
-  ! ½¨Á¢Á´±í
+  ! å»ºç«‹é“¾è¡¨
   p=>head
   do i=2,s
     allocate( p%next, stat=error )
@@ -86,11 +86,11 @@ program ex1015
 	p=>p%next
   end do
   
-  write(*,*) "ÄÃµôµÚ3ÌõÊı¾İ"
+  write(*,*) "æ‹¿æ‰ç¬¬3æ¡æ•°æ®"
   call delitem(head%next%next)
   call outputlist(head)
 
-  write(*,*) "²åÈëĞÂµÄµÚ3ÌõÊı¾İ"
+  write(*,*) "æ’å…¥æ–°çš„ç¬¬3æ¡æ•°æ®"
   allocate(item)
   item%i=30
   call insitem(head%next,item,.true.)

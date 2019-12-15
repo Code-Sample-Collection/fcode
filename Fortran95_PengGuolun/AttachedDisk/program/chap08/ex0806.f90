@@ -13,7 +13,7 @@ implicit none
 
   stop
 end
-! °Ñ0¡«360µÄ½Ç¶È×ª»»³É0¡«2PIµÄ»¡¶È
+! æŠŠ0ï½360çš„è§’åº¦è½¬æ¢æˆ0ï½2PIçš„å¼§åº¦
 subroutine Angle_TO_Rad( angle, rad )
   implicit none
   real angle, rad
@@ -23,18 +23,18 @@ subroutine Angle_TO_Rad( angle, rad )
   
   return
 end
-! ÓÉ½Ç¶È¡¢ÇĞÏßËÙ¶ÈÀ´¼ÆËãÍ¶Éä¾àÀë
+! ç”±è§’åº¦ã€åˆ‡çº¿é€Ÿåº¦æ¥è®¡ç®—æŠ•å°„è·ç¦»
 subroutine Get_Distance( angle, speed, distance )
 implicit none
-  real angle, speed  ! ´«ÈëµÄ²ÎÊı
-  real distance      ! ×¼±¸´«»ØÈ¥µÄ½á¹û
-  real rad, Vx, time ! ÄÚ²¿Ê¹ÓÃ
+  real angle, speed  ! ä¼ å…¥çš„å‚æ•°
+  real distance      ! å‡†å¤‡ä¼ å›å»çš„ç»“æœ
+  real rad, Vx, time ! å†…éƒ¨ä½¿ç”¨
   real, parameter :: G=9.81
 
-  call Angle_TO_Rad( angle, rad ) ! µ¥Î»×ª»»
-  Vx   = speed*cos(rad)           ! Ë®Æ½·½ÏòËÙ¶È
-  time = 2.0*speed*sin(rad) / G   ! ÔÚ¿ÕÖĞ·ÉĞĞÊ±¼ä
-  distance = Vx * time            ! ¾àÀë = Ë®Æ½·½ÏòËÙ¶È * ·ÉĞĞÊ±¼ä
+  call Angle_TO_Rad( angle, rad ) ! å•ä½è½¬æ¢
+  Vx   = speed*cos(rad)           ! æ°´å¹³æ–¹å‘é€Ÿåº¦
+  time = 2.0*speed*sin(rad) / G   ! åœ¨ç©ºä¸­é£è¡Œæ—¶é—´
+  distance = Vx * time            ! è·ç¦» = æ°´å¹³æ–¹å‘é€Ÿåº¦ * é£è¡Œæ—¶é—´
 
   return
 end

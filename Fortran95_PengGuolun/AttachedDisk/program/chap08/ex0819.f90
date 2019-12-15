@@ -24,6 +24,6 @@ subroutine GetArray2( a, dim1 )
   integer :: dim1, dim2
   integer :: a(dim1, *)
   integer :: i
-  write(*,*) (a(:,i),i=1,2) ! 必需指定要输出哪几个维度
+  write(*,*) (a(:,i),i=1,2) ! 蹇呴渶鎸囧畾瑕佽緭鍑哄摢鍑犱釜缁村害
   return
 end subroutine GetArray2

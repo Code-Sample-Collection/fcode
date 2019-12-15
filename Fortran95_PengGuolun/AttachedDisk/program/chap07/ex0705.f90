@@ -3,11 +3,11 @@ implicit none
   integer, parameter :: row = 2
   integer, parameter :: col = 2
   integer :: matrix(row, col, 3)
-  integer m ! ÓÃÀ´Ö¸¶¨µÚ¼¸¸ö¾ØÕó
-  integer r ! ÓÃÀ´Ö¸¶¨row
-  integer c ! ÓÃÀ´Ö¸¶¨column
+  integer m ! ç”¨æ¥æŒ‡å®šç¬¬å‡ ä¸ªçŸ©é˜µ
+  integer r ! ç”¨æ¥æŒ‡å®šrow
+  integer c ! ç”¨æ¥æŒ‡å®šcolumn
 
-  ! ¶ÁÈë¾ØÕóµÄÄÚÈİ
+  ! è¯»å…¥çŸ©é˜µçš„å†…å®¹
   do m=1, 2
   write(*,"('Matrix ',I1)") m
     do r=1, row
@@ -18,11 +18,11 @@ implicit none
     end do
   end do
 
-  ! °ÑµÚ1,2¸ö¾ØÕóÏà¼Ó
+  ! æŠŠç¬¬1,2ä¸ªçŸ©é˜µç›¸åŠ 
   write(*,*) "Matrix 1 + Matrix 2 = "
   do r=1, row
     do c=1, col
-	  matrix(r,c,3) = matrix(r,c,1)+matrix(r,c,2) ! ¾ØÕóÏà¼Ó
+	  matrix(r,c,3) = matrix(r,c,1)+matrix(r,c,2) ! çŸ©é˜µç›¸åŠ 
 	  write(*,"('(',I1,',',I1,')=',I3)") r,c,matrix(r,c,3)
 	end do
   end do

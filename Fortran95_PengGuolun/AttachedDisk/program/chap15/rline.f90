@@ -10,14 +10,14 @@ program main
   F(X) = 2*X + 3
   integer I
 
-  ! ²úÉúÊý¾Ýµã  
+  ! äº§ç”Ÿæ•°æ®ç‚¹  
   do I=1, NOBS
     XDATA(I) = real(I)
     YDATA(I) = F( XDATA(I) )
   end do
 
   call RLINE( NOBS, XDATA, YDATA, B0, B1, STAT )
-  ! ½á¹ûÒ»¶¨Îªy=2X+3, ÒòÎªÊý¾ÝµãÊÇ¸ù¾ÝÕâ¸öº¯ÊýÀ´²úÉúµÄ.
+  ! ç»“æžœä¸€å®šä¸ºy=2X+3, å› ä¸ºæ•°æ®ç‚¹æ˜¯æ ¹æ®è¿™ä¸ªå‡½æ•°æ¥äº§ç”Ÿçš„.
   write(*,"('Y=',F5.2,'X+'F5.2)") B1,B0
 
   stop

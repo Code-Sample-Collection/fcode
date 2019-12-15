@@ -20,7 +20,7 @@ contains
 	  sqrt_d = sqrt(d)
 	  write(*,"('x=',F5.2,',',F5.2)") (-b+sqrt_d)/a2, (-b-sqrt_d)/a2
 	else
-	  write(*,*) "无实数解"
+	  write(*,*) "鏃犲疄鏁拌В"
 	end if
   end subroutine
 end module
@@ -28,7 +28,7 @@ end module
 program main
   use MA
   implicit none
-  call getx(1.0,2.0)     ! 实际会调用getx1
-  call getx(1.0,3.0,2.0) ! 实际会调用getx2
+  call getx(1.0,2.0)     ! 瀹為檯浼氳皟鐢╣etx1
+  call getx(1.0,3.0,2.0) ! 瀹為檯浼氳皟鐢╣etx2
 end program
 

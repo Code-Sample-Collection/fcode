@@ -20,7 +20,7 @@ subroutine FCN (XA, F, N)
   real, target :: XA(N)
   real F(N)
   real, pointer :: x,y,z
-  ! ÔÚ¼ÆËãÊ±Ê¹ÓÃx,y,z¿´ÆðÀ´±È½ÏÇå³þ
+  ! åœ¨è®¡ç®—æ—¶ä½¿ç”¨x,y,zçœ‹èµ·æ¥æ¯”è¾ƒæ¸…æ¥š
   x=>XA(1)
   y=>XA(2)
   z=>XA(3)

@@ -4,7 +4,7 @@ implicit none
   real :: angle(players) = (/ 30.0, 45.0, 35.0, 50.0, 40.0 /)
   real :: speed(players) = (/ 25.0, 20.0, 21.0, 27.0, 22.0 /)
   real :: distance(players)
-  real, external :: Get_Distance ! ÉùÃ÷Get_DistanceÊÇ¸öº¯Êı
+  real, external :: Get_Distance ! å£°æ˜Get_Distanceæ˜¯ä¸ªå‡½æ•°
   integer :: I
 
   do I=1, players
@@ -14,7 +14,7 @@ implicit none
 
   stop
 end
-! °Ñ0¡«360µÄ½Ç¶È×ª»»³É0¡«2PIµÄ»¡¶È
+! æŠŠ0ï½360çš„è§’åº¦è½¬æ¢æˆ0ï½2PIçš„å¼§åº¦
 real function Angle_TO_Rad( angle )
   implicit none
   real angle
@@ -24,18 +24,18 @@ real function Angle_TO_Rad( angle )
   
   return
 end
-! ÓÉ½Ç¶È¡¢ÇĞÏßËÙ¶ÈÀ´¼ÆËãÍ¶Éä¾àÀë
+! ç”±è§’åº¦ã€åˆ‡çº¿é€Ÿåº¦æ¥è®¡ç®—æŠ•å°„è·ç¦»
 real function Get_Distance( angle, speed )
 implicit none
-  real angle, speed  ! ´«ÈëµÄ²ÎÊı
-  real rad, Vx, time ! ÄÚ²¿Ê¹ÓÃ
-  real, external  :: Angle_TO_Rad ! ÉùÃ÷Angle_TO_RadÊÇ¸öº¯Êı
+  real angle, speed  ! ä¼ å…¥çš„å‚æ•°
+  real rad, Vx, time ! å†…éƒ¨ä½¿ç”¨
+  real, external  :: Angle_TO_Rad ! å£°æ˜Angle_TO_Radæ˜¯ä¸ªå‡½æ•°
   real, parameter :: G=9.81
 
-  rad  = Angle_TO_Rad( angle )    ! µ¥Î»×ª»»
-  Vx   = speed*cos(rad)           ! Ë®Æ½·½ÏòËÙ¶È
-  time = 2.0*speed*sin(rad) / G   ! ÔÚ¿ÕÖĞ·ÉĞĞÊ±¼ä
-  Get_Distance = Vx * time        ! ¾àÀë = Ë®Æ½·½ÏòËÙ¶È * ·ÉĞĞÊ±¼ä
+  rad  = Angle_TO_Rad( angle )    ! å•ä½è½¬æ¢
+  Vx   = speed*cos(rad)           ! æ°´å¹³æ–¹å‘é€Ÿåº¦
+  time = 2.0*speed*sin(rad) / G   ! åœ¨ç©ºä¸­é£è¡Œæ—¶é—´
+  Get_Distance = Vx * time        ! è·ç¦» = æ°´å¹³æ–¹å‘é€Ÿåº¦ * é£è¡Œæ—¶é—´
 
   return
 end

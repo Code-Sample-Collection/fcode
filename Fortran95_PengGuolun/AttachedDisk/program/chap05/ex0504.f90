@@ -8,13 +8,13 @@ implicit none
   write(*,*) "Wind:"
   read(*,*) windspeed
 
-  r = (rain>=500)     ! Èç¹ûrain>=150, r=.true, ²»È»r=.false.
-  w = (windspeed>=10) ! Èç¹ûwindspeed>=10, w=.true, ²»È»w=.false.
+  r = (rain>=500)     ! å¦‚æœrain>=150, r=.true, ä¸ç„¶r=.false.
+  w = (windspeed>=10) ! å¦‚æœwindspeed>=10, w=.true, ä¸ç„¶w=.false.
 
-  if ( r .or. w ) then ! Ö»Òªr»òwÓĞÒ»¸öÖµÊÇtrue¾Í³ÉÁ¢
-    write(*,*) "Í£Ö¹ÉÏ°àÉÏ¿Î"
+  if ( r .or. w ) then ! åªè¦ræˆ–wæœ‰ä¸€ä¸ªå€¼æ˜¯trueå°±æˆç«‹
+    write(*,*) "åœæ­¢ä¸Šç­ä¸Šè¯¾"
   else
-    write(*,*) "ÕÕ³£ÉÏ°àÉÏ¿Î"
+    write(*,*) "ç…§å¸¸ä¸Šç­ä¸Šè¯¾"
   end if
 
 stop

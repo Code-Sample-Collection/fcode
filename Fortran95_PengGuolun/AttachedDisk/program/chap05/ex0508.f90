@@ -22,14 +22,14 @@ implicit none
 	else ! x<0, y=0
 	  ans=0
 	end if
-  else ! x=0, y=ÈÎÒâÊý
+  else ! x=0, y=ä»»æ„æ•°
     ans=0
   end if
 
-  if ( ans/=0 ) then ! ans²»Îª0Ê±, ´ú±íÓÐ½â
-	write(*,"('µÚ',I1,'ÏóÏÞ')") ans
+  if ( ans/=0 ) then ! ansä¸ä¸º0æ—¶, ä»£è¡¨æœ‰è§£
+	write(*,"('ç¬¬',I1,'è±¡é™')") ans
   else
-    write(*,*) "ÂäÔÚÖáÉÏ"
+    write(*,*) "è½åœ¨è½´ä¸Š"
   end if 
 
   stop

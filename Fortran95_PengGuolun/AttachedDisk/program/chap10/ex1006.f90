@@ -1,6 +1,6 @@
 program ex1006
   implicit none
-  integer, pointer :: a(:,:) ! ¶¨ÒåaÊÇ2Î¬µÄÖ¸ÕëÊı×é
+  integer, pointer :: a(:,:) ! å®šä¹‰aæ˜¯2ç»´çš„æŒ‡é’ˆæ•°ç»„
   integer, target  :: b(3,3,2)
   integer i
   

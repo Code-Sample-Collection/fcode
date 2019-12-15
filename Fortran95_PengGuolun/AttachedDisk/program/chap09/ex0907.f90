@@ -24,7 +24,7 @@ program ex0907
   do while(.true.)
 	read(fileid,"(5X,I2,/,5XI3,6XI3,6XI3)",iostat=error) no,s
 	if ( error/=0 ) exit
-	write(*,"(I2'ºÅ ÖĞÎÄ:'I3' Ó¢ÎÄ:'I3' ÊıÑ§:'I3)") no,s
+	write(*,"(I2'å· ä¸­æ–‡:'I3' è‹±æ–‡:'I3' æ•°å­¦:'I3)") no,s
   end do
   close(fileid)
 

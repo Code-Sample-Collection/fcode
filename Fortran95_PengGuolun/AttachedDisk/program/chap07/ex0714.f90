@@ -4,9 +4,9 @@ implicit none
   integer, parameter :: size = 5
   integer :: a(size,size)
 
-  forall ( I=1:size, J=1:size, I>J )  a(I,J)=1 ! ио╟К╡©╥ж
-  forall ( I=1:size, J=1:size, I==J ) a(I,J)=2 ! ╤т╫гоъ╡©╥ж
-  forall ( I=1:size, J=1:size, I<J )  a(I,J)=3 ! об╟К╡©╥ж
+  forall ( I=1:size, J=1:size, I>J )  a(I,J)=1 ! Д╦┼Е█┼И┐╗Е┬├
+  forall ( I=1:size, J=1:size, I==J ) a(I,J)=2 ! Е╞╧Х╖▓Г╨©И┐╗Е┬├
+  forall ( I=1:size, J=1:size, I<J )  a(I,J)=3 ! Д╦▀Е█┼И┐╗Е┬├
 
   write(*,"(5(5I5,/))") a
 

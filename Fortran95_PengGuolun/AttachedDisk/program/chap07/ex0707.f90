@@ -3,11 +3,11 @@ implicit none
   integer, parameter :: row = 2
   integer, parameter :: col = 2
   integer :: m(row, col)
-  integer r ! ÓÃÀ´Ö¸¶¨row
-  integer c ! ÓÃÀ´Ö¸¶¨column
+  integer r ! ç”¨æ¥æŒ‡å®šrow
+  integer c ! ç”¨æ¥æŒ‡å®šcolumn
   data ((m(r,c), r=1, 2), c=1,2) /1,2,3,4/
 
-  ! ÒÀ´ÎÊä³öm(1,1), m(2,1), m(1,2), m(2,2)Õâ4¸öÊı×Ö,  
+  ! ä¾æ¬¡è¾“å‡ºm(1,1), m(2,1), m(1,2), m(2,2)è¿™4ä¸ªæ•°å­—,  
   write(*,"(I3,I3,/,I3,I3)") (( m(r,c), c=1,2 ), r=1,2)
 
   stop

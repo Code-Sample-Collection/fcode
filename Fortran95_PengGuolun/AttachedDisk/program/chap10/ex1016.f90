@@ -52,38 +52,38 @@ program ex1016
   nullify(head%next)
   p=>head
   size=0
-  read(10, "(A80)") tempstr ! ¶ÁÈëµÚÒ»ĞĞ×Ö·û´®, ²»ĞèÒª´¦ÀíËü
-  ! ¶ÁÈëÃ¿Ò»Î»Ñ§ÉúµÄ³É¼¨
+  read(10, "(A80)") tempstr ! è¯»å…¥ç¬¬ä¸€è¡Œå­—ç¬¦ä¸², ä¸éœ€è¦å¤„ç†å®ƒ
+  ! è¯»å…¥æ¯ä¸€ä½å­¦ç”Ÿçš„æˆç»©
   do while(.true.)
     read(10,fmt=*, iostat=error) p%item
 	if ( error/=0 ) exit
 	size=size+1
-	allocate(p%next, stat=error) ! ĞÂÔöÏÂÒ»ÅúÊı¾İ
+	allocate(p%next, stat=error) ! æ–°å¢ä¸‹ä¸€æ‰¹æ•°æ®
 	if ( error/=0 ) then
 	  write(*,*) "Out of memory!"
 	  stop
 	end if
-	p=>p%next ! ÒÆ¶¯µ½Á´±íµÄÏÂÒ»ÅúÊı¾İ
+	p=>p%next ! ç§»åŠ¨åˆ°é“¾è¡¨çš„ä¸‹ä¸€æ‰¹æ•°æ®
 	nullify(p%next)
   end do
-  write(*,"('×Ü¹²ÓĞ',I3,'Î»Ñ§Éú')") size
+  write(*,"('æ€»å…±æœ‰',I3,'ä½å­¦ç”Ÿ')") size
 
   do while(.true.)
-    write(*,*) "Òª²éÑ¯¼¸ºÅÍ¬Ñ§µÄ³É¼¨?"
+    write(*,*) "è¦æŸ¥è¯¢å‡ å·åŒå­¦çš„æˆç»©?"
 	read (*,*) i
-	if ( i<1 .or. i>size ) exit ! ÊäÈë²»ºÏÀíµÄ×ùºÅ
+	if ( i<1 .or. i>size ) exit ! è¾“å…¥ä¸åˆç†çš„åº§å·
 	p=>SearchList(i,head)
 	if ( associated(p) ) then
-      write(*,"(5(A6,I3))") "ÖĞÎÄ",p%item%Chinese,&
-	                        "Ó¢ÎÄ",p%item%English,&
-				            "ÊıÑ§",p%item%Math,&
-				            "×ÔÈ»",p%item%Science,&
-				            "Éç»á",p%item%Social
+      write(*,"(5(A6,I3))") "ä¸­æ–‡",p%item%Chinese,&
+	                        "è‹±æ–‡",p%item%English,&
+				            "æ•°å­¦",p%item%Math,&
+				            "è‡ªç„¶",p%item%Science,&
+				            "ç¤¾ä¼š",p%item%Social
 	else
-	  exit ! ÕÒ²»µ½Êı¾İ, Àë¿ªÑ­»·
+	  exit ! æ‰¾ä¸åˆ°æ•°æ®, ç¦»å¼€å¾ªç¯
 	end if
   end do
-  write(*,"('×ùºÅ',I3,'²»´æÔÚ, ³ÌĞò½áÊø.')") i
+  write(*,"('åº§å·',I3,'ä¸å­˜åœ¨, ç¨‹åºç»“æŸ.')") i
   
   stop
 end program

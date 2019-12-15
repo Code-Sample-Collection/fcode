@@ -1,8 +1,8 @@
 program main
   implicit none
   real grades
-  write(*,*) "ÇëÊäÈë³É¼¨"
+  write(*,*) "è¯·è¾“å…¥æˆç»©"
   read(*,*) grades
-  write(*,"(' µ÷Õûºó³É¼¨Îª 'f8.3)") SQRT(grades)*10.0
+  write(*,"(' è°ƒæ•´åæˆç»©ä¸º 'f8.3)") SQRT(grades)*10.0
 end program
 

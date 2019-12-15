@@ -2,7 +2,7 @@ module INTEGRAL
   implicit none
   real, parameter :: PI=3.14159
 contains
-! ²úÉúÊıÁĞ
+! äº§ç”Ÿæ•°åˆ—
   subroutine GenerateData(datas, width, func)
     real datas(:), width
 	real, external :: func
@@ -16,7 +16,7 @@ contains
 	  r = r+width
 	end do
   end subroutine
-! ÌİĞÎ·¨»ı·Ö
+! æ¢¯å½¢æ³•ç§¯åˆ†
 real function Simpson_Integral(datas, width)
   IMPLICIT NONE
   real datas(:), width
@@ -24,22 +24,22 @@ real function Simpson_Integral(datas, width)
   integer i,n
   n = size(datas,1)
   if ( mod(n,2)==0 ) then
-    write(*,*) "ÒªÓĞÆæÊıÌõÊı¾İ"
+    write(*,*) "è¦æœ‰å¥‡æ•°æ¡æ•°æ®"
 	stop
   end if
-  sum = datas(1) + datas(n) ! ÏÈËã³öÍ·Î²µÄºÍ
+  sum = datas(1) + datas(n) ! å…ˆç®—å‡ºå¤´å°¾çš„å’Œ
   do i=2,n-1
     if ( mod(i,2)==0 ) then
-      sum = sum + 4*datas(i) ! °Ñ4*f(x)µÄ²¿·ÖÀÛ¼ÓÆğÀ´
+      sum = sum + 4*datas(i) ! æŠŠ4*f(x)çš„éƒ¨åˆ†ç´¯åŠ èµ·æ¥
 	else
-      sum = sum + 2*datas(i) ! °Ñ2*f(x)µÄ²¿·ÖÀÛ¼ÓÆğÀ´
+      sum = sum + 2*datas(i) ! æŠŠ2*f(x)çš„éƒ¨åˆ†ç´¯åŠ èµ·æ¥
 	end if
   end do
-  Simpson_Integral = sum * width/3.0        ! SUMÔÙ³ËÉÏH/3 ¾ÍºÃÁË
+  Simpson_Integral = sum * width/3.0        ! SUMå†ä¹˜ä¸ŠH/3 å°±å¥½äº†
   return
 end function
 end module
-! SIMPSON·¨»ı·Ö·¶Àı
+! SIMPSONæ³•ç§¯åˆ†èŒƒä¾‹
 program main
   use INTEGRAL
   implicit none

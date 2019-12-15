@@ -4,7 +4,7 @@ implicit none
   integer :: a(5)=(/ (i,i=1,5) /)
   integer :: b(5)=0
   
-  ! °Ña(1¡«5)ÖĞĞ¡ÓÚ3µÄÔªËØÖµ¸³Öµ¸øb
+  ! æŠŠa(1ï½5)ä¸­å°äº3çš„å…ƒç´ å€¼èµ‹å€¼ç»™b
   where( a<3 )
     b = a
   end where

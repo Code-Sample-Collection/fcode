@@ -15,11 +15,11 @@ integer function GetInteger()
 
   invalid = .true.
   do while( invalid )
-    write(*,*) "ÇëÊäÈëÕıÕûÊı"
+    write(*,*) "è¯·è¾“å…¥æ­£æ•´æ•°"
     read(*, "(A80)" ) string
     invalid = .false.
     do i=1, len_trim(string)
-	  ! ¼ì²éÊäÈëµÄ×Ö·ûÊÇ·ñ°üº¬'0'¡«'9'ÒÔÍâµÄ×Ö·û
+	  ! æ£€æŸ¥è¾“å…¥çš„å­—ç¬¦æ˜¯å¦åŒ…å«'0'ï½'9'ä»¥å¤–çš„å­—ç¬¦
       code = ichar(string(i:i))
       if ( code<ichar('0') .or. code>ichar('9') ) then 
 	    invalid=.true.

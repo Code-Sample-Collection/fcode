@@ -5,10 +5,10 @@ implicit none
   integer :: matrixA(row,col)
   integer :: matrixB(row,col)
   integer :: matrixC(row,col)
-  integer r ! ÓÃÀ´Ö¸¶¨row
-  integer c ! ÓÃÀ´Ö¸¶¨column
+  integer r ! ç”¨æ¥æŒ‡å®šrow
+  integer c ! ç”¨æ¥æŒ‡å®šcolumn
 
-  ! ¶ÁÈë¾ØÕóAµÄÄÚÈİ
+  ! è¯»å…¥çŸ©é˜µAçš„å†…å®¹
   write(*,*) "Matrix A"
   do r=1, row
     do c=1, col
@@ -17,7 +17,7 @@ implicit none
 	end do
   end do
 
-  ! ¶ÁÈë¾ØÕóBµÄÄÚÈİ
+  ! è¯»å…¥çŸ©é˜µBçš„å†…å®¹
   write(*,*) "Matrix B"
   do r=1, row
     do c=1, col
@@ -26,11 +26,11 @@ implicit none
 	end do
   end do
   
-  ! °Ñ¾ØÕóA,BÏà¼Ó²¢Êä³ö½á¹û
+  ! æŠŠçŸ©é˜µA,Bç›¸åŠ å¹¶è¾“å‡ºç»“æœ
   write(*,*) "Matrix A+B="
   do r=1, row
     do c=1, col
-	  matrixC(r,c) = matrixB(r,c)+matrixA(r,c) ! ¾ØÕóÏà¼Ó
+	  matrixC(r,c) = matrixB(r,c)+matrixA(r,c) ! çŸ©é˜µç›¸åŠ 
 	  write(*,"('(',I1,',',I1,')=',I3)") r,c,matrixC(r,c)
 	end do
   end do

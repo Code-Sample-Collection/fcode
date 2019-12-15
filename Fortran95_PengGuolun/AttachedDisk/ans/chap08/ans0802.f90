@@ -3,9 +3,9 @@ program main
   real radius
   real, external :: CircleArea
 
-  write(*,*) "请输入半径长"
+  write(*,*) "璇疯緭鍏ュ崐寰勯暱"
   read(*,*) radius
-  write(*,"(' 面积 = 'F8.3)") CircleArea(radius)
+  write(*,"(' 闈㈢Н = 'F8.3)") CircleArea(radius)
 
   stop
 end program

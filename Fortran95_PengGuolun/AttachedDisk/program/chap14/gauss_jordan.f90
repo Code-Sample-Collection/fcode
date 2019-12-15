@@ -1,7 +1,7 @@
 module LinearAlgebra
   implicit none
 contains
-! Gauss_Jordan·¨
+! Gauss_Jordanæ³•
 subroutine Gauss_Jordan(A,S,ANS)
   implicit none
   real    :: A(:,:)
@@ -11,26 +11,26 @@ subroutine Gauss_Jordan(A,S,ANS)
   integer :: i, N
   N = size(A,1)  
   allocate(B(N,N))
-  ! ±£´æÔ­ÏÈµÄ¾ØÕóA,¼°Êı×éS
+  ! ä¿å­˜åŸå…ˆçš„çŸ©é˜µA,åŠæ•°ç»„S
   B=A 
   ANS=S  
-  ! °ÑB»¯³É¶Ô½ÇÏß¾ØÕó(³ıÁË¶Ô½ÇÏßÍâ,¶¼Îª0)
-  call Upper(B,ANS,N) ! ÏÈ°ÑB»¯³ÉÉÏÈı½Ç¾ØÕó
-  call Lower(B,ANS,N) ! ÔÙ°ÑB»¯³ÉÏÂÈı½Ç¾ØÕó
-  ! Çó½â
+  ! æŠŠBåŒ–æˆå¯¹è§’çº¿çŸ©é˜µ(é™¤äº†å¯¹è§’çº¿å¤–,éƒ½ä¸º0)
+  call Upper(B,ANS,N) ! å…ˆæŠŠBåŒ–æˆä¸Šä¸‰è§’çŸ©é˜µ
+  call Lower(B,ANS,N) ! å†æŠŠBåŒ–æˆä¸‹ä¸‰è§’çŸ©é˜µ
+  ! æ±‚è§£
   forall(i=1:N)
     ANS(i)=ANS(i)/B(i,i) 
   end forall
   return
 end subroutine Gauss_Jordan
-! Êä³öµÈÊ½
+! è¾“å‡ºç­‰å¼
 subroutine output(M,S)
   implicit none
   real    :: M(:,:), S(:)
   integer :: N,i,j
   N = size(M,1)
-  ! writeÖĞ¼ÓÉÏadvance="no",¿ÉÒÔÖĞÖ¹¶ÏĞĞ·¢Éú,Ê¹ÏÂÒ»´ÎµÄ
-  ! write½ÓĞøÔÚÍ¬Ò»ĞĞµ±ÖĞ.
+  ! writeä¸­åŠ ä¸Šadvance="no",å¯ä»¥ä¸­æ­¢æ–­è¡Œå‘ç”Ÿ,ä½¿ä¸‹ä¸€æ¬¡çš„
+  ! writeæ¥ç»­åœ¨åŒä¸€è¡Œå½“ä¸­.
   do i=1,N
     write(*,"(1x,f5.2,a1)", advance="NO") M(i,1),'A'
     do j=2,N
@@ -44,7 +44,7 @@ subroutine output(M,S)
   end do
   return
 end subroutine output
-! ÇóÉÏÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸Šä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Upper(M,S,N)
   implicit none
   integer :: N
@@ -61,7 +61,7 @@ subroutine Upper(M,S,N)
   end do
   return
 end subroutine Upper
-! ÇóÏÂÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸‹ä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Lower(M,S,N)
   implicit none
   integer :: N
@@ -79,7 +79,7 @@ subroutine Lower(M,S,N)
   return
 end subroutine Lower
 end module
-! Çó½âÁªÁ¢Ê½
+! æ±‚è§£è”ç«‹å¼
 program main
   use LinearAlgebra
   implicit none

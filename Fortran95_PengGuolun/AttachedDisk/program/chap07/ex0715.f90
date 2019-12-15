@@ -1,14 +1,14 @@
 program ex0715
 implicit none
   integer, parameter :: max = 1000
-  integer :: a(max) ! 先声明一个超大的数组
+  integer :: a(max) ! 鍏堝０鏄庝竴涓秴澶х殑鏁扮粍
   integer :: students
   integer :: i
     
   write(*,*) "How many students:"
   read(*,*) students
 
-  ! 输入成绩
+  ! 杈撳叆鎴愮哗
   do i=1,students
     write(*,"('Number ',I3)") i
     read(*,*) a(i)

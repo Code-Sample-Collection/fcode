@@ -22,7 +22,7 @@ program main
   implicit none
   call sglDisplaySub(display)
   call sglCreateWindow(100,100,400,400,1)
-  ! Éè¶¨Ã¿10ms¾Í»áµ÷ÓÃdisplayº¯ÊıÒ»´Î
+  ! è®¾å®šæ¯10mså°±ä¼šè°ƒç”¨displayå‡½æ•°ä¸€æ¬¡
   call sglTimerSub(10, display) 
   call sglMainLoop()
   stop

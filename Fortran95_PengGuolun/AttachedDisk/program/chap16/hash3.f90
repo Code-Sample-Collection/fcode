@@ -1,14 +1,14 @@
 module NumLink                          
   implicit none
   integer, parameter :: N=10    
-  ! ÉùÃ÷ÖÆ×÷Á´±íµÄÀàĞÍ
+  ! å£°æ˜åˆ¶ä½œé“¾è¡¨çš„ç±»å‹
   type :: link
-    integer :: num                      ! ´¢´æÊı¾İ×é
-    type(link), pointer :: next         ! Ö¸ÏòÏÂÒ»¸ö»·½áµÄÖ¸Õë
+    integer :: num                      ! å‚¨å­˜æ•°æ®ç»„
+    type(link), pointer :: next         ! æŒ‡å‘ä¸‹ä¸€ä¸ªç¯ç»“çš„æŒ‡é’ˆ
   end type link
 
-  type(link), target  :: linking(N) ! ´¢´æhashingºóµÄÊı¾İ
-  type(link), pointer :: proc      ! ÔİÊ±Ê¹ÓÃµÄÖ¸Õë
+  type(link), target  :: linking(N) ! å‚¨å­˜hashingåçš„æ•°æ®
+  type(link), pointer :: proc      ! æš‚æ—¶ä½¿ç”¨çš„æŒ‡é’ˆ
 
   integer :: Source(N) = (/ 21,53,71,19,61,81,3,17,44,93 /)
 
@@ -21,45 +21,45 @@ contains
 	end do
   end subroutine
 
-! hashº¯Êı
+! hashå‡½æ•°
   integer function hash(KEY)
     integer KEY
     hash = KEY/10+1
 	return
   end function
 !
-! °ÑÊı×Ö¾­¹ıÉ¢ÁĞ´¦Àíºó·ÅÈëÁ´±íµÄ×Ó³ÌĞò
+! æŠŠæ•°å­—ç»è¿‡æ•£åˆ—å¤„ç†åæ”¾å…¥é“¾è¡¨çš„å­ç¨‹åº
 !
   subroutine Insert(KEY, INFO)
-    integer :: KEY, INFO ! ËùÒª²åÈëµÄÊı×Ö¼°ÔÚSourceÖĞµÄÎ»ÖÃ
-    integer :: L         ! hashing ºóµÄ½á¹û
+    integer :: KEY, INFO ! æ‰€è¦æ’å…¥çš„æ•°å­—åŠåœ¨Sourceä¸­çš„ä½ç½®
+    integer :: L         ! hashing åçš„ç»“æœ
 
     L=hash(KEY)        
-    proc=>linking(L) ! °ÑprocÖ¸ÏòÀàĞÍlinkingÖĞhash(L)µÄÎ»ÖÃ
+    proc=>linking(L) ! æŠŠprocæŒ‡å‘ç±»å‹linkingä¸­hash(L)çš„ä½ç½®
 
-    ! ÒÆ¶¯µ½Á´±íÖĞµÄ×îºóÒ»¸öÎ»ÖÃ
+    ! ç§»åŠ¨åˆ°é“¾è¡¨ä¸­çš„æœ€åä¸€ä¸ªä½ç½®
     do while( proc%num /= 0 )
       proc=>proc%next
     end do
 
     proc%num = INFO
-    !ÅäÖÃÄÚ´æ¿Õ¼ä¸øproc%next
+    !é…ç½®å†…å­˜ç©ºé—´ç»™proc%next
     allocate(proc%next)
 	proc=>proc%next
     proc%num = 0
 	nullify(proc%next)
   end subroutine Insert 
 !
-! ÔÚÁ´±íÖĞ²éÕÒÊı¾İµÄ×Ó³ÌĞò
+! åœ¨é“¾è¡¨ä¸­æŸ¥æ‰¾æ•°æ®çš„å­ç¨‹åº
 !
   subroutine Hash_Search( KEY )
-    integer :: KEY  ! Òª²éÕÒµÄÖµ
-    integer :: L    ! ¼ÆËãhashingºóµÄÖµ
+    integer :: KEY  ! è¦æŸ¥æ‰¾çš„å€¼
+    integer :: L    ! è®¡ç®—hashingåçš„å€¼
 
     L=hash(KEY)
-    proc=>linking(L)        ! °ÑprocÖ¸ÏòÀàĞÍlinkingÖĞhash(L)µÄÎ»ÖÃ
+    proc=>linking(L)        ! æŠŠprocæŒ‡å‘ç±»å‹linkingä¸­hash(L)çš„ä½ç½®
 
-    ! ÔÚÕâÒ»¸öÁ´±íÖĞÒ»Ö±ÏòÏÂË³Ğò²éÕÒµ½ÕÒµ½ÎªÖ¹
+    ! åœ¨è¿™ä¸€ä¸ªé“¾è¡¨ä¸­ä¸€ç›´å‘ä¸‹é¡ºåºæŸ¥æ‰¾åˆ°æ‰¾åˆ°ä¸ºæ­¢
     do while( .true. )
 	  if ( proc%num==0 ) then
 	    write(*,*) "Not found."
@@ -74,7 +74,7 @@ contains
     return
   end subroutine Hash_Search
 !
-! Êä³öÁ´±íÖĞÊı¾İµÄ×Ó³ÌĞò
+! è¾“å‡ºé“¾è¡¨ä¸­æ•°æ®çš„å­ç¨‹åº
 !
   subroutine OutputLink()
     integer :: i 
@@ -91,13 +91,13 @@ contains
 
 end module NumLink
 !       
-!    ¹şÏ¡²éÕÒ·¨·¶Àı
+!    å“ˆç¨€æŸ¥æ‰¾æ³•èŒƒä¾‹
 !                  
 program HASHING_SEARCH_DEMO
 use NumLink
 implicit none
-  integer :: KEY  ! ¼ÇÂ¼ËùÒªÕÒµÄÖµ
-  integer :: I    ! Ñ­»·¼ÇÊıÆ÷
+  integer :: KEY  ! è®°å½•æ‰€è¦æ‰¾çš„å€¼
+  integer :: I    ! å¾ªç¯è®°æ•°å™¨
 
   call InitLink()
   write(*,"('Source=>',10I3)") Source
@@ -106,10 +106,10 @@ implicit none
   end do
   write(*,*) 'Link List=>'
   call OutputLink()
-! ¶ÁÈëÒªÕÒµÄÖµ
+! è¯»å…¥è¦æ‰¾çš„å€¼
   write(*,*) 'Input KEY:'
   read (*,*) KEY
-! µ÷ÓÃË³Ğò²éÕÒµÄ×Ó³ÌĞò
+! è°ƒç”¨é¡ºåºæŸ¥æ‰¾çš„å­ç¨‹åº
   call Hash_Search(KEY)
   stop
 end program HASHING_SEARCH_DEMO

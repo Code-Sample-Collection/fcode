@@ -5,20 +5,20 @@ program gdemo3
   
   call SetScreen(70,24)
   call ClearScreen()
-  ! »­Á³
+  ! ç”»è„¸
   call DrawCircle( 35, 12, 20, 10 )
-  ! »­Á½¸öÑÛ¾¦
+  ! ç”»ä¸¤ä¸ªçœ¼ç›
   call SetCurrentChar('0')
   call DrawCircle( 42, 10, 4, 2 )
   call DrawCircle( 28, 10, 4, 2 )
-  ! »­±Ç×Ó
+  ! ç”»é¼»å­
   call SetCurrentChar('#')
   call DrawLine( 35, 10, 30, 15 )
   call DrawLine( 30, 15, 38, 15 )
-  ! »­×ì°É
+  ! ç”»å˜´å§
   call SetCurrentChar('-')
   call DrawLine( 30, 18, 38, 18 )
-  ! °Ñ»­Í¼µÄ½á¹ûÏÔÊ¾µ½ÆÁÄ»ÉÏ
+  ! æŠŠç”»å›¾çš„ç»“æœæ˜¾ç¤ºåˆ°å±å¹•ä¸Š
   call UpdateScreen()
   
   stop

@@ -20,7 +20,7 @@ program main
   xinc = (xmax-xmin)/(N-1)
   xp = xmin
   do I=1, N
-    ! ”…xp÷µ¿¥«Û≤Â÷µ
+    ! Áî±xpÂÄºÊù•Ê±ÇÊèíÂÄº
     value = CSVAL(xp, NDATA-1, BREAK, CSCOEF)
     write(*,"('(',F5.2,',',F5.2,') error:'F6.3)" ) &
 	xp, value, sin(xp)-value

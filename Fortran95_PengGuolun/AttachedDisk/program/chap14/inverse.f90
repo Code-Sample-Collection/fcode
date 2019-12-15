@@ -1,7 +1,7 @@
 module LinearAlgebra
   implicit none
 contains
-! ÇóÄæ¾ØÕó
+! æ±‚é€†çŸ©é˜µ
 subroutine inverse(A,IA)
   implicit none
   real    :: A(:,:), IA(:,:)
@@ -9,19 +9,19 @@ subroutine inverse(A,IA)
   integer :: i,j,N
   N = size(A,1)  
   allocate(B(N,N))
-  ! ÏÈ°ÑIAÉè¶¨³Éµ¥Î»¾ØÕó
+  ! å…ˆæŠŠIAè®¾å®šæˆå•ä½çŸ©é˜µ
   forall(i=1:N,j=1:N,i==j) IA(i,j)=1.0
   forall(i=1:N,j=1:N,i/=j) IA(i,j)=0.0
-  ! ±£´æÔ­ÏÈµÄ¾ØÕóA, Ê¹ÓÃBÀ´¼ÆËã
+  ! ä¿å­˜åŸå…ˆçš„çŸ©é˜µA, ä½¿ç”¨Bæ¥è®¡ç®—
   B=A 
-  ! °ÑB»¯³É¶Ô½ÇÏß¾ØÕó(³ıÁË¶Ô½ÇÏßÍâ,¶¼Îª0)
-  call Upper(B,IA,N) ! ÏÈ°ÑB»¯³ÉÉÏÈı½Ç¾ØÕó
-  call Lower(B,IA,N) ! ÔÙ°ÑB»¯³ÉÏÂÈı½Ç¾ØÕó
-  ! Çó½â
+  ! æŠŠBåŒ–æˆå¯¹è§’çº¿çŸ©é˜µ(é™¤äº†å¯¹è§’çº¿å¤–,éƒ½ä¸º0)
+  call Upper(B,IA,N) ! å…ˆæŠŠBåŒ–æˆä¸Šä¸‰è§’çŸ©é˜µ
+  call Lower(B,IA,N) ! å†æŠŠBåŒ–æˆä¸‹ä¸‰è§’çŸ©é˜µ
+  ! æ±‚è§£
   forall(i=1:N) IA(i,:)=IA(i,:)/B(i,i) 
   return
 end subroutine
-! Êä³ö¾ØÕóµÄ×Ó³ÌĞò
+! è¾“å‡ºçŸ©é˜µçš„å­ç¨‹åº
 subroutine output(matrix)
   implicit none
   real    :: matrix(:,:)
@@ -29,14 +29,14 @@ subroutine output(matrix)
   character(len=20) :: for='(??(1x,f6.3))'
   m = size(matrix,1)
   n = size(matrix,2)
-  ! ÓÃ×Ö·û´®À´Éè¶¨Êä³ö¸ñÊ½
+  ! ç”¨å­—ç¬¦ä¸²æ¥è®¾å®šè¾“å‡ºæ ¼å¼
   write( FOR(2:3), '(I2)' ) N
   do i=1,N
 	write( *, FMT=FOR ) matrix(i,:)
   end do
   return
 end subroutine output
-! ÇóÉÏÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸Šä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Upper(M,S,N)
   implicit none
   integer :: N
@@ -53,7 +53,7 @@ subroutine Upper(M,S,N)
   end do
   return
 end subroutine Upper
-! ÇóÏÂÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸‹ä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Lower(M,S,N)
   implicit none
   integer :: N
@@ -71,7 +71,7 @@ subroutine Lower(M,S,N)
   return
 end subroutine Lower
 end module
-! Çó½âÁªÁ¢Ê½
+! æ±‚è§£è”ç«‹å¼
 program main
   use LinearAlgebra
   implicit none
@@ -79,10 +79,10 @@ program main
   real :: A(N,N) = (/ 1,2,3,4,5,6,7,8,8 /)
   real :: IA(N,N)
   integer :: i
-  write(*,*) "Ô­¾ØÕó"
+  write(*,*) "åŸçŸ©é˜µ"
   call output(A)
   call inverse(A,IA)
-  write(*,*) "Äæ¾ØÕó"
+  write(*,*) "é€†çŸ©é˜µ"
   call output(IA)
   stop
 end program

@@ -7,17 +7,17 @@ implicit none
   read(*,*) score
 
   select case(score)
-  case(90:100) ! 90µ½100·ÖÖ®¼ä
+  case(90:100) ! 90åˆ°100åˆ†ä¹‹é—´
     grade='A'
-  case(80:89)  ! 80µ½89·ÖÖ®¼ä
+  case(80:89)  ! 80åˆ°89åˆ†ä¹‹é—´
     grade='B'
-  case(70:79)  ! 70µ½79·ÖÖ®¼ä
+  case(70:79)  ! 70åˆ°79åˆ†ä¹‹é—´
     grade='C'
-  case(60:69)  ! 60µ½69·ÖÖ®¼ä
+  case(60:69)  ! 60åˆ°69åˆ†ä¹‹é—´
     grade='D'
-  case(0:59)   ! 0µ½59·ÖÖ®¼ä
+  case(0:59)   ! 0åˆ°59åˆ†ä¹‹é—´
     grade='E'
-  case default ! ÆäËüÇéÐÎ
+  case default ! å…¶å®ƒæƒ…å½¢
     grade='?'
   end select
   

@@ -6,7 +6,7 @@ module GLOBAL
   type color3i
     integer r,g,b
   end type
-  ! Ã¿ÖÖ·½¿éµÄÑÕÉ«  
+  ! æ¯ç§æ–¹å—çš„é¢œè‰²  
   type(color3i) :: color(blocktype) = (/ color3i(0,0,255),&
 										 color3i(0,255,0),&
 										 color3i(0,255,255),&
@@ -23,7 +23,7 @@ module GLOBAL
   end type
   
   type(block), target, save :: blocks(blocktype)  
-  !¸÷ÖÖ·½¿éµÄĞÎ×´ĞÅÏ¢
+  !å„ç§æ–¹å—çš„å½¢çŠ¶ä¿¡æ¯
   integer, target :: b1(4,4,1) = (/ 0,0,0,0,& ! type 1
 							        0,0,0,0,&
 								    1,1,0,0,&
@@ -120,7 +120,7 @@ module GLOBAL
 									7,7,7,0 /)	
 
 contains
-  ! Éè¶¨¸÷ÖÖ·½¿éµÄĞÅÏ¢
+  ! è®¾å®šå„ç§æ–¹å—çš„ä¿¡æ¯
   subroutine InitBlock()
     blocks(1).name = 1
 	blocks(1).rot_shift = 2

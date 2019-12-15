@@ -1,7 +1,7 @@
 module LinearAlgebra
   implicit none
 contains
-! Çó¾ØÕóµÄDeterminantÖµ
+! æ±‚çŸ©é˜µçš„Determinantå€¼
 real function Determinant(matrix)
   real    :: matrix(:,:)
   real, allocatable :: ma(:,:)
@@ -15,7 +15,7 @@ real function Determinant(matrix)
     Determinant = Determinant*ma(i,i)
   end do
 end function
-! ÇóÉÏÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸Šä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Upper(matrix)
   real    :: matrix(:,:)
   integer :: M,N
@@ -26,7 +26,7 @@ subroutine Upper(matrix)
   do I=1,N-1
 	do J=I+1,M		
 	  E=matrix(J,I)/matrix(I,I)
-      ! ÓÃ90µÄ¹¦ÄÜ¿ÉÒÔÉÙÒ»²ãÑ­»·
+      ! ç”¨90çš„åŠŸèƒ½å¯ä»¥å°‘ä¸€å±‚å¾ªç¯
 	  matrix(J,I:M)=matrix(J,I:M)-matrix(I,I:M)*E
 	end do
   end do

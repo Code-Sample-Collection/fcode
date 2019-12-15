@@ -2,7 +2,7 @@ module INTEGRAL
   implicit none
   real, parameter :: PI=3.14159
 contains
-! ²úÉúÊıÁĞ
+! äº§ç”Ÿæ•°åˆ—
   subroutine GenerateData(datas, width, func)
     real datas(:), width
 	real, external :: func
@@ -16,32 +16,32 @@ contains
 	  r = r+width
 	end do
   end subroutine
-! ÌİĞÎ·¨»ı·Ö
+! æ¢¯å½¢æ³•ç§¯åˆ†
   real function Trape_Integral(datas, width)
     implicit none
     real datas(:)
-    real width     ! Ã¿ÌõÊı¾İµÄ¼ä¸ô
-    real SUM       ! ¼ÆËãËùÓĞÉÏµ×¼ÓÏÂµ×³ıÒÔ¶şµÄºÍ
+    real width     ! æ¯æ¡æ•°æ®çš„é—´éš”
+    real SUM       ! è®¡ç®—æ‰€æœ‰ä¸Šåº•åŠ ä¸‹åº•é™¤ä»¥äºŒçš„å’Œ
     integer i,n
     n = size(datas,1)
     SUM = (datas(1)+datas(n))/2.0
     do i=2,n-1
-      SUM=SUM+datas(i) ! ÀÛ¼Ó±ß³¤
+      SUM=SUM+datas(i) ! ç´¯åŠ è¾¹é•¿
     end do
-    Trape_Integral=SUM*width  ! ¼ÆËãÃæ»ıºÍ
+    Trape_Integral=SUM*width  ! è®¡ç®—é¢ç§¯å’Œ
     return
   end function 
 end module
-! ÌİĞÎ·¨»ı·Ö·¶Àı
+! æ¢¯å½¢æ³•ç§¯åˆ†èŒƒä¾‹
 program main
   use INTEGRAL
   implicit none
   integer, parameter :: N = 10
   real DATAS(N), width
-  real ANS  ! ´ğ°¸  
-  real, intrinsic :: sin ! Ä£ÄâÓÃÀ´²úÉúÊı¾İµÄº¯Êı
+  real ANS  ! ç­”æ¡ˆ  
+  real, intrinsic :: sin ! æ¨¡æ‹Ÿç”¨æ¥äº§ç”Ÿæ•°æ®çš„å‡½æ•°
   call GenerateData(DATAS, width, sin)
-  ANS = Trape_Integral(DATAS, width)  ! ¼ÆËã»ı·Ö
-  write(*,"('ans=',F5.2)") ANS        ! Ğ´³ö´ğ°¸
+  ANS = Trape_Integral(DATAS, width)  ! è®¡ç®—ç§¯åˆ†
+  write(*,"('ans=',F5.2)") ANS        ! å†™å‡ºç­”æ¡ˆ
   stop
 end program

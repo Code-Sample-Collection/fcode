@@ -5,15 +5,15 @@ program main
   integer weight, i
   
   do i=1,max
-    write(*,*) "ÇëÊäÈëÌåÖØ"
+    write(*,*) "è¯·è¾“å…¥ä½“é‡"
 	read(*,*) weight
 	if ( weight==answer ) exit
   end do
 
   if ( i<=max ) then
-    write(*,*) "²Â¶ÔÁË"
+    write(*,*) "çŒœå¯¹äº†"
   else
-    write(*,*) "²Â´íÁË"
+    write(*,*) "çŒœé”™äº†"
   end if
 
   stop

@@ -2,10 +2,10 @@ program main
   implicit none
   real radius, area
 
-  write(*,*) "请输入半径长"
+  write(*,*) "璇疯緭鍏ュ崐寰勯暱"
   read(*,*) radius
   call CircleArea(radius, area)
-  write(*,"(' 面积 = 'F8.3)") area
+  write(*,"(' 闈㈢Н = 'F8.3)") area
 
   stop
 end program

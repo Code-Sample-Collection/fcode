@@ -1,14 +1,14 @@
 program ex0716
 implicit none
   integer :: students
-  integer, allocatable :: a(:) ! ÉùÃ÷Ò»¸ö¿É±ä´óĞ¡µÄÒ»Î¬Êı×é
+  integer, allocatable :: a(:) ! å£°æ˜ä¸€ä¸ªå¯å˜å¤§å°çš„ä¸€ç»´æ•°ç»„
   integer :: i
     
   write(*,*) "How many students:"
   read(*,*) students
-  allocate( a(students) ) ! ÅäÖÃÄÚ´æ¿Õ¼ä
+  allocate( a(students) ) ! é…ç½®å†…å­˜ç©ºé—´
 
-  ! ÊäÈë³É¼¨
+  ! è¾“å…¥æˆç»©
   do i=1,students
     write(*,"('Number ',I3)") i
     read(*,*) a(i)

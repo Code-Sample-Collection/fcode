@@ -20,7 +20,7 @@ contains
 
   subroutine Report()
     implicit none
-    write(*,"('ÒøĞĞÄ¿Ç°¿â´æ',I,'Ôª')") money
+    write(*,"('é“¶è¡Œç›®å‰åº“å­˜',I,'å…ƒ')") money
   end subroutine
 end module
 

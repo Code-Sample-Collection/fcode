@@ -1,11 +1,11 @@
-! Ã°ÅÝÅÅÐò·¨·¶Àý
+! å†’æ³¡æŽ’åºæ³•èŒƒä¾‹
 ! By Perng 1997/8/29
 program BUBBLE_SORT_DEMO
   implicit none
   integer, parameter :: N=10
-  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! ´ýÅÅÐòµÄÊý¾Ý
+  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! å¾…æŽ’åºçš„æ•°æ®
   write(*,"('Source=>',10I3)") A
-  call BUBBLE_SORT(A,N)  ! µ÷ÓÃÅÅÐòµÄ×Ó³ÌÐò
+  call BUBBLE_SORT(A,N)  ! è°ƒç”¨æŽ’åºçš„å­ç¨‹åº
   write(*,"('Sort=>',10I3)") A
   stop
 end program
@@ -14,9 +14,9 @@ subroutine BUBBLE_SORT(A,N)
   implicit none
   integer :: N,A(N)
   integer I,J, TEMP
-  do I=N-1,1,-1   ! ¿ªÊ¼×öN-1´ÎµÄÉ¨Ãé
-    do J=1,I      ! Ò»¶ÔÒ»¶ÔµÄÀ´±È½Ï£¬IÖ®ºóµÄÊý×Ö²»ÓÃ±È½Ï
-    ! Èç¹ûA(J) > A(J+1) ¾Í°ÑÕâÁ½¸öÊýÖµ½»»»
+  do I=N-1,1,-1   ! å¼€å§‹åšN-1æ¬¡çš„æ‰«çž„
+    do J=1,I      ! ä¸€å¯¹ä¸€å¯¹çš„æ¥æ¯”è¾ƒï¼ŒIä¹‹åŽçš„æ•°å­—ä¸ç”¨æ¯”è¾ƒ
+    ! å¦‚æžœA(J) > A(J+1) å°±æŠŠè¿™ä¸¤ä¸ªæ•°å€¼äº¤æ¢
       if ( A(J) > A(J+1) ) then
         TEMP=A(J)
         A(J)=A(J+1)

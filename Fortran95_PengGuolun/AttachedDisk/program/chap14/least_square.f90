@@ -1,9 +1,9 @@
 module datas
   implicit none
   integer, parameter :: N=5
-  real :: temperature(N) = (/5.0,10.0,15.0,20.0,25.0/)  ! ¼ÇÂ¼ÎÂ¶È
-  real :: length(N) = (/1.047,1.112,1.1152,1.191,1.252/)! ¼ÇÂ¼²»Í¬ÎÂ¶ÈÏÂµÄ³¤¶È
-  real, save :: A,B  ! º¯ÊıL=At+BµÄÏµÊı
+  real :: temperature(N) = (/5.0,10.0,15.0,20.0,25.0/)  ! è®°å½•æ¸©åº¦
+  real :: length(N) = (/1.047,1.112,1.1152,1.191,1.252/)! è®°å½•ä¸åŒæ¸©åº¦ä¸‹çš„é•¿åº¦
+  real, save :: A,B  ! å‡½æ•°L=At+Bçš„ç³»æ•°
 end module
 
 module sgl_util
@@ -37,11 +37,11 @@ contains
   end subroutine
 end module
 
-! ×îĞ¡·½²î·¨·¶Àı
+! æœ€å°æ–¹å·®æ³•èŒƒä¾‹
 program main
   use sgl_util
   implicit none
-  ! µ÷ÓÃ×îĞ¡·½²î·¨µÄ×Ó³ÌĞòÀ´¼ÆËãÏµÊıA,B
+  ! è°ƒç”¨æœ€å°æ–¹å·®æ³•çš„å­ç¨‹åºæ¥è®¡ç®—ç³»æ•°A,B
   call least_square(temperature, length, N, A, B)
   write(*,"('A=',F6.4,' B=',F6.4)") A,B
 
@@ -56,14 +56,14 @@ END
 subroutine least_square(x, y, n, s, t)
   implicit none
   integer n
-  real x(n)   ! xÉÏµÄÊı¾İµã
-  real y(n)   ! yÉÏµÄÊı¾İµã
-  real s,t    ! ËùÒª¼ÆËãµÄÏµÊı
-  real A,B,C,D,E,F  ! ÁªÁ¢·½³ÌÊ½ÖĞµÄÏµÊı
-  integer I         ! Ñ­»·¼ÆÊıÆ÷
-  ! ½â As+Bt=E ÖĞµÄÎ´ÖªÊıs,t
+  real x(n)   ! xä¸Šçš„æ•°æ®ç‚¹
+  real y(n)   ! yä¸Šçš„æ•°æ®ç‚¹
+  real s,t    ! æ‰€è¦è®¡ç®—çš„ç³»æ•°
+  real A,B,C,D,E,F  ! è”ç«‹æ–¹ç¨‹å¼ä¸­çš„ç³»æ•°
+  integer I         ! å¾ªç¯è®¡æ•°å™¨
+  ! è§£ As+Bt=E ä¸­çš„æœªçŸ¥æ•°s,t
   !      Cs+Dt=F  
-  ! ÏÈÉè¶¨ºÃA,B,C,D,E,FµÄÏµÊıÖµ
+  ! å…ˆè®¾å®šå¥½A,B,C,D,E,Fçš„ç³»æ•°å€¼
   A = 0; B = 0; E = 0; F = 0
   do I=1,N
     A=A+X(I)*X(I) 
@@ -73,7 +73,7 @@ subroutine least_square(x, y, n, s, t)
   END DO
   C=B
   D=N
-  ! ¶şÔªÒ»´Î·½³ÌÊ½ÓĞ¹«Ê½¿É½â
+  ! äºŒå…ƒä¸€æ¬¡æ–¹ç¨‹å¼æœ‰å…¬å¼å¯è§£
   S=(B*F-E*D)/(B*C-A*D)
   T=(E*C-A*F)/(B*C-A*D)
   return

@@ -22,9 +22,9 @@ program main
     XVEC(I) = xp
 	xp = xp+xinc
   end do
-  ! ×ö²åÖµ
+  ! åšæ’å€¼
   call CSIEZ (NDATA, XDATA, FDATA, N, XVEC, VALUE)
-  ! Êä³ö²åÖµ½á¹û
+  ! è¾“å‡ºæ’å€¼ç»“æžœ
   do i=1, N
     write(*,"('(',F5.2,',',F5.2,') error:'F6.3)") &
 	XVEC(i), VALUE(i), VALUE(i)-sin( XVEC(i) )

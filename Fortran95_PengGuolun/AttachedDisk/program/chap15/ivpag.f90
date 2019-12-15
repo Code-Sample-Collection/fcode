@@ -1,5 +1,5 @@
-! IMSL IVPAG·¶Àı
-! Çó½âY'(t)=-0.01*Y(t)
+! IMSL IVPAGèŒƒä¾‹
+! æ±‚è§£Y'(t)=-0.01*Y(t)
 ! initial value Y(0)=2
 program main
   use IMSL
@@ -12,21 +12,21 @@ program main
   real, parameter :: TOL = 1E-3
   external FCN, FCNJ
 
-  PARAM = 0  ! ÁîIVPAG¼ÆËã¹ı³ÌµÄÉè¶¨ÍêÈ«Ê¹ÓÃÄÚ¶¨Öµ
+  PARAM = 0  ! ä»¤IVPAGè®¡ç®—è¿‡ç¨‹çš„è®¾å®šå®Œå…¨ä½¿ç”¨å†…å®šå€¼
   WRITE (*,"(' Time', 9X,'Y')")
   Y(1) = 2.0 ! Initial value Y(T)=2.0
-  T = 0.0    ! Initial value Y(T)=2.0ÖĞµÄÊ±¼äTÖµ
+  T = 0.0    ! Initial value Y(T)=2.0ä¸­çš„æ—¶é—´Tå€¼
   IDO = 1
   do ISTEP=10,100,10
     TEND = ISTEP
 	call IVPAG(IDO, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y)
     write (*,'(F5.1,F12.4)') T, Y
   end do
-  call IVPAG(3, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y) ! ÊÍ·ÅÄÚ´æ
+  call IVPAG(3, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y) ! é‡Šæ”¾å†…å­˜
 
   stop
 end program
-! ¼ÆËãÎ¢·Ö·½³ÌÊ½
+! è®¡ç®—å¾®åˆ†æ–¹ç¨‹å¼
 ! YPRIME=Y'=f(t,y)
 subroutine FCN (N, T, Y, YPRIME)
   implicit none
@@ -37,9 +37,9 @@ subroutine FCN (N, T, Y, YPRIME)
   YPRIME(1) = K*Y(1)
   return
 end subroutine
-! ÔÚÕâ±ß²»¼ÆËãJacobianÖµ
-! ËùÒÔº¯ÊıFCNJÍêÈ«²»×öÊÂ
-! Êµ¼ÊÊ¹ÓÃÊ±, ÒªÔÚDYPDYÖĞ·µ»Ø¼ÆËã½á¹û
+! åœ¨è¿™è¾¹ä¸è®¡ç®—Jacobianå€¼
+! æ‰€ä»¥å‡½æ•°FCNJå®Œå…¨ä¸åšäº‹
+! å®é™…ä½¿ç”¨æ—¶, è¦åœ¨DYPDYä¸­è¿”å›è®¡ç®—ç»“æœ
 subroutine FCNJ(N, T, Y, DYPDY)
   implicit none
   integer N

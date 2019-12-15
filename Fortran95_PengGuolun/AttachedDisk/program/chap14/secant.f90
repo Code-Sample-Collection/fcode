@@ -1,20 +1,20 @@
 module NUMERICAL
   implicit none
-  real, parameter :: zero=0.00001  ! Ğ¡ÓÚzeroµÄÖµ»á±»µ±³É0
+  real, parameter :: zero=0.00001  ! å°äºzeroçš„å€¼ä¼šè¢«å½“æˆ0
 contains
-! ¸îÏß·¨µÄº¯Êı
+! å‰²çº¿æ³•çš„å‡½æ•°
   real function secant(a,b,f)
   implicit none
-  real :: a,b ! ÆğÊ¼µÄÁ½¸ö²ÂÖµ
-  real :: c	  ! ĞÂµÄ½â
-  real, external :: f ! ´«ÈëµÄÇó½âº¯Êı
-  real :: fa,fb,fc	! ¼ÇÂ¼f(a),f(b),f(c)
+  real :: a,b ! èµ·å§‹çš„ä¸¤ä¸ªçŒœå€¼
+  real :: c	  ! æ–°çš„è§£
+  real, external :: f ! ä¼ å…¥çš„æ±‚è§£å‡½æ•°
+  real :: fa,fb,fc	! è®°å½•f(a),f(b),f(c)
 
   fa=f(a)
   fb=f(b)
   c=a-fa*(b-a)/(fb-fa)
   fc=f(c)
-! ÔÚÇı½üÓÚ0 Ö®Ç°ÒªÒ»Ö±×ö±Æ½üµÄ¹¤×÷
+! åœ¨é©±è¿‘äº0 ä¹‹å‰è¦ä¸€ç›´åšé€¼è¿‘çš„å·¥ä½œ
   do while( abs(fc) > zero )
 	a=b
 	b=c
@@ -37,11 +37,11 @@ end module numerical
 program main
   use NUMERICAL
   implicit none
-  real :: a,b	! ÆğÊ¼²ÂÖµ
-  real :: ans	! ËãµÃµÄ½â
-  write(*,*) "ÊäÈëÁ½¸ö²ÂÖµ"
+  real :: a,b	! èµ·å§‹çŒœå€¼
+  real :: ans	! ç®—å¾—çš„è§£
+  write(*,*) "è¾“å…¥ä¸¤ä¸ªçŒœå€¼"
   read (*,*) a,b
-  ! ´«ÈëÆğÊ¼²ÂÖµ¼°ÇóÖµµÄº¯Êı
+  ! ä¼ å…¥èµ·å§‹çŒœå€¼åŠæ±‚å€¼çš„å‡½æ•°
   ans=secant(a,b,func)
   write(*,"('x=',f8.4)") ans
   stop

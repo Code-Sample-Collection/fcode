@@ -53,22 +53,22 @@ program ex1016
   nullify(head%next)
   p=>head
   size=0
-  read(10, "(A80)") tempstr ! ¶ÁÈëµÚÒ»ĞĞ×Ö·û´®, ²»ĞèÒª´¦ÀíËü
-  ! ¶ÁÈëÃ¿Ò»Î»Ñ§ÉúµÄ³É¼¨
+  read(10, "(A80)") tempstr ! è¯»å…¥ç¬¬ä¸€è¡Œå­—ç¬¦ä¸², ä¸éœ€è¦å¤„ç†å®ƒ
+  ! è¯»å…¥æ¯ä¸€ä½å­¦ç”Ÿçš„æˆç»©
   do while(.true.)
     read(10,fmt=*, iostat=error) p%item
 	if ( error/=0 ) exit
 	size=size+1
-	allocate(p%next, stat=error) ! ĞÂÔöÏÂÒ»¸öÊı¾İ
+	allocate(p%next, stat=error) ! æ–°å¢ä¸‹ä¸€ä¸ªæ•°æ®
 	if ( error/=0 ) then
 	  write(*,*) "Out of memory!"
 	  stop
 	end if
-	p=>p%next ! ÒÆ¶¯µ½Á´±íµÄÏÂÒ»¸öÊı¾İ
+	p=>p%next ! ç§»åŠ¨åˆ°é“¾è¡¨çš„ä¸‹ä¸€ä¸ªæ•°æ®
 	nullify(p%next)
   end do
   
-  write(*,"('×Ü¹²ÓĞ',I3,'Î»Ñ§Éú')") size
+  write(*,"('æ€»å…±æœ‰',I3,'ä½å­¦ç”Ÿ')") size
   allocate( s(size) )
   p=>head
   do i=1,size
@@ -77,16 +77,16 @@ program ex1016
   end do
   
   do while(.true.)
-    write(*,*) "Òª²éÑ¯¼¸ºÅÍ¬Ñ§µÄ³É¼¨?"
+    write(*,*) "è¦æŸ¥è¯¢å‡ å·åŒå­¦çš„æˆç»©?"
 	read (*,*) i
-	if ( i<1 .or. i>size ) exit ! ÊäÈë²»ºÏÀíµÄ×ùºÅ
-    write(*,"(5(A6,I3))") "ÖĞÎÄ",s(i)%Chinese,&
-	                      "Ó¢ÎÄ",s(i)%English,&
-				          "ÊıÑ§",s(i)%Math,&
-				          "×ÔÈ»",s(i)%Science,&
-				          "Éç»á",s(i)%Social
+	if ( i<1 .or. i>size ) exit ! è¾“å…¥ä¸åˆç†çš„åº§å·
+    write(*,"(5(A6,I3))") "ä¸­æ–‡",s(i)%Chinese,&
+	                      "è‹±æ–‡",s(i)%English,&
+				          "æ•°å­¦",s(i)%Math,&
+				          "è‡ªç„¶",s(i)%Science,&
+				          "ç¤¾ä¼š",s(i)%Social
   end do
-  write(*,"('×ùºÅ',I3,'²»´æÔÚ, ³ÌĞò½áÊø.')") i
+  write(*,"('åº§å·',I3,'ä¸å­˜åœ¨, ç¨‹åºç»“æŸ.')") i
   
   stop
 end program

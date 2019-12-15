@@ -1,15 +1,15 @@
 program ex0822
   implicit none
-  external sub1, sub2 ! ÉùÃ÷sub1¸úsub2ÊÇ×Ó³ÌĞòÃû³Æ
-  call sub(sub1)      ! °Ñ×Ó³ÌĞòsub1µ±²ÎÊı´«³öÈ¥
-  call sub(sub2)      ! °Ñ×Ó³ÌĞòsub1µ±²ÎÊı´«³öÈ¥
+  external sub1, sub2 ! å£°æ˜sub1è·Ÿsub2æ˜¯å­ç¨‹åºåç§°
+  call sub(sub1)      ! æŠŠå­ç¨‹åºsub1å½“å‚æ•°ä¼ å‡ºå»
+  call sub(sub2)      ! æŠŠå­ç¨‹åºsub1å½“å‚æ•°ä¼ å‡ºå»
   stop
 end program
 
 subroutine sub(sub_name)
   implicit none
-  external sub_name ! ÉùÃ÷sub_nameÊÇ¸ö×Ó³ÌĞò
-  call sub_name()   ! µ÷ÓÃ´«ÈëµÄ×Ó³ÌĞòsub_name
+  external sub_name ! å£°æ˜sub_nameæ˜¯ä¸ªå­ç¨‹åº
+  call sub_name()   ! è°ƒç”¨ä¼ å…¥çš„å­ç¨‹åºsub_name
   return
 end subroutine
 

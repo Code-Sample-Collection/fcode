@@ -1,11 +1,11 @@
 program main
-  use imsl ! ÔÚVisual FortranÊ¹ÓÃIMSLÇ°×îºÃÏÈuse imsl
+  use imsl ! åœ¨Visual Fortranä½¿ç”¨IMSLå‰æœ€å¥½å…ˆuse imsl
   implicit none
   ! f(x) = X^2-3X+2
   real :: p(3) = (/ 2.0, -3.0, 1.0 /)
-  complex r(2) ! ´ğ°¸ÊÇ¸´ÊıÀàĞÍ
+  complex r(2) ! ç­”æ¡ˆæ˜¯å¤æ•°ç±»å‹
 
-  call zplrc( 2, p, r ) ! Çó½âX^2-3X+2=0
+  call zplrc( 2, p, r ) ! æ±‚è§£X^2-3X+2=0
   write(*,*) r
 
   stop

@@ -3,6 +3,6 @@ implicit none
   integer :: a=1
   integer :: b=2
   real    :: c
-  c=real(a)/real(b) ! ¾­ÓÉ¿âº¯Êıreal°ÑÕûÊı×ª»»³É¸¡µãÊı 
+  c=real(a)/real(b) ! ç»ç”±åº“å‡½æ•°realæŠŠæ•´æ•°è½¬æ¢æˆæµ®ç‚¹æ•° 
   write(*,"(F5.2)") c 
 end

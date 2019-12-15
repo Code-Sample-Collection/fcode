@@ -1,17 +1,17 @@
-! Ë³Ğò²éÕÒ·¨·¶Àı
+! é¡ºåºæŸ¥æ‰¾æ³•èŒƒä¾‹
 ! By Perng 1997/8/31
 program SEQUENTIAL_SEARCH_DEMO
   implicit none
   integer, parameter :: N=10
-  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! ´æ·ÅÊı¾İ×éµÄÀàĞÍ
-  integer KEY             ! ¼ÇÂ¼ËùÒªÕÒµÄÖµ
+  integer :: A(N)=(/6,2,8,4,0,9,3,5,1,7/) ! å­˜æ”¾æ•°æ®ç»„çš„ç±»å‹
+  integer KEY             ! è®°å½•æ‰€è¦æ‰¾çš„å€¼
   integer LOC
   integer, external :: SEQUENTIAL_SEARCH
 
   write(*,"('Source=>',10I3)") A
   write(*,*) 'Input KEY:'
-  read (*,*) KEY                    ! ¼üÈë´ıÑ°Êı¾İ
-  ! µ÷ÓÃË³Ğò²éÕÒµÄº¯Êı
+  read (*,*) KEY                    ! é”®å…¥å¾…å¯»æ•°æ®
+  ! è°ƒç”¨é¡ºåºæŸ¥æ‰¾çš„å‡½æ•°
   LOC = SEQUENTIAL_SEARCH(A,N,KEY)
   if ( LOC/=0 ) then
     write(*,"('A(',I2,' )='I3)") LOC,KEY
@@ -21,22 +21,22 @@ program SEQUENTIAL_SEARCH_DEMO
   stop
 end program
 !
-! Ë³Ğò²éÕÒ·¨µÄ×Ó³ÌĞò
+! é¡ºåºæŸ¥æ‰¾æ³•çš„å­ç¨‹åº
 !
 integer function SEQUENTIAL_SEARCH(A,N,KEY)
   implicit none
   integer N, A(N)
-  integer KEY             ! ËùÒªÑ°ÕÒµÄÖµ
-  integer I               ! Ñ­»·µÄ¼ÆÊıÆ÷
+  integer KEY             ! æ‰€è¦å¯»æ‰¾çš„å€¼
+  integer I               ! å¾ªç¯çš„è®¡æ•°å™¨
 
-  do I=1,N  ! ¿ªÊ¼×öÉ¨Ãé, ×î¶à×öN´Î.
+  do I=1,N  ! å¼€å§‹åšæ‰«ç„, æœ€å¤šåšNæ¬¡.
     if ( KEY==A(I) ) then
-      ! ÕÒµ½ÁË, ·µ»ØÊı×ÖÔÚÀàĞÍÖĞµÄÎ»ÖÃ
+      ! æ‰¾åˆ°äº†, è¿”å›æ•°å­—åœ¨ç±»å‹ä¸­çš„ä½ç½®
 	  SEQUENTIAL_SEARCH=I
 	  return
 	end if
   end do
-  ! Ã»ÕÒµ½Ê±·µ»Ø-1
+  ! æ²¡æ‰¾åˆ°æ—¶è¿”å›-1
   SEQUENTIAL_SEARCH=0
   return
 end function

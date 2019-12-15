@@ -64,13 +64,13 @@ module utility
   implicit none
 
 contains
-  ! Éè¶¨type(line)ÀàĞÍ±äÁ¿
+  ! è®¾å®štype(line)ç±»å‹å˜é‡
   function SetLine(a,b)
     type(vector2f) :: a,b
 	type(line) :: SetLine
     SetLine = line(a,b,b-a)
   end function
-  ! ¼ÆËãx/(x+y)»òy/(x+y)
+  ! è®¡ç®—x/(x+y)æˆ–y/(x+y)
   real function GetRatio(index, vector)
     integer index
 	type(vector2f) :: vector
@@ -85,7 +85,7 @@ contains
 	  GetRatio = vector%y/total
 	end select
   end function
-  ! ×ª»»³Éµ¥Î»ÏòÁ¿, ·µ»ØÔ­±¾ÏòÁ¿µÄ³¤¶ÈÖµ
+  ! è½¬æ¢æˆå•ä½å‘é‡, è¿”å›åŸæœ¬å‘é‡çš„é•¿åº¦å€¼
   real function normalize(vector)
     type(vector2f) :: vector
 	real temp
@@ -96,7 +96,7 @@ contains
 	vector%x = vector%x/normalize
 	vector%y = vector%y/normalize
   end function
-  ! ¼ì²éÊÇ·ñ»á´òµ½Çò
+  ! æ£€æŸ¥æ˜¯å¦ä¼šæ‰“åˆ°çƒ
   logical function HitBall( line1, line2, length, t )
     type(line), intent(in) :: line1, line2
 	real, intent(in) :: length

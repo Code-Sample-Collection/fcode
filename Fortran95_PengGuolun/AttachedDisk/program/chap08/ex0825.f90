@@ -1,19 +1,19 @@
 program ex0825
 implicit none
-  interface ! ¶¨Òåº¯ÊıfuncµÄ½Ó¿Ú
+  interface ! å®šä¹‰å‡½æ•°funcçš„æ¥å£
     function random10(lbound, ubound)
 	implicit none
 	real :: lbound, ubound
-	real :: random10(10) ! ´«»ØÖµÊÇ¸öÊı×é
+	real :: random10(10) ! ä¼ å›å€¼æ˜¯ä¸ªæ•°ç»„
 	end function
   end interface
   real :: a(10)
-  CALL RANDOM_SEED()     ! ¿âº¯Êı×Ó³ÌÊ½, Ê¹ÓÃËæ»úÊıÇ°µ÷ÓÃ
-  a = random10(1.0, 10.0)! ²úÉú10¸ö1.0¡«1.0Ö®¼äµÄËæ»úÊı
-  write(*,"(10F6.2)") a  ! Êä³öÊı×éaµÄÄÚÈİ
+  CALL RANDOM_SEED()     ! åº“å‡½æ•°å­ç¨‹å¼, ä½¿ç”¨éšæœºæ•°å‰è°ƒç”¨
+  a = random10(1.0, 10.0)! äº§ç”Ÿ10ä¸ª1.0ï½1.0ä¹‹é—´çš„éšæœºæ•°
+  write(*,"(10F6.2)") a  ! è¾“å‡ºæ•°ç»„açš„å†…å®¹
 end
 
-! random10»á·µ»Ø10¸ö·¶Î§ÔÚlboundµ½uboundÖ®¼äµÄËæ»úÊı
+! random10ä¼šè¿”å›10ä¸ªèŒƒå›´åœ¨lboundåˆ°uboundä¹‹é—´çš„éšæœºæ•°
 function random10(lbound, ubound)
 implicit none
   real :: lbound, ubound
@@ -21,10 +21,10 @@ implicit none
   real :: random10(10)
   real    t
   integer i
-  len = ubound - lbound  ! ¼ÆËã·¶Î§´óĞ¡
+  len = ubound - lbound  ! è®¡ç®—èŒƒå›´å¤§å°
   do i=1,10
-    call random_number(t) ! t»áÊÇ0¡«1Ö®¼äµÄËæ»úÊı
-    random10(i) = lbound + len * t ! °Ñt×ª»»³Élbound¡«ubound¼äµÄËæ»úÊı
+    call random_number(t) ! tä¼šæ˜¯0ï½1ä¹‹é—´çš„éšæœºæ•°
+    random10(i) = lbound + len * t ! æŠŠtè½¬æ¢æˆlboundï½uboundé—´çš„éšæœºæ•°
   end do
   return
 end

@@ -1,5 +1,5 @@
 C
-C       ¾ØÕó³Ë·¨·¶Àý
+C       çŸ©é˜µä¹˜æ³•èŒƒä¾‹
 C             By Perng 1997/9/17
         PROGRAM MATMUL_DEMO
         IMPLICIT NONE
@@ -18,7 +18,7 @@ C             By Perng 1997/9/17
         STOP
         END
 C
-C       Êä³ö¾ØÕóµÄ×Ó³ÌÐò
+C       è¾“å‡ºçŸ©é˜µçš„å­ç¨‹åº
 C
         SUBROUTINE OUTPUT(A,N)
         IMPLICIT NONE
@@ -27,7 +27,7 @@ C
         CHARACTER FOR*20
         DATA FOR /'(??(1X,I3))'/
 
-C       ÓÃ×Ö·û´®À´Éè¶¨Êä³ö¸ñÊ½
+C       ç”¨å­—ç¬¦ä¸²æ¥è®¾å®šè¾“å‡ºæ ¼å¼
         WRITE( FOR(2:3), '(I2)' ) N
         DO I=1,N
           WRITE( *, FMT=FOR ) (A(I,J),J=1,N)
@@ -36,7 +36,7 @@ C       ÓÃ×Ö·û´®À´Éè¶¨Êä³ö¸ñÊ½
         RETURN
         END
 C
-C       ¾ØÕó³Ë·¨µÄ×Ó³ÌÐò
+C       çŸ©é˜µä¹˜æ³•çš„å­ç¨‹åº
 C
         SUBROUTINE MATMUL(A,B,BR,BC,C,CR,CC)
         IMPLICIT NONE
@@ -47,9 +47,9 @@ C
         INTEGER CC       ! Column of Matrix C
         INTEGER C(CR,CC) ! Matrix C
         INTEGER A(BR,CC) ! Matrix A
-        INTEGER I,J,K    ! Ñ­»·µÄ¼ÆÊýÆ÷
+        INTEGER I,J,K    ! å¾ªçŽ¯çš„è®¡æ•°å™¨
 
-        ! BCÈô²»µÈÓÚCR, ÕâÁ½¸ö¾ØÕóÎÞ·¨Ïà³Ë
+        ! BCè‹¥ä¸ç­‰äºŽCR, è¿™ä¸¤ä¸ªçŸ©é˜µæ— æ³•ç›¸ä¹˜
         IF ( BC .NE. CR ) THEN
           WRITE(*,*) 'Matrix size error!'
           STOP

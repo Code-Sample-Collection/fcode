@@ -18,21 +18,21 @@ module shoot
   use typedef
   implicit none
 contains
-	! ÓÉ½Ç¶È¡¢ÇĞÏßËÙ¶ÈÀ´¼ÆËãÍ¶Éä¾àÀë
+	! ç”±è§’åº¦ã€åˆ‡çº¿é€Ÿåº¦æ¥è®¡ç®—æŠ•å°„è·ç¦»
 	subroutine Get_Distance( person )
 	  implicit none
 	  type(player) :: person
 	  real rad, Vx, time
 
-	  rad  = Angle_TO_Rad( person%angle )      ! µ¥Î»×ª»»
-	  Vx   = person%speed * cos(rad)           ! Ë®Æ½·½ÏòËÙ¶È
-	  time = 2.0 * person%speed * sin(rad) / G ! ÔÚ¿ÕÖĞ·ÉĞĞÊ±¼ä
-	  person%distance = Vx * time              ! ¾àÀë = Ë®Æ½·½ÏòËÙ¶È * ·ÉĞĞÊ±¼ä
+	  rad  = Angle_TO_Rad( person%angle )      ! å•ä½è½¬æ¢
+	  Vx   = person%speed * cos(rad)           ! æ°´å¹³æ–¹å‘é€Ÿåº¦
+	  time = 2.0 * person%speed * sin(rad) / G ! åœ¨ç©ºä¸­é£è¡Œæ—¶é—´
+	  person%distance = Vx * time              ! è·ç¦» = æ°´å¹³æ–¹å‘é€Ÿåº¦ * é£è¡Œæ—¶é—´
 
 	  return
 	end subroutine
 
-	! °Ñ0¡«360µÄ½Ç¶È×ª»»³É0¡«2PIµÄ»¡¶È
+	! æŠŠ0ï½360çš„è§’åº¦è½¬æ¢æˆ0ï½2PIçš„å¼§åº¦
 	real function Angle_TO_Rad( angle )
 	  implicit none
 	  real angle

@@ -2,8 +2,8 @@ program ex0601
 implicit none
   integer counter
   integer, parameter :: lines=10
-  ! counter<=linesÖ®Ç°»áÒ»Ö±ÖØ¸´Ñ­»·
-  ! Ã¿ÅÜÒ»´ÎÑ­»·counter»áÀÛ¼Ó1
+  ! counter<=linesä¹‹å‰ä¼šä¸€ç›´é‡å¤å¾ªç¯
+  ! æ¯è·‘ä¸€æ¬¡å¾ªç¯counterä¼šç´¯åŠ 1
   do counter=1,lines,1
     write(*,*) "Happy Birthday",counter
   end do

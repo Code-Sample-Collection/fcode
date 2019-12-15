@@ -6,20 +6,20 @@ module STACK_UTILITY
   integer, save :: stack(TOP)
   public push, pop
 contains
-  ! °ÑÊı¾İ·ÅÈë¶ÑÕ»ÖĞ  
+  ! æŠŠæ•°æ®æ”¾å…¥å †æ ˆä¸­  
   subroutine push(value)
     integer value
-	if ( current>TOP ) then ! ³¬¹ıÈİÁ¿
+	if ( current>TOP ) then ! è¶…è¿‡å®¹é‡
 	  write(*,*) "Stack full."
 	  return
 	end if
 	current = current+1
 	stack(current)=value
   end subroutine
-  ! ´Ó¶ÑÕ»ÖĞÈ¡³öÊı¾İ
+  ! ä»å †æ ˆä¸­å–å‡ºæ•°æ®
   integer function pop(value)
     integer value
-    if ( current<=0 ) then ! ÒÑ¾­Ã»ÓĞ¶«Î÷¿ÉÒÔÄÃÁË
+    if ( current<=0 ) then ! å·²ç»æ²¡æœ‰ä¸œè¥¿å¯ä»¥æ‹¿äº†
 	  pop=1
 	  return
 	end if
@@ -30,40 +30,40 @@ contains
 
 end module
 !
-! ÆïÊ¿×ßÆåÅÌµÄ·¶Àı
+! éª‘å£«èµ°æ£‹ç›˜çš„èŒƒä¾‹
 ! By Perng 1997/9/1
 program knight
   use STACK_UTILITY
   implicit none
-  integer, parameter :: n=5 ! ¶¨ÒåÆåÅÌÓĞ¶à´ó
-  integer board(n,n)      ! ¼ÇÂ¼ÆåÅÌµÄ×´Ì¬
-  integer, parameter :: total = n*n ! ÆåÅÌÓĞ¼¸¸ö¸ñ×ÓÒª×ß
-  integer x_move(8)       ! ÆïÊ¿ÓĞ8 ÖÖÒÆ¶¯µÄ²½·¨
+  integer, parameter :: n=5 ! å®šä¹‰æ£‹ç›˜æœ‰å¤šå¤§
+  integer board(n,n)      ! è®°å½•æ£‹ç›˜çš„çŠ¶æ€
+  integer, parameter :: total = n*n ! æ£‹ç›˜æœ‰å‡ ä¸ªæ ¼å­è¦èµ°
+  integer x_move(8)       ! éª‘å£«æœ‰8 ç§ç§»åŠ¨çš„æ­¥æ³•
   integer y_move(8)       !
-  integer x_pos,y_pos     ! ÆïÊ¿Ä¿Ç°ÔÚÆåÅÌÉÏµÄÎ»ÖÃ
-  integer x_new,y_new     ! ÔİÊ±Ëã³öµÄÏÂÒ»Âä½Å´¦
-  integer move            ! ËùÒªÊ¹ÓÃµÄ²½·¨
-  integer step            ! Íê³ÉÁË¶àÉÙ²½
-  integer sol             ! ¼ÆËã×Ü¹²ÓĞ¼¸ÖÖ×ß·¨¿ÉÒÔ×ßÍê
+  integer x_pos,y_pos     ! éª‘å£«ç›®å‰åœ¨æ£‹ç›˜ä¸Šçš„ä½ç½®
+  integer x_new,y_new     ! æš‚æ—¶ç®—å‡ºçš„ä¸‹ä¸€è½è„šå¤„
+  integer move            ! æ‰€è¦ä½¿ç”¨çš„æ­¥æ³•
+  integer step            ! å®Œæˆäº†å¤šå°‘æ­¥
+  integer sol             ! è®¡ç®—æ€»å…±æœ‰å‡ ç§èµ°æ³•å¯ä»¥èµ°å®Œ
   integer error
   data x_move /1,2, 2, 1,-1,-2,-2,-1/
   data y_move /2,1,-1,-2,-2,-1, 1, 2/
-  data board / total*0 /  ! È«ÉèÎª0 ,´ú±í¶¼»¹Ã»×ß¹ı
-  data sol /0/            ! ½âµÄÊıÄ¿ÏÈÉèÎª0
+  data board / total*0 /  ! å…¨è®¾ä¸º0 ,ä»£è¡¨éƒ½è¿˜æ²¡èµ°è¿‡
+  data sol /0/            ! è§£çš„æ•°ç›®å…ˆè®¾ä¸º0
         
-! ¼ÙÉè´ÓÆåÅÌµÄÕıÖĞÑë¿ªÊ¼×ß
+! å‡è®¾ä»æ£‹ç›˜çš„æ­£ä¸­å¤®å¼€å§‹èµ°
   x_pos=(n+1)/2           
   y_pos=(n+1)/2           
   step=1
-  board(x_pos,y_pos)=step ! µÚÒ»²½ÔÚ´Ë
+  board(x_pos,y_pos)=step ! ç¬¬ä¸€æ­¥åœ¨æ­¤
 
-  move=1        ! ÏÈÊÔµÚÒ»ÖÖ×ß·¨
+  move=1        ! å…ˆè¯•ç¬¬ä¸€ç§èµ°æ³•
   do while(.true.)
-    do while( move <= 8 )     ! ÒòÎªÖ»ÓĞ8ÖÖ×ß·¨
-      ! Ëã³öÏÂÒ»²½
+    do while( move <= 8 )     ! å› ä¸ºåªæœ‰8ç§èµ°æ³•
+      ! ç®—å‡ºä¸‹ä¸€æ­¥
       x_new=x_pos+x_move(move)
       y_new=y_pos+y_move(move)
-      ! ²»ÄÜ³¬³öÆåÅÌ
+      ! ä¸èƒ½è¶…å‡ºæ£‹ç›˜
       if ( x_new < 1  .or.  x_new > n ) then
         move=move+1
         cycle
@@ -72,45 +72,45 @@ program knight
         move=move+1
         cycle
       end if
-      ! µ±Õâ¸öÏÂÒ»²½µÄÎ»ÖÃÊÇ¿ÕÎ»Ê±, ²Å¿ÉÈÃÆïÊ¿½øÈë
+      ! å½“è¿™ä¸ªä¸‹ä¸€æ­¥çš„ä½ç½®æ˜¯ç©ºä½æ—¶, æ‰å¯è®©éª‘å£«è¿›å…¥
       if ( board(x_new,y_new) == 0 ) then
         x_pos=x_new
         y_pos=y_new
         step=step+1 
-        board(x_pos,y_pos)=step ! ³É¹¦µÄÌ¤³öÏÂÒ»²½
-        call push(move)   ! °ÑÄ¿Ç°µÄ²½·¨ËÍÈë¶ÑÕ»
-        move=1            ! ÏÂÒ»²½ÔÙ´ÓµÚÒ»ÖÖ²½·¨¿ªÊ¼ÊÔ
+        board(x_pos,y_pos)=step ! æˆåŠŸçš„è¸å‡ºä¸‹ä¸€æ­¥
+        call push(move)   ! æŠŠç›®å‰çš„æ­¥æ³•é€å…¥å †æ ˆ
+        move=1            ! ä¸‹ä¸€æ­¥å†ä»ç¬¬ä¸€ç§æ­¥æ³•å¼€å§‹è¯•
       else
-        move=move+1             ! µØµãÔçÒÑÀ´¹ı, »»¸öĞÂµÄ²½·¨
+        move=move+1             ! åœ°ç‚¹æ—©å·²æ¥è¿‡, æ¢ä¸ªæ–°çš„æ­¥æ³•
       end if
     end do
-    ! setp=total=n*n Ê±´ú±íÈ«²¿¶¼Ì¤±éÁË
+    ! setp=total=n*n æ—¶ä»£è¡¨å…¨éƒ¨éƒ½è¸éäº†
     if ( step == total ) then
       sol=sol+1
-      write(*,"('µÚ',I3,'¸ö½â')") sol
+      write(*,"('ç¬¬',I3,'ä¸ªè§£')") sol
       call show_board(board,n)
     end if
-    ! Íù»ØÍËÒ»²½ÔÙÏòÏÂÊÔ
+    ! å¾€å›é€€ä¸€æ­¥å†å‘ä¸‹è¯•
     step=step-1
-    ! step<=0 ´ú±íÎŞÂ·¿ÉÍËÁË, Ìø³öÑ­»·
+    ! step<=0 ä»£è¡¨æ— è·¯å¯é€€äº†, è·³å‡ºå¾ªç¯
     if ( step <= 0 ) exit 
-    board(x_pos,y_pos)=0  ! Ïò»ØÍË, ËùÒÔÕâ¸öµØ·½ÒªÉè³ÉÃ»À´¹ı
-    error = pop(move)      ! ´Ó¶ÑÕ»ÖĞÈ¡³öÉÏÒ»¸ö²½·¨
+    board(x_pos,y_pos)=0  ! å‘å›é€€, æ‰€ä»¥è¿™ä¸ªåœ°æ–¹è¦è®¾æˆæ²¡æ¥è¿‡
+    error = pop(move)      ! ä»å †æ ˆä¸­å–å‡ºä¸Šä¸€ä¸ªæ­¥æ³•
 	if ( error/=0 ) then
 	  write(*,*) "Stack empry"
 	  stop
 	end if
-    ! Ïò»ØÍËÒ»²½
+    ! å‘å›é€€ä¸€æ­¥
     x_pos=x_pos-x_move(move)
     y_pos=y_pos-y_move(move)
-    ! »»Ò»¸öĞÂµÄ²½·¨À´ÊÔÊÔ
+    ! æ¢ä¸€ä¸ªæ–°çš„æ­¥æ³•æ¥è¯•è¯•
     move=move+1
   end do
-  write(*,"('±à¹²ÓĞ',I3,'ÖÖ½â·¨')") sol
+  write(*,"('ç¼–å…±æœ‰',I3,'ç§è§£æ³•')") sol
   stop
 end program
 !
-! ÏÔÊ¾ÆåÅÌ×´Ì¬µÄ×Ó³ÌĞò
+! æ˜¾ç¤ºæ£‹ç›˜çŠ¶æ€çš„å­ç¨‹åº
 !
 subroutine show_board(board,n)
   implicit none
@@ -118,7 +118,7 @@ subroutine show_board(board,n)
   integer board(n,n)
   integer i,j
   character*(20) :: for = '(??(1x,i3))'
-! ÓÃ×Ö·û´®À´Éè¶¨Êä³ö¸ñÊ½
+! ç”¨å­—ç¬¦ä¸²æ¥è®¾å®šè¾“å‡ºæ ¼å¼
   write( for(2:3), '(i2)' ) n
   do i=n,1,-1
     write( *, fmt=for ) board(:,i)

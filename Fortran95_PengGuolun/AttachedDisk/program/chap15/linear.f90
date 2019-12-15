@@ -7,7 +7,7 @@ program main
   real :: B(3,1) = (/ 4,6,6 /)
   real :: X(3,1)
 
-  call lin_sol_gen(A,B,X) ! A*X=B,Ω‚X
+  call lin_sol_gen(A,B,X) ! A*X=B,Ëß£X
   write(*,"(3F5.2)") X
 
   stop

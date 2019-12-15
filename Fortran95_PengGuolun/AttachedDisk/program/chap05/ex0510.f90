@@ -4,12 +4,12 @@ implicit none
   real :: b = 4.0
   real, parameter :: e = 0.0001
 
-  a=SQRT(b)**2-b ! ÀíÂÛÉÏaÓ¦¸ÃÒªµÈÓÚ0
+  a=SQRT(b)**2-b ! ç†è®ºä¸Šaåº”è¯¥è¦ç­‰äº0
   
   if ( abs(a-0.0)<=e ) then
-	write(*,*) "aµÈÓÚ0"
+	write(*,*) "aç­‰äº0"
   else
-    write(*,*) "a²»µÈÓÚ0"
+    write(*,*) "aä¸ç­‰äº0"
   end if
 
   stop

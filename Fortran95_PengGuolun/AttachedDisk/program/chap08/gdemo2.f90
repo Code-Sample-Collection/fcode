@@ -3,11 +3,11 @@ program gdemo2
   implicit none
   
   call SetScreen( 20, 20 )
-  call SetCurrentChar('o')       ! ¸ÄÓÃoÀ´×÷ÎªÌî³ä×Ö·û
-  call DrawCircle( 8, 4 , 3, 4)  ! »­Ô²
-  call SetCurrentChar('#')       ! ¸ÄÓÃ#À´×÷ÎªÌî³ä×Ö·û
-  call DrawFilledRect( 4, 8, 13, 18 )  ! »­¾ØĞÎ
-  call UpdateScreen()            ! ÏÔÊ¾»æÍ¼½á¹û
+  call SetCurrentChar('o')       ! æ”¹ç”¨oæ¥ä½œä¸ºå¡«å……å­—ç¬¦
+  call DrawCircle( 8, 4 , 3, 4)  ! ç”»åœ†
+  call SetCurrentChar('#')       ! æ”¹ç”¨#æ¥ä½œä¸ºå¡«å……å­—ç¬¦
+  call DrawFilledRect( 4, 8, 13, 18 )  ! ç”»çŸ©å½¢
+  call UpdateScreen()            ! æ˜¾ç¤ºç»˜å›¾ç»“æœ
 
   stop
 end

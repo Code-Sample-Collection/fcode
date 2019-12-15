@@ -5,7 +5,7 @@ implicit none
   character, allocatable ::  a(:)
 
   do while( .true. )
-    size=size+one_mb ! Ò»´ÎÔö¼Ó1MB¸ö×Ö·û,Ò²¾ÍÊÇ1MBµÄÄÚ´æ¿Õ¼ä
+    size=size+one_mb ! ä¸€æ¬¡å¢žåŠ 1MBä¸ªå­—ç¬¦,ä¹Ÿå°±æ˜¯1MBçš„å†…å­˜ç©ºé—´
     allocate( a(size), stat=error )
     if ( error/=0 ) exit
     write(*,"('Allocate ',I10, ' bytes')") size

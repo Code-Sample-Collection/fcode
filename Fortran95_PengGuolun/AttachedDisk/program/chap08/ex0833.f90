@@ -1,7 +1,7 @@
 program  ex0833
   implicit none
   
-  interface  ! ËµÃ÷º¯ÊıfuncµÄÊ¹ÓÃ½Ó¿Ú
+  interface  ! è¯´æ˜å‡½æ•°funcçš„ä½¿ç”¨æ¥å£
     elemental real function func(num)
 	implicit none
 	real, intent(in) :: num

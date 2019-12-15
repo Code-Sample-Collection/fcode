@@ -7,7 +7,7 @@ implicit none
   integer :: mc(row, col)
   integer :: i,j
 
-  mc = ma + mb ! 一行程序码就可以做矩阵相加
+  mc = ma + mb ! 涓�琛岀▼搴忕爜灏卞彲浠ュ仛鐭╅樀鐩稿姞
   write(*,"(I3,I3,/,I3,I3)") ((mc(i,j), i=1,2),j=1,2)
 
   stop

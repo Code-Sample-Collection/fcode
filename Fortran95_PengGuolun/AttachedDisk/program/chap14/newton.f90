@@ -1,19 +1,19 @@
 module NUMERICAL
   implicit none
-  real, parameter :: zero=0.00001  ! Ğ¡ÓÚzeroµÄÖµ»á±»µ±³É0
+  real, parameter :: zero=0.00001  ! å°äºzeroçš„å€¼ä¼šè¢«å½“æˆ0
 contains
-! ¸îÏß·¨µÄº¯Êı
+! å‰²çº¿æ³•çš„å‡½æ•°
   real function newton(a,f,df)
   implicit none
-  real :: a	  ! ÆğÊ¼µÄ²ÂÖµ
-  real, external :: f	! ´«ÈëµÄÇóÖµº¯Êı
-  real, external :: df  ! f'(x)µÄº¯Êı
-  real :: b	  ! ±Æ½üµÃµ½½â
-  real :: fb  ! ¼ÇÂ¼f(a),f(b),f(c)
+  real :: a	  ! èµ·å§‹çš„çŒœå€¼
+  real, external :: f	! ä¼ å…¥çš„æ±‚å€¼å‡½æ•°
+  real, external :: df  ! f'(x)çš„å‡½æ•°
+  real :: b	  ! é€¼è¿‘å¾—åˆ°è§£
+  real :: fb  ! è®°å½•f(a),f(b),f(c)
 
   b = a-f(a)/df(a)
   fb= f(b)
-! ÔÚÇı½üÓÚ0 Ö®Ç°ÒªÒ»Ö±×ö±Æ½üµÄ¹¤×÷
+! åœ¨é©±è¿‘äº0 ä¹‹å‰è¦ä¸€ç›´åšé€¼è¿‘çš„å·¥ä½œ
   do while( abs(fb) > zero )
 	a=b
 	b=a-f(a)/df(a)
@@ -22,7 +22,7 @@ contains
   newton=b
   return
   end function newton
-  ! ÇóÖµµÄº¯Êı
+  ! æ±‚å€¼çš„å‡½æ•°
   real function func(x)
     implicit none
     real :: x
@@ -41,11 +41,11 @@ end module NUMERICAL
 program main
   use numerical
   implicit none
-  real :: a	  ! ÆğÊ¼²ÂÖµ
-  real :: ans ! ½â
-  write(*,*) "ÊäÈëÆğÊ¼²ÂÖµ"
+  real :: a	  ! èµ·å§‹çŒœå€¼
+  real :: ans ! è§£
+  write(*,*) "è¾“å…¥èµ·å§‹çŒœå€¼"
   read (*,*) a
-  ! ´«ÈëÆğÊ¼²ÂÖµ¼°ÇóÖµµÄº¯Êı
+  ! ä¼ å…¥èµ·å§‹çŒœå€¼åŠæ±‚å€¼çš„å‡½æ•°
   ans=newton(a,func,dfunc)
   write(*,"('x=',F8.4)") ans
   stop

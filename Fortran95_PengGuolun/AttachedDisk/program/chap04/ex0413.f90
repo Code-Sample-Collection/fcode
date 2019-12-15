@@ -2,6 +2,6 @@ program ex0413
   character(len=20) string 
   string = "Good morning."
   write(*,*) string
-  string(6:) = "evening." ! ÖØÉèÉè¶¨´ÓµÚ6¸ö×Ö·ûÖ®ºóµÄ×Ö·û´®
+  string(6:) = "evening." ! é‡è®¾è®¾å®šä»ç¬¬6ä¸ªå­—ç¬¦ä¹‹åçš„å­—ç¬¦ä¸²
   write(*,*) string
 end

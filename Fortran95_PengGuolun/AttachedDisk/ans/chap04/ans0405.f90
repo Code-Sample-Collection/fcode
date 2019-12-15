@@ -4,9 +4,9 @@ program main
     real meter, inch, cm
   end type
   type(distance) :: d
-  write(*,*) "ÇëÊäÈë³¤¶È:"
+  write(*,*) "è¯·è¾“å…¥é•¿åº¦:"
   read(*,*) d%meter
   d%cm = d%meter*100
   d%inch = d%cm/2.54
-  write(*,"(f8.3'Ã× ='f8.3'ÀåÃ× ='f8.3'Ó¢´ç')") d%meter, d%cm, d%inch
+  write(*,"(f8.3'ç±³ ='f8.3'å˜ç±³ ='f8.3'è‹±å¯¸')") d%meter, d%cm, d%inch
 end program

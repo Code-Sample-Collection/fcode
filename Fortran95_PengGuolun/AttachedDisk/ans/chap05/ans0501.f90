@@ -3,7 +3,7 @@ program main
   integer money
   real    tax
   
-  write(*,*) "ÇëÊäÈëÔÂÊÕÈë"
+  write(*,*) "è¯·è¾“å…¥æœˆæ”¶å…¥"
   read(*,*) money
 
   if ( money<1000 ) then
@@ -13,6 +13,6 @@ program main
   else
     tax = 0.15
   end if
-  write(*,"(' Ë°½ğÎª 'I8)") nint(money*tax)
+  write(*,"(' ç¨é‡‘ä¸º 'I8)") nint(money*tax)
 
 end program

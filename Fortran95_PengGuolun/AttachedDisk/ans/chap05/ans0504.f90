@@ -3,7 +3,7 @@ program main
   integer year, days
   logical mod_4, mod_100, mod_400
 
-  write(*,*) "ÇëÊäÈëÄê·İ"
+  write(*,*) "è¯·è¾“å…¥å¹´ä»½"
   read(*,*) year
 
   mod_4   = ( MOD(year,4) == 0 )
@@ -16,7 +16,7 @@ program main
     days = 365
   end if
 
-  write(*,"('ÕâÒ»ÄêÓĞ'I3'Ìì')") days
+  write(*,"('è¿™ä¸€å¹´æœ‰'I3'å¤©')") days
 
   stop
 end program

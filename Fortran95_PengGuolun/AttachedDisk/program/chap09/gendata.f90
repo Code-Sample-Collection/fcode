@@ -4,7 +4,7 @@ program gendata
   integer i
   real    r(5)
 
-  write(*,"(6A5)")  "座号","中文","英文","数学","自然","社会"
+  write(*,"(6A5)")  "搴у彿","涓枃","鑻辨枃","鏁板","鑷劧","绀句細"
   call random_seed()
   write(*,*) "How many students?"
   read(*,*) students

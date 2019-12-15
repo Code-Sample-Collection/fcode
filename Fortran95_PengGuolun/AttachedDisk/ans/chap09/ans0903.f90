@@ -8,7 +8,7 @@ program main
   integer i
 
   open(10,file="grades.bin",access="direct",recl=1)
-  write(*,"(7A10)") "座号","中文","英文","数学","自然","社会","总分"
+  write(*,"(7A10)") "搴у彿","涓枃","鑻辨枃","鏁板","鑷劧","绀句細","鎬诲垎"
   total = student(0,0,0,0,0,0)
   do i=1, students
     read(10,rec=(i-1)*subjects+1) s%chinese
@@ -26,7 +26,7 @@ program main
     write(*,"(7I10)") i, s
   end do
   
-  write(*,"(A10,6F10.3)") "平均", &
+  write(*,"(A10,6F10.3)") "骞冲潎", &
 						  real(total%chinese)/real(students),&
 						  real(total%english)/real(students),&
 						  real(total%math)/real(students),&

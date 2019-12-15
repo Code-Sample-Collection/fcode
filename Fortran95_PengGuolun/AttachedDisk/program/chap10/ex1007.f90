@@ -23,8 +23,8 @@ function getmin(p)
   integer i,s
   integer min
 
-  s=size(p,1) ! ²éÑ°Êı×éµÄ´óĞ¡
-  min = 2**30 ! ÏÈ°ÑminÉè¶¨³ÉÒ»¸öºÜ´óµÄÖµ
+  s=size(p,1) ! æŸ¥å¯»æ•°ç»„çš„å¤§å°
+  min = 2**30 ! å…ˆæŠŠminè®¾å®šæˆä¸€ä¸ªå¾ˆå¤§çš„å€¼
   do i=1,s
     if ( min>p(i) ) then
 	  min=p(i)

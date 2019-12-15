@@ -9,10 +9,10 @@ program ex0911
   open(unit=fileid, file=filename, access="direct",&
        form="formatted", recl=6, status="replace")
   do while(.true.)
-    write(*,"('µÚ¼¸°ô?')")
+    write(*,"('ç¬¬å‡ æ£’?')")
 	read (*,*) player
 	if ( player<1 .or. player>9 ) exit
-	write(*,"('´ò»÷ÂÊ?')")
+	write(*,"('æ‰“å‡»çŽ‡?')")
 	read (*,*) hit
 	write(fileid, fmt="(F5.2)", rec=player, IOSTAT=error) hit
 	if ( error/=0 ) exit

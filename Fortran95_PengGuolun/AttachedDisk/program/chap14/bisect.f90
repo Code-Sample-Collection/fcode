@@ -1,4 +1,4 @@
-!	¶þ·Ö·¨Çó½â
+!	äºŒåˆ†æ³•æ±‚è§£
 !	By Pon 1997/9/2
 module NUMERICAL
   implicit none
@@ -6,44 +6,44 @@ module NUMERICAL
 contains
   real function bisect( A, B, func )
     implicit none
-	real A,B	! ÊäÈëµÄ²ÂÖµ
-	real C		! ÓÃÀ´Ëã(A+B)/2
-	real FA		! ¼ÇÂ¼F(A)
-	real FB		! ¼ÇÂ¼F(B)
-	real FC		! ¼ÇÂ¼F(C)
-	real, external :: func ! ËùÒªÇó½âµÄº¯Êý
+	real A,B	! è¾“å…¥çš„çŒœå€¼
+	real C		! ç”¨æ¥ç®—(A+B)/2
+	real FA		! è®°å½•F(A)
+	real FB		! è®°å½•F(B)
+	real FC		! è®°å½•F(C)
+	real, external :: func ! æ‰€è¦æ±‚è§£çš„å‡½æ•°
 
-!	ÏÈÇó³öC, F(C)µÄÖµ
+!	å…ˆæ±‚å‡ºC, F(C)çš„å€¼
 	C = (A+B)/2.0	
 	FC = func(C)
 
-!   F(C) Ð¡ÓÚ ZERO Ê±,¾ÍÊÓ F(C)=0 , ½áÊøÑ­»·
+!   F(C) å°äºŽ ZERO æ—¶,å°±è§† F(C)=0 , ç»“æŸå¾ªçŽ¯
 	do while( abs(fc) > zero )
 	  FA = func(A)
 	  FB = func(B)
 	  if ( FA*FC < 0 ) then
-	  ! f(a)*f(c)<0 ,ÒÔa,cÖµÎªÐÂµÄÇø¼ä
+	  ! f(a)*f(c)<0 ,ä»¥a,cå€¼ä¸ºæ–°çš„åŒºé—´
 		B=C
 		C=(A+B)/2.0
 	  else
-	  ! ²»È»¾ÍÊÇÒÔb,cÎªÐÂµÄÇø¼ä
+	  ! ä¸ç„¶å°±æ˜¯ä»¥b,cä¸ºæ–°çš„åŒºé—´
 		A=C
 		C=(A+B)/2.0
 	  end if
-      ! Çó³öÐÂµÄf(c)Öµ
+      ! æ±‚å‡ºæ–°çš„f(c)å€¼
 		FC=FUNC(C)
 	end do
 	bisect = C
 	return
 	end function
-!	Çó½âÓÃµÄº¯Êý1
+!	æ±‚è§£ç”¨çš„å‡½æ•°1
 	real function f1(X)
 	implicit none
 	real X
 	f1=(X+3)*(X-3)
 	return
 	end function
-!	Çó½âÓÃµÄº¯Êý
+!	æ±‚è§£ç”¨çš„å‡½æ•°
 	real function f2(X)
 	implicit none
 	real X
@@ -56,30 +56,30 @@ end module
 program main
   use NUMERICAL
   implicit none
-  real  A,B		! Á½¸ö²ÂÖµ
-  real  ANS		! Ëã³öµÄÖµ
+  real  A,B		! ä¸¤ä¸ªçŒœå€¼
+  real  ANS		! ç®—å‡ºçš„å€¼
   do while(.true.)
-	write(*,*) 'ÊäÈëÁ½¸ö²Â²âÖµ'
+	write(*,*) 'è¾“å…¥ä¸¤ä¸ªçŒœæµ‹å€¼'
 	read (*,*) A,B
-    ! f(a)*f(b) < 0 µÄ²ÂÖµ²ÅÊÇÓÐÐ§µÄ²ÂÖµ
+    ! f(a)*f(b) < 0 çš„çŒœå€¼æ‰æ˜¯æœ‰æ•ˆçš„çŒœå€¼
 	if ( f1(A)*f1(B) < 0 ) exit
-	write(*,*) "²»ÕýÈ·µÄ²ÂÖµ"
+	write(*,*) "ä¸æ­£ç¡®çš„çŒœå€¼"
   end do
-  ! µ÷ÓÃ¶þ²æ·¨Çó¸ùµÄº¯Êý
+  ! è°ƒç”¨äºŒå‰æ³•æ±‚æ ¹çš„å‡½æ•°
   ANS=bisect( A, B, f1 )
-  ! Ð´³ö½á¹û
+  ! å†™å‡ºç»“æžœ
   write(*,"('x=',F6.3)") ans
 
   do while(.true.)
-	write(*,*) 'ÊäÈëÁ½¸ö²Â²âÖµ'
+	write(*,*) 'è¾“å…¥ä¸¤ä¸ªçŒœæµ‹å€¼'
 	read (*,*) A,B
-    ! f(a)*f(b) < 0 µÄ²ÂÖµ²ÅÊÇÓÐÐ§µÄ²ÂÖµ
+    ! f(a)*f(b) < 0 çš„çŒœå€¼æ‰æ˜¯æœ‰æ•ˆçš„çŒœå€¼
 	if ( f2(A)*f2(B) < 0 ) exit
-	write(*,*) "²»ÕýÈ·µÄ²ÂÖµ"
+	write(*,*) "ä¸æ­£ç¡®çš„çŒœå€¼"
   end do
-  ! µ÷ÓÃ¶þ²æ·¨Çó¸ùµÄº¯Êý
+  ! è°ƒç”¨äºŒå‰æ³•æ±‚æ ¹çš„å‡½æ•°
   ANS=bisect( A, B, f2 )
-  ! Ð´³ö½á¹û
+  ! å†™å‡ºç»“æžœ
   write(*,"('x=',F6.3)") ans
 
   stop

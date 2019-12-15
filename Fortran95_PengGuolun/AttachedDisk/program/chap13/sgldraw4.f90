@@ -5,11 +5,11 @@ contains
   subroutine Display()
     call sglClearBuffer() 
 	call sglColor3f(1.0,0,0) 
-	call sglFilledRect(100,100, 120,200) ! ¿Ø÷Ú
+	call sglFilledRect(100,100, 120,200) ! Ëú°ÁÉõ
 	call sglFilledRectV(0.5, 0.5, 0.58, 0.9)
 	call sglColor3f(1.0,1.0,0.0)
-	call sglFilledEllipse(110, 70, 5,30) ! ª—Ê
-	call sglArc( 110, 70, 50, 0.0, 3.14159) ! π‚ª∑
+	call sglFilledEllipse(110, 70, 5,30) ! ÁÅ´ÁÑ∞
+	call sglArc( 110, 70, 50, 0.0, 3.14159) ! ÂÖâÁéØ
 	call sglFilledEllipseV(0.54,0.4, 0.03, 0.1)
 	call sglArcV(0.54,0.4,0.4, 0.0, 3.14159)
 	call sglUpdateBuffer();

@@ -30,9 +30,9 @@ program main
   use sgl_util
   implicit none
   call sglDisplaySub(Display)
-  ! Éè¶¨µ±´°¿Ú´óĞ¡¸Ä±äÊ±»áµ÷ÓÃresize
+  ! è®¾å®šå½“çª—å£å¤§å°æ”¹å˜æ—¶ä¼šè°ƒç”¨resize
   call sglReshapeSub(resize) 
-  ! Éè¶¨´°¿Ú×óÉÏ½ÇµÄĞéÄâ×ù±êÎª(0,0)ÓÒÏÂ½ÇÎª(1.0,1.0)
+  ! è®¾å®šçª—å£å·¦ä¸Šè§’çš„è™šæ‹Ÿåº§æ ‡ä¸º(0,0)å³ä¸‹è§’ä¸º(1.0,1.0)
   call sglSetVirtual(-1.0, -1.0, 1.0, 1.0)
   call sglCreateWindow(100,100,500,500,1)
   call sglMainLoop()

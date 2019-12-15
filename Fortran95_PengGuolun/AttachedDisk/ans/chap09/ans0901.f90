@@ -17,7 +17,7 @@ program main
 	count = 0
     do while(.true.)
       read(unit=fileid, fmt="(A79)", iostat=status ) buffer
-      if ( status/=0 ) exit  ! Ã»ÓĞ×ÊÁÏ¾ÍÌø³öÑ­»·
+      if ( status/=0 ) exit  ! æ²¡æœ‰èµ„æ–™å°±è·³å‡ºå¾ªç¯
       write(*,"(A79)") buffer
 	  count = count+1
 	  if ( count==24 ) then

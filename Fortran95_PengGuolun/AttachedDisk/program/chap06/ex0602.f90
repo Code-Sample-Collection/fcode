@@ -1,8 +1,8 @@
 program ex0602
 implicit none
-  integer, parameter :: limit=10  ! ¼ÆÊıÆ÷µÄÉÏÏŞ
-  integer counter      ! ¼ÆÊıÆ÷
-  integer :: ans = 0   ! ÄÃÀ´ÀÛ¼ÓÊ¹ÓÃ
+  integer, parameter :: limit=10  ! è®¡æ•°å™¨çš„ä¸Šé™
+  integer counter      ! è®¡æ•°å™¨
+  integer :: ans = 0   ! æ‹¿æ¥ç´¯åŠ ä½¿ç”¨
 
   do counter=2, limit ,2
     ans = ans + counter

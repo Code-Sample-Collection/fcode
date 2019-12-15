@@ -17,7 +17,7 @@ implicit none
   else if ( score>=0 .and. score<60 ) then
     grade='E'
   else 
-    ! score<0 »ò score>100µÄ²»ºÏÀíÇéĞÎ
+    ! score<0 æˆ– score>100çš„ä¸åˆç†æƒ…å½¢
     grade='?'
   end if
 

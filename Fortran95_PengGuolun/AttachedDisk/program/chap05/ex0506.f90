@@ -8,17 +8,17 @@ implicit none
 
   if ( score>100 ) then 
     grade='?'
-  else if ( score>=90 ) then ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<=100
+  else if ( score>=90 ) then ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<=100
     grade='A'
-  else if ( score>=80 ) then ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<90
+  else if ( score>=80 ) then ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<90
     grade='B'
-  else if ( score>=70 ) then ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<80
+  else if ( score>=70 ) then ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<80
     grade='C'
-  else if ( score>=60 ) then ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<70
+  else if ( score>=60 ) then ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<70
     grade='D'
-  else if ( score>=0 ) then  ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<60
+  else if ( score>=0 ) then  ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<60
     grade='E'
-  else                       ! »áÖ´ÐÐµ½´Ë, ´ú±íscore<0
+  else                       ! ä¼šæ‰§è¡Œåˆ°æ­¤, ä»£è¡¨score<0
     grade='?'
   end if
 

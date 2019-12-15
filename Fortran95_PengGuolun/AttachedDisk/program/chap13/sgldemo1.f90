@@ -1,23 +1,23 @@
 program main
   use sgl
   implicit none
-  external display ! ÉùÃ÷displayÊÇ¸öº¯Êı
-  ! Éè¶¨µ±´°¿ÚĞèÒªÖØ»æÊ±,»áµ÷ÓÃ×Ó³ÌĞòdisplay
+  external display ! å£°æ˜displayæ˜¯ä¸ªå‡½æ•°
+  ! è®¾å®šå½“çª—å£éœ€è¦é‡ç»˜æ—¶,ä¼šè°ƒç”¨å­ç¨‹åºdisplay
   call sglDisplaySub(display)  
-  ! ´ò¿ª´°¿Ú, ´°¿Ú×óÉÏ½ÇÎª(100,100), ³¤¿íÍ¬Îª500
+  ! æ‰“å¼€çª—å£, çª—å£å·¦ä¸Šè§’ä¸º(100,100), é•¿å®½åŒä¸º500
   call sglCreateWindow(100,100,500,500,0)
   write(*,*) "Waiting message."
-  ! µÈ´ıÊ¹ÓÃÕß¸ø³ÌĞòµÄĞÅÏ¢
+  ! ç­‰å¾…ä½¿ç”¨è€…ç»™ç¨‹åºçš„ä¿¡æ¯
   call sglMainLoop()
   write(*,*) "The End."
   stop
 end
-! Ã¿µ±´°¿ÚĞèÒª¸üĞÂ»­ÃæÊ±, »áµ÷ÓÃdisplay
+! æ¯å½“çª—å£éœ€è¦æ›´æ–°ç”»é¢æ—¶, ä¼šè°ƒç”¨display
 subroutine display()
   use sgl
   implicit none
-  call sglClearBuffer()          ! Ïû³ıÆÁÄ»
-  call sglColor3f(1.0,0.0,0.0)   ! Éè¶¨Ä¿Ç°ÒªÊ¹ÓÃºìÉ«À´»æÍ¼
-  call sglDrawLine(0,0, 500,500) ! ÔÚ(0,0)µ½(500,500)Á½µãÖ®¼ä»­Ïß
+  call sglClearBuffer()          ! æ¶ˆé™¤å±å¹•
+  call sglColor3f(1.0,0.0,0.0)   ! è®¾å®šç›®å‰è¦ä½¿ç”¨çº¢è‰²æ¥ç»˜å›¾
+  call sglDrawLine(0,0, 500,500) ! åœ¨(0,0)åˆ°(500,500)ä¸¤ç‚¹ä¹‹é—´ç”»çº¿
   return
 end subroutine

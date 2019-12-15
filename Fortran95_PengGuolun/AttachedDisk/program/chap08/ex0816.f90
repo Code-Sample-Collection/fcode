@@ -1,38 +1,38 @@
 program ex0816
 implicit none
   integer :: a(5) = (/ 1,2,3,4,5 /)
-  call ShowOne(a)   ! ´«Èëa, Ò²¾ÍÊÇ´«ÈëÊı×éaµÚ1¸öÔªËØµÄÄÚ´æµØÖ·
+  call ShowOne(a)   ! ä¼ å…¥a, ä¹Ÿå°±æ˜¯ä¼ å…¥æ•°ç»„aç¬¬1ä¸ªå…ƒç´ çš„å†…å­˜åœ°å€
   call ShowArray5(a)  
   call ShowArray3(a)  
-  call ShowArray3( a(2) ) ! ´«Èëa(2), Ò²¾ÍÊÇ´«ÈëÊı×éaµÚ2¸öÔªËØµÄÄÚ´æµØÖ·
+  call ShowArray3( a(2) ) ! ä¼ å…¥a(2), ä¹Ÿå°±æ˜¯ä¼ å…¥æ•°ç»„aç¬¬2ä¸ªå…ƒç´ çš„å†…å­˜åœ°å€
   call ShowArray2X2(a)  
   stop
 end
 
 subroutine ShowOne(num)
 implicit none
-  integer :: num ! Ö»È¡³ö²ÎÊıµØÖ·ÖĞµÄµÚ1¸öÊı×Ö
+  integer :: num ! åªå–å‡ºå‚æ•°åœ°å€ä¸­çš„ç¬¬1ä¸ªæ•°å­—
   write(*,*) num
   return
 end
 
 subroutine ShowArray5(num)
 implicit none
-  integer :: num(5) ! È¡³ö²ÎÊıµØÖ·ÖĞµÄÇ°5¸öÊı×Ö,µ±³ÉÊı×éÀ´Ê¹ÓÃ
+  integer :: num(5) ! å–å‡ºå‚æ•°åœ°å€ä¸­çš„å‰5ä¸ªæ•°å­—,å½“æˆæ•°ç»„æ¥ä½¿ç”¨
   write(*,*) num
   return
 end
 
 subroutine ShowArray3(num)
 implicit none
-  integer :: num(3) ! È¡³ö²ÎÊıµØÖ·ÖĞµÄÇ°3¸öÊı×Ö,µ±³ÉÊı×éÀ´Ê¹ÓÃ
+  integer :: num(3) ! å–å‡ºå‚æ•°åœ°å€ä¸­çš„å‰3ä¸ªæ•°å­—,å½“æˆæ•°ç»„æ¥ä½¿ç”¨
   write(*,*) num
   return
 end
 
 subroutine ShowArray2X2(num)
 implicit none
-  integer :: num(2,2) ! È¡³ö²ÎÊıµØÖ·ÖĞµÄÇ°4¸öÊı×Ö,µ±³É2X2Êı×éÀ´Ê¹ÓÃ
+  integer :: num(2,2) ! å–å‡ºå‚æ•°åœ°å€ä¸­çš„å‰4ä¸ªæ•°å­—,å½“æˆ2X2æ•°ç»„æ¥ä½¿ç”¨
   write(*,*) num(2,1), num(2,2)
   return
 end

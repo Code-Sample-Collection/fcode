@@ -4,7 +4,7 @@ program main
   character(len=length) :: input, output
   integer i,j
   
-  write(*,*) "ÇëÊäÈëÒ»¸ö×Ö´®"
+  write(*,*) "è¯·è¾“å…¥ä¸€ä¸ªå­—ä¸²"
   read(*,"(A79)") input
   j=1
   do i=1, len_trim(input)

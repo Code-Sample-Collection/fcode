@@ -16,7 +16,7 @@ subroutine display()
   return
 end subroutine
 end module
-! ÕâÊÇ´íÎó·¶Àı
+! è¿™æ˜¯é”™è¯¯èŒƒä¾‹
 program main
   use sgl_util
   implicit none

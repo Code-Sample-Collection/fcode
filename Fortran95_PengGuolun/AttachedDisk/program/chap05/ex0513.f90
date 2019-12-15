@@ -4,7 +4,7 @@ implicit none
   character operator
   
   read(*,*) a
-  read(*,"(A1)") operator ! ²»Ê¹ÓÃ¸ñÊ½ÓĞĞ©»úÆ÷»á¶Á²»µ½³ıºÅ"/" 
+  read(*,"(A1)") operator ! ä¸ä½¿ç”¨æ ¼å¼æœ‰äº›æœºå™¨ä¼šè¯»ä¸åˆ°é™¤å·"/" 
   read(*,*) b
 
   select case(operator)
@@ -16,9 +16,9 @@ implicit none
     ans = a*b
   case('/')
     ans = a/b
-  case default ! ÊäÈëÆäËü·ûºÅ²»´¦Àí
+  case default ! è¾“å…¥å…¶å®ƒç¬¦å·ä¸å¤„ç†
     write(*,"('Unknown operator ',A1)") operator
-	stop ! ½áÊø³ÌĞò
+	stop ! ç»“æŸç¨‹åº
   end select
 
   write(*,"(F6.2,A1,F6.2,'=',F6.2)") a,operator,b,ans

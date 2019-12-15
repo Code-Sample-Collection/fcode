@@ -13,25 +13,25 @@ program ex0922
     write(*,*) "open lena.raw fail."
 	stop
   end if
-  ! Ò»¸öÏñËØÕ¼1 byte, ¸ÕºÃ¿ÉÒÔÓÃ×Ö·ûÊı×éÀ´¶ÁÈë
+  ! ä¸€ä¸ªåƒç´ å 1 byte, åˆšå¥½å¯ä»¥ç”¨å­—ç¬¦æ•°ç»„æ¥è¯»å…¥
   read(10, rec=1) cbuffer
   close(10)
 
   do i=1, buffer_size
-    ! ÒªÈ¡³öÃ¿¸ö×Ö·ûµÄÊıÖµ
+    ! è¦å–å‡ºæ¯ä¸ªå­—ç¬¦çš„æ•°å€¼
     code = ichar( cbuffer(i) )
-	! code·µ»ØÖµ»áÊÇ-128¡«127Ö®¼ä£¬Òª°ÑËü×ª»»³É0¡«255Ö®¼äµÄÊı×Ö
+	! codeè¿”å›å€¼ä¼šæ˜¯-128ï½127ä¹‹é—´ï¼Œè¦æŠŠå®ƒè½¬æ¢æˆ0ï½255ä¹‹é—´çš„æ•°å­—
     if ( code>=0 ) then
       ibuffer(i)=code
 	else
 	  ibuffer(i)=256+code
 	end if
   end do
-  ! °ÑÁÁ¶ÈÖµ·´Ïà
+  ! æŠŠäº®åº¦å€¼åç›¸
   do i=1, buffer_size
     cbuffer(i)=char(255-ibuffer(i))
   end do
-  ! ÎÄ¼ş´úÂë10ÔÚÉÏÃæÒÑ¾­closeÁË, ¿ÉÒÔÔÙÊ¹ÓÃÒ»´Î
+  ! æ–‡ä»¶ä»£ç 10åœ¨ä¸Šé¢å·²ç»closeäº†, å¯ä»¥å†ä½¿ç”¨ä¸€æ¬¡
   open(10, file="newlena.raw", form="unformatted", access="direct",&
         recl=256*256/recl_unit, status="replace")
   write(10, rec=1) cbuffer

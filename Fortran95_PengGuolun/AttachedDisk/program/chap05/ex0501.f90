@@ -4,7 +4,7 @@ implicit none
   write(*,*) "speed:"
   read(*,*) speed
   if ( speed > 100.0 ) then
-    ! speed > 100 ʱ�Ż�ִ��������һ�г��� 
+    ! speed > 100 时才会执行下面这一行程序 
     write(*,*) "Slow down." 
   end if 
 stop

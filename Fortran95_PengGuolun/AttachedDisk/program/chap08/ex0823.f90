@@ -9,8 +9,8 @@ end program
 
 subroutine div(a,b)
   implicit none
-  integer, intent(in) :: a  ! Ö¸¶¨aÊÇÖ»¶Á
-  integer, intent(out) :: b ! Ö¸¶¨bÔÚ×Ó³ÌÊ½ÖĞÓ¦¸ÃÒªÖØÉèÊıÖµ
+  integer, intent(in) :: a  ! æŒ‡å®šaæ˜¯åªè¯»
+  integer, intent(out) :: b ! æŒ‡å®šbåœ¨å­ç¨‹å¼ä¸­åº”è¯¥è¦é‡è®¾æ•°å€¼
   integer c
   c=b
   b=a/2

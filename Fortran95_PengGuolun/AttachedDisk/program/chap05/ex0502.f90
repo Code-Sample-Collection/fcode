@@ -1,18 +1,18 @@
 program ex0502
 implicit none
-  real(kind=4) :: height ! ¼ÇÂ¼Éí¸ß
-  real(kind=4) :: weight ! ¼ÇÂ¼ÌåÖØ
+  real(kind=4) :: height ! è®°å½•èº«é«˜
+  real(kind=4) :: weight ! è®°å½•ä½“é‡
 
   write(*,*) "height:"
-  read(*,*)   height     ! ¶ÁÈëÉí¸ß
+  read(*,*)   height     ! è¯»å…¥èº«é«˜
   write(*,*) "weight:"
-  read(*,*)   weight     ! ¶ÁÈëÌåÖØ
+  read(*,*)   weight     ! è¯»å…¥ä½“é‡
 	
   if ( weight > height-100 ) then 
-    ! Èç¹ûÌåÖØ´óÓÚÉí¸ß¼õÈ¥100, »áÖ´ÐÐÏÂÃæµÄ³ÌÐò
+    ! å¦‚æžœä½“é‡å¤§äºŽèº«é«˜å‡åŽ»100, ä¼šæ‰§è¡Œä¸‹é¢çš„ç¨‹åº
     write(*,*) "Too fat!"
   else
-    ! Èç¹ûÌåÖØ²»´óÓÚÉí¸ß¼õÈ¥100, »áÖ´ÐÐÏÂÃæµÄ³ÌÐò
+    ! å¦‚æžœä½“é‡ä¸å¤§äºŽèº«é«˜å‡åŽ»100, ä¼šæ‰§è¡Œä¸‹é¢çš„ç¨‹åº
     write(*,*) "Under control."
   end if
 

@@ -1,9 +1,9 @@
 program ex1005
   implicit none
-  integer, pointer :: a(:) ! 定义a是一维的指针数组
-  allocate( a(5) )  ! 配置5个整数的空间给指针a
+  integer, pointer :: a(:) ! 瀹氫箟a鏄竴缁寸殑鎸囬拡鏁扮粍
+  allocate( a(5) )  ! 閰嶇疆5涓暣鏁扮殑绌洪棿缁欐寚閽坅
   a = (/ 1,2,3,4,5 /)
   write(*,*) a
-  deallocate( a )   ! allocate得到的内存要记得归还
+  deallocate( a )   ! allocate寰楀埌鐨勫唴瀛樿璁板緱褰掕繕
   stop
 end

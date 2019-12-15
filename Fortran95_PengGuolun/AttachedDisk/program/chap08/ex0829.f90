@@ -12,22 +12,22 @@ recursive integer function fact(n) result(ans)
   implicit none
   integer , intent(in) :: n
   integer, save :: count = 1
-  integer :: localcount, temp  ! ¾Ö²¿±äÁ¿
+  integer :: localcount, temp  ! å±€éƒ¨å˜é‡
     
   localcount = count
   count = count+1
   write(6,"(I2,'th enter, n=',I2)") localcount, n
 
-  if ( n < 0 ) then ! ²»ºÏÀíµÄÊäÈë
-	ans = -1        ! Ëæ±ãÉè¶¨Ò»¸öÖµ
+  if ( n < 0 ) then ! ä¸åˆç†çš„è¾“å…¥
+	ans = -1        ! éšä¾¿è®¾å®šä¸€ä¸ªå€¼
     write(6,"(I2,'th exit, n=',I2,' ans=',I8)") localcount, n, ans
-	return          ! n²»ºÏÀí, Ö±½Óreturn 
+	return          ! nä¸åˆç†, ç›´æ¥return 
   else if ( n <= 1 ) then
     ans = 1          
     write(6,"(I2,'th exit, n=',I2,' ans=',I8)") localcount, n, ans
-    return          ! ²»ÓÃÔÙÏòÏÂµİ¹éÁË, return 
+    return          ! ä¸ç”¨å†å‘ä¸‹é€’å½’äº†, return 
   end if
-  ! »áÖ´ĞĞµ½Õâ, ´ú±ín>1, ´Ón*(n-1)!À´¼ÆËãn!
+  ! ä¼šæ‰§è¡Œåˆ°è¿™, ä»£è¡¨n>1, ä»n*(n-1)!æ¥è®¡ç®—n!
   temp = n-1
   ans = n * fact(temp) 
   write(6,"(I2,'th exit, n=',I2,' ans=',I8)") localcount, n, ans

@@ -2,13 +2,13 @@ program  ex0804
 implicit none
   integer :: a = 1
   integer :: b = 2
-  call add(a,b)  ! °Ñ±äÁ¿a¼°b½»¸ø×Ó³ÌĞòaddÀ´´¦Àí
+  call add(a,b)  ! æŠŠå˜é‡aåŠbäº¤ç»™å­ç¨‹åºaddæ¥å¤„ç†
   stop
 end
 
 subroutine add(first, second)
 implicit none
-  integer :: first, second ! first,secondµÄÄÚÈİ»á´ÓCALLÊ±µÃµ½
+  integer :: first, second ! first,secondçš„å†…å®¹ä¼šä»CALLæ—¶å¾—åˆ°
   write(*,*) first+second
   return
 end

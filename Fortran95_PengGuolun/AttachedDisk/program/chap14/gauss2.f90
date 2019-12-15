@@ -1,4 +1,4 @@
-! Èı´ø¿í¾ØÕóÇó½â
+! ä¸‰å¸¦å®½çŸ©é˜µæ±‚è§£
 !       By Perng 1997/9/2
 program main
   implicit none
@@ -23,7 +23,7 @@ program main
   end do
   stop
 end program main
-! Gauss-Jordan·¨µÄº¯Êı
+! Gauss-Jordanæ³•çš„å‡½æ•°
 subroutine Gauss_Jordan(A,S,ANS,Row,Width)
   implicit none
   integer :: Row
@@ -34,21 +34,21 @@ subroutine Gauss_Jordan(A,S,ANS,Row,Width)
   real    :: B(Row,Width)
   real    :: i
   
-  ! ±£´æÔ­ÏÈµÄ¾ØÕóA,¼°Êı×éS
+  ! ä¿å­˜åŸå…ˆçš„çŸ©é˜µA,åŠæ•°ç»„S
   B=A 
   ANS=S  
-  ! °ÑB»¯³É¶Ô½Ç¾ØÕó(³ıÁË¶Ô½ÇÏßÍâ,¶¼Îª0)
-  call Upper(B,ANS,Row,Width) ! ÏÈ°ÑB»¯³ÉÉÏÈı½Ç¾ØÕó
-  call Lower(B,ANS,Row,Width) ! ÔÙ°ÑB»¯³ÉÏÂÈı½Ç¾ØÕó
+  ! æŠŠBåŒ–æˆå¯¹è§’çŸ©é˜µ(é™¤äº†å¯¹è§’çº¿å¤–,éƒ½ä¸º0)
+  call Upper(B,ANS,Row,Width) ! å…ˆæŠŠBåŒ–æˆä¸Šä¸‰è§’çŸ©é˜µ
+  call Lower(B,ANS,Row,Width) ! å†æŠŠBåŒ–æˆä¸‹ä¸‰è§’çŸ©é˜µ
 
-  ! Çó³ö½â
+  ! æ±‚å‡ºè§£
   do i=1,Row
     ANS(i)=ANS(i)/B(i,2) 
   end do
 
   return
 end subroutine Gauss_Jordan
-! ÇóÉÏÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸Šä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Upper(M,S,Row,Width)
   implicit none
   integer :: Row
@@ -65,7 +65,7 @@ subroutine Upper(M,S,Row,Width)
   end do
   return
 end subroutine Upper
-! ÇóÏÂÈı½Ç¾ØÕóµÄ×Ó³ÌĞò
+! æ±‚ä¸‹ä¸‰è§’çŸ©é˜µçš„å­ç¨‹åº
 subroutine Lower(M,S,Row,Width)
   implicit none
   integer :: Row
@@ -77,7 +77,7 @@ subroutine Lower(M,S,Row,Width)
   do I=Row,2,-1
      J=I-1                                      
      E=M(J,3)/M(I,2)                     
-     M(J,3)=M(J,3)-M(I,2)*E  ! Ö»Ê£Ò»¸öÔªËØÀ´Ïà¼õ    
+     M(J,3)=M(J,3)-M(I,2)*E  ! åªå‰©ä¸€ä¸ªå…ƒç´ æ¥ç›¸å‡    
      S(J)=S(J)-S(I)*E
   end do
   return

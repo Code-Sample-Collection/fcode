@@ -7,7 +7,7 @@ implicit none
   
   do i=1, size-1
     do j=i+1, size
-      if ( a(i) < a(j) ) then ! a(i)¸úa(j)½»»»
+      if ( a(i) < a(j) ) then ! a(i)è·Ÿa(j)äº¤æ¢
 	    t=a(i)
         a(i)=a(j)
 		a(j)=t

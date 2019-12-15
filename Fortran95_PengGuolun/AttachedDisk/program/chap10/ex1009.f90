@@ -1,12 +1,12 @@
 module func
-! person��������ռ��18 bytes
-! ��Ϊ����10����Ԫ������������
+! person类型最少占用18 bytes
+! 因为它有10个字元及两个浮点数
 type person
   character(len=10) :: name
   real :: height, weight
 end type
-! pperson����ͨ��ռ��4 bytes
-! ��Ϊ������ֻ��һ��ָ��, ָ����PC�й̶�ʹ��4 bytes
+! pperson类型通常占用4 bytes
+! 因为它里面只有一个指针, 指针在PC中固定使用4 bytes
 type pperson
   type(person), pointer :: p
 end type
@@ -37,21 +37,21 @@ end module
 program ex1009
   use func
   implicit none
-  type(person), target :: p(5) = (/ person("��ͬѧ", 180.0, 75.0), &
-                                    person("��ͬѧ", 170.0, 65.0), &
-							        person("��ͬѧ", 175.0, 80.0), &
-							        person("��ͬѧ", 182.0, 78.0), &
-							        person("��ͬѧ", 178.0, 70.0)  &
+  type(person), target :: p(5) = (/ person("陈同学", 180.0, 75.0), &
+                                    person("黄同学", 170.0, 65.0), &
+							        person("刘同学", 175.0, 80.0), &
+							        person("蔡同学", 182.0, 78.0), &
+							        person("许同学", 178.0, 70.0)  &
 						         /) 
   type(pperson) :: pt(5)
   integer i
-  ! ��pt�����е�ָ��ȫ��ָ������p
+  ! 把pt数组中的指针全部指向数组p
   forall(i=1:5)
     pt(i)%p => p(i)
   end forall
-  ! �������ߴ�С��������
+  ! 依照身高从小到大排序
   call sort(pt)
-  ! �������Ľ��
+  ! 输出排序的结果
   write(*,"(5(A8,F6.1,F5.1/))") (pt(i)%p, i=1,5)
 
   stop

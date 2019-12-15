@@ -3,7 +3,7 @@ module time_util
   type :: time
     integer :: hour,minute
   end type time
-  interface operator(+) ! ÈÃtype(time)ÀàĞÍ±äÁ¿ÄÜ¹»Ïà¼Ó
+  interface operator(+) ! è®©type(time)ç±»å‹å˜é‡èƒ½å¤Ÿç›¸åŠ 
     module procedure add
   end interface
 
@@ -15,7 +15,7 @@ contains
     integer :: minutes,carry
     minutes=a%minute+b%minute
     carry=minutes/60
-    add%minute=mod(minutes,60)   ! È¡ÓàÊı
+    add%minute=mod(minutes,60)   ! å–ä½™æ•°
     add%hour=a%hour+b%hour+carry 
     return
   end function add
@@ -35,7 +35,7 @@ program ex1107
   
   a=time(1,45)
   b=time(2,18)
-  c=a+b ! Êµ¼Ê»áµ÷ÓÃº¯Êıadd
+  c=a+b ! å®é™…ä¼šè°ƒç”¨å‡½æ•°add
   call output(c)
 
   stop

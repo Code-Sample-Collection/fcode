@@ -1,9 +1,9 @@
 module MA
   implicit none
 
-  interface show ! 虚拟的函数名称show
-    module procedure show_int       ! 等待选择的函数show_int
-    module procedure show_character ! 等待选择的函数show_character
+  interface show ! 铏氭嫙鐨勫嚱鏁板悕绉皊how
+    module procedure show_int       ! 绛夊緟閫夋嫨鐨勫嚱鏁皊how_int
+    module procedure show_character ! 绛夊緟閫夋嫨鐨勫嚱鏁皊how_character
   end interface
 
 contains
@@ -26,10 +26,10 @@ program main
   use MA
   implicit none
   call show_int(1)
-  ! 参入的参数是整数, 会自动选择调用show_int
+  ! 鍙傚叆鐨勫弬鏁版槸鏁存暟, 浼氳嚜鍔ㄩ�夋嫨璋冪敤show_int
   call show(1)
   call show_character("FORTRAN 95")
-  ! 参入的参数是整数, 会自动选择调用show_character
+  ! 鍙傚叆鐨勫弬鏁版槸鏁存暟, 浼氳嚜鍔ㄩ�夋嫨璋冪敤show_character
   call show("FORTRAN 95")
   stop
 end program

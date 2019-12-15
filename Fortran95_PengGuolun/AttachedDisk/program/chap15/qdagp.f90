@@ -12,7 +12,7 @@ program main
   A = 0.0
   B = 3.0
   CALL QDAGP (F, A, B, NPTS, POINTS, ERRABS, ERRREL, ANS, ERR)
-  write(*,"('»ý·ÖÖµ='F5.2,' ¹À¼ÆÎó²î·¶Î§:'F6.4)") ANS, ERR
+  write(*,"('ç§¯åˆ†å€¼='F5.2,' ä¼°è®¡è¯¯å·®èŒƒå›´:'F6.4)") ANS, ERR
 
   stop
 end

@@ -14,7 +14,7 @@ subroutine display()
 end subroutine
 subroutine idle()
   integer, parameter :: inc = 1
-  call sglReadKeyboard() ! ��ȡĿǰ���̿�̬
+  call sglReadKeyboard() ! 读取目前键盘况态
   if ( sglKeyPressed(KEY_RIGHT) ) x = x+inc
   if ( sglKeyPressed(KEY_LEFT)  ) x = x-inc
   if ( sglKeyPressed(KEY_UP)    ) y = y-inc

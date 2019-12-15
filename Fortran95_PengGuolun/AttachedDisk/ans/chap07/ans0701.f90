@@ -4,7 +4,7 @@ program main
   integer i
   integer :: a(max) = (/ (2*i, i=1,10) /)
   integer :: t
-  ! sum()ÊÇfortran¿âº¯Êý  
+  ! sum()æ˜¯fortranåº“å‡½æ•°  
   write(*,*) real(sum(a))/real(max)
   
   stop

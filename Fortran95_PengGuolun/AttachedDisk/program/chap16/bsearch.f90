@@ -1,9 +1,9 @@
 !
-! ÕÛ°ë²éÕÒ·¨·¶Àı
+! æŠ˜åŠæŸ¥æ‰¾æ³•èŒƒä¾‹
 ! By Perng 1997/8/31
 program BINARY_SEARCH_DEMO
   implicit none
-  integer, parameter :: N=10      ! ÀàĞÍµÄ´óĞ¡
+  integer, parameter :: N=10      ! ç±»å‹çš„å¤§å°
   integer :: A(N)=(/2,5,7,9,10,11,13,17,21,23/)
   integer KEY
   integer LOC 
@@ -12,7 +12,7 @@ program BINARY_SEARCH_DEMO
   write(*,"('Source=>',10I3)") A
   write(*,*) 'Input KEY:'
   read (*,*) KEY
-  ! µ÷ÓÃË³Ğò²éÕÒµÄ×Ó³ÌĞò
+  ! è°ƒç”¨é¡ºåºæŸ¥æ‰¾çš„å­ç¨‹åº
   LOC=BINARY_SEARCH(A,N,KEY)
   if ( LOC/=0 ) then
     write(*,"('A(',I2,' )='I3)") LOC,KEY
@@ -23,21 +23,21 @@ program BINARY_SEARCH_DEMO
   stop
 end program
 !
-! ÕÛ°ë²éÕÒ·¨µÄ×Ó³ÌĞò
+! æŠ˜åŠæŸ¥æ‰¾æ³•çš„å­ç¨‹åº
 !
 integer function BINARY_SEARCH(A,N,KEY)
   implicit none
   integer N,A(N)
-  integer KEY    ! ËùÒªÑ°ÕÒµÄÖµ
-  integer L      ! ¼ÇÂ¼Ã¿Ò»¸öĞ¡×éµÄÀàĞÍÆğÊ¼Î»ÖÃ
-  integer R      ! ¼ÇÂ¼Ã¿Ò»¸öĞ¡×éµÄÀàĞÍ½áÊøÎ»ÖÃ
-  integer M      ! ¼ÇÂ¼Ã¿Ò»¸öĞ¡×éµÄÀàĞÍÖĞ¼äÎ»ÖÃ
+  integer KEY    ! æ‰€è¦å¯»æ‰¾çš„å€¼
+  integer L      ! è®°å½•æ¯ä¸€ä¸ªå°ç»„çš„ç±»å‹èµ·å§‹ä½ç½®
+  integer R      ! è®°å½•æ¯ä¸€ä¸ªå°ç»„çš„ç±»å‹ç»“æŸä½ç½®
+  integer M      ! è®°å½•æ¯ä¸€ä¸ªå°ç»„çš„ç±»å‹ä¸­é—´ä½ç½®
 
-  ! Ò»¿ªÊ¼µÄĞ¡×é·¶Î§¾ÍÊÇÕû¸öÀàĞÍ
+  ! ä¸€å¼€å§‹çš„å°ç»„èŒƒå›´å°±æ˜¯æ•´ä¸ªç±»å‹
   L=1                     
   R=N
   M=(L+R)/2
-  ! Èç¹ûKEYÖµ³¬³ö·¶Î§, Ìú¶¨²»´æÔÚÀàĞÍÖĞ
+  ! å¦‚æœKEYå€¼è¶…å‡ºèŒƒå›´, é“å®šä¸å­˜åœ¨ç±»å‹ä¸­
   if ( (KEY < A(L)) .OR. (KEY > A(R)) ) then
     BINARY_SEARCH = 0
     return
@@ -45,11 +45,11 @@ integer function BINARY_SEARCH(A,N,KEY)
 
   do while( L <= R )
     if ( KEY > A(M) ) then
-    ! Èç¹û key > ÖĞ¼äÖµ£¬ÄÇÊı¾İ¾ÍÂäÔÚÉÏ°ë²¿
+    ! å¦‚æœ key > ä¸­é—´å€¼ï¼Œé‚£æ•°æ®å°±è½åœ¨ä¸ŠåŠéƒ¨
       L=M+1
       M=(L+R)/2
     else if ( KEY < A(M) ) then
-    ! Èç¹û key < ÖĞ¼äÖµ£¬ÄÇÊı¾İ¾ÍÂäÔÚÏÂ°ë²¿
+    ! å¦‚æœ key < ä¸­é—´å€¼ï¼Œé‚£æ•°æ®å°±è½åœ¨ä¸‹åŠéƒ¨
       R=M-1
       M=(L+R)/2
     else if ( KEY .EQ. A(M) ) then

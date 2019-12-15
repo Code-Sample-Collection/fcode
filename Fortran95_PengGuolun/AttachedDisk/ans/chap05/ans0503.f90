@@ -3,9 +3,9 @@ program main
   integer age, money
   real tax
 
-  write(*,*) "ÇëÊäÈëÄêÁä"
+  write(*,*) "è¯·è¾“å…¥å¹´é¾„"
   read(*,*) age
-  write(*,*) "ÇëÊäÈëÔÂÊÕÈë"
+  write(*,*) "è¯·è¾“å…¥æœˆæ”¶å…¥"
   read(*,*) money
 
   if ( age<50 ) then
@@ -26,6 +26,6 @@ program main
 	end if
   end if
   
-  write(*,"(' Ë°½ğÎª 'I8)") nint(money*tax)
+  write(*,"(' ç¨é‡‘ä¸º 'I8)") nint(money*tax)
 
 end program

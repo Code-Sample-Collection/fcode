@@ -8,9 +8,9 @@
 	READ (*,*) windspeed
 
 	IF ( rain .GT. 150 .OR. windspeed .GT. 10 ) THEN
-	  WRITE(*,*) "不用上班上课"
+	  WRITE(*,*) "涓嶇敤涓婄彮涓婅"
 	ELSE
-	  WRITE(*,*) "照常上班上课"
+	  WRITE(*,*) "鐓у父涓婄彮涓婅"
 	END IF
 
 	STOP

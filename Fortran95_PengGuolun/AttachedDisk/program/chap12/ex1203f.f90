@@ -1,7 +1,7 @@
 module typedef
   implicit none
   type person
-    sequence ! Ç¿ÆÈ×Ô¶¨ÒåÀàĞÍÖĞµÄ±äÁ¿»áÒÀË³ĞòÔÚÄÚ´æÖĞÅÅÁĞ
+    sequence ! å¼ºè¿«è‡ªå®šä¹‰ç±»å‹ä¸­çš„å˜é‡ä¼šä¾é¡ºåºåœ¨å†…å­˜ä¸­æ’åˆ—
     integer age
     real    weight, height
   end type
@@ -31,7 +31,7 @@ program main
   use typedef
   use cprog
   implicit none
-  character(len=20) :: str="Fortran 95"C ! ÔÚ×Ö·û´®×îºó²¹ÉÏ0
+  character(len=20) :: str="Fortran 95"C ! åœ¨å­—ç¬¦ä¸²æœ€åè¡¥ä¸Š0
   complex :: c=(1.0,2.0)
   type(person) :: p=person(20, 70, 180)
 

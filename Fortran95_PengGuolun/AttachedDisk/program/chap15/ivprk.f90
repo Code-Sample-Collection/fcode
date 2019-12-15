@@ -1,5 +1,5 @@
-! IMSL IVPRK·¶Àı
-! Çó½âY'(t)=-0.01*Y(t)
+! IMSL IVPRKèŒƒä¾‹
+! æ±‚è§£Y'(t)=-0.01*Y(t)
 ! initial condition Y(0)=2
 program main
   use IMSL
@@ -14,7 +14,7 @@ program main
   PARAM = 0
   WRITE (*,"(' Time', 9X,'Y')")
   Y(1) = 2.0 ! Initial condition
-  T = 0.0    ! Y(T)=2.0ÖĞµÄÊ±¼äTÖµ
+  T = 0.0    ! Y(T)=2.0ä¸­çš„æ—¶é—´Tå€¼
   IDO = 1
   do ISTEP=0,100,10
     TEND = ISTEP
@@ -25,7 +25,7 @@ program main
 
   stop
 end program
-! ¼ÆËãÎ¢·Ö·½³ÌÊ½
+! è®¡ç®—å¾®åˆ†æ–¹ç¨‹å¼
 ! YPRIME=Y'=f(t,y)
 subroutine FCN (N, T, Y, YPRIME)
   implicit none

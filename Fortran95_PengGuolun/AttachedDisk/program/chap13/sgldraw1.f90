@@ -4,24 +4,24 @@ module sgl_util
 contains
   subroutine Display()
     write(*,*) "Update"
-    call sglClearBuffer() ! Çå³ı»­Ãæ
-	call sglColor3f(1.0,0,0) ! Ê¹ÓÃºìÉ«
-	call sglRect(100,100,300,300) ! ÒÔ(100,100)ºÍ(300,300)Îª¶Ë»­¾ØĞÎ
-    call sglColor3i(0,255,0) ! Ê¹ÓÃÂÌÉ«
-    call sglCircle(200,200,200) ! ÒÔ(200,200)ÎªÔ²ĞÄ, »­°ë¾¶Îª200µÄÔ²
-	call sglColor3i(0,0,255) ! Ê¹ÓÃÀ¶É«
-	call sglLine(200,0, 200,400) ! ÔÚ(200,0)µ½(200,400)Á½µã¼ä»­Ïß
-	call sglLine(0,200, 400,200) ! ÔÚ(0,200)µ½(400,200)Á½µã¼ä»­Ïß
+    call sglClearBuffer() ! æ¸…é™¤ç”»é¢
+	call sglColor3f(1.0,0,0) ! ä½¿ç”¨çº¢è‰²
+	call sglRect(100,100,300,300) ! ä»¥(100,100)å’Œ(300,300)ä¸ºç«¯ç”»çŸ©å½¢
+    call sglColor3i(0,255,0) ! ä½¿ç”¨ç»¿è‰²
+    call sglCircle(200,200,200) ! ä»¥(200,200)ä¸ºåœ†å¿ƒ, ç”»åŠå¾„ä¸º200çš„åœ†
+	call sglColor3i(0,0,255) ! ä½¿ç”¨è“è‰²
+	call sglLine(200,0, 200,400) ! åœ¨(200,0)åˆ°(200,400)ä¸¤ç‚¹é—´ç”»çº¿
+	call sglLine(0,200, 400,200) ! åœ¨(0,200)åˆ°(400,200)ä¸¤ç‚¹é—´ç”»çº¿
   end subroutine
 end module
 
 program main
   use sgl_util
   implicit none
-  call sglDisplaySub(Display) ! Éè¶¨´°¿Ú¸üĞÂÊ±µ÷ÓÃDisplay
-  ! ´ò¿ª»æÍ¼´°¿Ú, ×óÉÏ½ÇÎª(100,100), ¿í¸ßÍ¬Îª400
+  call sglDisplaySub(Display) ! è®¾å®šçª—å£æ›´æ–°æ—¶è°ƒç”¨Display
+  ! æ‰“å¼€ç»˜å›¾çª—å£, å·¦ä¸Šè§’ä¸º(100,100), å®½é«˜åŒä¸º400
   call sglCreateWindow(100,100,400,400,0)
-  ! ½øÈëµÈ´ıĞÅÏ¢µÄÑ­»·
+  ! è¿›å…¥ç­‰å¾…ä¿¡æ¯çš„å¾ªç¯
   call sglMainLoop()
   stop
 end program
