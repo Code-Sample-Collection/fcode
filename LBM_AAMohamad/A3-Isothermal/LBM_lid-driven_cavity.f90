@@ -1,16 +1,16 @@
 ! A.3 P141 The LBM Code for a lid-driven cavity
 ! computer code for lid-driven cavity
-program lid_driven ! main program
+program LBM_lid_driven ! main program
 parameter (n=100,m=100)
 real f(0:8,0:n,0:m)
 real feq(0:8,0:n,0:m),rho(0:n,0:m)
 real w(0:8), cx(0:8),cy(0:8)
 real u(0:n,0:m), v(0:n,0:m)
 integer i
-open(2,file='lid-driven-uvfield.result')
-open(3,file='lid-driven-uvely.result')
-open(4,file='lid-driven-vvelx.result')
-open(8,file='lid-driven-timeu.result')
+open(2,file='lbm_lid-driven-uvfield.result')
+open(3,file='lbm_lid-driven-uvely.result')
+open(4,file='lbm_lid-driven-vvelx.result')
+open(8,file='lbm_lid-driven-timeu.result')
 !
 uo=0.10
 sumvelo=0.0
@@ -75,7 +75,7 @@ END DO ! end of the main loop
 call result(u,v,rho,uo,n,m)
 
 stop
-end program lid_driven
+end program LBM_lid_driven
 ! end of the main program
 
 
@@ -193,7 +193,7 @@ end
 subroutine result(u,v,rho,uo,n,m)
 real u(0:n,0:m),v(0:n,0:m)
 real rho(0:n,0:m),strf(0:n,0:m)
-open(5, file='lid-driven-streamf.result')
+open(5, file='lbm_lid-driven-streamf.result')
 
 ! streamfunction calculations
 strf(0,0)=0.
