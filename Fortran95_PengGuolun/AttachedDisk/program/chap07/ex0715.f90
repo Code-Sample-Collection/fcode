@@ -4,7 +4,7 @@ implicit none
   integer :: a(max) ! 先声明一个超大的数组
   integer :: students
   integer :: i
-    
+
   write(*,*) "How many students:"
   read(*,*) students
 

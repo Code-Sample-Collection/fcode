@@ -83,7 +83,7 @@ implicit none
   ! 用索引值的方法来设定颜色
   result=SetColor(2)   ! 默认的2号是应该是绿色
   call MoveTo(10,20,t) ! 移动画笔到窗口的(10,20)
-  
+
   ! 使用全彩RGB 0-255的256种色阶来设定颜色
   color=RGBToInteger(255,0,0)		! 把控制RGB的三个值转换到color中
   result=SetColorRGB(color)			! 利用color来设定颜色

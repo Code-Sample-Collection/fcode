@@ -2,7 +2,7 @@ program ex0513
 implicit none
   real a,b,ans
   character operator
-  
+
   read(*,*) a
   read(*,"(A1)") operator ! 不使用格式有些机器会读不到除号"/" 
   read(*,*) b

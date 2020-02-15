@@ -6,7 +6,7 @@ program ex0904
 
   write(*,*) "filename:"
   read(*,"(A20)") filename
-  
+
   inquire(file=filename, exist=alive)
   if( alive ) then
     open( unit=fileid, file=filename )

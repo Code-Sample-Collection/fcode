@@ -30,7 +30,7 @@ contains
 	type(vector2i), intent(in)  :: b
 	a = vector2f( real(b%x), real(b%y) )
   end subroutine
-  
+
   function vector2f_add_vector2f(a,b)
     type(vector2f), intent(in) :: a,b
 	type(vector2f) :: vector2f_add_vector2f
@@ -67,7 +67,7 @@ module utility
   implicit none
 
 contains
-  
+
   function SetLine(a,b)
     type(vector2f) :: a,b
 	type(line) :: SetLine
@@ -103,12 +103,12 @@ contains
   integer function ccw(a,b,c)
     type(vector2f) :: a,b,c
 	real dx1, dy1, dx2, dy2
-	
+
 	dx1=b%x - a%x;
 	dy1=b%y - a%y;
 	dx2=c%x - a%x;
 	dy2=c%y - a%y;
-	
+
 	if ( dx1*dy2>dy1*dx2 ) then
 	  ccw = 1
 	  return;
@@ -128,7 +128,7 @@ contains
 	  ccw = 1;
 	  return
 	end if
-    
+
 	ccw = 0
   end function
 
@@ -178,7 +178,7 @@ contains
       y1hi=y2
 	  y1lo=y1
 	end if
-	
+
 	if( By > 0 )  then
 	  if( y1hi < y4 .or. y3 < y1lo) return
 	else 
@@ -189,7 +189,7 @@ contains
 	Cy = y1-y3
 	d = By*Cx - Bx*Cy  ! alpha numerator
 	f = Ay*Bx - Ax*By  ! both denominator
-	
+
   ! alpha tests
 	if( f>0 ) then
 	  if( d<0 .or. d>f ) return
@@ -218,7 +218,7 @@ contains
 
 	return
   end function
-  
+
   real function distance( l, point )
     type(line) :: l
 	type(vector2f) :: point
@@ -237,7 +237,7 @@ contains
 	temp = 1.0 - cosvalue*cosvalue
 	if ( temp<0.0 ) temp=0.0
 	sinvalue = sqrt(temp)
-	
+
 	if ( cosvalue>0 ) then
 	  temp = vblength*cosvalue
 	  if ( temp<=valength ) then
@@ -249,7 +249,7 @@ contains
 	  distance = vblength
 	end if
   end function 
-  
+
   real function LineDistance( line1, line2 )
     type(line) :: line1, line2
 	LineDistance = min( distance(line1,line2%a),&

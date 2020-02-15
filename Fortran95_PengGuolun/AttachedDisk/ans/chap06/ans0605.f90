@@ -3,7 +3,7 @@ program main
   integer, parameter :: length = 79
   character(len=length) :: input, output
   integer i,j
-  
+
   write(*,*) "请输入一个字串"
   read(*,"(A79)") input
   j=1
@@ -13,8 +13,8 @@ program main
 	  j=j+1
 	end if
   end do
-  
+
   write(*,"(A79)") output
-  
+
   stop
 end program

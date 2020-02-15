@@ -19,7 +19,7 @@ program BINARY_SEARCH_DEMO
   else
     write(*,*) "Not found"
   end if
-  
+
   stop
 end program
 !

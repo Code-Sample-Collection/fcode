@@ -24,7 +24,7 @@ program ex0908
     write(*,*) trim(filename)," doesn't exist."
 	stop
   end if
-  
+
   open(unit=fileid, file=filename)
   do while(.true.)
     if ( GetNextPlayer(fileid, p%name) ) then
@@ -70,7 +70,7 @@ logical function GetNextPlayer(fileid, name)
 
   do while(.true.)
     read(fileid,"(A80)",iostat=error) title
-	
+
 	if ( error/=0 ) then ! 文件中已经没有数据了
 	  GetNextPlayer = .false.
 	  return

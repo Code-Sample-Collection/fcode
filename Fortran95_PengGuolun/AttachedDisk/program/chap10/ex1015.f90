@@ -71,7 +71,7 @@ program ex1015
   type(datalink), pointer :: item, p
   integer, parameter :: s=5
   integer :: i,n,error
-  
+
   allocate(head)
   head = datalink(1, null(), null() )
   ! 建立链表
@@ -85,7 +85,7 @@ program ex1015
 	p%next=datalink(i, p, null())
 	p=>p%next
   end do
-  
+
   write(*,*) "拿掉第3条数据"
   call delitem(head%next%next)
   call outputlist(head)

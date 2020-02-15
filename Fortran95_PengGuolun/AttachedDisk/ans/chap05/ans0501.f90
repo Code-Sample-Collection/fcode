@@ -2,7 +2,7 @@ program main
   implicit none
   integer money
   real    tax
-  
+
   write(*,*) "请输入月收入"
   read(*,*) money
 

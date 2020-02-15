@@ -94,7 +94,7 @@ void DDUseFont(char *name, int width, int height)
 {
 	int charset = name[0]>0 ? DEFAULT_CHARSET : CHINESEBIG5_CHARSET;
 	if ( g_font ) DeleteObject(g_font);
-	
+
     g_font = CreateFont(height, width,
         0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
         charset,
@@ -220,7 +220,7 @@ BOOL DDInputInit(void)
 		RELEASE(g_ddraw.m_pDI);
 		return FALSE;
 	}
-	
+
 	IDirectInputDevice7_Acquire(g_ddraw.m_pKeyboard);
 
 	return TRUE;
@@ -234,7 +234,7 @@ BOOL DDReadKeyboard(void)
 
     if( g_ddraw.m_pKeyboard == NULL ) 
         return FALSE;
-    
+
     // Get the input's device state, and put the state in dims
     ZeroMemory( keyboardbuffer, sizeof(keyboardbuffer) );
     hr = IDirectInputDevice7_GetDeviceState( 
@@ -275,7 +275,7 @@ BOOL DDFullScreen(HWND hWnd, int width, int height, int bpp, int doublebuffer)
 		bpp = GetDeviceCaps(hdc,BITSPIXEL);
 		ReleaseDC(hWnd, hdc);
 	}
-	
+
 	ZeroMemory(&g_ddraw, sizeof(g_ddraw) );
 	g_ddraw.m_Color = 0xffffffff;
 	sgl.Width = g_ddraw.m_FrontBuffer.width  = width;
@@ -285,7 +285,7 @@ BOOL DDFullScreen(HWND hWnd, int width, int height, int bpp, int doublebuffer)
 	g_ddraw.fpsX = 10;
 	g_ddraw.fpsY = 5;
 	g_ddraw.m_FrontBuffer.surface = g_ddraw.m_BackBuffer.surface = NULL;
-	
+
     ddrval = DirectDrawCreate(NULL,&DDraw,NULL);
     if( ddrval != DD_OK )
     {
@@ -385,7 +385,7 @@ BOOL DDWindow( HWND hWnd, int doublebuffer )
 
 	if ( DDReady() )
 		DDRelease();
-	
+
 	GetClientRect(hWnd, &rect);
 	ZeroMemory(&g_ddraw, sizeof(g_ddraw) );
 	g_ddraw.m_Color = 0xffffffff;
@@ -738,7 +738,7 @@ void DDDrawFilledRect( int x0, int y0, int x1, int y1 )
 	ZeroMemory(&ddbltfx, sizeof(ddbltfx));
 	ddbltfx.dwSize = sizeof(ddbltfx);
 	ddbltfx.dwFillColor = g_ddraw.m_Color;
-	
+
 	RESTORE( g_ddraw.m_pTargetBuffer->surface );
 	result = g_ddraw.m_pTargetBuffer->surface->lpVtbl->Blt(
 		g_ddraw.m_pTargetBuffer->surface, &rect, 
@@ -773,7 +773,7 @@ void DDGetBuffer(void *buffer, int x, int y, int width, int height)
 
 	x+=rect.left;
 	y+=rect.top;
-	
+
 	for ( py=y; py<y+height; py++ )
 	{
 		proc = src + py*g_ddraw.m_pTargetBuffer->Pitch + 

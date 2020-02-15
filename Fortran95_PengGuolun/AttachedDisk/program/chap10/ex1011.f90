@@ -12,7 +12,7 @@ program ex1011
   type(datalink), target  :: node1,node2,node3
   type(datalink), pointer :: p
   integer :: i
-  
+
   p=>node1
   node1%i=1
   node1%next=>node2

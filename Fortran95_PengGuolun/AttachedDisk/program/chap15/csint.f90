@@ -7,7 +7,7 @@ program main
   real, parameter :: xmin = -5.0, xmax = 5.0
   real xinc, xp, value
   integer I
-  
+
   xinc = (xmax-xmin)/(NDATA-1)
   xp = xmin
   do I=1, NDATA

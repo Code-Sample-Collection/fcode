@@ -1,6 +1,6 @@
 program main
   implicit none
-  
+
   call bar(3)
   call bar(10)
 

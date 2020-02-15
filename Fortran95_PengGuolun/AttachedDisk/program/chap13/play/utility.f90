@@ -4,12 +4,12 @@ module typedef
   type vector2f
     real x,y
   end type
-  
+
   type line
     type(vector2f) :: a,b
 	type(vector2f) :: vector
   end type
-  
+
   interface operator(+)
     module procedure vector2f_add_vector2f
   end interface
@@ -28,7 +28,7 @@ module typedef
   end interface
 
 contains
-  
+
   function vector2f_add_vector2f(a,b)
     type(vector2f), intent(in) :: a,b
 	type(vector2f) :: vector2f_add_vector2f

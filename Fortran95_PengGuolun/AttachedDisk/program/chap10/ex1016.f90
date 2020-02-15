@@ -3,7 +3,7 @@ module linklist
     integer :: num
 	integer :: Chinese, English, Math, Science, Social
   end type
-  
+
   type datalink
     type(student) :: item
     type(datalink), pointer :: next
@@ -47,7 +47,7 @@ program ex1016
     write(*,*) "Open file fail!"
 	stop
   end if
-  
+
   allocate(head)
   nullify(head%next)
   p=>head
@@ -84,6 +84,6 @@ program ex1016
 	end if
   end do
   write(*,"('座号',I3,'不存在, 程序结束.')") i
-  
+
   stop
 end program

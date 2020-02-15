@@ -5,7 +5,7 @@ implicit none
   real :: B(M,N) = (/ 1,2,3,4,5,6,7,8 /)
   real :: C(L,N)
   integer :: i,j,k
-  
+
   do i=1,L
     do j=1,N
 	  C(i,j) = 0.0
@@ -14,7 +14,7 @@ implicit none
       end do
 	end do
   end do
-  
+
   do i=1,L
     write(*,*) C(i,:)
   end do

@@ -6,7 +6,7 @@ program ex0910
   real    hit
   integer error
   logical alive
-  
+
   inquire(file=filename, exist=alive)
   if ( .not. alive ) then
     write(*,*) trim(filename)," doesn't exist."

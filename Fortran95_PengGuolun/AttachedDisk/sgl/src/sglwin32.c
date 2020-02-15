@@ -108,7 +108,7 @@ WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 				DDWindow(hwnd, sgl.DoubleBuffer);
 			}
 			break;
-	
+
         case WM_SIZE:
 			sgl.Width  = LOWORD(lParam);
 			sgl.Height = HIWORD(lParam);
@@ -124,7 +124,7 @@ WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if ( _sglWinMoveFunc ) _sglWinMoveFunc( x, y );
 			if ( _sglWinMoveSub  ) _sglWinMoveSub ( &x, &y );
 			break;
-		
+
 		case WM_TIMER:
 			if ( SGL_TIMERID == wParam )
 			{
@@ -157,12 +157,12 @@ WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if ( _sglKeyUpFunc ) _sglKeyUpFunc(wParam);
 			if ( _sglKeyUpSub  ) _sglKeyUpSub (&wParam);
 			break;
-		
+
 		case WM_CHAR:
 			if ( _sglGetCharFunc ) _sglGetCharFunc( wParam );
 			if ( _sglGetCharSub  ) _sglGetCharSub ( &wParam );
 			break;
-		
+
 		case WM_MOUSEMOVE:
 			x = (int)(short) LOWORD(lParam);    
 			y = (int)(short) HIWORD(lParam);		
@@ -269,7 +269,7 @@ void Win32FullScreen(int width, int height, int bpps, int doublebuffer)
 	g_hwnd = hwnd;
 	if (hwnd == NULL)
 		return;
-	
+
 	DDFullScreen(hwnd, width, height, bpps, doublebuffer);
 	ShowWindow(hwnd, TRUE);
 	UpdateWindow(hwnd);
@@ -286,7 +286,7 @@ void Win32CreateWindow(int cx, int cy, int width, int height, int doublebuffer)
 	HINSTANCE   hinstance;
 	DWORD		wstyle = 0;
 	RECT        rect;
-	
+
 	wc.style = CS_OWNDC | CS_HREDRAW | CS_VREDRAW;
 	wc.lpfnWndProc = WndProc;
 	wc.cbClsExtra = 0;

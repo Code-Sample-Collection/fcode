@@ -32,7 +32,7 @@ C       用字符串来设定输出格式
         DO I=1,N
           WRITE( *, FMT=FOR ) (A(I,J),J=1,N)
         END DO
-                
+
         RETURN
         END
 C

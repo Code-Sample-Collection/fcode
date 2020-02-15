@@ -21,7 +21,7 @@ real function Angle_TO_Rad( angle )
   real, parameter :: pi=3.14159
 
   Angle_TO_Rad = angle*pi/180.0
-  
+
   return
 end
 ! 由角度、切线速度来计算投射距离

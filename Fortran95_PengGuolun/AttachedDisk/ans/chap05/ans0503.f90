@@ -25,7 +25,7 @@ program main
       tax = 0.10
     end if
   end if
-  
+
   write(*,"(' 税金为 'I8)") nint(money*tax)
 
 end program

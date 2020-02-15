@@ -7,7 +7,7 @@ module utility
   end interface
 
 contains
-  
+
   real function CircleArea(r)
     real, parameter :: PI=3.14159
     real r

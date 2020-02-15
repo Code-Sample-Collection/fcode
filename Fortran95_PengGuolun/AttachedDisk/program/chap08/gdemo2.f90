@@ -1,7 +1,7 @@
 program gdemo2
   use TextGraphLib
   implicit none
-  
+
   call SetScreen( 20, 20 )
   call SetCurrentChar('o')       ! 改用o来作为填充字符
   call DrawCircle( 8, 4 , 3, 4)  ! 画圆

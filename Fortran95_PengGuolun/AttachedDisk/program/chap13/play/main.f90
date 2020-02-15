@@ -9,6 +9,6 @@ program main
   call InitGame()
   call sglIdleSub(OnIdle)
   call sglMainLoop()
-  
+
   stop
 end program

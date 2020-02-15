@@ -30,7 +30,7 @@ implicit none
   logical(kind=4) :: result
   type(qwinfo) :: qw
   external PlotSin,PlotCos  
-  
+
   ! 设定整个窗口程序一开始出现的位置及大小
   qw.type=QWIN$SET
   qw.x=0
@@ -112,7 +112,7 @@ implicit none
   ! 用索引值的方法来设定颜色
   result=SetColor(2)   ! 默认的2号是应该是绿色
   call MoveTo(10,20,t) ! 移动画笔到窗口的(10,20)
-  
+
   ! 使用全彩RGB 0-255的256种色阶来设定颜色
   color=RGBToInteger(255,0,0)		! 把控制RGB的三个值转换到color中
   result=SetColorRGB(color)			! 利用color来设定颜色
@@ -125,7 +125,7 @@ implicit none
   step=(X_End-X_Start)/lines		! 计算小线段间的X间距
   ! 参数#FF0000是使用16进制的方法来表示一个整数
   result=SetColorRGB(#FF0000)		 
-  
+
   ! 开始绘制小线段们
   do x=X_Start,X_End-step,step
     y=func(x)		! 线段的左端点
@@ -134,7 +134,7 @@ implicit none
 	call MoveTo_W(x,y,wt)
 	result=LineTo_W(NewX,NewY)
   end do
-  
+
   ! 设定程序结束后,窗口会继续保留
   result=SetExitQQ(QWIN$EXITPERSIST)
 end subroutine Draw_Func

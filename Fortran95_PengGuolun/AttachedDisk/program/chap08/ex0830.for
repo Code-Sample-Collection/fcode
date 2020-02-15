@@ -6,7 +6,7 @@
 	WRITE(*,*) 'N='
 	READ (*,*) n
 	WRITE(*, "(I2,'! = ',I8)" ) n, fact(n)
-	
+
 	STOP
 	END
 
@@ -14,9 +14,9 @@
 	IMPLICIT NONE
 	INTEGER fact
 	INTEGER n
-	
+
 	ifact = fact(n)
-	
+
 	RETURN
 	END
 

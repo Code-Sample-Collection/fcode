@@ -34,7 +34,7 @@ contains
     real distance
 
 	BallPos = vector2f(real(BoundX + BallRadius), SY/2.0)
-  
+
 	call random_number(BallSpeed)
 	BallSpeed = BallSpeed*InitSpeed/2.0 + InitSpeed/2.0
 
@@ -42,7 +42,7 @@ contains
 	call random_number(BallDir%y)
 	BallDir%x = (BallDir%x-0.5)
 	BallDir%y = (BallDir%y-0.5)
-	
+
 	if ( abs(BallDir%y)<0.1 ) BallDir%y=0.1
 	distance = normalize(BallDir)
   end subroutine
@@ -107,7 +107,7 @@ contains
 	integer, parameter :: AIHitBall = 1, AIGoBack = 2
 	integer :: AIMode
     real :: DefenceRange 
-	
+
 	if ( ComputerScore>=PlayerScore ) then
 	  speedup = 1.0
 	else
@@ -139,12 +139,12 @@ contains
 	  length = normalize(vec)
 	  !if ( length<fHitRange*3.0 ) speed = speed*2.0
 	end select
-	
+
 	if ( length>BatRadius ) then
       ComputerPos%x = ComputerPos%x + vec%x * speed * fTickTime
       ComputerPos%y = ComputerPos%y + vec%y * speed * fTickTime
 	end if
-	
+
 	if ( ComputerPos%x < bx ) ComputerPos%x=bx
 	if ( ComputerPos%x > SX-bx ) ComputerPos%x=SX-bx
 	if ( ComputerPos%y < by ) ComputerPos%y=by
@@ -176,7 +176,7 @@ contains
 	  newpos%x = SX-BoundX-BallRadius
 	  BallDir%x = -BallDir%x
 	end if
-	
+
 	if ( (newpos%y-BallRadius) < BoundY ) then
 	  BallSpeed = BallSpeed * HitDecay
 	  newpos%y = BoundY+BallRadius
@@ -200,7 +200,7 @@ contains
 	  ComputerScore = ComputerScore+1
 	  call NewBall()
 	end if
-	
+
   end subroutine
   ! 检查是否有打到球
   logical function Hit(Speed, PlayerMove, BallMove)
@@ -262,7 +262,7 @@ contains
 	real :: length
 
 	ballmove = SetLine(ballpos, newpos)
-	
+
 	select case(who)
 	case(1) 
 	  ! Check for player  
@@ -287,17 +287,17 @@ contains
     ThisTime = sglGetInfo(SGL_TIME)
 	fTickTime = (ThisTime-LastTime)/1000.0
 	if ( fTickTime<0.01 ) return
-	    
+
 	PlayerDir = PlayerPos - PrevPlayerPos
 	move = normalize(PlayerDir)
 	PlayerSpeed = move/fTickTime
-	
+
 	call ComputerMove()
 
 	ComputerDir = ComputerPos - PrevComputerPos
 	move = normalize(ComputerDir)
 	ComputerSpeed = move/fTickTime
-	
+
 	call BallMove()
     call display()
 	BallSpeed = BallSpeed - decay*fTickTime

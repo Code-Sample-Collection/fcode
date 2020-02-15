@@ -25,7 +25,7 @@ implicit none
 	  read(*,*) matrixB(r,c)
 	end do
   end do
-  
+
   ! 把矩阵A,B相加并输出结果
   write(*,*) "Matrix A+B="
   do r=1, row

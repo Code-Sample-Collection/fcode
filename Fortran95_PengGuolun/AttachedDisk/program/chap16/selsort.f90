@@ -8,7 +8,7 @@ program SELECTION_SORT_DEMO
   write(*,"('Source=>',10I3)") A
   call SELECTION_SORT(A,N)      ! 调用排序的子程序
   write(*,"('Sort=>',10I3)") A
-  
+
   stop
 end program
 !
@@ -32,7 +32,7 @@ subroutine SELECTION_SORT(A,N)
       end if
 	end do
   end do
-                              
+
   return
 end subroutine                
-        
+

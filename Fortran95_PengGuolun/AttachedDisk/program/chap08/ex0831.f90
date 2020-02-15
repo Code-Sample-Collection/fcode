@@ -10,7 +10,7 @@ program  ex0831
 	recursive integer function fact(n) result(ans)
 	  implicit none
 	  integer , intent(in) :: n
-  
+
 	  if ( n < 0 ) then ! 不合理的输入
 		ans = -1        ! 随便设定一个值
 		return          ! n不合理, 直接return 

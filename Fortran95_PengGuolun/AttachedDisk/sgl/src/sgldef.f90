@@ -158,7 +158,7 @@ module sgl
   integer, parameter :: KEY_MAIL = 236
   integer, parameter :: KEY_MEDIASELECT = 237
 
-  
+
   interface
   subroutine sglCreateWindow(x, y, width, height, doublebuffer)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglCreateWindow' :: sglCreateWindow
@@ -168,7 +168,7 @@ module sgl
   !DEC$ ATTRIBUTES C, ALIAS:'_sglFullScreen' :: sglFullScreen
     integer x,y,bpps,doublebuffer
   end subroutine
-  
+
   subroutine sglSetVirtual(left,top,right,bottom)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglSetVirtual' :: sglSetVirtual
     real left,top,right,bottom
@@ -203,7 +203,7 @@ module sgl
   !DEC$ ATTRIBUTES C, REFERENCE, ALIAS:'_fsglSetTitle' :: sglSetTitle
     character(len=*) :: str
   end subroutine
-  
+
   subroutine sglUseFont(str, w, h)
   !DEC$ ATTRIBUTES C, REFERENCE, ALIAS:'_fsglUseFont' :: sglUseFont
     character(len=*) :: str
@@ -269,7 +269,7 @@ module sgl
   !DEC$ ATTRIBUTES C, ALIAS:'_sglGetCharSub' :: sglGetCharSub
   external sub
   end subroutine
-  
+
   subroutine sglMouseMoveSub(sub)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglMouseMoveSub' :: sglMouseMoveSub
   external sub
@@ -297,7 +297,7 @@ module sgl
   !DEC$ ATTRIBUTES C, ALIAS:'_sglColor' :: sglColor
   integer :: color
   end subroutine
-  
+
   subroutine sglClearColor3f(r,g,b)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglClearColor3f' :: sglClearColor3f
   real r,g,b

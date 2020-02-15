@@ -44,5 +44,5 @@ subroutine SHELL_SORT(A,N)
 
   return
 end subroutine
-                
-        
+
+

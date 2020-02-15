@@ -7,7 +7,7 @@ program ex0909
   integer count
   integer error
   logical alive
-  
+
   write(*,*) "Input Filename:"
   read(*,"(A80)") inputfile
   write(*,*) "Output Filename:"
@@ -18,7 +18,7 @@ program ex0909
     write(*,*) trim(inputfile)," doesn't exist."
 	stop
   end if
-  
+
   open(unit=inputfileid, file=inputfile, status="old")
   open(unit=outputfileid, file=outputfile, status="replace")
   count = 1

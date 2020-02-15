@@ -77,7 +77,7 @@ subroutine PutChar( x, y, char )
 
   if ( .not. allocated(screen) ) return
   if ( x<1 .or. x>ScreenWidth .or. y<1 .or. y>ScreenHeight ) return
-  
+
   if( present(char) ) then
     screen(x,y) = char
   else
@@ -99,7 +99,7 @@ subroutine DrawLine(x0,y0, x1,y1)
 
   xdiff = x1-x0
   ydiff = y1-y0
-  
+
   if ( xdiff > 0 ) then
     xinc = 1
 	xadd = xdiff
@@ -171,8 +171,8 @@ subroutine DrawCircle( cx, cy, radiusA, radiusB )
     ra = radiusA
 	rb = radiusA
   end if
-  
-  
+
+
   x = cx + int(ra*sin(r)+0.5)
   y = cy + int(rb*cos(r)+0.5)
   do while( r < 2*PI )
@@ -222,7 +222,7 @@ subroutine DrawFilledRect( x0, y0, x1, y1 )
   implicit none
   integer, intent(in) :: x0, y0, x1,y1
   integer :: rx0, ry0, rx1, ry1
-  
+
   if ( .not. allocated(screen) ) return
   if ( x0>x1 .or. y0>y1 ) return
 

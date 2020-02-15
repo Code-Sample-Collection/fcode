@@ -23,7 +23,7 @@ void main(void)
 {
 	char str[] = "Hello";
 	person p = { 20, 70.0f, 170.0f };
-	
+
 	getinteger( 3 );
 	getstring( str, strlen(str) );
 	getperson( p );

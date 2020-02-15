@@ -10,7 +10,7 @@ contains
 	money=money-num
 	return
   end subroutine
-  
+
   subroutine SaveMoney(num)
     implicit none
 	integer :: num

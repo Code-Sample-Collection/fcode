@@ -1,7 +1,7 @@
 program main
   use GAME
   implicit none
-  
+
   call sglDisplaySub(display)
   call sglKeyDownSub(keydown)
   call sglIdleSub(OnIdle)

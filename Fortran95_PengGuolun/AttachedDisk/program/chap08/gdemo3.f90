@@ -2,7 +2,7 @@ program gdemo3
   use TextGraphLib
   implicit none
   integer i
-  
+
   call SetScreen(70,24)
   call ClearScreen()
   ! 画脸
@@ -20,6 +20,6 @@ program gdemo3
   call DrawLine( 30, 18, 38, 18 )
   ! 把画图的结果显示到屏幕上
   call UpdateScreen()
-  
+
   stop
 end

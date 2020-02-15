@@ -41,7 +41,7 @@ Contains
 
 	result=SetActiveQQ(iunit)		! 把绘图动作设定在鼠标所在窗口上
     call ClearScreen($GCLEARSCREEN)	! 清除整个屏幕
-    
+
 	return
   end subroutine    
 end module

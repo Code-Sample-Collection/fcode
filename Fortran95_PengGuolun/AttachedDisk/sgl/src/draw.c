@@ -178,7 +178,7 @@ void draw_ellipse(int x, int y, int rx, int ry, void (*pixel)(int,int) )
 	int ix, iy;
 	int h, i, j, k;
 	int oh, oi, oj, ok;
-	
+
 	if (rx < 1) rx = 1;
 	if (ry < 1) ry = 1;
 

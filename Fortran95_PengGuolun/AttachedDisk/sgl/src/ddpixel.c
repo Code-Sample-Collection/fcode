@@ -168,7 +168,7 @@ int SetPixelFunc(void)
 void DDGetPixel(int x, int y, int *r, int *g, int *b)
 {
 	OUT_RANGE(x,y);
-	
+
 	current_pointer = g_ddraw.m_pTargetBuffer->pointer + 
 		      g_ddraw.m_pTargetBuffer->pointeroffset +
 		      y * g_ddraw.m_pTargetBuffer->Pitch + 

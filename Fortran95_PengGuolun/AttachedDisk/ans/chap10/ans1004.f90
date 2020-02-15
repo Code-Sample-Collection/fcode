@@ -36,7 +36,7 @@ program ex1012
     write(*, "(i5)" ) p%i
     p=>p%next
   end do
-  
+
   ! 释放链表的存储空间
   p=>head
   do while(associated(p))

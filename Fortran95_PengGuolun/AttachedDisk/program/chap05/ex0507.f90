@@ -2,7 +2,7 @@ program ex0507
 implicit none
   integer score
   character grade
-	
+
   write(*,*) "Score:"
   read(*,*)  score
 

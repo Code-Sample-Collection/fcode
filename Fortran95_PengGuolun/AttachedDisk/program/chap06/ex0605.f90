@@ -8,7 +8,7 @@ implicit none
     write(*,*) "Weight:"
     read(*,*) guess
   end do
-  
+
   write(*,*) "You're right"
 
   stop

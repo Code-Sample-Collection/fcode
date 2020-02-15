@@ -7,7 +7,7 @@
 Visual Fortran中提供了很多让FORTRAN跟操作系统通信的函数，这些函数都封装在MODULE DFPORT中。调用这些函数前，请先确认程序代码中有使用USE DFPORT这一行命令。
 
 + `integer(4) function IARGC()`
-    
+
     返回执行时所传入的参数个数
 
 + `subroutine GETARG(n, buffer)`

@@ -50,7 +50,7 @@ subroutine add( n )
     write(*,"(': new')")
     return
   end if
-  
+
   action=>tree
 
   do while( .true. )
@@ -133,7 +133,7 @@ program main
   use bin_tree
   implicit none
   integer num
-  
+
   do while(.true.)
     write(*,*) "请输入整数, 输入0代表结束"
     read(*,*) num

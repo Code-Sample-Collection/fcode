@@ -33,7 +33,7 @@ subroutine Gauss_Jordan(A,S,ANS,Row,Width)
   real    :: ANS(Row)
   real    :: B(Row,Width)
   real    :: i
-  
+
   ! 保存原先的矩阵A,及数组S
   B=A 
   ANS=S  

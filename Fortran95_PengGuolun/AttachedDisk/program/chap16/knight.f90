@@ -50,7 +50,7 @@ program knight
   data y_move /2,1,-1,-2,-2,-1, 1, 2/
   data board / total*0 /  ! 全设为0 ,代表都还没走过
   data sol /0/            ! 解的数目先设为0
-        
+
 ! 假设从棋盘的正中央开始走
   x_pos=(n+1)/2           
   y_pos=(n+1)/2           

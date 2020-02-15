@@ -5,7 +5,7 @@ program ex0911
   integer player
   real    hit
   integer error
-  
+
   open(unit=fileid, file=filename, access="direct",&
        form="formatted", recl=6, status="replace")
   do while(.true.)

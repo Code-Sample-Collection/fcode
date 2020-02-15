@@ -30,7 +30,7 @@ program main
   use sgl_util
   implicit none
   integer i
-  
+
   open(10, file="512x512.raw",&
        form="unformatted",access="direct",&
        recl=1,status="old")

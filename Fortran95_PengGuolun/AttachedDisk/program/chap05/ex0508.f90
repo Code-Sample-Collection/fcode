@@ -2,7 +2,7 @@ program ex0508
 implicit none
   real x,y
   integer ans
-  
+
   write(*,*) "Input (x,y)"
   read(*,*) x,y
 

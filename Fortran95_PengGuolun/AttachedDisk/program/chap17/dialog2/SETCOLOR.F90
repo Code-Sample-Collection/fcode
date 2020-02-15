@@ -36,7 +36,7 @@ implicit none
   result=AppendMenuQQ(1,$MENUENABLED,'&Exit'C,WINEXIT)
 
   result=AppendMenuQQ(2,$MENUENABLED,'&SetColor',SetColorDialog)
-  
+
   InitialSettings=result
   return
 end function
@@ -170,6 +170,6 @@ implicit none
   color=RGBToInteger(red,green,blue)
   result=SetColorRGB(color)
   result=Rectangle($GFILLINTERIOR,10,10,50,50)
-  
+
   return
 end subroutine 

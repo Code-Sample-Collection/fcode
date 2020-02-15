@@ -4,7 +4,7 @@ program main
   integer i
   real item
   real ans
-  
+
   ans = 1.0  
   item = 1.0
   do i=2,max

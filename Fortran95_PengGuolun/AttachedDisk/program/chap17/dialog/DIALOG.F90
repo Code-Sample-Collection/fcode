@@ -33,7 +33,7 @@ implicit none
   type(qwinfo) :: qw
   external PlotSin,PlotCos  
   external SetRange
-  
+
   ! 设定整个窗口程序一开始出现的位置及大小
   qw.type=QWIN$SET
   qw.x=0
@@ -41,7 +41,7 @@ implicit none
   qw.h=400
   qw.w=400
   result=SetWSizeQQ(QWIN$FRAMEWINDOW,qw) 
-  
+
   ! 组织第一组菜单
   result=AppendMenuQQ(1,$MENUENABLED,'&File'C,NUL)		 
   result=AppendMenuQQ(1,$MENUENABLED,'&Save'C,WINSAVE)   
@@ -132,10 +132,10 @@ implicit none
   ! 声明要使用代码为IDD_INPUT的对话窗, 并把显示这个对话窗的信息放
   ! 在dl中. 以后只要对dl来处理就等于对这个对话窗来工作
   result=DlgInit(IDD_INPUT, dl)
-    
+
   ! 下面要对dl所代表的对话窗中ID值为IDC_X_MIN来设定初值
   ! 也就是设定IDD_INPUT中X min栏的内容
-  
+
   ! 因为DlgSet无法使用read类型变量来设定,所以要先把它们转换成字符串
   write(str,'(f6.2)') OX_Start
   result=DlgSet(dl,IDC_X_MIN,str)
@@ -155,7 +155,7 @@ implicit none
   result=DlgSetSub(dl,IDC_RESET, ReSetRange)
   ! 到此才真正秀出对话窗
   result=DlgModal(dl)
-  
+
   if ( result==IDOK ) then
   ! 由字符串转成数值
     result=DlgGet(dl,IDC_X_MIN,str)
@@ -241,7 +241,7 @@ implicit none
   step=(X_End-X_Start)/lines		! 计算小线段间的X间距
   ! 参数#FF0000是使用16进制的方法来表示一个整数
   result=SetColorRGB(#FF0000)		 
-  
+
   ! 开始绘制小线段们
   do x=X_Start,X_End-step,step
     y=func(x)		! 线段的左端点
@@ -250,7 +250,7 @@ implicit none
 	call MoveTo_W(x,y,wt)
 	result=LineTo_W(NewX,NewY)
   end do
-  
+
   ! 设定程序结束后,窗口会继续保留
   result=SetExitQQ(QWIN$EXITPERSIST)
 end subroutine Draw_Func

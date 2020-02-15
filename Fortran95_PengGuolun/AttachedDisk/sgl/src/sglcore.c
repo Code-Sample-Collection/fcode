@@ -475,7 +475,7 @@ void sglArcV( float cx, float cy, float radius, float start, float end )
 	float rinc = (end-start)/(float)lines;
 	float r = start;
 	float x0,y0, x1,y1;
-	
+
 	x0 = cx+sglcos(r)*radius;
 	y0 = cy-sglsin(r)*radius;
 	r += rinc;

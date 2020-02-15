@@ -17,7 +17,7 @@ program ex1013
   node1 = datalink(1, null(), node2)
   node2 = datalink(2, node1 , node3)
   node3 = datalink(3, node2 , null())
-  
+
   write(*,*) "照顺序输出"
   p=>node1
   do while(.true.)

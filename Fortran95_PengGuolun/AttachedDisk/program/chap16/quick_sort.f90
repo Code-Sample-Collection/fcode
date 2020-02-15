@@ -5,7 +5,7 @@ implicit none
   integer, parameter :: N=10
   real :: B(N)
   integer :: A(N)
-  
+
   ! 用随机数来产生数列
   call random_seed()
   call random_number(B)
@@ -66,4 +66,4 @@ implicit none
   call Quick_Sort(A,N,R+1,E)
   return
 end subroutine Quick_Sort
-                
+

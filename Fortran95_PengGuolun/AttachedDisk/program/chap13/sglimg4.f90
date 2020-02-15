@@ -52,7 +52,7 @@ program main
   call sglDisplaySub(display)
   call sglEnableReshape(0)
   call sglCreateWindow(50,50,512,512,1)
-  
+
   call sglDisableColorKey()
   call sglPutRGBBuffer(mountain,0,0,512,512)
   call sglGetBuffer(mountain,0,0,512,512)

@@ -3,7 +3,7 @@ module linklist
     integer :: num
 	integer :: Chinese, English, Math, Science, Social
   end type
-  
+
   type datalink
     type(student) :: item
     type(datalink), pointer :: next
@@ -48,7 +48,7 @@ program ex1016
     write(*,*) "Open file fail!"
 	stop
   end if
-  
+
   allocate(head)
   nullify(head%next)
   p=>head
@@ -67,7 +67,7 @@ program ex1016
 	p=>p%next ! 移动到链表的下一个数据
 	nullify(p%next)
   end do
-  
+
   write(*,"('总共有',I3,'位学生')") size
   allocate( s(size) )
   p=>head
@@ -75,7 +75,7 @@ program ex1016
     s(i)=p%item
 	p=>p%next  
   end do
-  
+
   do while(.true.)
     write(*,*) "要查询几号同学的成绩?"
 	read (*,*) i
@@ -87,6 +87,6 @@ program ex1016
 				          "社会",s(i)%Social
   end do
   write(*,"('座号',I3,'不存在, 程序结束.')") i
-  
+
   stop
 end program

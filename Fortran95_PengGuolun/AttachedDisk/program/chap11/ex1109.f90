@@ -23,7 +23,7 @@ end module
 program main
   use NewGraphLib
   implicit none
-  
+
   call SetScreen(20,20)
   call ClearScreen()
   call DrawCircle(10,10,8)

@@ -8,7 +8,7 @@
 
 	DO 100, counter=2, limit, 2
 100	  ans = ans + counter
-      
+
 	WRITE(*,*) ans
 
 	STOP

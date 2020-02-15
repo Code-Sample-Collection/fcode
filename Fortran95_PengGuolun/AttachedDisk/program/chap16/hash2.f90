@@ -13,7 +13,7 @@ program hashing_search_demo
   hash(key) = key/10+1 ! 定义hash函数
 
   write(*,"('source=>',10I3)") source
-  
+
   a=0
   do i=1,n
     loc = hash( source(i) )

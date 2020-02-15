@@ -32,7 +32,7 @@ program ex1107
   use time_util
   implicit none
   type(time) :: a,b,c
-  
+
   a=time(1,45)
   b=time(2,18)
   c=a+b ! 实际会调用函数add

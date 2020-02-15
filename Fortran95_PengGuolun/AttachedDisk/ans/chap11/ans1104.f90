@@ -22,7 +22,7 @@ module vector_utility
     module procedure vector_dot_vector
   end interface
 contains
-  
+
   type(vector) function vector_add_vector(a,b)
     type(vector), intent(in) :: a,b
 	vector_add_vector = vector(a%x+b%x, a%y+b%y)
@@ -38,7 +38,7 @@ contains
 	type(vector), intent(in) :: b
 	real_mul_vector = vector( a*b%x, a*b%y )
   end function
-  
+
   type(vector) function vector_mul_real(a,b)
     type(vector), intent(in) :: a
     real, intent(in) :: b

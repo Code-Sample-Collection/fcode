@@ -3,7 +3,7 @@ program ex1006
   integer, pointer :: a(:,:) ! 定义a是2维的指针数组
   integer, target  :: b(3,3,2)
   integer i
-  
+
   forall( i=1:3 )
 	b(:,i,1)=i
 	b(:,i,2)=2*i

@@ -47,6 +47,6 @@ program main
 	write(*,"(I3)",advance="no") value
   end do
   write(*,*)
-  
+
   stop
 end program

@@ -43,7 +43,7 @@ contains
 	integer th, num
     real s, sum, coeff
 	integer f,i,j
-    
+
 	if ( th+num-1 > N ) then
 	  write(*,*) "数据点不足"
 	  return
@@ -98,7 +98,7 @@ program main
     interpolate(i)%y = newton(x,1,N) ! 插值出f(x)的值
 	x = x+xinc
   end do
-  
+
   call sglDisplaySub(display)
   call sglSetVirtual(xmin, 2.0, xmax, -2.0)
   call sglCreateWindow(100,100,400,400,1)

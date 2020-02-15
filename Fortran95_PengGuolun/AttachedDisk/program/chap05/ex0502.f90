@@ -7,7 +7,7 @@ implicit none
   read(*,*)   height     ! 读入身高
   write(*,*) "weight:"
   read(*,*)   weight     ! 读入体重
-	
+
   if ( weight > height-100 ) then 
     ! 如果体重大于身高减去100, 会执行下面的程序
     write(*,*) "Too fat!"

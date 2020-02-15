@@ -3,7 +3,7 @@ implicit none
   integer :: students
   integer, allocatable :: a(:) ! 声明一个可变大小的一维数组
   integer :: i
-    
+
   write(*,*) "How many students:"
   read(*,*) students
   allocate( a(students) ) ! 配置内存空间

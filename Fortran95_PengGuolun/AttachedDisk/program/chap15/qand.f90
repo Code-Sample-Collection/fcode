@@ -9,7 +9,7 @@ program main
   integer, parameter :: MAXFCN = 10000
   real errest, ans
   integer I,J, num
-  
+
   A = 0.0
   B = 1.0  
   CALL QAND (F, N, A, B, ERRABS, ERRREL, MAXFCN, ANS, ERREST)

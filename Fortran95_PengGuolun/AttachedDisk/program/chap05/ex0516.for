@@ -4,7 +4,7 @@
       INTEGER  I
       INTEGER  N
       DATA I,N /2,1/
-	
+
 	GOTO(10,20,30) I/N
 10    WRITE(*,*) 'I/N=1'
 	GOTO 100

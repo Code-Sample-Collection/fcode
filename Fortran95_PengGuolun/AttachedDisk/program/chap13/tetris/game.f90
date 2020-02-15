@@ -63,7 +63,7 @@ contains
 	integer i,j,bx,by
 
 	NextPosition = Block_Free
-	
+
 	do i=1,4
       by = y+i
 	  do j=1,4
@@ -192,7 +192,7 @@ contains
 						  MOVE_DOWN = 40,&
 						  MOVE_ROT  = 32
     integer oldindex, check
-    
+
 	call ClearBlock()
 
 	select case(key)
@@ -231,7 +231,7 @@ contains
 	    CurrentBlock%index = oldindex
 	  end select
 	end select
-	
+
 	call PutBlock()
   end subroutine
   ! 让方块自然向下落的函数
@@ -256,7 +256,7 @@ contains
 
     call sglColor3i(255,255,255)
     call sglRect(BoundX, BoundY, SX-BoundX, SY-BoundY)
-	
+
 	do y=1, BlocksY
 	  do x=1, BlocksX
 	    call DrawBlock(x,y,Board(x,y))
@@ -273,7 +273,7 @@ contains
     integer, parameter :: w = BX-GridSize*2
 	integer, parameter :: h = BY-GridSize*2
 	integer :: startx, starty
-	
+
 	if ( c==0 ) return
 
 	startx = (x-1)*BX + BoundX + GridSize

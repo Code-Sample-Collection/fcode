@@ -11,7 +11,7 @@ program main
   real, external :: f
   real :: X(NROOT)
   real :: XGUESS(NROOT) = (/ 1.0, 4.0 /)
-  
+
   call ZREAL (f, ERRABS, ERRREL, EPS, ETA, &
               NROOT, ITMAX, XGUESS, X, INFO)
   write(*,*) X

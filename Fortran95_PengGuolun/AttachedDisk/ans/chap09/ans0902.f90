@@ -10,7 +10,7 @@ program main
   write(*,*) "Filename:"
   read (*,"(A79)") filename
   inquire( file=filename, exist=alive)
-  
+
   if ( alive ) then
     open(unit=fileid, file=filename, &
 	     access="sequential", status="old")

@@ -1,6 +1,6 @@
 module GLOBAL
   implicit none
-  
+
   integer, parameter :: blocktype = 7
 
   type color3i
@@ -21,7 +21,7 @@ module GLOBAL
 	integer x,y, backup_x
 	integer :: db(4,4,4)
   end type
-  
+
   type(block), target, save :: blocks(blocktype)  
   !各种方块的形状信息
   integer, target :: b1(4,4,1) = (/ 0,0,0,0,& ! type 1
@@ -93,7 +93,7 @@ module GLOBAL
 									6,0,0,0,&
 									6,0,0,0,&
 									6,6,0,0,&
-									
+
 									0,0,0,0,& ! type 4
 									0,0,0,0,&
 									6,6,6,0,&
@@ -113,7 +113,7 @@ module GLOBAL
 									0,7,0,0,&
 									0,7,0,0,&
 									7,7,0,0,&
-									
+
 									0,0,0,0,& ! type 4
 									0,0,0,0,&
 									7,0,0,0,&

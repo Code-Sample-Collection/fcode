@@ -78,5 +78,5 @@ subroutine sort(s,n)
   forall(i=1:n)
     s(i)%rank = i
   end forall
-    
+
 end subroutine

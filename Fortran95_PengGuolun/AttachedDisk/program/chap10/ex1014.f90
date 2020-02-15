@@ -18,7 +18,7 @@ program ex1014
   node1 = datalink(1, node3, node2)
   node2 = datalink(2, node1, node3)
   node3 = datalink(3, node2, node1)
-  
+
   write(*,*) "从前向后输出"
   p=>node1
   do i=1,s

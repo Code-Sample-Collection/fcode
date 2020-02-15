@@ -13,7 +13,7 @@ recursive integer function fact(n) result(ans)
   integer , intent(in) :: n
   integer, save :: count = 1
   integer :: localcount, temp  ! 局部变量
-    
+
   localcount = count
   count = count+1
   write(6,"(I2,'th enter, n=',I2)") localcount, n

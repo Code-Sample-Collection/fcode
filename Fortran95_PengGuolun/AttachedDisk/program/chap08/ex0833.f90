@@ -1,6 +1,6 @@
 program  ex0833
   implicit none
-  
+
   interface  ! 说明函数func的使用接口
     elemental real function func(num)
 	implicit none

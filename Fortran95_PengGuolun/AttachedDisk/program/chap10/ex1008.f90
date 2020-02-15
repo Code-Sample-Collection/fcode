@@ -29,6 +29,6 @@ program ex1008
   p=>a(1:8:2)
   ! p(1)=>a(1), p(2)=>a(3), p(3)=>a(5), p(4)=>a(7)
   write(*,*) getmin(p)
-  
+
   stop
 end

@@ -37,7 +37,7 @@ contains
     close(fileid)
 	return
   end subroutine
-  
+
   subroutine SaveMoney(name,num)
     implicit none
 	character(len=*) :: name

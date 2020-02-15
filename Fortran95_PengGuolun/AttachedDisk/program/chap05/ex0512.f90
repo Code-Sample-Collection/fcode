@@ -20,7 +20,7 @@ implicit none
   case default ! 其它情形
     grade='?'
   end select
-  
+
   write(*,"('Grade:',A1)") grade
   stop
 end

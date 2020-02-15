@@ -7,7 +7,7 @@ implicit none
   read(*,"(A20)") str1
   write(*,*) "String 2:"
   read(*,"(A20)") str2
-  
+
   if ( str1>str2 ) then
     relation = '>'
   else if ( str1==str2 ) then
@@ -17,6 +17,6 @@ implicit none
   end if
 
   write(*,"('String1',A1,'String2')") relation
-    
+
   stop
 end

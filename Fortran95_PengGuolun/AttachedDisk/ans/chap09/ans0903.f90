@@ -25,7 +25,7 @@ program main
 	total%total = total%total+s%total
     write(*,"(7I10)") i, s
   end do
-  
+
   write(*,"(A10,6F10.3)") "平均", &
 						  real(total%chinese)/real(students),&
 						  real(total%english)/real(students),&

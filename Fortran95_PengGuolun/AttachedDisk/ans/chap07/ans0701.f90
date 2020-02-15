@@ -6,6 +6,6 @@ program main
   integer :: t
   ! sum()是fortran库函数  
   write(*,*) real(sum(a))/real(max)
-  
+
   stop
 end program
