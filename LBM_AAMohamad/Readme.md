@@ -1,6 +1,6 @@
-Lattice Boltzmann Method: Fundamentals and Engineering Applications with Computer Codes
+Lattice Boltzmann Method - A.A. Mohamad
 ========================
 
-> A.A.Mohamad
+> Fundamentals and Engineering Applications with Computer Codes
 
 fortran code from the book.
