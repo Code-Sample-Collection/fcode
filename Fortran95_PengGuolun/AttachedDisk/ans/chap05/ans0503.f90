@@ -10,7 +10,7 @@ program main
 
   if ( age<50 ) then
     if ( money<1000 ) then
-	    tax = 0.03
+      tax = 0.03
     else if ( money<5000 )then
       tax = 0.10
     else
@@ -18,7 +18,7 @@ program main
     end if
   else
     if ( money<1000 ) then
-	    tax = 0.5
+      tax = 0.5
     else if ( money<5000 )then
       tax = 0.7
     else
