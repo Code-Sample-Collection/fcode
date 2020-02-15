@@ -6,8 +6,8 @@ program main
 
   do i=1,max
     write(*,*) "请输入体重"
-	read(*,*) weight
-	if ( weight==answer ) exit
+    read(*,*) weight
+    if ( weight==answer ) exit
   end do
 
   if ( i<=max ) then
