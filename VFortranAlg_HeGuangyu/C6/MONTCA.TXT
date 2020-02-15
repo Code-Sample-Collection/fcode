@@ -1,0 +1,36 @@
+N=
+SW=0.0
+SWX=0.0
+SWY=0.0
+SWZ=0.0
+VARW=0.0
+VARX=0.0
+VARY=0.0
+VARZ=0.0
+IDUM=
+SS=0.2*(EXP(5.0)-EXP(-5.0))
+VOL=3.0*7.0*SS
+DO J=1,N
+    X=1.0+3.0*RAN2(IDUM)
+    Y=-3.0+7.0*RAN2(IDUM)
+    S=0.00135+SS*RAN2(IDUM)
+    Z=0.2*LOG(5.0*S)
+    IF (Z**2+(SQRT(X**2+Y**2)-3.0)**2 < 1.0) THEN
+        SW=SW+1.
+        SWX=SWX+X
+        SWY=SWY+Y
+        SWZ=SWZ+Z
+        VARW=VARW+1.
+        VARX=VARX+X**2
+        VARY=VARY+Y**2
+        VARZ=VARZ+Z**2
+    END IF
+END DO
+W=VOL*SW/N
+X=VOL*SWX/N
+Y=VOL*SWY/N
+Z=VOL*SWZ/N
+DW=VOL*SQRT((VARW/N-(SW/N)**2)/N)
+DX=VOL*SQRT((VARX/N-(SWX/N)**2)/N)
+DY=VOL*SQRT((VARY/N-(SWY/N)**2)/N)
+DZ=VOL*SQRT((VARZ/N-(SWZ/N)**2)/N)
