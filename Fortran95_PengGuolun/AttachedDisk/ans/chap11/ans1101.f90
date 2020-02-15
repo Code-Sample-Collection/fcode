@@ -3,7 +3,7 @@ module utility
 
   interface area
     module procedure CircleArea
-	module procedure RectArea
+    module procedure RectArea
   end interface
 
 contains
@@ -11,14 +11,14 @@ contains
   real function CircleArea(r)
     real, parameter :: PI=3.14159
     real r
-	CircleArea = r*r*PI
-	return
+    CircleArea = r*r*PI
+    return
   end function
 
   real function RectArea(a,b)
     real a,b
-	RectArea = a*b
-	return
+    RectArea = a*b
+    return
   end function
 
 end module
