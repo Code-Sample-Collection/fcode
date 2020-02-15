@@ -4,7 +4,7 @@ implicit none
 type :: person 
   character(len=30) :: name ! 人名
   integer  ::  age          ! 年龄
-  integer  ::  height       ! 身高			
+  integer  ::  height       ! 身高
   integer  ::  weight       ! 体重
   character(len=80) :: address ! 地址
 end type person

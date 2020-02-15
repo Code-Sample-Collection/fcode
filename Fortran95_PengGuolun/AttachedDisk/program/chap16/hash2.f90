@@ -18,14 +18,14 @@ program hashing_search_demo
   do i=1,n
     loc = hash( source(i) )
     do while(.true.)
-	  if ( a(loc)==0 ) then
-	    a(loc)=i
-		exit
-	  else
-	    loc=loc+1
-		if ( loc>n ) loc=1
-	  end if
-	end do
+      if ( a(loc)==0 ) then
+        a(loc)=i
+        exit
+      else
+        loc=loc+1
+        if ( loc>n ) loc=1
+      end if
+    end do
   end do
 
   write(*,*) 'input key:'
@@ -33,16 +33,16 @@ program hashing_search_demo
 
   loc = hash(key)
   do i=1,N
-	if ( a(loc)==0 ) then
-	  write(*,*) "Not found."
-	  exit
-	else if ( source( a(loc) )==KEY ) then
-	  write(*,"('Source(',I2,' )=',I3)") a(loc), key
-	  exit
-	else
-	  loc=loc+1
-	  if ( loc>n ) loc=1
-	end if
+    if ( a(loc)==0 ) then
+      write(*,*) "Not found."
+      exit
+    else if ( source( a(loc) )==KEY ) then
+      write(*,"('Source(',I2,' )=',I3)") a(loc), key
+      exit
+    else
+      loc=loc+1
+      if ( loc>n ) loc=1
+    end if
   end do
   if ( i>N ) write(*,*) "Not found."
 

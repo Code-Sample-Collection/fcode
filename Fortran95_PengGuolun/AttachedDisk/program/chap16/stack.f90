@@ -9,23 +9,23 @@ contains
   ! 把数据放入堆栈中  
   subroutine push(value)
     integer value
-	if ( current>TOP ) then ! 超过容量
-	  write(*,*) "Stack full."
-	  return
-	end if
-	current = current+1
-	stack(current)=value
+    if ( current>TOP ) then ! 超过容量
+      write(*,*) "Stack full."
+      return
+    end if
+    current = current+1
+    stack(current)=value
   end subroutine
   ! 从堆栈中取出数据
   integer function pop(value)
     integer value
     if ( current<=0 ) then ! 已经没有东西可以拿了
-	  pop=1
-	  return
-	end if
-	value = stack(current)
-	current = current-1
-	pop = 0
+      pop=1
+      return
+    end if
+    value = stack(current)
+    current = current-1
+    pop = 0
   end function
 
 end module
@@ -44,7 +44,7 @@ program main
 
   do i=1,N
     stat = pop(value)
-	write(*,"(I3)",advance="no") value
+    write(*,"(I3)",advance="no") value
   end do
   write(*,*)
 

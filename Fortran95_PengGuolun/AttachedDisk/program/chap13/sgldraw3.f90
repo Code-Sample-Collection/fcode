@@ -4,25 +4,25 @@ module sgl_util
 contains
   subroutine Display()
     call sglClearBuffer() 
-	call sglColor3f(1.0,0,0) 
-	call sglRectV(-0.6, -0.6, 0.6, 0.6)
+    call sglColor3f(1.0,0,0) 
+    call sglRectV(-0.6, -0.6, 0.6, 0.6)
     call sglColor3i(0,255,0) 
     call sglCircleV(0.0,0.0,1.0) 
-	call sglColor3i(0,0,255) 
-	call sglLineV(-1.0, 0, 1.0, 0) 
-	call sglLineV(0, -1.0, 0.0, 1.0)
-	call sglUpdateBuffer();
+    call sglColor3i(0,0,255) 
+    call sglLineV(-1.0, 0, 1.0, 0) 
+    call sglLineV(0, -1.0, 0.0, 1.0)
+    call sglUpdateBuffer();
   end subroutine
   subroutine resize(width, height)
     integer width, height
-	real r
-	write(*,"('size:'I4' x'I4)") width, height
-	r = real(height)/real(width)
-	if ( r>1.0 ) then
-	  call sglSetVirtual(-1.0, -r, 1.0, +r)
-	else
-	  call sglSetVirtual(-1.0/r, -1.0, 1.0/r, 1.0)
-	end if
+    real r
+    write(*,"('size:'I4' x'I4)") width, height
+    r = real(height)/real(width)
+    if ( r>1.0 ) then
+      call sglSetVirtual(-1.0, -r, 1.0, +r)
+    else
+      call sglSetVirtual(-1.0/r, -1.0, 1.0/r, 1.0)
+    end if
   end subroutine
 end module
 

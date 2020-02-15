@@ -2,7 +2,7 @@
 ! By Perng 1997/9/19
 program Plot_Demo
 ! 使用Visual Fortran的绘图功能时需要module dflib
-use DFLIB	
+use DFLIB    
 implicit none
   type(xycoord) :: t
   integer :: result

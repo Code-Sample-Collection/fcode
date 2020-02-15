@@ -15,25 +15,25 @@ module sgl_util
 contains
   subroutine display()
     real, parameter :: xsize = 0.3, ysize=0.01
-	real xs, ys, xe, ye
-	real l,x
-	l(x) = A*x+B
+    real xs, ys, xe, ye
+    real l,x
+    l(x) = A*x+B
     integer i
-	call sglClearBuffer()
-	xs = xmin
-	ys = l(xs)
-	xe = xmax
-	ye = l(xe)
-	call sglColor3i(255,255,255)
+    call sglClearBuffer()
+    xs = xmin
+    ys = l(xs)
+    xe = xmax
+    ye = l(xe)
+    call sglColor3i(255,255,255)
     call sglLineV(xs,ys, xe,ye)
-	call sglColor3i(255,0,0)
-	do i=1,N
-	  call sglLineV( temperature(i)-xsize, length(i)-ysize, &
-	                 temperature(i)+xsize, length(i)+ysize  )
-	  call sglLineV( temperature(i)+xsize, length(i)-ysize, &
-	                 temperature(i)-xsize, length(i)+ysize  )
-	end do
-	call sglUpdateBuffer()
+    call sglColor3i(255,0,0)
+    do i=1,N
+      call sglLineV( temperature(i)-xsize, length(i)-ysize, &
+                     temperature(i)+xsize, length(i)+ysize  )
+      call sglLineV( temperature(i)+xsize, length(i)-ysize, &
+                     temperature(i)-xsize, length(i)+ysize  )
+    end do
+    call sglUpdateBuffer()
   end subroutine
 end module
 

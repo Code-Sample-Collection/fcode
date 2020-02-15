@@ -11,19 +11,19 @@ module cprog
   interface
     subroutine SUBA(str)
     !DEC$ ATTRIBUTES C, ALIAS:'_sub1' :: SUBA
-	character(len=*) :: str
-	!DEC$ ATTRIBUTES REFERENCE :: str
-	end subroutine
+    character(len=*) :: str
+    !DEC$ ATTRIBUTES REFERENCE :: str
+    end subroutine
     subroutine SUBB(c)
     !DEC$ ATTRIBUTES C, ALIAS:'_sub2' :: SUBB
-	complex :: c
-	!DEC$ ATTRIBUTES VALUE :: c
-	end subroutine
-	subroutine SUBC(p)
-	use typedef
+    complex :: c
+    !DEC$ ATTRIBUTES VALUE :: c
+    end subroutine
+    subroutine SUBC(p)
+    use typedef
     !DEC$ ATTRIBUTES C, ALIAS:'_sub3' :: SUBC
     type(person) :: p
-	end subroutine
+    end subroutine
   end interface
 end module cprog
 

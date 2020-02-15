@@ -8,11 +8,11 @@ implicit none
   do i=1, size-1
     do j=i+1, size
       if ( a(i) > a(j) ) then ! a(i)跟a(j)交换
-	    t=a(i)
+        t=a(i)
         a(i)=a(j)
-		a(j)=t
-	  end if
-	end do
+        a(j)=t
+      end if
+    end do
   end do
 
   write(*,"(10I4)") a

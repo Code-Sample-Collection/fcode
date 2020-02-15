@@ -18,7 +18,7 @@ program main
   IDO = 1
   do ISTEP=0,100,10
     TEND = ISTEP
-	call IVPRK (IDO, N, FCN, T, TEND, TOL, PARAM, Y)
+    call IVPRK (IDO, N, FCN, T, TEND, TOL, PARAM, Y)
     write (*,'(F5.1,F12.4)') T, Y
   end do
   call IVPRK (3, N, FCN, T, TEND, TOL, PARAM, Y)

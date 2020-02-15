@@ -10,9 +10,9 @@ implicit none
 
   do counter = 3, 10
     fn = fn_2 + fn_1
-	write(*,*) fn
-	fn_2 = fn_1  
-	fn_1 = fn
+    write(*,*) fn
+    fn_2 = fn_1  
+    fn_1 = fn
   end do
 
   stop

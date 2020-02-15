@@ -32,9 +32,9 @@ integer function SEQUENTIAL_SEARCH(A,N,KEY)
   do I=1,N  ! 开始做扫瞄, 最多做N次.
     if ( KEY==A(I) ) then
       ! 找到了, 返回数字在类型中的位置
-	  SEQUENTIAL_SEARCH=I
-	  return
-	end if
+      SEQUENTIAL_SEARCH=I
+      return
+    end if
   end do
   ! 没找到时返回-1
   SEQUENTIAL_SEARCH=0

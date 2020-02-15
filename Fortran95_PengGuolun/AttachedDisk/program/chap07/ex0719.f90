@@ -8,11 +8,11 @@ implicit none
 
   do i=1,L
     do j=1,N
-	  C(i,j) = 0.0
-	  do k=1,M 
-	    C(i,j) = C(i,j)+A(i,k)*B(k,j)   
+      C(i,j) = 0.0
+      do k=1,M 
+        C(i,j) = C(i,j)+A(i,k)*B(k,j)   
       end do
-	end do
+    end do
   end do
 
   do i=1,L

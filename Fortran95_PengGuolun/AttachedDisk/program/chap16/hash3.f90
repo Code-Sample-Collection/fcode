@@ -15,17 +15,17 @@ module NumLink
 contains
   subroutine InitLink()
     integer i
-	do i=1,N
-	  linking(i)%num = 0
-	  nullify(linking(i)%next)
-	end do
+    do i=1,N
+      linking(i)%num = 0
+      nullify(linking(i)%next)
+    end do
   end subroutine
 
 ! hash函数
   integer function hash(KEY)
     integer KEY
     hash = KEY/10+1
-	return
+    return
   end function
 !
 ! 把数字经过散列处理后放入链表的子程序
@@ -45,9 +45,9 @@ contains
     proc%num = INFO
     !配置内存空间给proc%next
     allocate(proc%next)
-	proc=>proc%next
+    proc=>proc%next
     proc%num = 0
-	nullify(proc%next)
+    nullify(proc%next)
   end subroutine Insert 
 !
 ! 在链表中查找数据的子程序
@@ -61,15 +61,15 @@ contains
 
     ! 在这一个链表中一直向下顺序查找到找到为止
     do while( .true. )
-	  if ( proc%num==0 ) then
-	    write(*,*) "Not found."
-		return
-	  end if
-	  if ( Source(proc%num)==KEY ) then
-	    write(*,"('Source(',I2,' )=',I3)") proc%num, KEY
-		return
-	  end if
-	  if ( associated(proc%next) ) proc=>proc%next
+      if ( proc%num==0 ) then
+        write(*,*) "Not found."
+        return
+      end if
+      if ( Source(proc%num)==KEY ) then
+        write(*,"('Source(',I2,' )=',I3)") proc%num, KEY
+        return
+      end if
+      if ( associated(proc%next) ) proc=>proc%next
     end do
     return
   end subroutine Hash_Search

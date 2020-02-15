@@ -22,16 +22,16 @@ program ex1013
   p=>node1
   do while(.true.)
     write(*,*) p%i
-	if ( .not. associated(p%next) ) exit
-	p=>p%next
+    if ( .not. associated(p%next) ) exit
+    p=>p%next
   end do  
 
   write(*,*) "反过来输出"
   p=>node3
   do while(.true.)
     write(*,*) p%i
-	if ( .not. associated(p%prev) ) exit
-	p=>p%prev
+    if ( .not. associated(p%prev) ) exit
+    p=>p%prev
   end do  
 
 stop

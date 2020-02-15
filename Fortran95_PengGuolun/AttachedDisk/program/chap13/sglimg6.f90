@@ -8,11 +8,11 @@ module sgl_util
 contains
   subroutine display()
     integer i,l
-	call sglClearBuffer()
-	do i=0, 255
-	  call sglColor(i)
-	  call sglRect(400-i,300-i,400+i,300+i)
-	end do
+    call sglClearBuffer()
+    do i=0, 255
+      call sglColor(i)
+      call sglRect(400-i,300-i,400+i,300+i)
+    end do
   end subroutine
   subroutine getkey(key)
     integer key
@@ -22,25 +22,25 @@ contains
   subroutine initpalette()
     integer i
     do i=0,255
-	  table(i) = palette( i,0,0 )
+      table(i) = palette( i,0,0 )
     end do
   end subroutine
   subroutine setpalette()
     integer i
-	do i=0,255
-	  call sglSetPalette( i, table(i)%r, table(i)%g, table(i)%b )
-	end do
-	call sglUpdatePalette
+    do i=0,255
+      call sglSetPalette( i, table(i)%r, table(i)%g, table(i)%b )
+    end do
+    call sglUpdatePalette
   end subroutine
   subroutine changepalette()
     integer i
-	type(palette) :: c1
-	c1 = table(1)
-	do i=1,254
-	  table(i) = table(i+1)
-	end do
+    type(palette) :: c1
+    c1 = table(1)
+    do i=1,254
+      table(i) = table(i+1)
+    end do
     table(255)=c1
-	call setpalette()
+    call setpalette()
   end subroutine
 end module
 

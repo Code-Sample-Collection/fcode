@@ -22,8 +22,8 @@ contains
 
   subroutine output(t)
     type(time), intent(in) :: t
-	write(*,"(I2,':',I2.2)") t%hour, t%minute
-	return
+    write(*,"(I2,':',I2.2)") t%hour, t%minute
+    return
   end subroutine
 
 end module

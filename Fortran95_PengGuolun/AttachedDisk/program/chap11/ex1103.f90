@@ -4,7 +4,7 @@ module MA
 contains
   subroutine getx()
     write(*,"('x=',F5.2)") -b/a
-	return
+    return
   end subroutine
 end module
 
@@ -15,14 +15,14 @@ module MB
 contains
   subroutine getx2()
     real a2, d, sqrt_d
-	a2=2*a
-	d=b*b-4*a*c
-	if ( d>=0 ) then
-	  sqrt_d = sqrt(d)
-	  write(*,"('x=',F5.2,',',F5.2)") (-b+sqrt_d)/a2, (-b-sqrt_d)/a2
-	else
-	  write(*,*) "无实数解"
-	end if
+    a2=2*a
+    d=b*b-4*a*c
+    if ( d>=0 ) then
+      sqrt_d = sqrt(d)
+      write(*,"('x=',F5.2,',',F5.2)") (-b+sqrt_d)/a2, (-b-sqrt_d)/a2
+    else
+      write(*,*) "无实数解"
+    end if
   end subroutine
 end module
 

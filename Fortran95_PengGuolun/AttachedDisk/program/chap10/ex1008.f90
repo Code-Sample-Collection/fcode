@@ -11,9 +11,9 @@ function getmin(p)
   min = 2**30 ! 先把min设定成一个很大的值
   do i=1,s
     if ( min>p(i) ) then
-	  min=p(i)
-	  getmin=>p(i)
-	end if
+      min=p(i)
+      getmin=>p(i)
+    end if
   end do
   return
 end function

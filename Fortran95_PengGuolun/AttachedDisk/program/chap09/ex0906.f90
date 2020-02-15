@@ -18,14 +18,14 @@ program ex0906
   allocate( s(students), stat=i )
   if ( i/=0 ) then
     write(*,*) "Allocate buffer fail."
-	stop
+    stop
   end if
 
   open(fileid, file=filename)
   do i=1,students
     write(*,"('请输入'I2'号同学的中文、英文及数学成绩')") i
     read(*,*) s(i)%Chinese, s(i)%English, s(i)%Math
-	write(fileid,"('座号:'I2/'中文:'I3' 英文:'I3' 数学:'I3)") i,s(i)
+    write(fileid,"('座号:'I2/'中文:'I3' 英文:'I3' 数学:'I3)") i,s(i)
   end do
   close(fileid)
 

@@ -30,7 +30,7 @@ subroutine SELECTION_SORT(A,N)
         A(I)=TEMP
         MIN=A(I)
       end if
-	end do
+    end do
   end do
 
   return

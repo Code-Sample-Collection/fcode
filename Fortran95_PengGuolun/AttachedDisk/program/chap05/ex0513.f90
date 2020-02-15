@@ -18,7 +18,7 @@ implicit none
     ans = a/b
   case default ! 输入其它符号不处理
     write(*,"('Unknown operator ',A1)") operator
-	stop ! 结束程序
+    stop ! 结束程序
   end select
 
   write(*,"(F6.2,A1,F6.2,'=',F6.2)") a,operator,b,ans

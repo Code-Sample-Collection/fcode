@@ -18,7 +18,7 @@ program main
   IDO = 1
   do ISTEP=1,10
     TEND = ISTEP/10.0
-	call IVMRK (IDO, N, FCN, T, TEND, Y, YPRIME)
+    call IVMRK (IDO, N, FCN, T, TEND, Y, YPRIME)
     write (*,'(F5.1,4F12.4)') T, Y, YPRIME
   end do
   call IVMRK (3, N, FCN, T, TEND, Y, YPRIME) ! 释放内存

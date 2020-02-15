@@ -21,12 +21,12 @@ subroutine sort(p)
   s = size(p,1)
   do i=1,s-1
     do j=i+1, s
-	  if ( p(j)%p%height < p(i)%p%height ) then
-	    temp = p(i)
-		p(i) = p(j)
-		p(j) = temp
-	  end if
-	end do
+      if ( p(j)%p%height < p(i)%p%height ) then
+        temp = p(i)
+        p(i) = p(j)
+        p(j) = temp
+      end if
+    end do
   end do
 
   return
@@ -39,10 +39,10 @@ program ex1009
   implicit none
   type(person), target :: p(5) = (/ person("陈同学", 180.0, 75.0), &
                                     person("黄同学", 170.0, 65.0), &
-							        person("刘同学", 175.0, 80.0), &
-							        person("蔡同学", 182.0, 78.0), &
-							        person("许同学", 178.0, 70.0)  &
-						         /) 
+                                    person("刘同学", 175.0, 80.0), &
+                                    person("蔡同学", 182.0, 78.0), &
+                                    person("许同学", 178.0, 70.0)  &
+                                 /) 
   type(pperson) :: pt(5)
   integer i
   ! 把pt数组中的指针全部指向数组p

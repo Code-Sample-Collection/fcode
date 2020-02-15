@@ -19,16 +19,16 @@ program ex0836
   integer, parameter :: players = 5
   type(player) :: people(players) = (/ player(30.0, 25.0, 0.0),&
                                        player(45.0, 20.0, 0.0),& 
-									   player(35.0, 21.0, 0.0),&
-									   player(50.0, 27.0, 0.0),&
-									   player(40.0, 22.0, 0.0) &
-									 /)
+                                       player(35.0, 21.0, 0.0),&
+                                       player(50.0, 27.0, 0.0),&
+                                       player(40.0, 22.0, 0.0) &
+                                     /)
   real, external :: Get_Distance ! 声明Get_Distance是个函数
   integer :: I
 
   do I=1, players
      call Get_Distance( people(I) )
-	 write(*,"('Player ',I1,' =',F8.2)") I, people(I)%distance
+     write(*,"('Player ',I1,' =',F8.2)") I, people(I)%distance
   end do
 
   stop

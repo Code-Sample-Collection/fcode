@@ -5,16 +5,16 @@ contains
 ! 产生数列
   subroutine GenerateData(datas, width, func)
     real datas(:), width
-	real, external :: func
-	real r
-	integer i,n
-	n = size(datas,1)
-	width = PI/(n-1)
-	r = 0
-	do i=1,n
-	  datas(i) = func(r)
-	  r = r+width
-	end do
+    real, external :: func
+    real r
+    integer i,n
+    n = size(datas,1)
+    width = PI/(n-1)
+    r = 0
+    do i=1,n
+      datas(i) = func(r)
+      r = r+width
+    end do
   end subroutine
 ! 梯形法积分
   real function Trape_Integral(datas, width)

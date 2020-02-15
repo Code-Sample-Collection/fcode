@@ -10,7 +10,7 @@ program gendata
   read(*,*) students
   do i=1,students
     call random_number(r)  
-	write(*,"(6I5)") i,int(r*50+50)
+    write(*,"(6I5)") i,int(r*50+50)
   end do
 
   stop

@@ -34,7 +34,7 @@ program ex1012
   p=>head
   do while(.true.)
     write(*, "(i5)" ) p%i
-	if ( .not. associated(p%next) ) exit
+    if ( .not. associated(p%next) ) exit
     p=>p%next
   end do
 

@@ -5,7 +5,7 @@ implicit none
 
   do floor=1, dest
     if ( floor==4 ) cycle
-	write(*,*) floor
+    write(*,*) floor
   end do
 
   stop

@@ -13,8 +13,8 @@ implicit none
   do r=1, row
     do c=1, col
       write(*,"('A(',I1,',',I1,')=')") r,c
-	  read(*,*) matrixA(r,c)
-	end do
+      read(*,*) matrixA(r,c)
+    end do
   end do
 
   ! 读入矩阵B的内容
@@ -22,17 +22,17 @@ implicit none
   do r=1, row
     do c=1, col
       write(*,"('B(',I1,',',I1,')=')") r,c
-	  read(*,*) matrixB(r,c)
-	end do
+      read(*,*) matrixB(r,c)
+    end do
   end do
 
   ! 把矩阵A,B相加并输出结果
   write(*,*) "Matrix A+B="
   do r=1, row
     do c=1, col
-	  matrixC(r,c) = matrixB(r,c)+matrixA(r,c) ! 矩阵相加
-	  write(*,"('(',I1,',',I1,')=',I3)") r,c,matrixC(r,c)
-	end do
+      matrixC(r,c) = matrixB(r,c)+matrixA(r,c) ! 矩阵相加
+      write(*,"('(',I1,',',I1,')=',I3)") r,c,matrixC(r,c)
+    end do
   end do
 
   stop

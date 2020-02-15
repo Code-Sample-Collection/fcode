@@ -9,7 +9,7 @@ module MA
 contains
   integer function add(a,b)
     type(ta), intent(in) :: a,b
-	add=a%a+b%a
+    add=a%a+b%a
   end function
 end module
 

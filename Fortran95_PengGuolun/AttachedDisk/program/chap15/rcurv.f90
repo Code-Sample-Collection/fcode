@@ -14,7 +14,7 @@ program main
   ! 产生数据点  
   do I=1, NOBS
     XDATA(I) = real(I)
-	call random_number(R)
+    call random_number(R)
     YDATA(I) = F( XDATA(I), R )
   end do
 

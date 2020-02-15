@@ -32,7 +32,7 @@ subroutine output(matrix)
   ! 用字符串来设定输出格式
   write( FOR(2:3), '(I2)' ) N
   do i=1,N
-	write( *, FMT=FOR ) matrix(i,:)
+    write( *, FMT=FOR ) matrix(i,:)
   end do
   return
 end subroutine output

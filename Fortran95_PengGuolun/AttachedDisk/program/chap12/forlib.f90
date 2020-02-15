@@ -30,7 +30,7 @@ subroutine MakeLower(string)
   do i=1,len
     code = ichar(string(i:i))
     if ( code >= ichar('a') .and. code <= ichar('z') ) then
-	  string(i:i) = char(code-32)
+      string(i:i) = char(code-32)
     end if
   end do
   return

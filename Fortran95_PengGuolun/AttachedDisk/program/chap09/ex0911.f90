@@ -10,12 +10,12 @@ program ex0911
        form="formatted", recl=6, status="replace")
   do while(.true.)
     write(*,"('第几棒?')")
-	read (*,*) player
-	if ( player<1 .or. player>9 ) exit
-	write(*,"('打击率?')")
-	read (*,*) hit
-	write(fileid, fmt="(F5.2)", rec=player, IOSTAT=error) hit
-	if ( error/=0 ) exit
+    read (*,*) player
+    if ( player<1 .or. player>9 ) exit
+    write(*,"('打击率?')")
+    read (*,*) hit
+    write(fileid, fmt="(F5.2)", rec=player, IOSTAT=error) hit
+    if ( error/=0 ) exit
   end do
   close(fileid)
 

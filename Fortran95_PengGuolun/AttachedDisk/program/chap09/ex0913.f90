@@ -10,7 +10,7 @@ program ex0913
   inquire(file=filename, exist=alive)
   if ( .not. alive ) then
     write(*,*) trim(filename)," doesn't exist."
-	stop
+    stop
   end if
 
   open(unit=fileid, file=filename, form="unformatted",&
@@ -18,10 +18,10 @@ program ex0913
 
   do while(.true.)
     write(*,"('第几棒?')")
-	read (*,*) player
-	read(fileid, rec=player, iostat=error) hit
+    read (*,*) player
+    read(fileid, rec=player, iostat=error) hit
     if ( error/=0 ) exit
-	write(*,"('打击率:',F5.2)") hit
+    write(*,"('打击率:',F5.2)") hit
   end do
 
   close(fileid)

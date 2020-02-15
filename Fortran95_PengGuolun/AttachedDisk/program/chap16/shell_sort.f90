@@ -37,8 +37,8 @@ subroutine SHELL_SORT(A,N)
         else
           exit ! A(J)<A(J+K)时可跳出循环
         end if
-	  end do
-	end do
+      end do
+    end do
     K=K/2 ! 设定新的K值
   end do
 

@@ -9,7 +9,7 @@ program ex0912
        recl=4, status="replace")
 
   do player=1,9 
-	write(fileid, rec=player) hit(player)
+    write(fileid, rec=player) hit(player)
   end do
 
   close(fileid)

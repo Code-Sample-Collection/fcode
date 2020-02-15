@@ -4,7 +4,7 @@
 module typedef
   implicit none
   type :: data
-    integer :: n       ! 存放的数据	
+    integer :: n       ! 存放的数据    
     integer :: repeat  ! 数据重覆的次数
     type(data), pointer :: left  ! 左枝
     type(data), pointer :: right ! 右枝
@@ -55,26 +55,26 @@ subroutine add( n )
 
   do while( .true. )
     level=level+1
-	! 数据大于目前枝干的数值时
+    ! 数据大于目前枝干的数值时
     if ( n>action%n ) then
       if ( associated( action%right ) ) then
         action=>action%right  ! 再向右去寻找立身处
-		write(*, "('->R')", advance="NO")
+        write(*, "('->R')", advance="NO")
       else
         action%right=>new  ! 建立新的右枝 
         action=>new
-		write(*, "('->R: new')")
+        write(*, "('->R: new')")
         exit
       end if
     ! 数据小于目前枝干的数值时
     else if ( n<action%n ) then
       if ( associated( action%left ) ) then
         action=>action%left   ! 再向左去寻找立身处
-		write(*, "('->L')", advance="NO")
+        write(*, "('->L')", advance="NO")
       else
         action%left=>new  ! 建立新的左枝
         action=>new
-		write(*, "('->L: new')")
+        write(*, "('->L: new')")
         exit
       end if
    ! 数据等于目前枝干的数值时
@@ -137,7 +137,7 @@ program main
   do while(.true.)
     write(*,*) "请输入整数, 输入0代表结束"
     read(*,*) num
-	if ( num==0 ) exit
+    if ( num==0 ) exit
     call add(num)
   end do
   call TraceTree()

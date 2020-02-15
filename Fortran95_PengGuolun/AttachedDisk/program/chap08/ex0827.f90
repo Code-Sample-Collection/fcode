@@ -3,7 +3,7 @@ program  ex0827
   interface
     real function func(x,a,b,c) ! 定义子程式func的接口
     implicit none
-	real x
+    real x
     real, optional :: a,b,c
     end function 
   end interface

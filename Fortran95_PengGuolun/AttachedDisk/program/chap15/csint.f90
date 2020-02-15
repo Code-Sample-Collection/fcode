@@ -13,7 +13,7 @@ program main
   do I=1, NDATA
     XDATA(I) = xp
     FDATA(I) = sin( XDATA(I) )
-	xp = xp + xinc
+    xp = xp + xinc
   end do
 
   call CSINT (NDATA, XDATA, FDATA, BREAK, CSCOEF)
@@ -23,8 +23,8 @@ program main
     ! 由xp值来求插值
     value = CSVAL(xp, NDATA-1, BREAK, CSCOEF)
     write(*,"('(',F5.2,',',F5.2,') error:'F6.3)" ) &
-	xp, value, sin(xp)-value
-	xp = xp + xinc
+    xp, value, sin(xp)-value
+    xp = xp + xinc
   end do
 
   stop

@@ -181,7 +181,7 @@ module sgl
   subroutine sglGetPalette(index, r, g, b)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglSetPalette' :: sglSetPalette
     integer index
-	integer r, g, b
+    integer r, g, b
   !DEC$ ATTRIBUTES REFERENCE :: r,g,b
   end subroutine
   subroutine sglUpdatePalette()
@@ -207,7 +207,7 @@ module sgl
   subroutine sglUseFont(str, w, h)
   !DEC$ ATTRIBUTES C, REFERENCE, ALIAS:'_fsglUseFont' :: sglUseFont
     character(len=*) :: str
-	integer :: w, h
+    integer :: w, h
   end subroutine
   subroutine sglEnableReshape(b)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglEnableReshape' :: sglEnableReshape
@@ -431,14 +431,14 @@ module sgl
   end subroutine
   subroutine sglEnableColorKey()
   !DEC$ ATTRIBUTES C, ALIAS:'_sglEnableColorKey' :: sglEnableColorKey
-  end subroutine	
+  end subroutine    
   subroutine sglDisableColorKey()
   !DEC$ ATTRIBUTES C, ALIAS:'_sglDisableColorKey' :: sglDisableColorKey
-  end subroutine	
+  end subroutine    
   subroutine sglColorKey3i(r,g,b)
   !DEC$ ATTRIBUTES C, ALIAS:'_sglColorKey3i' :: sglColorKey3i
   integer r,g,b
-  end subroutine	
+  end subroutine    
   end interface
 
 end module sgl

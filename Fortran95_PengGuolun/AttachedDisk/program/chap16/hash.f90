@@ -14,7 +14,7 @@ program HASH_SEARCH_DEMO
   read (*,*) KEY
   if ( KEY<0 .or. KEY>100 ) then
     write(*,*) "Not found."
-	stop
+    stop
   end if
 
   ! 建立Hash表格中, 表格中放的是数值在类型中的位置

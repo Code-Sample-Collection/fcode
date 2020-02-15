@@ -4,9 +4,9 @@ module SGL_UTIL
 contains
   subroutine display()
     call sglClearBuffer()
-	call sglColor3i(255,255,255)
-	call sglTextOut( 100, 100, "HELLO" )
-	call sglUpdateBuffer()
+    call sglColor3i(255,255,255)
+    call sglTextOut( 100, 100, "HELLO" )
+    call sglUpdateBuffer()
   end subroutine
 end module SGL_UTIL
 

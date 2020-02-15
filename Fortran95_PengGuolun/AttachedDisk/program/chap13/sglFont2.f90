@@ -5,9 +5,9 @@ contains
   subroutine display()
     call sglClearColor3i(255,255,255)
     call sglClearBuffer()
-	call sglColor3i(0,0,0)
-	call sglTextOut(50,50,"大家好")
-	call sglUpdateBuffer()
+    call sglColor3i(0,0,0)
+    call sglTextOut(50,50,"大家好")
+    call sglUpdateBuffer()
   end subroutine
 end module SGL_UTIL
 

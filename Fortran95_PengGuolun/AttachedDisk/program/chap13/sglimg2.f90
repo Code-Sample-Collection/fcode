@@ -17,7 +17,7 @@ program main
 
   open(10, file="512x512.raw",&
        form="unformatted",access="direct",&
-	   recl=1,status="old")
+       recl=1,status="old")
   do i=1,512*512*3/4
     read(10,rec=i) buffer4(i)
   end do

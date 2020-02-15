@@ -5,8 +5,8 @@ program ex1006
   integer i
 
   forall( i=1:3 )
-	b(:,i,1)=i
-	b(:,i,2)=2*i
+    b(:,i,1)=i
+    b(:,i,2)=2*i
   end forall
 
   a=>b(:,:,1)

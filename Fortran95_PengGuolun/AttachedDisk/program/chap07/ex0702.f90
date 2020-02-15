@@ -16,21 +16,21 @@ implicit none
 
   do while(.true.)
     write(*,*) "Query:"
-	read(*,*) i
-	select case(i)
-	case(1)
-	  write(*,*) student1
-	case(2)
-	  write(*,*) student2
-	case(3)
-	  write(*,*) student3
-	case(4)
-	  write(*,*) student4
-	case(5)
-	  write(*,*) student5
-	case default
-	  exit
-	end select
+    read(*,*) i
+    select case(i)
+    case(1)
+      write(*,*) student1
+    case(2)
+      write(*,*) student2
+    case(3)
+      write(*,*) student3
+    case(4)
+      write(*,*) student4
+    case(5)
+      write(*,*) student5
+    case default
+      exit
+    end select
   end do
 
   stop

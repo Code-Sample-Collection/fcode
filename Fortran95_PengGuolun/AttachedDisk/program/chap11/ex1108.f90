@@ -6,8 +6,8 @@ module time_util
 
   interface operator(+) ! 让type(time)类型变量能够相加
     module procedure add_time_time ! time+time
-	module procedure add_time_real ! time+real
-	module procedure add_real_time ! real+time
+    module procedure add_time_real ! time+real
+    module procedure add_real_time ! real+time
   end interface
 
   interface operator(<) ! 让type(time)类型变量能够比大小
@@ -16,7 +16,7 @@ module time_util
 
   interface assignment(=) ! 让type(time)类型跟浮点数能够转换
     module procedure time_assign_real ! time = real
-	module procedure real_assign_time ! real = time
+    module procedure real_assign_time ! real = time
   end interface
 
 contains
@@ -35,61 +35,61 @@ contains
   ! type(time) + real
   function add_time_real( a, b )
     implicit none
-	type(time), intent(in) :: a
-	real, intent(in) :: b
-	type(time) :: add_time_real
+    type(time), intent(in) :: a
+    real, intent(in) :: b
+    type(time) :: add_time_real
     type(time) :: tb
-	tb%hour=int(b)
-	tb%minute=int( (b-tb%hour)*60 )
-	add_time_real = add_time_time(a,tb)
-	return
+    tb%hour=int(b)
+    tb%minute=int( (b-tb%hour)*60 )
+    add_time_real = add_time_time(a,tb)
+    return
   end function
   ! real + type(time)
   function add_real_time( a, b )
     implicit none
-	real, intent(in) :: a
-	type(time), intent(in) :: b
-	type(time) :: add_real_time
+    real, intent(in) :: a
+    type(time), intent(in) :: b
+    type(time) :: add_real_time
     add_real_time = add_time_real(b,a)
-	return
+    return
   end function
   ! type(time) < type(time)
   logical function time_lt_time( a, b )
     implicit none
-	type(time), intent(in) :: a,b
+    type(time), intent(in) :: a,b
     if ( a%hour < b%hour ) then
-	  time_lt_time = .true.
-	  return
-	end if
+      time_lt_time = .true.
+      return
+    end if
     if ( a%minute < b%minute ) then
-	  time_lt_time = .true.
-	  return
-	end if
+      time_lt_time = .true.
+      return
+    end if
     time_lt_time = .false.
-	return
+    return
   end function
   ! type(time) = real
   subroutine time_assign_real( a, b )
     implicit none
-	type(time), intent(out) :: a
-	real, intent(in) :: b
-	a%hour = int(b)
+    type(time), intent(out) :: a
+    real, intent(in) :: b
+    a%hour = int(b)
     a%minute = int( (b-a%hour)*60 )
     return
   end subroutine
   ! real = type(time)
   subroutine real_assign_time( a, b )
     implicit none
-	real, intent(out) :: a
-	type(time), intent(in) :: b    
-	a=b%hour+real(b%minute)/60.0
-	return
+    real, intent(out) :: a
+    type(time), intent(in) :: b    
+    a=b%hour+real(b%minute)/60.0
+    return
   end subroutine
 
   subroutine output(t)
     type(time), intent(in) :: t
-	write(*,"(I2,':',I2.2)") t%hour, t%minute
-	return
+    write(*,"(I2,':',I2.2)") t%hour, t%minute
+    return
   end subroutine
 
 end module

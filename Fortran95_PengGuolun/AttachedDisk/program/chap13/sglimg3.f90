@@ -13,17 +13,17 @@ contains
   subroutine display()
     call sglDisableColorKey()
     call sglPutRGBBuffer(mountain,0,0,512,512)
-	call sglEnableColorKey()
-	call sglColorKey3i(0,0,0)
-	call sglPutRGBBuffer(ufo, x, y, 60, 60)
-	call sglUpdateBuffer()
+    call sglEnableColorKey()
+    call sglColorKey3i(0,0,0)
+    call sglPutRGBBuffer(ufo, x, y, 60, 60)
+    call sglUpdateBuffer()
   end subroutine
   subroutine idle()
     x = x+xinc
-	y = y+yinc
-	if ( x<0 .or. x>=512-60 ) xinc = -xinc
-	if ( y<0 .or. y>=512-60 ) yinc = -yinc
-	call display()
+    y = y+yinc
+    if ( x<0 .or. x>=512-60 ) xinc = -xinc
+    if ( y<0 .or. y>=512-60 ) yinc = -yinc
+    call display()
   end subroutine
   subroutine readbuffer(filename, buffer, size)
   character(*) :: filename
@@ -31,10 +31,10 @@ contains
   integer i, err
   open(10, file=filename,&
        form="unformatted",access="direct",&
-	   recl=1,status="old",iostat=err)
+       recl=1,status="old",iostat=err)
   if (err/=0) then
     write(*,*) "Open file fail."
-	stop
+    stop
   end if
   do i=1,size
     read(10,rec=i) buffer(i)

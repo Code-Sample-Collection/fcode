@@ -19,7 +19,7 @@ program main
   IDO = 1
   do ISTEP=10,100,10
     TEND = ISTEP
-	call IVPAG(IDO, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y)
+    call IVPAG(IDO, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y)
     write (*,'(F5.1,F12.4)') T, Y
   end do
   call IVPAG(3, N, FCN, FCNJ, A, T, TEND, TOL, PARAM, Y) ! 释放内存

@@ -6,14 +6,14 @@ module bank
 contains
   subroutine LoadMoney(num)
     implicit none
-	integer :: num
-	money=money-num
-	return
+    integer :: num
+    money=money-num
+    return
   end subroutine
 
   subroutine SaveMoney(num)
     implicit none
-	integer :: num
+    integer :: num
     money=money+num
     return
   end subroutine

@@ -13,21 +13,21 @@ program main
   do i=1, NDATA
     XDATA(I) = xp
     FDATA(I) = SIN( XDATA(I) )
-	xp = xp+xinc
+    xp = xp+xinc
   end do
 
   xinc = (xmax-xmin)/(N-1)
   xp = xmin
   do i=1, N
     XVEC(I) = xp
-	xp = xp+xinc
+    xp = xp+xinc
   end do
   ! 做插值
   call CSIEZ (NDATA, XDATA, FDATA, N, XVEC, VALUE)
   ! 输出插值结果
   do i=1, N
     write(*,"('(',F5.2,',',F5.2,') error:'F6.3)") &
-	XVEC(i), VALUE(i), VALUE(i)-sin( XVEC(i) )
+    XVEC(i), VALUE(i), VALUE(i)-sin( XVEC(i) )
   end do
   stop
 end program

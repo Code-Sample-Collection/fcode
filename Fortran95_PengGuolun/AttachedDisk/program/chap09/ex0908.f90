@@ -2,7 +2,7 @@ module typedef
   type player
     character(len=80) :: name
     real weight, height
-	real score
+    real score
   end type
 end module
 
@@ -22,38 +22,38 @@ program ex0908
   inquire(file=filename, exist=alive)
   if ( .not. alive ) then ! 文件不存在就结束程序
     write(*,*) trim(filename)," doesn't exist."
-	stop
+    stop
   end if
 
   open(unit=fileid, file=filename)
   do while(.true.)
     if ( GetNextPlayer(fileid, p%name) ) then
-	  do i=1,3
-   	    read(fileid, "(A4,1X,F)", iostat=error ) title, tempnum
-		if ( error/=0 ) then
-		  write(*,*) "文件读取错误"
-		  stop
-		end if
-	    ! 要经由每一行最前面两个中文字来判断读入的是什么数据
-	    select case(title)
-	    case("身高")
-	      p%height = tempnum
-	    case("体重")
-	      p%weight = tempnum
-	    case("得分")
-	      p%score = tempnum
-		case default
-		  write(*,*) "出现不正确的数据"
-		  stop
+      do i=1,3
+           read(fileid, "(A4,1X,F)", iostat=error ) title, tempnum
+        if ( error/=0 ) then
+          write(*,*) "文件读取错误"
+          stop
+        end if
+        ! 要经由每一行最前面两个中文字来判断读入的是什么数据
+        select case(title)
+        case("身高")
+          p%height = tempnum
+        case("体重")
+          p%weight = tempnum
+        case("得分")
+          p%score = tempnum
+        case default
+          write(*,*) "出现不正确的数据"
+          stop
         end select
-	  end do
-	else
-	  exit  
-	end if
+      end do
+    else
+      exit  
+    end if
 
-	if ( p%score > 20.0 ) then ! 印出得分高于20分的选手数据
-	  write(*,"('姓名:',A8/,'身高:',F5.1,' 体重:',F5.1,' 得分:',F4.1)") p
-	end if
+    if ( p%score > 20.0 ) then ! 印出得分高于20分的选手数据
+      write(*,"('姓名:',A8/,'身高:',F5.1,' 体重:',F5.1,' 得分:',F4.1)") p
+    end if
   end do
 
   stop
@@ -71,16 +71,16 @@ logical function GetNextPlayer(fileid, name)
   do while(.true.)
     read(fileid,"(A80)",iostat=error) title
 
-	if ( error/=0 ) then ! 文件中已经没有数据了
-	  GetNextPlayer = .false.
-	  return
-	end if
+    if ( error/=0 ) then ! 文件中已经没有数据了
+      GetNextPlayer = .false.
+      return
+    end if
 
-	if ( title(1:4)=="姓名" ) then
-	  name = title(6:)
-	  GetNextPlayer = .true.
-	  return
-	end if
+    if ( title(1:4)=="姓名" ) then
+      name = title(6:)
+      GetNextPlayer = .true.
+      return
+    end if
   end do
 
   return

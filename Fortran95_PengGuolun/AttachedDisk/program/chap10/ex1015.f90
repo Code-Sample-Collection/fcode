@@ -45,18 +45,18 @@ subroutine insitem( pos, item, after )
   if ( after ) then
   ! item插在pos的后面
     item%next=>pos%next
-	item%prev=>pos
-	if ( associated(pos%next) ) then
+    item%prev=>pos
+    if ( associated(pos%next) ) then
       pos%next%prev=>item
     end if
     pos%next=>item
   else
   ! item插在pos的前面
     item%next=>pos
-	item%prev=>pos%prev
-	if ( associated(pos%prev) ) then
-	  pos%prev%next=>item
-	end if
+    item%prev=>pos%prev
+    if ( associated(pos%prev) ) then
+      pos%prev%next=>item
+    end if
     pos%prev=>item
   end if
   return
@@ -78,12 +78,12 @@ program ex1015
   p=>head
   do i=2,s
     allocate( p%next, stat=error )
-	if ( error/=0 ) then
-	  write(*,*) "Out of memory!"
-	  stop
-	end if
-	p%next=datalink(i, p, null())
-	p=>p%next
+    if ( error/=0 ) then
+      write(*,*) "Out of memory!"
+      stop
+    end if
+    p%next=datalink(i, p, null())
+    p=>p%next
   end do
 
   write(*,*) "拿掉第3条数据"

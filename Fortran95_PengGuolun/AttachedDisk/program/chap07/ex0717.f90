@@ -9,7 +9,7 @@ implicit none
     allocate( a(size), stat=error )
     if ( error/=0 ) exit
     write(*,"('Allocate ',I10, ' bytes')") size
-	write(*,"(F10.2,' MB used')") real(size)/real(one_mb)
+    write(*,"(F10.2,' MB used')") real(size)/real(one_mb)
     deallocate( a )
   end do
 

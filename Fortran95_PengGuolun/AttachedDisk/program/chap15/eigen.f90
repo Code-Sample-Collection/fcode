@@ -3,7 +3,7 @@ program main
   implicit none
   real :: A(3,3) = (/ 1,0,0,&
                       0,2,0,&
-					  0,0,3 /)
+                      0,0,3 /)
   real :: eigenvalue(3)
   real :: eigenvector(3,3)
   integer i

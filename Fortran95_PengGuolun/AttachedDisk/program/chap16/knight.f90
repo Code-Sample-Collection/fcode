@@ -9,23 +9,23 @@ contains
   ! 把数据放入堆栈中  
   subroutine push(value)
     integer value
-	if ( current>TOP ) then ! 超过容量
-	  write(*,*) "Stack full."
-	  return
-	end if
-	current = current+1
-	stack(current)=value
+    if ( current>TOP ) then ! 超过容量
+      write(*,*) "Stack full."
+      return
+    end if
+    current = current+1
+    stack(current)=value
   end subroutine
   ! 从堆栈中取出数据
   integer function pop(value)
     integer value
     if ( current<=0 ) then ! 已经没有东西可以拿了
-	  pop=1
-	  return
-	end if
-	value = stack(current)
-	current = current-1
-	pop = 0
+      pop=1
+      return
+    end if
+    value = stack(current)
+    current = current-1
+    pop = 0
   end function
 
 end module
@@ -96,10 +96,10 @@ program knight
     if ( step <= 0 ) exit 
     board(x_pos,y_pos)=0  ! 向回退, 所以这个地方要设成没来过
     error = pop(move)      ! 从堆栈中取出上一个步法
-	if ( error/=0 ) then
-	  write(*,*) "Stack empry"
-	  stop
-	end if
+    if ( error/=0 ) then
+      write(*,*) "Stack empry"
+      stop
+    end if
     ! 向回退一步
     x_pos=x_pos-x_move(move)
     y_pos=y_pos-y_move(move)

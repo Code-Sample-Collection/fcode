@@ -3,9 +3,9 @@ program  ex0833
 
   interface  ! 说明函数func的使用接口
     elemental real function func(num)
-	implicit none
-	real, intent(in) :: num
-	end function
+    implicit none
+    real, intent(in) :: num
+    end function
   end interface
 
   integer i

@@ -12,50 +12,50 @@ module INTERPOLATE_UTILITY
 contains
 ! 产生数列
   subroutine GenerateData(func)
-	real, external :: func
-	real r, width
-	integer i
-	width = (xmax-xmin)/(N-1)
-	r = 0
-	do i=1,N
-	  datas(i)%x = r
-	  datas(i)%y = func(r)
-	  r = r+width
-	end do
+    real, external :: func
+    real r, width
+    integer i
+    width = (xmax-xmin)/(N-1)
+    r = 0
+    do i=1,N
+      datas(i)%x = r
+      datas(i)%y = func(r)
+      r = r+width
+    end do
   end subroutine
   real function lagrange(x)
-	real x
+    real x
     real coeff
-	integer i,j
-	lagrange = 0
+    integer i,j
+    lagrange = 0
     do i=1,n
       coeff = 1
-	  do j=1,n
-	    if ( i/=j ) coeff = coeff * (x-datas(j)%x)/(datas(i)%x-datas(j)%x)
-	  end do
+      do j=1,n
+        if ( i/=j ) coeff = coeff * (x-datas(j)%x)/(datas(i)%x-datas(j)%x)
+      end do
       lagrange = lagrange + coeff*datas(i)%y
-	end do
+    end do
   end function
 ! 绘图函数
   subroutine display()
     real, parameter :: size = 0.1
     integer i
     call sglClearBuffer()
-	call sglColor3i(255,255,255)
-	! 把所有插值出来的点用线段连接起来
+    call sglColor3i(255,255,255)
+    ! 把所有插值出来的点用线段连接起来
     do i=1,NP-1
-	  call sglLineV( interpolate(i)%x, interpolate(i)%y,&
-	                 interpolate(i+1)%x, interpolate(i+1)%y)
-	end do
-	call sglColor3i(255,0,0)
-	! 画出n个数据点的位置
-	do i=1,N
+      call sglLineV( interpolate(i)%x, interpolate(i)%y,&
+                     interpolate(i+1)%x, interpolate(i+1)%y)
+    end do
+    call sglColor3i(255,0,0)
+    ! 画出n个数据点的位置
+    do i=1,N
       call sglLineV( datas(i)%x-size, datas(i)%y-size,&
-	                 datas(i)%x+size, datas(i)%y+size)
+                     datas(i)%x+size, datas(i)%y+size)
       call sglLineV( datas(i)%x+size, datas(i)%y-size,&
-	                 datas(i)%x-size, datas(i)%y+size)
-	end do
-	call sglUpdateBuffer()
+                     datas(i)%x-size, datas(i)%y+size)
+    end do
+    call sglUpdateBuffer()
   end subroutine
 end module
 
@@ -72,7 +72,7 @@ program main
   do i=1,NP
     interpolate(i)%x = x
     interpolate(i)%y = lagrange(x) ! 插值出f(x)的值
-	x = x+xinc
+    x = x+xinc
   end do
   ! 画出插值得到的结果
   call sglDisplaySub(display)

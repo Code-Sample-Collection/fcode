@@ -53,8 +53,8 @@ integer function BINARY_SEARCH(A,N,KEY)
       R=M-1
       M=(L+R)/2
     else if ( KEY .EQ. A(M) ) then
-	  BINARY_SEARCH = M
-	  return
+      BINARY_SEARCH = M
+      return
     end if
   end do
 

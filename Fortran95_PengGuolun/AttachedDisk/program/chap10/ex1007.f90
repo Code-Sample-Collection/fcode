@@ -4,9 +4,9 @@ program ex1007
   integer, pointer :: p(:)
   interface
     function getmin(p)
-	  integer, pointer :: p(:)
+      integer, pointer :: p(:)
       integer, pointer :: getmin
-	end function
+    end function
   end interface
 
   p=>a(1:8:2)
@@ -27,9 +27,9 @@ function getmin(p)
   min = 2**30 ! 先把min设定成一个很大的值
   do i=1,s
     if ( min>p(i) ) then
-	  min=p(i)
-	  getmin=>p(i)
-	end if
+      min=p(i)
+      getmin=>p(i)
+    end if
   end do
   return
 

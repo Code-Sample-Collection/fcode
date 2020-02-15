@@ -17,8 +17,8 @@ implicit none
     write(*,*) "class:"
     read(*,*) c
     if ( c<=0 .or. c>classes ) exit  
-	write(*,*) "student:"
-	read(*,*) s
+    write(*,*) "student:"
+    read(*,*) s
     if ( s<=0 .or. s>students ) exit 
     write(*,"('score:',I3)") student(s,c) ! 第c班的第s位学生
   end do

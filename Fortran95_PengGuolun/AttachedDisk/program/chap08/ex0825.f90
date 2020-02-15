@@ -2,10 +2,10 @@ program ex0825
 implicit none
   interface ! 定义函数func的接口
     function random10(lbound, ubound)
-	implicit none
-	real :: lbound, ubound
-	real :: random10(10) ! 传回值是个数组
-	end function
+    implicit none
+    real :: lbound, ubound
+    real :: random10(10) ! 传回值是个数组
+    end function
   end interface
   real :: a(10)
   CALL RANDOM_SEED()     ! 库函数子程式, 使用随机数前调用

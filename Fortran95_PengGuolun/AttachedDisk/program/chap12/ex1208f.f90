@@ -2,7 +2,7 @@ module typedef
   implicit none
   type person
     integer age
-	real    weight, height
+    real    weight, height
   end type
 end module
 

@@ -16,7 +16,7 @@ program ex0909
   inquire(file=inputfile, exist=alive)
   if ( .not. alive ) then
     write(*,*) trim(inputfile)," doesn't exist."
-	stop
+    stop
   end if
 
   open(unit=inputfileid, file=inputfile, status="old")
@@ -25,10 +25,10 @@ program ex0909
   do while(.true.)
     ! 读入一整行的数据
     read(inputfileid,"(A200)",iostat=error) buffer
-	if ( error/=0 ) exit ! 没有数据了,离开循环
-	! 再最前面加上行号再输出到另一个文件中
+    if ( error/=0 ) exit ! 没有数据了,离开循环
+    ! 再最前面加上行号再输出到另一个文件中
     write(outputfileid, "(I3,'.',A)") count,trim(buffer)
-	count=count+1        ! 计算行数
+    count=count+1        ! 计算行数
   end do
   close(inputfileid)
   close(outputfileid)

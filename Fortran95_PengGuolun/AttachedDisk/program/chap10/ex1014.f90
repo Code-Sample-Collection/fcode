@@ -23,16 +23,16 @@ program ex1014
   p=>node1
   do i=1,s
     write(*,*) p%i
-	if ( .not. associated(p%next) ) exit
-	p=>p%next
+    if ( .not. associated(p%next) ) exit
+    p=>p%next
   end do  
 
   write(*,*) "从后向前输出"
   p=>node3
   do i=1,s
     write(*,*) p%i
-	if ( .not. associated(p%prev) ) exit
-	p=>p%prev
+    if ( .not. associated(p%prev) ) exit
+    p=>p%prev
   end do  
 
 stop

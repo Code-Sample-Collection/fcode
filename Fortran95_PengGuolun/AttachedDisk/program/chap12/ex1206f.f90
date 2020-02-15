@@ -11,7 +11,7 @@ module typedef
   type person
   sequence
     integer age
-	real    weight, height
+    real    weight, height
   end type
 end module
 

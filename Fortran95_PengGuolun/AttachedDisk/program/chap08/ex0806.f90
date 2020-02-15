@@ -8,7 +8,7 @@ implicit none
 
   do I=1, players
      call Get_Distance( angle(i), speed(i), distance(i) )
-	 write(*,"('Player ',I1,' =',F8.2)") I, distance(i)
+     write(*,"('Player ',I1,' =',F8.2)") I, distance(i)
   end do
 
   stop

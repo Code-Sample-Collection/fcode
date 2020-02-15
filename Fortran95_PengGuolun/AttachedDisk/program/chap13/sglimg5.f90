@@ -14,10 +14,10 @@ contains
   integer i, err
   open(10, file=filename,&
        form="unformatted",access="direct",&
-	   recl=1,status="old",iostat=err)
+       recl=1,status="old",iostat=err)
   if (err/=0) then
     write(*,*) "Open file fail."
-	stop
+    stop
   end if
   do i=1,size
     read(10,rec=i) buffer(i)

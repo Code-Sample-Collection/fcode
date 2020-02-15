@@ -19,7 +19,7 @@ subroutine SetScreen( width, height )
   allocate( screen(width, height) )
   if ( .not. allocated(screen) ) then
     write(*,*) "Allocate buffer error!"
-	stop
+    stop
   end if
   screen  = ' '
   return
@@ -102,24 +102,24 @@ subroutine DrawLine(x0,y0, x1,y1)
 
   if ( xdiff > 0 ) then
     xinc = 1
-	xadd = xdiff
+    xadd = xdiff
   else if ( xdiff < 0 ) then
     xinc = -1
-	xadd = -xdiff
+    xadd = -xdiff
   else 
     xinc = 0
-	xadd = 0
+    xadd = 0
   end if
 
   if ( ydiff > 0 ) then
     yinc = 1
-	yadd = ydiff
+    yadd = ydiff
   else if ( ydiff < 0 ) then
     yinc = -1
-	yadd = -ydiff
+    yadd = -ydiff
   else
     yinc = 0
-	yadd = 0
+    yadd = 0
   end if
 
   sum = 0
@@ -127,26 +127,26 @@ subroutine DrawLine(x0,y0, x1,y1)
   y = y0
 
   if ( xadd > yadd ) then
-	do while(x/=x1)
-	  call PutChar( x, y )
-	  x = x + xinc
-	  sum = sum + yadd
-	  if ( sum >= xadd ) then 
-	    sum = sum - xadd
-		y = y + yinc
-	  end if
-	end do
+    do while(x/=x1)
+      call PutChar( x, y )
+      x = x + xinc
+      sum = sum + yadd
+      if ( sum >= xadd ) then 
+        sum = sum - xadd
+        y = y + yinc
+      end if
+    end do
     call PutChar( x, y )
   else
-	do while(y/=y1)
-	  call PutChar( x, y )
-	  y = y + yinc
-	  sum = sum + xadd
-	  if ( sum >= yadd ) then 
-	    sum = sum - yadd
-		x = x + xinc
-	  end if
-	end do
+    do while(y/=y1)
+      call PutChar( x, y )
+      y = y + yinc
+      sum = sum + xadd
+      if ( sum >= yadd ) then 
+        sum = sum - yadd
+        x = x + xinc
+      end if
+    end do
     call PutChar( x, y )
   end if
 
@@ -166,22 +166,22 @@ subroutine DrawCircle( cx, cy, radiusA, radiusB )
 
   if ( present(radiusB) ) then
     ra = radiusA
-	rb = radiusB
+    rb = radiusB
   else
     ra = radiusA
-	rb = radiusA
+    rb = radiusA
   end if
 
 
   x = cx + int(ra*sin(r)+0.5)
   y = cy + int(rb*cos(r)+0.5)
   do while( r < 2*PI )
-	r = r + rinc  
+    r = r + rinc  
     nx = cx + int(ra*sin(r)+0.5)
-	ny = cy + int(rb*cos(r)+0.5)
-	call DrawLine(x,y, nx,ny)
-	x = nx
-	y = ny
+    ny = cy + int(rb*cos(r)+0.5)
+    call DrawLine(x,y, nx,ny)
+    x = nx
+    y = ny
   end do
 
 end subroutine
