@@ -9,11 +9,11 @@ recursive integer function add(n) result(sum)
   integer, intent(in) :: n
 
   if ( n<0 ) then
-    sum=0
-	return
-  else if ( n<=1 ) then
-    sum=n
-	return
+      sum=0
+    return
+    else if ( n<=1 ) then
+      sum=n
+    return
   end if
 
   sum = n + add(n-1)

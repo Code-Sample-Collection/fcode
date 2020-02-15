@@ -13,7 +13,7 @@ program main
   do px=1,maxx
     py = (maxy/2)*sin(x)+maxy/2+1
     call PutChar(px,py)
-	x=x+xinc
+    x=x+xinc
   end do
   call UpdateScreen()
 
