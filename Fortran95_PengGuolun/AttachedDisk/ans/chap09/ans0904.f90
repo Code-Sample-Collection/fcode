@@ -13,13 +13,13 @@ program main
 
   if ( alive ) then
     open(unit=fileid, file=filename, &
-	     access="sequential", status="old")
+         access="sequential", status="old")
     do while(.true.)
       read(unit=fileid, fmt="(A79)", iostat=status ) buffer
       if ( status/=0 ) exit  ! 没有数据就跳出循环
-	  do i=1, len_trim(buffer)
-	    buffer(i:i) = char( ichar(buffer(i:i))-(mod(i-1,3)+1) )
-	  end do
+      do i=1, len_trim(buffer)
+        buffer(i:i) = char( ichar(buffer(i:i))-(mod(i-1,3)+1) )
+      end do
       write(*,"(A70)") buffer
     end do
   else

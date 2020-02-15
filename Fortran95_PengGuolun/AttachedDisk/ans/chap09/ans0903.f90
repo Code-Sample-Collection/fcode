@@ -16,23 +16,23 @@ program main
     read(10,rec=(i-1)*subjects+3) s%math
     read(10,rec=(i-1)*subjects+4) s%science
     read(10,rec=(i-1)*subjects+5) s%social
-	s%total = s%chinese+s%english+s%math+s%science+s%social
-	total%chinese = total%chinese+s%chinese
-	total%english = total%english+s%english
-	total%math = total%math+s%math
-	total%science = total%science+s%science
-	total%social = total%social+s%social
-	total%total = total%total+s%total
+    s%total = s%chinese+s%english+s%math+s%science+s%social
+    total%chinese = total%chinese+s%chinese
+    total%english = total%english+s%english
+    total%math = total%math+s%math
+    total%science = total%science+s%science
+    total%social = total%social+s%social
+    total%total = total%total+s%total
     write(*,"(7I10)") i, s
   end do
 
   write(*,"(A10,6F10.3)") "平均", &
-						  real(total%chinese)/real(students),&
-						  real(total%english)/real(students),&
-						  real(total%math)/real(students),&
-						  real(total%science)/real(students),&
-						  real(total%social)/real(students),&
-						  real(total%total)/real(students)
+    real(total%chinese)/real(students),&
+    real(total%english)/real(students),&
+    real(total%math)/real(students),   &
+    real(total%science)/real(students),&
+    real(total%social)/real(students), &
+    real(total%total)/real(students)
 
   stop
 end
