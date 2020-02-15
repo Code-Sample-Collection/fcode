@@ -17,7 +17,7 @@ program main
     tv = "电影"
   case default
     write(*,*) "错误的输入"
-	stop
+  stop
   end select 
   write(*,*) tv
 
