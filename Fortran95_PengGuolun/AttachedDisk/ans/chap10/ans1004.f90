@@ -41,8 +41,8 @@ program ex1012
   p=>head
   do while(associated(p))
     next => p%next
-	deallocate(p)
-	p=>next
+    deallocate(p)
+    p=>next
   end do
 
   stop
