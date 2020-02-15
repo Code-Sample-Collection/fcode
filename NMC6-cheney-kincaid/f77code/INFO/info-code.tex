@@ -1,0 +1,265 @@
+%21 May 1991
+\baselineskip=10pt
+\parskip=10pt
+\centerline{\bf           NUMERICAL MATHEMATICS AND COMPUTING, Second Edition}
+\centerline{                 Ward Cheney \& David Kincaid}
+\centerline{	Brooks/Cole Publishing Co.}
+\centerline{                     \copyright 1985 ISBN 0-534-0456-9}
+\medskip
+\centerline{			May 21, 1991}
+\medskip
+\noindent
+{\bf INTRODUCTION}:  These files of sample programs use the
+subroutines developed in this textbook.  We believe that these 
+computer routines are coded in a clear and easy-to-understand style.
+In fact, comment lines have been intentionally omitted to force the
+student to read the code and to study the textbook.  While these programs
+are primarily a learning and teaching aid for use with this textbook,
+they are adequate for many nonpathological problems.  They 
+are usable on computing systems with Fortran 77 compilers from small
+personal computers to large scientific computing machines.  These 
+routines are not intented to be general-purpose software such as those
+found in scientific libraries.  Nevertheless, we have found them to be
+surprising useful for a variety of purposes.
+
+\noindent
+{\bf INSTALLATION}:  On a Unix system, unpack the file
+cheney-kincaid.shar as follows
+
+\indent
+{\tt sh cheney-kincaid.shar}
+
+\noindent
+These programs will run as is on any computer with a 
+standard Fortran 77 compiler.  However, the statement
+
+\indent
+{\tt data epsi/1.0e-6/}
+
+\noindent
+in routines {\tt rk45ad.f} and {\tt amkad.f} should be changed to the
+machine epsilon (single precision roundoff error) for the 
+computer that is to be used.
+
+\noindent
+{\bf USAGE}:  Compile and execute the program on file rombrg.f as follows
+
+\indent
+{\tt f77 rombrg.f}
+
+\indent
+{\tt a.out}
+
+\noindent
+{\bf AVAILABILITY}:  For information on the availability on a floppy diskette 
+containing these Fortran 77 programs write either the publisher of the 
+textbook or the authors at the following addresses.
+\vskip .25in
+$$\vbox{\halign{\indent\indent#\hfil\cr
+                Brooks/Cole Publishing Co.\cr
+		511 Forest Lodge Road\cr
+		Pacific Grove, CA 93950--5098\cr
+		(408) 373--0728\cr
+		fax: (408) 375--6414\cr
+		\cr
+		\cr
+		Center for Numerical Analysis\cr
+		University of Texas at Austin\cr
+		Austin, TX 78713--8510\cr
+		(512) 471--1242\cr
+		fax: (512) 471--9038\cr
+		kincaid@cs.utexas.edu\cr}}
+$$
+\medskip
+\noindent
+This software is also available by sending email to netlib@ornl.gov
+or netlib@research.att.com with a message asking for
+the cheney-kincaid index and for shar-file.
+In other words, by sending email to either netlib address
+with the messages ``send index from cheney-kincaid and
+``send shar from cheney-kincaid, one obtains the 
+information sheet and the code associated with this text, respectively.
+
+
+\vfill
+\eject
+\halign{\tt#\hfil&\hfil#&\quad#\hfil\cr
+{\bf File Name}&{\bf Pages}&
+{\bf Description of Code (Subprogram Names)}\cr
+
+pi.f&4&
+Simple code to illustrate programming in double precision\cr
+
+exp.f&11-12&
+First programming experiment\cr
+
+xsinx.f&63-65&
+Example of programming $f(x) = x - \sin(x)$ carefully 
+{\tt (F)}\cr
+
+bisect1.f&77-78&
+First version of Bisection method 
+{\tt (BISECT,F,G)}\cr
+
+bisect2.f&77-78&
+Second version of Bisection method 
+{\tt (BISECT,F,G)}\cr
+
+newton.f&85-86&
+Sample Newton method program\cr
+
+coef.f&117-118&
+Newton interpolation polynomial for $sin(x)$ at equidistant points 
+{\tt (COEF,EVAL)}\cr
+
+deriv.f&141-142&
+Derivative by center differences and Richardson extrapolation 
+{\tt (DERIV,F)}\cr
+
+ulsum.f&155-156&
+Upper and lower sums programming experiment for an integral\cr
+
+trap.f&161&
+Trapezoid rule programming experiment for an integral\cr
+
+rombrg.f&173-174&
+Romberg arrays for three separate functions 
+{\tt (ROMBRG,F,G,P)}\cr
+
+simp.f&187-190&
+Adaptive scheme for Simpson's rule 
+{\tt (SIMP,ASMP,PUSH,POP,FCN)}\cr
+
+ngauss.f&208-209&
+Naive Gaussian elimination to solve linear systems 
+{\tt (NGAUSS)}\cr
+
+gauss.f&220-223&
+Gaussian elimination with scaled partial pivoting 
+{\tt (GAUSS,SOLVE,TSTGAUS)}\cr
+
+triqnt.f&233-236&
+Solves tridiagonal \& pentadiagonal linear systems 
+{\tt (TRI,PENTA)}\cr
+
+spl1.f&261&
+Interpolates table using a first-degree spline function
+{\tt (SPL1)}\cr
+
+spl3.f&277-278&
+Natural cubic spline function for sin(x) at equidistant points 
+{\tt (SPL3,ZSPL3)}\cr
+
+aspl2.f&297-298&
+Interpolates table using a quadratic B-spline function
+{\tt (ASPL2,BSPL2)}\cr
+
+sch.f&300&
+Interpolates table using Schoenberg's process 
+{\tt (SCH,ESCH,F)}\cr
+
+euler.f&306-307&
+Euler's method for solving an ordinary differential equation\cr
+
+taylor.f&307-308&
+Taylor series method (order 4) for solving an ordinary differential equation\cr
+
+rk4.f&315-316&
+Runge-Kutta method of order 4 for solving an initial value problem 
+{\tt (RK4,F)}\cr
+
+rk45.f&326&
+Runge-Kutta-Fehlberg method for solving an initial value problem 
+{\tt (RK45,F)}\cr
+
+rk45ad.f&326-328&
+Adaptive scheme based on Runge-Kutta-Fehlberg method 
+{\tt (RK45AD,RK45,F)}\cr
+
+random.f&337&
+Example to compute, store, and print random numbers 
+{\tt (RANDOM)}\cr
+
+testra.f&338&
+Coarse check on the random-number generator 
+{\tt (RANDOM)}\cr
+
+mctst1.f&347&
+Volume of a complicated region in three-space by Monte Carlo 
+{\tt (RANDOM)}\cr
+
+mctst2.f&345-346&
+Numerical value of integral over a disk in xy-space by Monte Carlo 
+{\tt (RANDOM)}\cr
+
+cone.f&348&
+Ice cream cone example 
+{\tt (RANDOM)}\cr
+
+sim1.f&351-352&
+Loaded die problem simulation 
+{\tt (RANDOM)}\cr
+
+brthdy.f&352-354&
+Birthday problem simulation 
+{\tt (PROB,BRTHDY,RANDOM)}\cr
+
+sim2.f&354-355&
+Buffon's needle problem simulation 
+{\tt (RANDOM)}\cr
+
+sim3.f&355-356&
+Two dice problem simulation 
+{\tt (RANDOM)}\cr
+
+sim4.f&356-358&
+Neutron shielding problem simulation {\tt (RANDOM)}\cr
+
+taysys.f&393&
+Taylor series method (order 4) for system of ordinary differential equations\cr
+
+rk4sys.f&394-396&
+Runge-Kutta method of order 4 for a system of ode's 
+{\tt (RK4SYS,XPSYS)}\cr
+
+amrk.f&406-408&
+Adams-Moulton method for systems of ode's 
+{\tt (AMRK,RKSYS,AMSYS,XPSYS)}\cr
+
+amrkad.f&408-409&
+Adaptive scheme for Adams-Moulton method for systems of ode's\cr
+&&\qquad{\tt (AMRKAD,XPSYS,AMSYS,AMRK,RKSYS)}\cr
+
+bvp1.f&418-420&
+Boundary value problem solved by discretization technique 
+{\tt (TRI)}\cr
+
+bvp2.f&421-423&
+Boundary value problem solved by shooting method 
+{\tt (RK4SYS,XPSYS)}\cr
+
+pde1.f&433&
+Parabolic partial differential equation problem\cr
+
+pde2.f&434&
+Parabolic pde problem solved by Crank-Nicolson method 
+{\tt (TRI)}\cr
+
+string.f&441-442&
+Hyperbolic pde problem solved by discretization 
+{\tt (F,TRUE)}\cr
+
+seidel.f&449-451&
+Elliptic pde solved by discretization and Gauss-Seidel method\cr
+&&\qquad {\tt (SEIDEL,F,G,BNDY,USTART,TRUE)}\cr
+
+info-code.tex&&
+\TeX\  File with this information in it\cr
+
+info-code.tty&&
+File with this information in it\cr
+}
+
+
+\vfill
+\bye

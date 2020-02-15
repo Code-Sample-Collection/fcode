@@ -1,0 +1,216 @@
+
+              NUMERICAL MATHEMATICS AND COMPUTING
+                        Second Edition
+                 Ward Cheney & David Kincaid
+                       1985 copyright
+                       ISBN 0-534-0456-9 
+
+			May 22, 1991
+
+INTRODUCTION:  The following files of sample programs use the
+subroutines developed in this textbook.  We believe that these 
+computer routines are coded in a clear and easy-to-understand style.
+In fact, comment lines have been intentionally omitted to force the
+student to read the code and to study the textbook.  While these programs
+are primarily a learning and teaching aid for use with this textbook,
+they are adequate for many nonpathological problems.  They 
+are usable on computing systems with Fortran 77 compilers from small
+personal computers to large scientific computing machines.  These 
+routines are not intented to be general-purpose software such as those
+found in scientific libraries.  Nevertheless, we have found them to be
+surprising useful for a variety of purposes.
+
+INSTALLATION:  On a Unix system, unpack the file cheney-kincaid.shar 
+as follows
+
+	sh cheney-kincaid.shar
+
+These programs will run as is on any computer with a 
+standard Fortran 77 compiler.  However, the statement
+		
+	data epsi/1.0e-6/
+
+in routines rk45ad.f and amkad.f should be changed to the
+machine epsilon (single precision roundoff error) for the 
+computer that is to be used.
+
+USAGE:  Compile and execute the program rombrg.f as follows
+
+	f77 rombrg.f
+	a.out
+
+AVAILABILITY:  For information on the availability on a floppy diskette 
+containing these Fortran 77 programs write either the publisher of the 
+textbook
+
+                Brooks/Cole Publishing Co.
+		511 Forest Lodge Road
+		pacific Grove, CA 93950-5098
+		fax: (408) 373-0728
+		(408) 375-6414
+
+or the authors
+
+		Center for Numerical Analysis
+		University of Texas at Austin
+		Austin, TX 78713-8510
+		(512) 471-1242
+                fax: (512) 471-9038
+		kincaid@cs.utexas.edu
+
+This software is also available by sending email to netlib@ornl.gov
+or netlib@research.att.com with a message asking for the 
+cheney-kincaid index and for the shar-file.
+In other words, by sending email to either netlib address
+with the messages ``send index from cheney-kincaid and
+``send all from cheney-kincaid, one obtains the 
+information sheet and the code associated with this text, respectively.
+
+
+
+
+
+File Name							Page in Book
+Description of Code (SUBPROGRAM NAMES)
+
+pi.f								p. 4
+Simple code to illustrate programming in double precision
+
+exp.f 								pp. 11-12
+First programming experiment
+
+xsinx.f								pp. 63-65
+Example of programming f(x) = x - sin(x) carefully (F)
+
+bisect1.f							pp. 77-78
+First version of Bisection method (BISECT,F,G)
+
+bisect2.f							pp. 77-78
+Second version of Bisection method (BISECT,F,G)
+
+newton.f							pp. 85-86
+Sample Newton method program
+
+coef.f								pp. 117-118
+Newton interpolation polynomial for sin(x) at equidistant points (COEF,EVAL)
+
+deriv.f								pp. 141-142
+Derivative by center differences and Richardson extrapolation (DERIV,F)
+
+ulsum.f								pp. 155-156
+Upper and lower sums programming experiment for an integral
+
+trap.f								p. 161
+Trapezoid rule programming experiment for an integral
+
+rombrg.f							pp. 173-174
+Romberg arrays for three separate functions (ROMBRG,F,G,P)
+
+simp.f								pp. 187-190
+Adaptive scheme for Simpson's rule (SIMP,ASMP,PUSH,POP,FCN)
+
+ngauss.f							pp. 208-209
+Naive Gaussian elimination to solve linear systems (NGAUSS)
+
+gauss.f								pp. 220-223
+Gaussian elimination with scaled partial pivoting (GAUSS,SOLVE,TSTGAUS)
+
+triqnt.f							pp. 233-236
+Solves tridiagonal & pentadiagonal linear systems (TRI,PENTA)
+
+spl1.f								p. 261
+Interpolates table using a first-degree spline function (SPL1)
+
+spl3.f								pp. 277-278
+Natural cubic spline function for sin(x) at equidistant points (SPL3,ZSPL3)
+
+aspl2.f								pp. 297-298
+Interpolates table using a quadratic B-spline function (ASPL2,BSPL2)
+
+sch.f								p. 300
+Interpolates table using Schoenberg's process (SCH,ESCH,F)
+
+euler.f								pp. 306-307
+Euler's method for solving an ordinary differential equation
+
+taylor.f							pp. 307-308
+Taylor series method (order 4) for solving an ordinary differential equation
+
+rk4.f								pp. 315-316
+Runge-Kutta method of order 4 for solving an initial value problem (RK4,F)
+
+rk45.f								p. 326
+Runge-Kutta-Fehlberg method for solving an initial value problem (RK45,F)
+
+rk45ad.f							pp. 326-328
+Adaptive scheme based on Runge-Kutta-Fehlberg method (RK45AD,RK45,F)
+
+random.f							p. 337
+Example to compute, store, and print random numbers (RANDOM)
+
+testra.f							p. 338
+Coarse check on the random-number generator (RANDOM)
+
+mctst1.f							p. 347
+Volume of a complicated region in three-space by Monte Carlo (RANDOM)
+
+mctst2.f							pp. 345-346
+Numerical value of integral over a disk in xy-space by Monte Carlo (RANDOM)
+
+cone.f								p. 348
+Ice cream cone example (RANDOM)
+
+sim1.f								pp. 351-352
+Loaded die problem simulation (RANDOM)
+
+brthdy.f							pp. 352-354
+Birthday problem simulation (PROB,BRTHDY,RANDOM)
+
+sim2.f								pp. 354-355
+Buffon's needle problem simulation (RANDOM)
+
+sim3.f								pp. 355-356
+Two dice problem simulation (RANDOM)
+
+sim4.f								pp. 356-358
+Neutron shielding problem simulation (RANDOM)
+
+taysys.f							pp. 393
+Taylor series method (order 4) for system of ordinary differential equations
+
+rk4sys.f							pp. 394-396
+Runge-Kutta method of order 4 for a system of ode's (RK4SYS,XPSYS)
+
+amrk.f								pp. 406-408
+Adams-Moulton method for systems of ode's (AMRK,RKSYS,AMSYS,XPSYS)
+
+amrkad.f							pp. 408-409
+Adaptive scheme for Adams-Moulton method for systems of ode's 
+ (AMRKAD,XPSYS,AMSYS,AMRK,RKSYS)
+
+bvp1.f								pp. 418-420
+Boundary value problem solved by discretization technique (TRI)
+
+bvp2.f								pp. 421-423
+Boundary value problem solved by shooting method (RK4SYS,XPSYS)
+
+pde1.f								p. 433
+Parabolic partial differential equation problem
+
+pde2.f								p. 434
+Parabolic pde problem solved by Crank-Nicolson method (TRI)
+
+
+string.f							pp. 441-442
+Hyperbolic pde problem solved by discretization (F,TRUE)
+
+seidel.f							pp. 449-451
+Elliptic pde solved by discretization and Gauss-Seidel method
+(SEIDEL,F,G,BNDY,USTART,TRUE)
+
+info-code.tex
+TeX file with this information in it
+
+info-code.tty
+File with this information in it
+

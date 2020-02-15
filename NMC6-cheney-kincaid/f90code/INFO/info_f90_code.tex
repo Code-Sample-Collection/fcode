@@ -1,0 +1,148 @@
+%10 Aug 02
+%
+% Numerical Mathematics and Computing, Fifth Edition
+% Ward Cheney & David Kincaid
+% Brooks/Cole Publ. Co.
+% ISBN 0-534-20112-1
+% Copyright (c) 2003.  All rights reserved.
+% For educational use with the Cheney-Kincaid textbook.
+% Absolutely no warranty implied or expressed.
+%
+\documentclass{article}
+\begin{document}
+
+Software associated with the textbook 
+{\em Numerical Mathematics and Computing, Third Edition},
+Ward Cheney \& David Kincaid, Brooks/Cole Publishing Co.,
+2003, ISBN 0--534--20112--1, is available from several sources:
+
+\begin{itemize}
+\item
+a WEB browser to connect to
+
+{\tt ftp://ftp.ma.utexas.edu/pub/papers/CNA/cheney-kincaid}
+
+\item
+by using anonymous ftp from math.utexas.edu as follows:
+
+\begin{verse}
+ftp math.utexas.edu\\
+Name: anonymous\\
+Password: user ID\\
+ftp$>$ cd pub/papers/CNA/cheney-kincaid\\
+ftp$>$ get README 
+\end{verse}
+\end{itemize}
+
+Files are available for the pseudocode in the textbook
+written in either Fortran 77, Fortran 90, or C.
+Also, files  are available containing Maple and Matlab programs.
+
+The table on the following pages lists Fortran 90 
+files containing sample programs 
+based on the pseudocode given in the book.
+They are intended  primarily as a learning and teaching aid 
+for use with this book.
+We believe that these computer routines are coded in a clear and
+easy-to-understand style but we
+have intentionally excluded comment statements 
+so that students will read the code and study the algorithms---they
+can add comments as they decipher them.
+These programs are usable on computer systems with appropriate 
+compilers, from
+small personal computers to large scientific computing machines.
+However, they do not contain all of the ``bells-and-whistles'' of
+robust state-of-the-art software such as may be found in general-purpose
+scientific libraries.
+Nevertheless, they are adequate for many small nonpathological
+problems.
+
+\begin{center}
+\begin{tabular}{l@{\quad}r@{\qquad}l}
+{\bf File Name} & {\bf Pages} 
+&{\bf Description of Fortran 90 Code} \\[0.1in]
+CHP01/\\
+\quad pi.f90&7&Simple code to illustrate double precision\cr
+\quad first.f90&10--11&First programming experiment\cr
+CHP02/\\
+\quad numbers.f90&53--55&Print internal machine representation of various numbers\\
+\quad hex.f90&60--62&Print in hexadecimal format\\
+\quad oct.f90&60--62&Print in octal format\\
+\quad xsinx.f90&71&Example of programming $f(x) = x - \sin x$ carefully\\
+CHP03/\\
+\quad bisection.f90&85&Bisection method\\
+%\quad bisection2.f90&85&Second version of bisection method\\
+\quad rec\_bisection.f90&86&Recursive version of bisection method\\
+\quad newton.f90&95&Sample Newton method\cr
+\quad secant.f90&110&Secant method\cr
+CHP04/\\
+\quad coef.f90&132&Newton interpolation polynomial at equidistant pts\\
+\quad deriv.f90&156&Derivative by center diff./Richardson extrapolation\\
+CHP05/\\
+\quad sums.f90&171&Upper/lower sums experiment for an integral\cr
+\quad trapezoid.f90&176&Trapezoid rule experiment for an integral\cr
+\quad romberg.f90&190&Romberg arrays for three separate functions\\
+CHP06/\\
+\quad rec\_simpson.f90&204&Adaptive scheme for Simpson's rule\\
+CHP07/\\
+\quad ngauss.f90&224&Naive Gaussian elimination to solve linear systems\\
+\quad gauss.f90&236/239&Gaussian elimination with scaled partial pivoting\\
+\quad tri.f90&251&Solves tridiagonal systems\\
+\quad penta.f90&253&Solves pentadiagonal linear systems\\
+CHP09/\\
+\quad spline1.f90&281&Interpolates table using a first-degree spline function\\
+\quad spline3.f90&297&Natural cubic spline function at equidistant points\\
+\quad bspline2.f90&319&Interpolates table using a quadratic B-spline function\\
+\quad sch.f90&322&Interpolates table using Schoenberg's process\\
+CHP10/\\
+\quad euler.f90&328&Euler's method for solving an ODE\cr
+\quad taylor.f90&319&Taylor series method (order 4) for solving an ODE\cr
+\quad rk4.f90&339&Runge-Kutta method (order 4) for solving an IVP\\
+\quad rk45.f90&351&Runge-Kutta-Fehlberg method for solving an IVP\\
+\quad rk45ad.f90&352&Adaptive Runge-Kutta-Fehlberg method\\
+CHP11/\\
+\quad taylorsys1.f90&362&Taylor series method (order 4) for systems of ODEs\cr
+\quad taylorsys2.f90&364&Taylor series method (order 4) for systems of ODEs\cr
+\quad rk4sys.f90&365&Runge-Kutta method (order 4) for systems of ODEs\\
+\quad amrk.f90&377--378&Adams-Moulton method for systems of ODEs\\
+\quad amrkad.f90&408--409&Adaptive Adams-Moulton method for systems of ODE's\\
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{l@{\quad}r@{\qquad}l}
+{\bf File Name} & {\bf Pages} 
+&{\bf Description of Fortran 90 Code} \\[0.1in]
+CHP13/\\
+\quad test\_random.f90&413/414&Example to compute, store, and print random numbers\\
+\quad coarse\_check.f90&414&Coarse check on the random-number generator\\
+%ellipse.f&416&\cr
+%ellipse-erroneous.f&417&\cr
+%circle-erroneous.f&418&\cr
+\quad double\_integral.f90&424&Volume of a complicated 3D region by Monte Carlo\\
+\quad volume\_region.f90&345--346&Numerical value of integral over a 2D disk by Monte Carlo\\
+\quad cone.f90&426&Ice cream cone example\\
+\quad loaded\_die.f90&430&Loaded die problem simulation\\
+\quad birthday.f90&432&Birthday problem simulation\\
+\quad needle.f90&433&Buffon's needle problem simulation\\
+\quad two\_die.f90&434&Two dice problem simulation\\
+\quad shielding.f90&435&Neutron shielding problem simulation\\
+CHP14/\\
+\quad bvp1.f90&450&Boundary value problem solved by discretization technique\\
+\quad bvp2.f90&453&Boundary value problem solved by shooting method\\
+CHP15/\\
+\quad parabolic1.f90&462&Parabolic partial differential equation problem\cr
+\quad parabolic2.f90&464&Parabolic PDE problem solved by Crank-Nicolson method\\
+\quad hyperbolic.f90&472&Hyperbolic PDE problem solved by discretization\\
+\quad seidel.f90&480&Elliptic PDE solved by discretization/ Gauss-Seidel 
+method\\
+INFO/\\
+\quad info\_f90\_code.ps&&Postscript file containing information on f90 codes\cr
+\quad info\_f90\_code.tex&&\LaTeX\  file containing information on f90 codes\cr
+\quad info\_f90\_code.tty&&ASCII file containing information on f90 codes
+\end{tabular}
+\end{center}
+
+\end{document}
