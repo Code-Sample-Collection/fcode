@@ -1,0 +1,23 @@
+extern void (*_sglDisplayFunc)(void) ;
+extern void (*_sglIdleFunc)   (void) ;
+extern void (*_sglReshapeFunc)(int,int) ;
+extern void (*_sglWinMoveFunc)(int x, int y) ;
+extern void (*_sglKeyDownFunc)(int key) ;
+extern void (*_sglKeyUpFunc)  (int key) ;
+extern void (*_sglGetCharFunc)(int key) ;
+extern void (*_sglMouseMoveFunc)(int x, int y) ;
+extern void (*_sglMouseDownFunc)(int key, int x, int y) ;
+extern void (*_sglMouseUpFunc)  (int key, int x, int y) ;
+extern void (*_sglTimerFunc)  (void) ;
+
+extern void (_stdcall *_sglDisplaySub)(void) ;
+extern void (_stdcall *_sglIdleSub)   (void) ;
+extern void (_stdcall *_sglReshapeSub)(int *w, int *h) ;
+extern void (_stdcall *_sglWinMoveSub)(int *x, int *y) ;
+extern void (_stdcall *_sglKeyDownSub)(int *key) ;
+extern void (_stdcall *_sglKeyUpSub)  (int *key) ;
+extern void (_stdcall *_sglGetCharSub)(int *key) ;
+extern void (_stdcall *_sglMouseMoveSub)(int *x, int *y) ;
+extern void (_stdcall *_sglMouseDownSub)(int *key, int *x, int *y) ;
+extern void (_stdcall *_sglMouseUpSub)  (int *key, int *x, int *y) ;
+extern void (_stdcall *_sglTimerSub)  (void) ;

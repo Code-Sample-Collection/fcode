@@ -34,7 +34,7 @@ FORTRAN 95 程序设计 —— 彭国伦著
 ## SGL绘图链接库
 
 * [INCLUDE](./sgl/include) 文件，请 copy 到 Include Files 的搜索路径下。
-* [LIB](./sgl/lib) 文件，请 copy 到 Library Files 的搜索路径下。
+* [LIB] 文件，请 copy 到 Library Files 的搜索路径下。
 * [SRC](./sgl/src) 原始，源代码。
 
 ## GNU编译器

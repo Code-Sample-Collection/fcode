@@ -1,0 +1,8 @@
+很多人按他书上方法做，程序调用sgl库编译时都遇到问题，解决方法是：
+按照他p396页说的方法添加sgl库的 include和lib目录，然后在project-setting-link里面添加上 ddraw.lib dinput.lib dxguid.lib sgl.lib以及user32.lib gdi32.lib。然后就可以编译了。
+
+
+
+关键是user32.lib和gdi32.lib这两个文件，如果没有这两个文件，就会出现很多错无法编译通过，而他的书里面却没有提到。这两个文件已在默认库文件搜索路径下。
+
+实际上根据编译器提示的信息，比如找不到SetBkMode外部函数，在CVF的help里面搜一下，得知是在gdi32.lib里面，加上就行了
